@@ -5,13 +5,24 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     private static Managers s_instance;
-    public static Managers Instance
+    private static Managers Instance
     {
         get
         {
             Init();
             return s_instance;
         }
+    }
+
+    private InputManager _input = new InputManager();
+    private ResourceManager _resource = new ResourceManager();
+    public static InputManager Input
+    {
+        get { return Instance._input; }
+    }
+    public static ResourceManager Resource
+    {
+        get { return Instance._resource; }
     }
     
     void Start()
@@ -21,7 +32,7 @@ public class Managers : MonoBehaviour
 
     void Update()
     {
-        
+        _input.OnUpdate();          // 리스너 패턴을 이용해 입력을 받아옴
     }
 
     static void Init()
