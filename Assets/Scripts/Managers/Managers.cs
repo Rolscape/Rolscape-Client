@@ -32,9 +32,9 @@ public class Managers : MonoBehaviour
 
     void Update()
     {
-        _input.OnUpdate();          // 리스너 패턴을 이용해 입력을 받아옴
+        _input.OnUpdate();
     }
-
+    
     static void Init()
     {
         if (s_instance == null)
