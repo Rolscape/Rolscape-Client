@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Util
 {
+    // 컴포넌트를 반환하는 함수 -> 컴포넌트가 없으면 붙여서 반환
+    public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
+    {
+        T component = go.GetComponent<T>();
+        if (component == null)
+            component = go.AddComponent<T>();
+
+        return component;
+    }
+    
     // 자식 게임 오브젝트를 찾는 함수
     public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
     {

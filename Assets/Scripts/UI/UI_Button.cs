@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
 
 public class UI_Button : UI_Base
 {
@@ -19,23 +19,33 @@ public class UI_Button : UI_Base
         PointText,
         TimerText,
     }
-
     enum GameObjects
     {
         TestObject,
+    }
+
+    enum Images
+    {
+        ItemIcon,
     }
     
     private void Start()
     {
         Bind<Button>(typeof(Buttons));
         Bind<TextMeshProUGUI>(typeof(Texts));
+        Bind<Image>(typeof(Images));
 
+        GetText((int)Texts.PointText).text = "Settings";
         GetText((int)Texts.TimerText).text = "Timer";
+        
+        GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+
+        GameObject go = GetImage((int)Images.ItemIcon).gameObject;
+        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag );
     }
 
     
-
-    public void OnButtonClicked()
+    public void OnButtonClicked(PointerEventData data)
     {
         Debug.Log("Button Clicked!");
     }
