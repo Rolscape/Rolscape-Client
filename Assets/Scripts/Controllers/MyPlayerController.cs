@@ -15,24 +15,30 @@ public class MyPlayerController : PlayerController
         Managers.Input.KeyAction += OnKeyboard;
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
-
+        
         Managers.Resource.Instantiate("UI/UI_Button");
     }
 
     protected override void UpdateController()
     {
         base.UpdateController();
+        
     }
 
     protected override void UpdateMoving()
     {
+        
+    }
+
+    void OnKeyboard()
+    {
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-
+        
         Vector3 dir = new Vector3(h, 0, v).normalized;
-
-        // TODO CharcterController·Î ¿òÁ÷ÀÌ±â  
-
+        // TODO CharcterControllerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½  
+        
         if (dir != Vector3.zero)
         {
             _characterController.Move(dir * (_speed * Time.deltaTime));
@@ -40,25 +46,13 @@ public class MyPlayerController : PlayerController
         }
     }
 
-    void OnKeyboard()
-    {
-
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-
-        Vector3 dir = new Vector3(h, 0, v).normalized;
-        _characterController.Move(dir * (_speed * Time.deltaTime));
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), _speed * Time.deltaTime);
-        // µµÂø ¿©ºÎ Ã¼Å©
-    }
-
-    // ¸¶¿ì½º ÀÌº¥Æ® ¹ß»ý ½Ã
+    // ï¿½ï¿½ï¿½ì½º ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½
     void OnMouseClicked(Define.MouseEvent evt)
     {
         if (evt != Define.MouseEvent.Click)
             return;
 
-        // TODO Mouse Event Ã³¸®
-        // ÃßÈÄ °ÔÀÓ¿¡¼­ ¾î¶² ÀÌº¥Æ® ¹æ½ÄÀ¸·Î ¹Ì¼ÇÀ» ¼öÇàÇÒÁö µîµî  -> RaycastingÀ» »ç¿ëÇØ¾ßÇÏ´Â°¡ ?
+        // TODO Mouse Event Ã³ï¿½ï¿½
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½î¶² ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  -> Raycastingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½Ï´Â°ï¿½ ?
     }
 }

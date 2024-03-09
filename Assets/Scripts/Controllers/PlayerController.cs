@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     protected float _speed = 10.0f;
+    
     protected CharacterController _characterController;
 
     private Vector3 _nowPos = new Vector3(0, 0, 0);
@@ -17,7 +18,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        // Ä³¸¯ÅÍ¿¡ CharcterController ºÙ¿©ÁÖ±â 
+        // Ä³ï¿½ï¿½ï¿½Í¿ï¿½ CharcterController ï¿½Ù¿ï¿½ï¿½Ö±ï¿½ 
         Init();
     }
 
@@ -43,7 +44,7 @@ public class PlayerController : MonoBehaviour
     protected virtual void UpdateMoving()
     {
         Vector3 moveDir = _destPos - transform.position;
-
+        
         float dist = moveDir.magnitude;
         if (dist < _speed * Time.deltaTime)
         {
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Å°º¸µå ÀÌº¥Æ® ¹ß»ý ½Ã 
+    // Å°ï¿½ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ® ï¿½ß»ï¿½ ï¿½ï¿½ 
 
 
     protected virtual void MoveToNextPos() { }

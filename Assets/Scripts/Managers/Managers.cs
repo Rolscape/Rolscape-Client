@@ -65,6 +65,7 @@ public class Managers : MonoBehaviour
 
             Network.Init();
         }
+        
     }
 
 

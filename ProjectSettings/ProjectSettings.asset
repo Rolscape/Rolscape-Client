@@ -749,11 +749,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: b280e3c9-9291-42ef-8a86-fa78c96e6832
+  cloudProjectId: d94b5ce8-75bd-4718-a955-d58279e66521
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TestProject
-  organizationId: skybood13
+  projectName: RolScape
+  organizationId: gamzatori
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

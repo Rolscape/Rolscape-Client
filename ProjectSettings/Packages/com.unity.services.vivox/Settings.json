@@ -4,7 +4,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "server",
-                "value": "{\"m_Value\":\"https://unity.vivox.com/appconfig/14569-testp-91619-udash\"}"
+                "value": "{\"m_Value\":\"https://unity.vivox.com/appconfig/14569-rolsc-82577-udash\"}"
             },
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "tokenIssuer",
-                "value": "{\"m_Value\":\"14569-testp-91619-udash\"}"
+                "value": "{\"m_Value\":\"14569-rolsc-82577-udash\"}"
             },
             {
                 "type": "System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
