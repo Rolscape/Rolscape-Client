@@ -19,6 +19,17 @@ public class Managers : MonoBehaviour
         }
     }
 
+    private InputManager _input = new InputManager();
+    private ResourceManager _resource = new ResourceManager();
+    public static InputManager Input
+    {
+        get { return Instance._input; }
+    }
+    public static ResourceManager Resource
+    {
+        get { return Instance._resource; }
+    }
+
     public static NetworkManager Network { get { return Instance.networkManager; } }
     public static VivoxManager Vivox { get { return Instance.vivoxManager; } }
 
@@ -34,9 +45,10 @@ public class Managers : MonoBehaviour
 
     void Update()
     {
+        _input.OnUpdate();
         Network.Update();
     }
-
+    
     static void Init()
     {
         if (s_instance == null)

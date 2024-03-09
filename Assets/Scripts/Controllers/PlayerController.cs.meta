@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/Controller/PlayerController.cs.meta
+guid: 958bc188e3ef15d4a93eb108b28c8b28
+=======
+guid: b09b6f670b2850b4bad4626218ee03e7
+>>>>>>> 193058e6eb805588e10efec8f5cd9a827a6baab0:Assets/Scripts/Controllers/PlayerController.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
