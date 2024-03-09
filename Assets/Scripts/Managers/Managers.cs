@@ -9,6 +9,8 @@ public class Managers : MonoBehaviour
     private static Managers s_instance;
     private NetworkManager networkManager = new NetworkManager();
     private VivoxManager vivoxManager = new VivoxManager();
+    private InputManager _input = new InputManager();
+    private ResourceManager _resource = new ResourceManager();
 
     public static Managers Instance
     {
@@ -19,8 +21,6 @@ public class Managers : MonoBehaviour
         }
     }
 
-    private InputManager _input = new InputManager();
-    private ResourceManager _resource = new ResourceManager();
     public static InputManager Input
     {
         get { return Instance._input; }
