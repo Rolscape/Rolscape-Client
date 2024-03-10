@@ -24,16 +24,17 @@ namespace Protocol {
     static StructReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgxTdHJ1Y3QucHJvdG8SCFByb3RvY29sGgpFbnVtLnByb3RvImYKClBsYXll",
-            "ckluZm8SCgoCaWQYASABKA0SEQoJdXNlcl9uYW1lGAIgASgJEg8KB2lzX2hv",
-            "c3QYAyABKAgSKAoKYWN0aW9uVHlwZRgEIAEoDjIULlByb3RvY29sLkFjdGlv",
-            "blR5cGUidgoOUGxheWVyTW92ZUluZm8SCgoCaWQYASABKA0SIAoEdHlwZRgC",
-            "IAEoDjISLlByb3RvY29sLk1vdmVUeXBlEgwKBHBvc1gYAyABKAISDAoEcG9z",
-            "WhgEIAEoAhIMCgRkaXJYGAUgASgCEgwKBGRpcloYBiABKAJiBnByb3RvMw=="));
+            "CgxTdHJ1Y3QucHJvdG8SCFByb3RvY29sGgpFbnVtLnByb3RvIoQBCgpQbGF5",
+            "ZXJJbmZvEgoKAmlkGAEgASgNEhEKCXVzZXJfbmFtZRgCIAEoCRIPCgdpc19o",
+            "b3N0GAMgASgIEigKCmFjdGlvblR5cGUYBCABKA4yFC5Qcm90b2NvbC5BY3Rp",
+            "b25UeXBlEg0KBXBvc194GAUgASgCEg0KBXBvc196GAYgASgCInoKDlBsYXll",
+            "ck1vdmVJbmZvEgoKAmlkGAEgASgNEiAKBHR5cGUYAiABKA4yEi5Qcm90b2Nv",
+            "bC5Nb3ZlVHlwZRINCgVwb3NfeBgDIAEoAhINCgVwb3NfehgEIAEoAhINCgVk",
+            "aXJfeBgFIAEoAhINCgVkaXJfehgGIAEoAmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protocol.EnumReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PlayerInfo), global::Protocol.PlayerInfo.Parser, new[]{ "Id", "UserName", "IsHost", "ActionType" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PlayerInfo), global::Protocol.PlayerInfo.Parser, new[]{ "Id", "UserName", "IsHost", "ActionType", "PosX", "PosZ" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PlayerMoveInfo), global::Protocol.PlayerMoveInfo.Parser, new[]{ "Id", "Type", "PosX", "PosZ", "DirX", "DirZ" }, null, null, null, null)
           }));
     }
@@ -79,6 +80,8 @@ namespace Protocol {
       userName_ = other.userName_;
       isHost_ = other.isHost_;
       actionType_ = other.actionType_;
+      posX_ = other.posX_;
+      posZ_ = other.posZ_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -136,6 +139,30 @@ namespace Protocol {
       }
     }
 
+    /// <summary>Field number for the "pos_x" field.</summary>
+    public const int PosXFieldNumber = 5;
+    private float posX_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float PosX {
+      get { return posX_; }
+      set {
+        posX_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "pos_z" field.</summary>
+    public const int PosZFieldNumber = 6;
+    private float posZ_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float PosZ {
+      get { return posZ_; }
+      set {
+        posZ_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -155,6 +182,8 @@ namespace Protocol {
       if (UserName != other.UserName) return false;
       if (IsHost != other.IsHost) return false;
       if (ActionType != other.ActionType) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosX, other.PosX)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(PosZ, other.PosZ)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -166,6 +195,8 @@ namespace Protocol {
       if (UserName.Length != 0) hash ^= UserName.GetHashCode();
       if (IsHost != false) hash ^= IsHost.GetHashCode();
       if (ActionType != global::Protocol.ActionType.Idle) hash ^= ActionType.GetHashCode();
+      if (PosX != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosX);
+      if (PosZ != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(PosZ);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -200,6 +231,14 @@ namespace Protocol {
         output.WriteRawTag(32);
         output.WriteEnum((int) ActionType);
       }
+      if (PosX != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(PosX);
+      }
+      if (PosZ != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(PosZ);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -226,6 +265,14 @@ namespace Protocol {
         output.WriteRawTag(32);
         output.WriteEnum((int) ActionType);
       }
+      if (PosX != 0F) {
+        output.WriteRawTag(45);
+        output.WriteFloat(PosX);
+      }
+      if (PosZ != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(PosZ);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -247,6 +294,12 @@ namespace Protocol {
       }
       if (ActionType != global::Protocol.ActionType.Idle) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ActionType);
+      }
+      if (PosX != 0F) {
+        size += 1 + 4;
+      }
+      if (PosZ != 0F) {
+        size += 1 + 4;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -271,6 +324,12 @@ namespace Protocol {
       }
       if (other.ActionType != global::Protocol.ActionType.Idle) {
         ActionType = other.ActionType;
+      }
+      if (other.PosX != 0F) {
+        PosX = other.PosX;
+      }
+      if (other.PosZ != 0F) {
+        PosZ = other.PosZ;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -303,6 +362,14 @@ namespace Protocol {
             ActionType = (global::Protocol.ActionType) input.ReadEnum();
             break;
           }
+          case 45: {
+            PosX = input.ReadFloat();
+            break;
+          }
+          case 53: {
+            PosZ = input.ReadFloat();
+            break;
+          }
         }
       }
     #endif
@@ -332,6 +399,14 @@ namespace Protocol {
           }
           case 32: {
             ActionType = (global::Protocol.ActionType) input.ReadEnum();
+            break;
+          }
+          case 45: {
+            PosX = input.ReadFloat();
+            break;
+          }
+          case 53: {
+            PosZ = input.ReadFloat();
             break;
           }
         }
@@ -414,7 +489,7 @@ namespace Protocol {
       }
     }
 
-    /// <summary>Field number for the "posX" field.</summary>
+    /// <summary>Field number for the "pos_x" field.</summary>
     public const int PosXFieldNumber = 3;
     private float posX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -426,7 +501,7 @@ namespace Protocol {
       }
     }
 
-    /// <summary>Field number for the "posZ" field.</summary>
+    /// <summary>Field number for the "pos_z" field.</summary>
     public const int PosZFieldNumber = 4;
     private float posZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -438,7 +513,7 @@ namespace Protocol {
       }
     }
 
-    /// <summary>Field number for the "dirX" field.</summary>
+    /// <summary>Field number for the "dir_x" field.</summary>
     public const int DirXFieldNumber = 5;
     private float dirX_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -450,7 +525,7 @@ namespace Protocol {
       }
     }
 
-    /// <summary>Field number for the "dirZ" field.</summary>
+    /// <summary>Field number for the "dir_z" field.</summary>
     public const int DirZFieldNumber = 6;
     private float dirZ_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

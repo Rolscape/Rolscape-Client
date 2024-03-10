@@ -33,9 +33,15 @@ namespace GameServer.Packet
         public override void OnConnected()
         {
             UnityEngine.Debug.Log("On Connected");
-            
-            C_CONNECT_SOCKET socket = new C_CONNECT_SOCKET();
-            Managers.Network.Send(socket, INGAME.ConnectSocket);
+
+            {
+                Debug.Log("Game Start");
+                C_ENTER_GAME enterGame = new C_ENTER_GAME();
+                enterGame.Name = "hello";
+                enterGame.RoomId = "AAAA";
+
+                Managers.Network.Send(enterGame, INGAME.EnterGame);
+            }
         }
 
         public override void OnDisconnected(EndPoint endPoint)

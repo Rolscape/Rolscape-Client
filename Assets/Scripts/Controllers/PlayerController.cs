@@ -1,3 +1,5 @@
+using Protocol;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,17 +10,54 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     protected float _speed = 10.0f;
-    
-    protected CharacterController _characterController;
 
-    private Vector3 _nowPos = new Vector3(0, 0, 0);
+    protected CharacterController _characterController;
+    protected PlayerMoveInfo _moveInfo = new PlayerMoveInfo();
     private Vector3 _destPos = new Vector3(0, 0, 0);
 
     protected bool _isUpdated = false;
 
+    public PlayerMoveInfo MoveInfo
+    {
+        get { return _moveInfo; }
+        set
+        {
+            _moveInfo = value;
+            _destPos = new Vector3(value.PosX, 0, value.PosZ);
+            _isUpdated = true;
+        }
+    }
+
+    public uint ID
+    {
+        get { return _moveInfo.Id; }
+        set { _moveInfo.Id = value; }
+    }
+
+    public PlayerInfo Info
+    {
+        set
+        {
+            _moveInfo.Id = value.Id;
+            _moveInfo.PosX = value.PosX;
+            _moveInfo.PosZ = value.PosZ;
+            _moveInfo.Type = MoveType.MoveIdle;
+        }
+    }
+
+    public float Speed
+    {
+        get { return _speed; }
+        set { _speed = value; }
+    }
+
+    public void SyncPos(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+
     void Start()
     {
-        // ĳ���Ϳ� CharcterController �ٿ��ֱ� 
         Init();
     }
 
@@ -38,13 +77,16 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void UpdateController()
     {
-        UpdateMoving();
+        if (_isUpdated)
+        {
+            UpdateMoving();
+        }
     }
 
     protected virtual void UpdateMoving()
     {
         Vector3 moveDir = _destPos - transform.position;
-        
+
         float dist = moveDir.magnitude;
         if (dist < _speed * Time.deltaTime)
         {
@@ -55,12 +97,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDir), 0.3f);
             transform.position += moveDir.normalized * _speed * Time.deltaTime;
-            //State = CreatureState.Moving;
         }
     }
 
-    // Ű���� �̺�Ʈ �߻� �� 
-
-
-    protected virtual void MoveToNextPos() { }
+    protected virtual void MoveToNextPos()
+    {
+        _isUpdated = false;
+    }
 }
