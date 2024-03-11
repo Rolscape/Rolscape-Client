@@ -1,14 +1,17 @@
 using GameServer.Packet;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Managers : MonoBehaviour
 {
     private static Managers s_instance;
     private InputManager _input = new InputManager();
     private ResourceManager _resource = new ResourceManager();
+    private SceneManagerEx _scene = new SceneManagerEx();
     private UIManager _ui = new UIManager();
     
     // Network Manager
@@ -24,18 +27,10 @@ public class Managers : MonoBehaviour
         }
     }
 
-    public static InputManager Input
-    {
-        get { return Instance._input; }
-    }
-    public static ResourceManager Resource
-    {
-        get { return Instance._resource; }
-    }
-    public static UIManager UI
-    {
-        get { return Instance._ui; }
-    }
+    public static InputManager Input { get { return Instance._input; } }
+    public static ResourceManager Resource { get { return Instance._resource; } }
+    public static UIManager UI { get { return Instance._ui; } }
+    public static SceneManagerEx Scene { get { return Instance._scene; } }
 
     public static NetworkManager Network { get { return Instance.networkManager; } }
     public static VivoxManager Vivox { get { return Instance.vivoxManager; } }
