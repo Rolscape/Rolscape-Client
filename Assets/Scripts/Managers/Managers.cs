@@ -13,6 +13,7 @@ public class Managers : MonoBehaviour
     private ResourceManager _resource = new ResourceManager();
     private SceneManagerEx _scene = new SceneManagerEx();
     private UIManager _ui = new UIManager();
+    private SoundManager _sound = new SoundManager();
     
     // Network Manager
     private NetworkManager networkManager = new NetworkManager();
@@ -31,6 +32,8 @@ public class Managers : MonoBehaviour
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static SceneManagerEx Scene { get { return Instance._scene; } }
+    public static SoundManager Sound { get { return Instance._sound; }
+    }
 
     public static NetworkManager Network { get { return Instance.networkManager; } }
     public static VivoxManager Vivox { get { return Instance.vivoxManager; } }
