@@ -1,12 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MyPlayerController : PlayerController
 {
     // Start is called before the first frame update
-
-
     protected override void Init()
     {
         base.Init();
@@ -15,14 +15,11 @@ public class MyPlayerController : PlayerController
         Managers.Input.KeyAction += OnKeyboard;
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
-        
-        Managers.Resource.Instantiate("UI/UI_Button");
     }
 
     protected override void UpdateController()
     {
         base.UpdateController();
-        
     }
 
     protected override void UpdateMoving()
@@ -30,14 +27,22 @@ public class MyPlayerController : PlayerController
         
     }
 
+    void Start()
+    {
+        Init();
+
+        // TEMP
+        UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>();
+        
+    }
+
     void OnKeyboard()
     {
-        // ���� ���� üũ
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         
         Vector3 dir = new Vector3(h, 0, v).normalized;
-        // TODO CharcterController�� �����̱�  
+        // TODO CharcterController
         
         if (dir != Vector3.zero)
         {
@@ -46,13 +51,14 @@ public class MyPlayerController : PlayerController
         }
     }
 
-    // ���콺 �̺�Ʈ �߻� ��
+    // CallBack Func When Mouse Event 
     void OnMouseClicked(Define.MouseEvent evt)
     {
         if (evt != Define.MouseEvent.Click)
             return;
 
-        // TODO Mouse Event ó��
-        // ���� ���ӿ��� � �̺�Ʈ ������� �̼��� �������� ���  -> Raycasting�� ����ؾ��ϴ°� ?
+        // TODO Mouse Event 
+        // RayCasting Etc
+        
     }
 }

@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        // ĳ���Ϳ� CharcterController �ٿ��ֱ� 
         Init();
     }
 

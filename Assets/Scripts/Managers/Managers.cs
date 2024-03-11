@@ -7,10 +7,13 @@ using UnityEngine;
 public class Managers : MonoBehaviour
 {
     private static Managers s_instance;
-    private NetworkManager networkManager = new NetworkManager();
-    private VivoxManager vivoxManager = new VivoxManager();
     private InputManager _input = new InputManager();
     private ResourceManager _resource = new ResourceManager();
+    private UIManager _ui = new UIManager();
+    
+    // Network Manager
+    private NetworkManager networkManager = new NetworkManager();
+    private VivoxManager vivoxManager = new VivoxManager();
 
     public static Managers Instance
     {
@@ -28,6 +31,10 @@ public class Managers : MonoBehaviour
     public static ResourceManager Resource
     {
         get { return Instance._resource; }
+    }
+    public static UIManager UI
+    {
+        get { return Instance._ui; }
     }
 
     public static NetworkManager Network { get { return Instance.networkManager; } }
