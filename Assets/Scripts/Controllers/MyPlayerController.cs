@@ -31,9 +31,7 @@ public class MyPlayerController : PlayerController
     {
         Init();
 
-        // TEMP
-        UI_Button ui = Managers.UI.ShowPopupUI<UI_Button>();
-        
+        // TEMP 
     }
 
     void OnKeyboard()

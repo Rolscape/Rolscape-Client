@@ -45,10 +45,10 @@ public class UI_Button : UI_Popup
         GetText((int)Texts.PointText).text = "Settings";
         GetText((int)Texts.TimerText).text = "Timer";
         
-        GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+        GetButton((int)Buttons.PointButton).gameObject.BindEvent(OnButtonClicked);
 
         GameObject go = GetImage((int)Images.ItemIcon).gameObject;
-        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag );
+        BindEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag );
     }
     
     public void OnButtonClicked(PointerEventData data)
