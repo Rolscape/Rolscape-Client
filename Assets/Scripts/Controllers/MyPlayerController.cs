@@ -30,8 +30,6 @@ public class MyPlayerController : PlayerController
     void Start()
     {
         Init();
-
-        // TEMP 
     }
 
     void OnKeyboard()
