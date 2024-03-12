@@ -16,6 +16,7 @@ public class LoginScene : BaseScene
 
     private void Update()
     {
+        // Temp Code
         if (Input.GetKeyDown(KeyCode.Q))
             Managers.Scene.LoadScene(Define.Scene.Game);
     }
