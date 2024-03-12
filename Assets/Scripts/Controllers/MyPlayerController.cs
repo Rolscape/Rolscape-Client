@@ -101,7 +101,6 @@ public class MyPlayerController : PlayerController
     {
         MoveInfo.Type = MoveType.MoveIdle;
         Vector3 pos = transform.position;
-
         
         PlayerMoveInfo moveInfo = new PlayerMoveInfo();
         moveInfo.Id = MoveInfo.Id;
