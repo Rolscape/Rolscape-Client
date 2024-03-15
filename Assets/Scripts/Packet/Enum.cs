@@ -24,23 +24,23 @@ namespace Protocol {
     static EnumReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgpFbnVtLnByb3RvEghQcm90b2NvbCqSAQoGSU5HQU1FEhIKDkNPTk5FQ1Rf",
-            "U09DS0VUEAASDgoKRU5URVJfR0FNRRABEg8KC0NSRUFURV9HQU1FEAISDgoK",
-            "R0FNRV9TVEFSVBADEg4KCkxFQVZFX0dBTUUQBBIJCgVTUEFXThAFEgsKB0RF",
-            "U1BBV04QBhIICgRNT1ZFEAcSEQoNUExBWUVSX0FDVElPThAIKhYKCkFjdGlv",
-            "blR5cGUSCAoESURMRRAAKkUKCE1vdmVUeXBlEg0KCU1PVkVfTk9ORRAAEg0K",
-            "CU1PVkVfSURMRRABEg0KCU1PVkVfV0FMSxACEgwKCE1PVkVfUlVOEANiBnBy",
-            "b3RvMw=="));
+            "CgpFbnVtLnByb3RvEghQcm90b2NvbCqPAQoGSU5HQU1FEg8KC1BJTkdfU09D",
+            "S0VUEAASDgoKRU5URVJfR0FNRRABEg8KC0NSRUFURV9HQU1FEAISDgoKR0FN",
+            "RV9TVEFSVBADEg4KCkxFQVZFX0dBTUUQBBIJCgVTUEFXThAFEgsKB0RFU1BB",
+            "V04QBhIICgRNT1ZFEAcSEQoNUExBWUVSX0FDVElPThAIKhYKCkFjdGlvblR5",
+            "cGUSCAoESURMRRAAKkUKCE1vdmVUeXBlEg0KCU1PVkVfTk9ORRAAEg0KCU1P",
+            "VkVfSURMRRABEg0KCU1PVkVfV0FMSxACEgwKCE1PVkVfUlVOEAMqKAoIVGlt",
+            "ZVR5cGUSDQoJQ0hFQ0tfUlRUEAASDQoJU1lOQ19USU1FEAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.INGAME), typeof(global::Protocol.ActionType), typeof(global::Protocol.MoveType), }, null, null));
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.INGAME), typeof(global::Protocol.ActionType), typeof(global::Protocol.MoveType), typeof(global::Protocol.TimeType), }, null, null));
     }
     #endregion
 
   }
   #region Enums
   public enum INGAME {
-    [pbr::OriginalName("CONNECT_SOCKET")] ConnectSocket = 0,
+    [pbr::OriginalName("PING_SOCKET")] PingSocket = 0,
     [pbr::OriginalName("ENTER_GAME")] EnterGame = 1,
     [pbr::OriginalName("CREATE_GAME")] CreateGame = 2,
     [pbr::OriginalName("GAME_START")] GameStart = 3,
@@ -60,6 +60,11 @@ namespace Protocol {
     [pbr::OriginalName("MOVE_IDLE")] MoveIdle = 1,
     [pbr::OriginalName("MOVE_WALK")] MoveWalk = 2,
     [pbr::OriginalName("MOVE_RUN")] MoveRun = 3,
+  }
+
+  public enum TimeType {
+    [pbr::OriginalName("CHECK_RTT")] CheckRtt = 0,
+    [pbr::OriginalName("SYNC_TIME")] SyncTime = 1,
   }
 
   #endregion

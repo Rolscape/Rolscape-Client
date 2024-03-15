@@ -2,8 +2,10 @@ using GameServer.Packet;
 using Protocol;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Managers : MonoBehaviour
 {
@@ -13,6 +15,13 @@ public class Managers : MonoBehaviour
     private PlayerManager _player = new PlayerManager();
     private InputManager _input = new InputManager();
     private ResourceManager _resource = new ResourceManager();
+    private SceneManagerEx _scene = new SceneManagerEx();
+    private UIManager _ui = new UIManager();
+    private SoundManager _sound = new SoundManager();
+
+    // Network Manager
+    private NetworkManager networkManager = new NetworkManager();
+    private VivoxManager vivoxManager = new VivoxManager();
 
     public static Managers Instance
     {
@@ -23,13 +32,13 @@ public class Managers : MonoBehaviour
         }
     }
 
-    public static InputManager Input
+    public static InputManager Input { get { return Instance._input; } }
+    public static ResourceManager Resource { get { return Instance._resource; } }
+    public static UIManager UI { get { return Instance._ui; } }
+    public static SceneManagerEx Scene { get { return Instance._scene; } }
+    public static SoundManager Sound
     {
-        get { return Instance._input; }
-    }
-    public static ResourceManager Resource
-    {
-        get { return Instance._resource; }
+        get { return Instance._sound; }
     }
 
     public static NetworkManager Network { get { return Instance._network; } }
@@ -51,7 +60,7 @@ public class Managers : MonoBehaviour
         _input.OnUpdate();
         Network.Update();
     }
-    
+
     static void Init()
     {
         if (s_instance == null)
@@ -62,7 +71,7 @@ public class Managers : MonoBehaviour
                 go = new GameObject { name = "@Managers" };
                 go.AddComponent<Managers>();
             }
-            
+
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
 

@@ -42,6 +42,7 @@ namespace GameServer.Packet
 
                 Managers.Network.Send(enterGame, INGAME.EnterGame);
             }
+            //Managers.Network.StartRTT();
         }
 
         public override void OnDisconnected(EndPoint endPoint)

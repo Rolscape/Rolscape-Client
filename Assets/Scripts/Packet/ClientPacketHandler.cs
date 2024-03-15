@@ -7,10 +7,19 @@ namespace GameServer.Packet
 {
     public class ClientPacketHandler
     {
-        public static void Handle_S_CONNECT_SOCKET(IMessage packet)
+        public static void Handle_S_PING_SOCKET(IMessage packet)
         {
+            S_PING_SOCKET pkt = packet as S_PING_SOCKET;
+            if (pkt != null)
+                return;
 
+            if (pkt.Type == TimeType.CheckRtt)
+            {
+                long time = (DateTime.Now.Ticks - pkt.Time) / 2;
+                Managers.Network.RTT = time;
+            }
         }
+
         public static void Handle_S_ENTER_GAME(IMessage packet)
         {
             S_ENTER_GAME pkt = packet as S_ENTER_GAME;
@@ -56,7 +65,7 @@ namespace GameServer.Packet
         public static void Handle_S_MOVE(IMessage packet)
         {
             S_MOVE pkt = packet as S_MOVE;
-            if (pkt == null) 
+            if (pkt == null)
                 return;
 
             Managers.Player.SyncPlayerInfo(pkt.MoveInfo);

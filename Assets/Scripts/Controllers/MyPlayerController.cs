@@ -1,3 +1,7 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using Protocol;
 using UnityEngine;
 
@@ -37,16 +41,22 @@ public class MyPlayerController : PlayerController
             return;
 
         SendMovePacket();
+        
+    }
+
+    void Start()
+    {
+        Init();
     }
 
     void OnKeyboard()
     {
-        // ���� ���� üũ
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
         Vector3 dir = new Vector3(h, 0, v).normalized;
-        // TODO CharcterController�� �����̱�  
+        // TODO CharcterController
+        
         if (dir != Vector3.zero)
         {
 
@@ -69,13 +79,15 @@ public class MyPlayerController : PlayerController
         }
     }
 
+    // CallBack Func When Mouse Event 
     void OnMouseClicked(Define.MouseEvent evt)
     {
         if (evt != Define.MouseEvent.Click)
             return;
 
-        // TODO Mouse Event ó��
-        // ���� ���ӿ��� � �̺�Ʈ ������� �̼��� �������� ���  -> Raycasting�� ����ؾ��ϴ°� ?
+        // TODO Mouse Event 
+        // RayCasting Etc
+        
     }
 
     void SendMovePacket()

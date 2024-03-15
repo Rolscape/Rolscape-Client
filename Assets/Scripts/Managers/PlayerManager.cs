@@ -62,4 +62,9 @@ public class PlayerManager
         PlayerController controller = player.GetComponent<PlayerController>();
         controller.MoveInfo = moveInfo;
     }
+
+    public void Update()
+    {
+
+    }    
 }

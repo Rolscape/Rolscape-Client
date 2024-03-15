@@ -25,26 +25,27 @@ namespace Protocol {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cg5Qcm90b2NvbC5wcm90bxIIUHJvdG9jb2waCkVudW0ucHJvdG8aDFN0cnVj",
-            "dC5wcm90byJPChBTX0NPTk5FQ1RfU09DS0VUEg4KBnNlcnZlchgBIAEoCRIO",
-            "CgZkb21haW4YAiABKAkSDgoGaXNzdWVyGAMgASgJEgsKA2tleRgEIAEoCSIS",
-            "ChBDX0NPTk5FQ1RfU09DS0VUIksKDFNfRU5URVJfR0FNRRISCgppc19zdWNj",
-            "ZXNzGAEgASgIEicKCXNwYXduSW5mbxgCIAEoCzIULlByb3RvY29sLlBsYXll",
-            "ckluZm8iLQoMQ19FTlRFUl9HQU1FEgwKBG5hbWUYASABKAkSDwoHcm9vbV9p",
-            "ZBgCIAEoCSJdCg1TX0NSRUFURV9HQU1FEhIKCmlzX3N1Y2Nlc3MYASABKAgS",
-            "JwoJc3Bhd25JbmZvGAIgASgLMhQuUHJvdG9jb2wuUGxheWVySW5mbxIPCgdy",
-            "b29tX2lkGAMgASgJIh0KDUNfQ1JFQVRFX0dBTUUSDAoEbmFtZRgBIAEoCSIO",
-            "CgxTX0dBTUVfU1RBUlQiDgoMQ19HQU1FX1NUQVJUIg4KDFNfTEVBVkVfR0FN",
-            "RSIOCgxDX0xFQVZFX0dBTUUiMgoHU19TUEFXThInCglzcGF3bkluZm8YASAD",
-            "KAsyFC5Qcm90b2NvbC5QbGF5ZXJJbmZvIgkKB0NfU1BBV04iCwoJU19ERVNQ",
-            "QVdOIgsKCUNfREVTUEFXTiI0CgZTX01PVkUSKgoIbW92ZUluZm8YASABKAsy",
-            "GC5Qcm90b2NvbC5QbGF5ZXJNb3ZlSW5mbyI0CgZDX01PVkUSKgoIbW92ZUlu",
-            "Zm8YASABKAsyGC5Qcm90b2NvbC5QbGF5ZXJNb3ZlSW5mbyIRCg9TX1BMQVlF",
-            "Ul9BQ1RJT04iEQoPQ19QTEFZRVJfQUNUSU9OYgZwcm90bzM="));
+            "dC5wcm90byI/Cg1TX1BJTkdfU09DS0VUEiAKBHR5cGUYASABKA4yEi5Qcm90",
+            "b2NvbC5UaW1lVHlwZRIMCgR0aW1lGAIgASgDIj8KDUNfUElOR19TT0NLRVQS",
+            "IAoEdHlwZRgBIAEoDjISLlByb3RvY29sLlRpbWVUeXBlEgwKBHRpbWUYAiAB",
+            "KAMiSwoMU19FTlRFUl9HQU1FEhIKCmlzX3N1Y2Nlc3MYASABKAgSJwoJc3Bh",
+            "d25JbmZvGAIgASgLMhQuUHJvdG9jb2wuUGxheWVySW5mbyItCgxDX0VOVEVS",
+            "X0dBTUUSDAoEbmFtZRgBIAEoCRIPCgdyb29tX2lkGAIgASgJIl0KDVNfQ1JF",
+            "QVRFX0dBTUUSEgoKaXNfc3VjY2VzcxgBIAEoCBInCglzcGF3bkluZm8YAiAB",
+            "KAsyFC5Qcm90b2NvbC5QbGF5ZXJJbmZvEg8KB3Jvb21faWQYAyABKAkiHQoN",
+            "Q19DUkVBVEVfR0FNRRIMCgRuYW1lGAEgASgJIg4KDFNfR0FNRV9TVEFSVCIO",
+            "CgxDX0dBTUVfU1RBUlQiDgoMU19MRUFWRV9HQU1FIg4KDENfTEVBVkVfR0FN",
+            "RSIyCgdTX1NQQVdOEicKCXNwYXduSW5mbxgBIAMoCzIULlByb3RvY29sLlBs",
+            "YXllckluZm8iCQoHQ19TUEFXTiILCglTX0RFU1BBV04iCwoJQ19ERVNQQVdO",
+            "IjQKBlNfTU9WRRIqCghtb3ZlSW5mbxgBIAEoCzIYLlByb3RvY29sLlBsYXll",
+            "ck1vdmVJbmZvIjQKBkNfTU9WRRIqCghtb3ZlSW5mbxgBIAEoCzIYLlByb3Rv",
+            "Y29sLlBsYXllck1vdmVJbmZvIhEKD1NfUExBWUVSX0FDVElPTiIRCg9DX1BM",
+            "QVlFUl9BQ1RJT05iBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protocol.EnumReflection.Descriptor, global::Protocol.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_CONNECT_SOCKET), global::Protocol.S_CONNECT_SOCKET.Parser, new[]{ "Server", "Domain", "Issuer", "Key" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_CONNECT_SOCKET), global::Protocol.C_CONNECT_SOCKET.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_PING_SOCKET), global::Protocol.S_PING_SOCKET.Parser, new[]{ "Type", "Time" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_PING_SOCKET), global::Protocol.C_PING_SOCKET.Parser, new[]{ "Type", "Time" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_ENTER_GAME), global::Protocol.S_ENTER_GAME.Parser, new[]{ "IsSuccess", "SpawnInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_ENTER_GAME), global::Protocol.C_ENTER_GAME.Parser, new[]{ "Name", "RoomId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_CREATE_GAME), global::Protocol.S_CREATE_GAME.Parser, new[]{ "IsSuccess", "SpawnInfo", "RoomId" }, null, null, null, null),
@@ -67,16 +68,16 @@ namespace Protocol {
 
   }
   #region Messages
-  public sealed partial class S_CONNECT_SOCKET : pb::IMessage<S_CONNECT_SOCKET>
+  public sealed partial class S_PING_SOCKET : pb::IMessage<S_PING_SOCKET>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<S_CONNECT_SOCKET> _parser = new pb::MessageParser<S_CONNECT_SOCKET>(() => new S_CONNECT_SOCKET());
+    private static readonly pb::MessageParser<S_PING_SOCKET> _parser = new pb::MessageParser<S_PING_SOCKET>(() => new S_PING_SOCKET());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<S_CONNECT_SOCKET> Parser { get { return _parser; } }
+    public static pb::MessageParser<S_PING_SOCKET> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -92,7 +93,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public S_CONNECT_SOCKET() {
+    public S_PING_SOCKET() {
       OnConstruction();
     }
 
@@ -100,87 +101,59 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public S_CONNECT_SOCKET(S_CONNECT_SOCKET other) : this() {
-      server_ = other.server_;
-      domain_ = other.domain_;
-      issuer_ = other.issuer_;
-      key_ = other.key_;
+    public S_PING_SOCKET(S_PING_SOCKET other) : this() {
+      type_ = other.type_;
+      time_ = other.time_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public S_CONNECT_SOCKET Clone() {
-      return new S_CONNECT_SOCKET(this);
+    public S_PING_SOCKET Clone() {
+      return new S_PING_SOCKET(this);
     }
 
-    /// <summary>Field number for the "server" field.</summary>
-    public const int ServerFieldNumber = 1;
-    private string server_ = "";
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 1;
+    private global::Protocol.TimeType type_ = global::Protocol.TimeType.CheckRtt;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Server {
-      get { return server_; }
+    public global::Protocol.TimeType Type {
+      get { return type_; }
       set {
-        server_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        type_ = value;
       }
     }
 
-    /// <summary>Field number for the "domain" field.</summary>
-    public const int DomainFieldNumber = 2;
-    private string domain_ = "";
+    /// <summary>Field number for the "time" field.</summary>
+    public const int TimeFieldNumber = 2;
+    private long time_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Domain {
-      get { return domain_; }
+    public long Time {
+      get { return time_; }
       set {
-        domain_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "issuer" field.</summary>
-    public const int IssuerFieldNumber = 3;
-    private string issuer_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Issuer {
-      get { return issuer_; }
-      set {
-        issuer_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "key" field.</summary>
-    public const int KeyFieldNumber = 4;
-    private string key_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Key {
-      get { return key_; }
-      set {
-        key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        time_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as S_CONNECT_SOCKET);
+      return Equals(other as S_PING_SOCKET);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(S_CONNECT_SOCKET other) {
+    public bool Equals(S_PING_SOCKET other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Server != other.Server) return false;
-      if (Domain != other.Domain) return false;
-      if (Issuer != other.Issuer) return false;
-      if (Key != other.Key) return false;
+      if (Type != other.Type) return false;
+      if (Time != other.Time) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -188,10 +161,8 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Server.Length != 0) hash ^= Server.GetHashCode();
-      if (Domain.Length != 0) hash ^= Domain.GetHashCode();
-      if (Issuer.Length != 0) hash ^= Issuer.GetHashCode();
-      if (Key.Length != 0) hash ^= Key.GetHashCode();
+      if (Type != global::Protocol.TimeType.CheckRtt) hash ^= Type.GetHashCode();
+      if (Time != 0L) hash ^= Time.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -210,21 +181,13 @@ namespace Protocol {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Server.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Server);
+      if (Type != global::Protocol.TimeType.CheckRtt) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Type);
       }
-      if (Domain.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Domain);
-      }
-      if (Issuer.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Issuer);
-      }
-      if (Key.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Key);
+      if (Time != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Time);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -236,21 +199,13 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Server.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Server);
+      if (Type != global::Protocol.TimeType.CheckRtt) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Type);
       }
-      if (Domain.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Domain);
-      }
-      if (Issuer.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Issuer);
-      }
-      if (Key.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Key);
+      if (Time != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Time);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -262,17 +217,11 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Server.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Server);
+      if (Type != global::Protocol.TimeType.CheckRtt) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
       }
-      if (Domain.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Domain);
-      }
-      if (Issuer.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Issuer);
-      }
-      if (Key.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
+      if (Time != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Time);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -282,21 +231,15 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(S_CONNECT_SOCKET other) {
+    public void MergeFrom(S_PING_SOCKET other) {
       if (other == null) {
         return;
       }
-      if (other.Server.Length != 0) {
-        Server = other.Server;
+      if (other.Type != global::Protocol.TimeType.CheckRtt) {
+        Type = other.Type;
       }
-      if (other.Domain.Length != 0) {
-        Domain = other.Domain;
-      }
-      if (other.Issuer.Length != 0) {
-        Issuer = other.Issuer;
-      }
-      if (other.Key.Length != 0) {
-        Key = other.Key;
+      if (other.Time != 0L) {
+        Time = other.Time;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -313,20 +256,12 @@ namespace Protocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            Server = input.ReadString();
+          case 8: {
+            Type = (global::Protocol.TimeType) input.ReadEnum();
             break;
           }
-          case 18: {
-            Domain = input.ReadString();
-            break;
-          }
-          case 26: {
-            Issuer = input.ReadString();
-            break;
-          }
-          case 34: {
-            Key = input.ReadString();
+          case 16: {
+            Time = input.ReadInt64();
             break;
           }
         }
@@ -344,20 +279,12 @@ namespace Protocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            Server = input.ReadString();
+          case 8: {
+            Type = (global::Protocol.TimeType) input.ReadEnum();
             break;
           }
-          case 18: {
-            Domain = input.ReadString();
-            break;
-          }
-          case 26: {
-            Issuer = input.ReadString();
-            break;
-          }
-          case 34: {
-            Key = input.ReadString();
+          case 16: {
+            Time = input.ReadInt64();
             break;
           }
         }
@@ -367,16 +294,16 @@ namespace Protocol {
 
   }
 
-  public sealed partial class C_CONNECT_SOCKET : pb::IMessage<C_CONNECT_SOCKET>
+  public sealed partial class C_PING_SOCKET : pb::IMessage<C_PING_SOCKET>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<C_CONNECT_SOCKET> _parser = new pb::MessageParser<C_CONNECT_SOCKET>(() => new C_CONNECT_SOCKET());
+    private static readonly pb::MessageParser<C_PING_SOCKET> _parser = new pb::MessageParser<C_PING_SOCKET>(() => new C_PING_SOCKET());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<C_CONNECT_SOCKET> Parser { get { return _parser; } }
+    public static pb::MessageParser<C_PING_SOCKET> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -392,7 +319,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public C_CONNECT_SOCKET() {
+    public C_PING_SOCKET() {
       OnConstruction();
     }
 
@@ -400,31 +327,59 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public C_CONNECT_SOCKET(C_CONNECT_SOCKET other) : this() {
+    public C_PING_SOCKET(C_PING_SOCKET other) : this() {
+      type_ = other.type_;
+      time_ = other.time_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public C_CONNECT_SOCKET Clone() {
-      return new C_CONNECT_SOCKET(this);
+    public C_PING_SOCKET Clone() {
+      return new C_PING_SOCKET(this);
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 1;
+    private global::Protocol.TimeType type_ = global::Protocol.TimeType.CheckRtt;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Protocol.TimeType Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "time" field.</summary>
+    public const int TimeFieldNumber = 2;
+    private long time_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long Time {
+      get { return time_; }
+      set {
+        time_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as C_CONNECT_SOCKET);
+      return Equals(other as C_PING_SOCKET);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(C_CONNECT_SOCKET other) {
+    public bool Equals(C_PING_SOCKET other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Type != other.Type) return false;
+      if (Time != other.Time) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -432,6 +387,8 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (Type != global::Protocol.TimeType.CheckRtt) hash ^= Type.GetHashCode();
+      if (Time != 0L) hash ^= Time.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -450,6 +407,14 @@ namespace Protocol {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (Type != global::Protocol.TimeType.CheckRtt) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Type);
+      }
+      if (Time != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Time);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -460,6 +425,14 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Type != global::Protocol.TimeType.CheckRtt) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Type);
+      }
+      if (Time != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Time);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -470,6 +443,12 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (Type != global::Protocol.TimeType.CheckRtt) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      }
+      if (Time != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Time);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -478,9 +457,15 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(C_CONNECT_SOCKET other) {
+    public void MergeFrom(C_PING_SOCKET other) {
       if (other == null) {
         return;
+      }
+      if (other.Type != global::Protocol.TimeType.CheckRtt) {
+        Type = other.Type;
+      }
+      if (other.Time != 0L) {
+        Time = other.Time;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -497,6 +482,14 @@ namespace Protocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 8: {
+            Type = (global::Protocol.TimeType) input.ReadEnum();
+            break;
+          }
+          case 16: {
+            Time = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -512,6 +505,14 @@ namespace Protocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 8: {
+            Type = (global::Protocol.TimeType) input.ReadEnum();
+            break;
+          }
+          case 16: {
+            Time = input.ReadInt64();
+            break;
+          }
         }
       }
     }
