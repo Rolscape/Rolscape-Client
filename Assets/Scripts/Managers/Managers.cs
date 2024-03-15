@@ -4,16 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Managers : MonoBehaviour
 {
     private static Managers s_instance;
+
+    private DataManager _data = new DataManager();
     private NetworkManager _network = new NetworkManager();
     private VivoxManager _vivox = new VivoxManager();
     private PlayerManager _player = new PlayerManager();
     private InputManager _input = new InputManager();
+    private PoolManager _pool = new PoolManager();
     private ResourceManager _resource = new ResourceManager();
     private SceneManagerEx _scene = new SceneManagerEx();
     private UIManager _ui = new UIManager();
@@ -31,8 +35,10 @@ public class Managers : MonoBehaviour
             return s_instance;
         }
     }
-
+    
+    public static DataManager Data { get { return Instance._data; } }
     public static InputManager Input { get { return Instance._input; } }
+    public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static SceneManagerEx Scene { get { return Instance._scene; } }
@@ -68,14 +74,28 @@ public class Managers : MonoBehaviour
             GameObject go = GameObject.Find("@Managers");
             if (go == null)
             {
-                go = new GameObject { name = "@Managers" };
+                go = new GameObject{ name = "@Managers" };
                 go.AddComponent<Managers>();
             }
 
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
+            
+            s_instance._data.Init();
+            s_instance._pool.Init();
+            s_instance._sound.Init();
 
             Network.Init();
         }
     }
+
+    public static void Clear()
+    {
+        Input.Clear();
+        Sound.Clear();
+        Scene.Clear();
+        UI.CLear();
+        Pool.Clear();
+    }
+
 }
