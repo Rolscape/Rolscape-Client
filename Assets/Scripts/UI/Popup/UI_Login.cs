@@ -37,31 +37,29 @@ public class UI_Login : UI_Popup
         
         Bind<Button>(typeof(Buttons));
         Bind<TextMeshProUGUI>(typeof(Texts));
-        Bind<GameObject>(typeof(InputFields));
+        Bind<TMP_InputField>(typeof(InputFields));
 
         GetText((int)Texts.PointText).text = "Setting User Nickname";
         GetText((int)Texts.SettingText).text = "Setting";
         GetText((int)Texts.InputPointText).text = "Input User Nickname";
-        GetText((int)Texts.InputText).text = "";
 
+        TMP_InputField inputField = Get<TMP_InputField>((int)InputFields.InputField);
+        inputField.characterLimit = 9;
+        
         GameObject go = GetButton((int)Buttons.NicknameButton).gameObject;
         BindEvent(go, OnButtonClicked, Define.UIEvent.Click);
     }
 
     public void OnButtonClicked(PointerEventData data)
     {
-        // TODO Null Check And Setting nickname
         String text = GetText((int)Texts.InputText).text;
-
+        
         if (text.Length > 1)
         {
             Managers.Scene.LoadScene(Define.Scene.Game);
-            
+            UI_Nickname.NickName = text;
         }
         
-        // if (string.IsNullOrEmpty(text) == false)
-        // {
-        //     Debug.Log($"nickname: {text}, Length: {text.Length}");
-        // }
     }
+    
 }
