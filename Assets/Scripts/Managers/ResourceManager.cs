@@ -32,11 +32,11 @@ public class ResourceManager
             Debug.Log($"Failed to load prefabs: {path}");
             return null;
         }
-        
+
         // Check Pooling, the target of pooling
         if (original.GetComponent<Poolable>() != null)
             return Managers.Pool.Pop(original, parent).gameObject;
-        
+
         GameObject go = Object.Instantiate(original, parent);
         go.name = original.name;
 

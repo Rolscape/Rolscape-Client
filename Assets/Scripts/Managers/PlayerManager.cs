@@ -29,7 +29,9 @@ public class PlayerManager
         {
             Debug.Log("Player Info");
 
-            GameObject player = Managers.Resource.Instantiate("@Player");
+            GameObject player = Managers.Resource.Instantiate("Player");
+            if (player == null)
+                return;
             MyPlayer = player;
             
             PlayerController controller = player.GetComponent<PlayerController>();
@@ -43,7 +45,10 @@ public class PlayerManager
         {
             // 캐릭터 Spawn
             // 0 0 0
-            GameObject player = Managers.Resource.Instantiate("Player");
+            GameObject player = Managers.Resource.Instantiate("AnotherPlayer");
+            if (player == null)
+                return;
+
             _players.Add(playerInfo.Id, player);
 
             PlayerController controller = player.GetComponent<PlayerController>();

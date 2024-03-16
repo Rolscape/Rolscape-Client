@@ -31,8 +31,8 @@ namespace GameServer.Packet
         {
             Debug.Log("Connect Start");
             PacketHandler.Instance.CustomHandle = new Action<ushort, IMessage>(RecvPacketQueue.Instance.PushBack);
-            //session.Start(new IPEndPoint(IPAddress.Parse("192.168.35.175"), 7777));
-            session.Start(new IPEndPoint(IPAddress.Parse("218.50.132.162"), 7777));
+            session.Start(new IPEndPoint(IPAddress.Parse("192.168.35.175"), 7777));
+            //session.Start(new IPEndPoint(IPAddress.Parse("218.50.132.162"), 7777));
         }
         public void Send(IMessage message, INGAME type)
         {
