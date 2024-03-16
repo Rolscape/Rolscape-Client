@@ -7,20 +7,40 @@ public class ResourceManager
     // 경로를 받아서 리소스를 불러오는 함수
     public T Load<T>(string path) where T : Object
     {
+        // Check Pooling
+        if (typeof(T) == typeof(GameObject))
+        {
+            string name = path;
+            int index = name.LastIndexOf('/');
+            if (index > 0)
+                name = name.Substring(index + 1);
+
+            GameObject go = Managers.Pool.GetOriginal(name);
+            if (go != null)
+                return go as T;
+        }
+        
         return Resources.Load<T>(path);
     }
 
     // 경로를 받아와서 오브젝트를 월드에 소환하는 함수
     public GameObject Instantiate(string path, Transform parent = null)
     {
-        GameObject prefab = Load<GameObject>($"Prefabs/{path}");
-        if (prefab == null)
+        GameObject original = Load<GameObject>($"Prefabs/{path}");
+        if (original == null)
         {
             Debug.Log($"Failed to load prefabs: {path}");
             return null;
         }
 
-        return Object.Instantiate(prefab, parent);
+        // Check Pooling, the target of pooling
+        if (original.GetComponent<Poolable>() != null)
+            return Managers.Pool.Pop(original, parent).gameObject;
+
+        GameObject go = Object.Instantiate(original, parent);
+        go.name = original.name;
+
+        return go;
     }
 
     // 오브젝트 소멸 함수
@@ -28,6 +48,14 @@ public class ResourceManager
     {
         if (go == null)
             return;
+        
+        // if target is pooling object
+        Poolable poolable = go.GetComponent<Poolable>();
+        if (poolable != null)
+        {
+            Managers.Pool.Push(poolable);
+            return;
+        }
         
         Object.Destroy(go);
     }

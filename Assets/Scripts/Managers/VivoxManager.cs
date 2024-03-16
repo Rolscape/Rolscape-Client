@@ -24,7 +24,7 @@ class ChannelSetting
     public AudioFadeModel AudioModel { get; set; }
 }
 
-public class VivoxManager : MonoBehaviour
+public class VivoxManager
 {
     static bool isInit = false;
     static bool isJoinChannel = false;
@@ -102,7 +102,7 @@ public class VivoxManager : MonoBehaviour
     public void StartVoice(GameObject myObject)
     {
         _myObject = myObject;
-        StartCoroutine(Update3DPositionCo(myObject, _channelName));
+        Managers.Instance.StartCoroutine(Update3DPositionCo(myObject, _channelName));
     }
 
     public async Task LeaveChannel()

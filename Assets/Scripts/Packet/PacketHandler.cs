@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 
 namespace GameServer.ServerCore
-{ 
+{
     public class PacketHandler
     {
         #region Singleton
@@ -16,16 +16,16 @@ namespace GameServer.ServerCore
         Dictionary<UInt16, Action<ArraySegment<byte>, UInt16>> _onRecv = new Dictionary<UInt16, Action<ArraySegment<byte>, UInt16>>();
         Dictionary<UInt16, Action<IMessage>> _handle = new Dictionary<UInt16, Action<IMessage>>();
 
-        public Action<UInt16, IMessage> CustomHandle {  get; set; }
-        public PacketHandler() 
+        public Action<UInt16, IMessage> CustomHandle { get; set; }
+        public PacketHandler()
         {
             Init();
         }
 
         void Init()
         {
-            _onRecv.Add((UInt16)INGAME.ConnectSocket, MakePacket<S_CONNECT_SOCKET>);
-            _handle.Add((UInt16)INGAME.ConnectSocket, ClientPacketHandler.Handle_S_CONNECT_SOCKET);
+            _onRecv.Add((UInt16)INGAME.PingSocket, MakePacket<S_PING_SOCKET>);
+            _handle.Add((UInt16)INGAME.PingSocket, ClientPacketHandler.Handle_S_PING_SOCKET);
             _onRecv.Add((UInt16)INGAME.EnterGame, MakePacket<S_ENTER_GAME>);
             _handle.Add((UInt16)INGAME.EnterGame, ClientPacketHandler.Handle_S_ENTER_GAME);
             _onRecv.Add((UInt16)INGAME.CreateGame, MakePacket<S_CREATE_GAME>);
@@ -50,18 +50,18 @@ namespace GameServer.ServerCore
             UInt16 id = head.type;
 
             Action<ArraySegment<byte>, UInt16> action = null;
-            if(_onRecv.TryGetValue(id, out action))
+            if (_onRecv.TryGetValue(id, out action))
             {
                 action.Invoke(buffer, id);
             }
         }
 
-        void MakePacket<T>(ArraySegment<byte> buffer, UInt16 id)where T: IMessage, new()
+        void MakePacket<T>(ArraySegment<byte> buffer, UInt16 id) where T : IMessage, new()
         {
             T pkt = new T();
             pkt.MergeFrom(buffer.Array, buffer.Offset + 4, buffer.Count - 4);
 
-            if(CustomHandle != null)
+            if (CustomHandle != null)
             {
                 CustomHandle.Invoke(id, pkt);
             }

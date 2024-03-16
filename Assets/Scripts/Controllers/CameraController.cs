@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Vector3 _delta = new Vector3(0.0f, 10.0f, -3.0f);
     
     [SerializeField]
-    private GameObject _player = null;
+    public GameObject _player = null;
 
     void Start()
     {
@@ -25,6 +25,9 @@ public class CameraController : MonoBehaviour
     {
         if (_mode == Define.CameraMode.QuarterView)
         {
+            if (_player == null)
+                return;
+
             RaycastHit hit;
             
             // 카메라가 벽에 가려졌다면 카메라를 벽 앞으로 이동해 시점 변환하기

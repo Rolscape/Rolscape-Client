@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Protocol;
 using UnityEngine;
 
 public class MyPlayerController : PlayerController
 {
     // Start is called before the first frame update
-
-
+    private const float TickTime = 0.1f;
+    private float _lastTick = TickTime;
+    private Vector3 _movedir = Vector3.zero;
     protected override void Init()
     {
         base.Init();
@@ -16,28 +20,33 @@ public class MyPlayerController : PlayerController
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
 
-        Managers.Resource.Instantiate("UI/UI_Button");
+        _moveInfo.Type = MoveType.MoveIdle;
+        //Managers.Resource.Instantiate("UI/UI_Button");
     }
 
     protected override void UpdateController()
     {
-        base.UpdateController();
+        _lastTick -= Time.deltaTime;
+
+        if (_lastTick < 0.0f)
+        {
+            UpdateMoving();
+            _lastTick = TickTime;
+        }
     }
 
     protected override void UpdateMoving()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        if (_moveInfo.Type == MoveType.MoveIdle)
+            return;
 
-        Vector3 dir = new Vector3(h, 0, v).normalized;
+        SendMovePacket();
+        
+    }
 
-        // TODO CharcterController로 움직이기  
-
-        if (dir != Vector3.zero)
-        {
-            _characterController.Move(dir * (_speed * Time.deltaTime));
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.3f);
-        }
+    void Start()
+    {
+        Init();
     }
 
     void OnKeyboard()
@@ -46,18 +55,73 @@ public class MyPlayerController : PlayerController
         float v = Input.GetAxis("Vertical");
 
         Vector3 dir = new Vector3(h, 0, v).normalized;
-        _characterController.Move(dir * (_speed * Time.deltaTime));
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), _speed * Time.deltaTime);
-        // 도착 여부 체크
+        // TODO CharcterController
+        
+        if (dir != Vector3.zero)
+        {
+
+            _characterController.Move(dir * (_speed * Time.deltaTime));
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.3f);
+
+            _movedir = dir;
+
+            if (MoveInfo.Type == MoveType.MoveIdle)
+            {
+                SendMovePacket();
+            }
+        }
+        else
+        {
+            if (MoveInfo.Type == MoveType.MoveWalk)
+            {
+                SendStopPacket();
+            }
+        }
     }
 
-    // 마우스 이벤트 발생 시
+    // CallBack Func When Mouse Event 
     void OnMouseClicked(Define.MouseEvent evt)
     {
         if (evt != Define.MouseEvent.Click)
             return;
 
-        // TODO Mouse Event 처리
-        // 추후 게임에서 어떤 이벤트 방식으로 미션을 수행할지 등등  -> Raycasting을 사용해야하는가 ?
+        // TODO Mouse Event 
+        // RayCasting Etc
+        
+    }
+
+    void SendMovePacket()
+    {
+        Vector3 pos = transform.position;
+
+        PlayerMoveInfo moveInfo = new PlayerMoveInfo();
+        moveInfo.Id = MoveInfo.Id;
+        moveInfo.PosX = pos.x;
+        moveInfo.PosZ = pos.z;
+
+        moveInfo.DirX = _movedir.x;
+        moveInfo.DirZ = _movedir.z;
+
+        moveInfo.Type = MoveType.MoveWalk;
+
+        C_MOVE pkt = new C_MOVE();
+        pkt.MoveInfo = moveInfo;
+        Managers.Network.Send(pkt, INGAME.Move);
+    }
+
+    void SendStopPacket()
+    {
+        MoveInfo.Type = MoveType.MoveIdle;
+        Vector3 pos = transform.position;
+        
+        PlayerMoveInfo moveInfo = new PlayerMoveInfo();
+        moveInfo.Id = MoveInfo.Id;
+        moveInfo.PosX = pos.x;
+        moveInfo.PosZ = pos.z;
+        moveInfo.Type = MoveType.MoveIdle;
+
+        C_MOVE pkt = new C_MOVE();
+        pkt.MoveInfo = moveInfo;
+        Managers.Network.Send(pkt, INGAME.Move);
     }
 }

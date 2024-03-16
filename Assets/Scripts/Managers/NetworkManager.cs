@@ -2,8 +2,10 @@
 using Google.Protobuf;
 using Protocol;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using UnityEngine;
 
 namespace GameServer.Packet
 {
@@ -12,17 +14,25 @@ namespace GameServer.Packet
         ClientSession session;
 
         public NetworkManager() { }
-
+        public long RTT {  get; set; }
 
         public void Init()
         {
             session = new ClientSession();
             Connect();
         }
+
+        public void Destroy()
+        {
+            session.Disconnect();
+        }
+
         public void Connect()
         {
+            Debug.Log("Connect Start");
             PacketHandler.Instance.CustomHandle = new Action<ushort, IMessage>(RecvPacketQueue.Instance.PushBack);
-            session.Start(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 7777));
+            session.Start(new IPEndPoint(IPAddress.Parse("192.168.35.175"), 7777));
+            //session.Start(new IPEndPoint(IPAddress.Parse("218.50.132.162"), 7777));
         }
         public void Send(IMessage message, INGAME type)
         {
@@ -42,5 +52,20 @@ namespace GameServer.Packet
                 }
             }
         }
+        
+        //public void StartRTT() => Managers.Instance.StartCoroutine(UpdateRTT());
+        //private IEnumerator UpdateRTT()
+        //{
+        //    while(true)
+        //    {
+        //        C_PING_SOCKET pkt = new C_PING_SOCKET();
+        //        pkt.Type = TimeType.CheckRtt;
+        //        pkt.Time = DateTime.Now.Ticks;
+
+        //        Managers.Network.Send(pkt, INGAME.PingSocket);
+
+        //        yield return new WaitForSeconds(1000);
+        //    }
+        //}
     }
 }

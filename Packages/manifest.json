@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "com.unity.ide.rider" : "3.0.28",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.development": "1.0.1",
-    "com.unity.services.authentication": "2.0.0",
+    "com.unity.ide.rider": "3.0.28",
+    "com.unity.services.authentication": "2.7.2",
     "com.unity.services.vivox": "16.0.1",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.6",

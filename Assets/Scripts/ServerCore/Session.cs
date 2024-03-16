@@ -71,6 +71,7 @@ namespace GameServer.ServerCore
         public void Start(IPEndPoint endPoint)
         {
             _socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            _socket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             _socket.BeginConnect(endPoint, ConnectComplete, _socket);
         }
 
@@ -96,6 +97,8 @@ namespace GameServer.ServerCore
 
         void ConnectComplete(IAsyncResult result)
         {
+            UnityEngine.Debug.Log("Connect Completed");
+
             _socket.EndConnect(result);
 
             OnConnected();

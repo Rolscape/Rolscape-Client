@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 297499266848849429}
   - component: {fileID: 5629219708816936579}
   - component: {fileID: 1295622933045192781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,9 +119,10 @@ GameObject:
   - component: {fileID: 6669094757202717598}
   - component: {fileID: 2108960638856599035}
   - component: {fileID: 5475312320417830257}
-  - component: {fileID: 9073264328430165086}
-  m_Layer: 0
-  m_Name: '@Player'
+  - component: {fileID: 3869346564308868125}
+  - component: {fileID: 7711485488962476577}
+  m_Layer: 7
+  m_Name: AnotherPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -216,7 +217,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9073264328430165086
+--- !u!114 &3869346564308868125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,7 +226,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2971862245601527696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 739bfdf37a6d9a44ab893d465e8d0390, type: 3}
+  m_Script: {fileID: 11500000, guid: 8be456932ddab3648a637b0f349944fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isUsing: 0
+--- !u!114 &7711485488962476577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971862245601527696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958bc188e3ef15d4a93eb108b28c8b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
