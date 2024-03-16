@@ -42,7 +42,6 @@ public class MyPlayerController : PlayerController
 
     void OnKeyboard()
     {
-
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 

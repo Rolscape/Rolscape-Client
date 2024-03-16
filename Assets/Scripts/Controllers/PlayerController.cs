@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         }
         _characterController = GetComponent<CharacterController>();
     }
+    
     // Update is called once per frame
     private void Update()
     {
@@ -59,7 +60,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // 키보드 이벤트 발생 시 
-
 
     protected virtual void MoveToNextPos() { }
 }
