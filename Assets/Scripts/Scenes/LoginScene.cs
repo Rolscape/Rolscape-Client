@@ -11,7 +11,7 @@ public class LoginScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Login;
-        Managers.UI.ShowPopupUI<UI_Nickname>();
+        Managers.UI.ShowPopupUI<UI_Login>();
     }
 
     private void Update()

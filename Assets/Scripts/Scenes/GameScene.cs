@@ -9,7 +9,8 @@ public class GameScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Game;
-        
+
+        Managers.Resource.Instantiate("Player");
         Managers.UI.ShowPopupUI<UI_Button>();
     }
     

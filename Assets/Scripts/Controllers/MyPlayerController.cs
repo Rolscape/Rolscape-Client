@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class MyPlayerController : PlayerController
 {
+    public string NickName { get; set; }
     // Start is called before the first frame update
     protected override void Init()
     {
@@ -15,6 +16,8 @@ public class MyPlayerController : PlayerController
         Managers.Input.KeyAction += OnKeyboard;
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
+
+        Managers.UI.MakeWorldSpaceUI<UI_Nickname>(transform);
     }
 
     protected override void UpdateController()

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Nickname : UI_Popup
+public class UI_Login : UI_Popup
 {
     enum Buttons
     {
@@ -52,10 +52,13 @@ public class UI_Nickname : UI_Popup
     {
         // TODO Null Check And Setting nickname
         String text = GetText((int)Texts.InputText).text;
-        
-        if(text.Length > 1)
-            Managers.Scene.LoadScene(Define.Scene.Game);
 
+        if (text.Length > 1)
+        {
+            Managers.Scene.LoadScene(Define.Scene.Game);
+            
+        }
+        
         // if (string.IsNullOrEmpty(text) == false)
         // {
         //     Debug.Log($"nickname: {text}, Length: {text.Length}");
