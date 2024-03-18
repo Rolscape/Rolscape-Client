@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class MyPlayerController : PlayerController
 {
-    public string NickName { get; set; }
+    
     // Start is called before the first frame update
     protected override void Init()
     {
