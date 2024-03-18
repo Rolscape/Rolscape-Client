@@ -10,6 +10,13 @@ public class Police : Player
         _isLeader = true;
     }
 
+    public override void Mission1Start()
+    {
+        base.Mission1Start();
+
+        Managers.UI.ShowPopupUI<UI_TM1Police>();
+    }
+
     void Start()
     {
         

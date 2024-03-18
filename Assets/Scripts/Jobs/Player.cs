@@ -10,9 +10,14 @@ public class Player : MonoBehaviour
     {
         
     }
-    void Start()
+
+    public virtual void Mission1Start()
     {
         
+    }
+    void Start()
+    {
+        Init();   
     }
 
     void Update()

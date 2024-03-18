@@ -9,13 +9,11 @@ public class Teacher : Player
         base.Init();
         _isLeader = false;
     }
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
