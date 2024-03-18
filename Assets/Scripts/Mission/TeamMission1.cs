@@ -33,7 +33,6 @@ public class TeamMission1 : MonoBehaviour
     {
         T player = go.GetComponent<T>();
         player.Mission1Start();
-
         
         Managers.Input.KeyAction -= OnKeyboard;
         Managers.Input.KeyAction += OnKeyboard;
@@ -60,6 +59,7 @@ public class TeamMission1 : MonoBehaviour
         
         if (Managers.Mission.CheckMoveNextGrid(dir))
         {
+            
         }
         else
         {

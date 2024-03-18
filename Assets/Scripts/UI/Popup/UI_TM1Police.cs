@@ -17,7 +17,7 @@ public class UI_TM1Police : UI_Popup
    {
       base.Init();
       
-      Managers.Mission._grid = new GameObject[gridSizeX * gridSizeY];
+      Managers.Mission._grid = new Image[gridSizeX * gridSizeY];
       CreateGrid();
       Managers.Mission._CurrentTile = Managers.Mission._grid[0];
    }
@@ -45,8 +45,12 @@ public class UI_TM1Police : UI_Popup
          cellGO.transform.SetParent(gridGo.transform);
          Image image = cellGO.AddComponent<Image>();
          image.color = Color.white;
-
-         Managers.Mission._grid[i] = cellGO;
+         if(i==Managers.Mission._destPos1)
+            image.color = Color.blue;   
+         if(i==Managers.Mission._destPos2)
+            image.color = Color.black;
+         
+         Managers.Mission._grid[i] = image;
       }
 
       // Grid Layout Group의 크기 설정

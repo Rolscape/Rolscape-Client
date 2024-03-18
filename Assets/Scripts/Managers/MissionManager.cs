@@ -4,22 +4,29 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class MissionManager
 {
     public Action<Collider> TriggerEnter = null;
     public Action<Collider> TriggerExit = null;
     
-    public GameObject[] _grid;
-    public GameObject _CurrentTile;
+    public Image[] _grid;
+    public Image _CurrentTile;
     
     private int gridSizeX = 9;
     private int gridSizeY = 6;
     public int _curIdx;
+    public int _destPos1;
+    public int _destPos2;
 
     public void Init()
     {
         _curIdx = 0;
+
+        _destPos1 = Random.Range(0, gridSizeY * gridSizeX);
+        _destPos2 = Random.Range(0, gridSizeY * gridSizeX);
+        
     }
 
     public void CLear()
@@ -61,8 +68,8 @@ public class MissionManager
 
     public void MoveNextGrid(int idx)
     {
-        _grid[_curIdx].GetComponent<Image>().color = Color.white;
-        _grid[idx].GetComponent<Image>().color = Color.red;
+        _grid[_curIdx].color = Color.white;
+        _grid[idx].color = Color.red;
         _curIdx = idx;
         
     }
