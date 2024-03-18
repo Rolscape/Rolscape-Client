@@ -101,14 +101,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-    // 키보드 이벤트 발생 시 
-
-    protected virtual void MoveToNextPos() { }
-=======
     protected virtual void MoveToNextPos()
     {
         _isUpdated = false;
     }
->>>>>>> 636b8f2a1cc04cddcd18eca1262b6aa512a3eda3
 }

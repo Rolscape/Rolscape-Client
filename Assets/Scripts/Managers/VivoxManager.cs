@@ -184,5 +184,14 @@ public class VivoxManager
         await VivoxService.Instance.SendChannelTextMessageAsync(_channelName, text);
     }
 
+    public async  MessageHistory(int requestSize = 10)
+    {
+        var messages = await VivoxService.Instance.GetChannelTextMessageHistoryAsync(_channelName, requestSize);
+        foreach (var message in messages)
+        {
+            Debug.Log(message);
+        }
+    }
+
     // 채팅 받는 것은 ChannelMessagedReceived에 추가해놔야함.
 }
