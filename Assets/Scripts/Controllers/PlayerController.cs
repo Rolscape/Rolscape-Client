@@ -6,9 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public string NickName { get; set; }
     // Start is called before the first frame update
-
-    [SerializeField]
-    protected float _speed = 10.0f;
+    
+    protected float _speed = 20.0f;
     
     protected CharacterController _characterController;
 

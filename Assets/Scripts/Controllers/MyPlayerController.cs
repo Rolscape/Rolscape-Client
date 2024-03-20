@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class MyPlayerController : PlayerController
 {
+    private Animator _animator;
     
     // Start is called before the first frame update
     protected override void Init()
@@ -33,6 +34,7 @@ public class MyPlayerController : PlayerController
     void Start()
     {
         Init();
+        _animator = gameObject.GetComponent<Animator>();
     }
 
     void OnKeyboard()
@@ -47,6 +49,11 @@ public class MyPlayerController : PlayerController
         {
             _characterController.Move(dir * (_speed * Time.deltaTime));
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.3f);
+            _animator.SetFloat("Speed", _speed);
+        }
+        else
+        {
+            _animator.SetFloat("Speed", 0.0f);
         }
     }
 
