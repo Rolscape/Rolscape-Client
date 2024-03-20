@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public Define.CameraMode _mode = Define.CameraMode.QuarterView;
 
-    private Vector3 _delta = new Vector3(0.0f, 20.0f, -3.0f);
+    private Vector3 _delta = new Vector3(0.0f, 20.0f, -10.0f);
     
     [SerializeField]
     private GameObject _player = null;
@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
 
             _player = go;    
         }
-        transform.rotation = Quaternion.Euler(70.0f, -1.0f, 0.0f);
+        transform.rotation = Quaternion.Euler(55.0f, -1.0f, 0.0f);
     }
     
     void Start()
