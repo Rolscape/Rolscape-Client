@@ -7,18 +7,24 @@ using UnityEngine;
 public class MyPlayerController : PlayerController
 {
     private Animator _animator;
+    private bool _isLeader;
     
     // Start is called before the first frame update
     protected override void Init()
     {
         base.Init();
-
+        
+        _animator = gameObject.GetComponent<Animator>();
+        
         Managers.Input.KeyAction -= OnKeyboard;
         Managers.Input.KeyAction += OnKeyboard;
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
 
         Managers.UI.MakeWorldSpaceUI<UI_Nickname>(transform);
+        
+        Player player = GetComponent<Player>();
+        _isLeader = player._isLeader;
     }
 
     protected override void UpdateController()
@@ -34,7 +40,7 @@ public class MyPlayerController : PlayerController
     void Start()
     {
         Init();
-        _animator = gameObject.GetComponent<Animator>();
+        
     }
 
     void OnKeyboard()
@@ -46,7 +52,11 @@ public class MyPlayerController : PlayerController
 
         if (Input.GetKey(KeyCode.M))
         {
-            // showpopup minimap
+            // TODO 중복으로 열리지 않게
+            if (_isLeader)
+                Managers.UI.ShowPopupUI<UI_LeaderMap>();
+            else
+                Managers.UI.ShowPopupUI<UI_CrewMap>();
         }
         
         float h = Input.GetAxis("Horizontal");

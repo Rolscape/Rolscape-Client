@@ -23,11 +23,8 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void Init()
     {
-        if (_characterController == null)
-        {
-            gameObject.AddComponent<CharacterController>();
-        }
-        _characterController = GetComponent<CharacterController>();
+        _characterController = Util.GetOrAddComponent<CharacterController>(gameObject);
+       
     }
     // Update is called once per frame
     private void Update()

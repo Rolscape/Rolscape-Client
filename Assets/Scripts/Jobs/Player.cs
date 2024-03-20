@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    protected bool _isLeader;
+    public bool _isLeader;
 
     protected virtual void Init()
     {
