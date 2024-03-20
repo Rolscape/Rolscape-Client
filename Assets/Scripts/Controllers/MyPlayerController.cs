@@ -39,6 +39,16 @@ public class MyPlayerController : PlayerController
 
     void OnKeyboard()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Managers.UI.ClosePopupUI();
+        }
+
+        if (Input.GetKey(KeyCode.M))
+        {
+            // showpopup minimap
+        }
+        
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
         
