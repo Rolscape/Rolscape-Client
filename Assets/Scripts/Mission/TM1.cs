@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class TeamMission1 : MonoBehaviour
+public class TM1 : MonoBehaviour
 {
-    public void Init()
+    protected Vector3 _dir;
+    protected virtual void Init()
     {
         Managers.Mission.TriggerEnter -= OnEnter;
         Managers.Mission.TriggerEnter += OnEnter;
         Managers.Mission.TriggerExit -= OnExit;
         Managers.Mission.TriggerExit += OnExit;
+       
     }
 
     private void Start()
@@ -21,7 +23,9 @@ public class TeamMission1 : MonoBehaviour
 
     void OnEnter(Collider other)
     {
-        Mission1Start<Police>(other.gameObject);
+        // TEMP code
+        // TODO Send to Server trigger
+        Managers.Mission.Mission1Start();
     }
 
     void OnExit(Collider other)
@@ -29,44 +33,42 @@ public class TeamMission1 : MonoBehaviour
         
     }
 
-    public void Mission1Start<T>(GameObject go) where T : Player
+    protected virtual void Mission1Start()
     {
+        // TODO 1번만 실행되게 
         Debug.Log("mission start");
-        T player = go.GetComponent<T>();
-        player.Mission1Start();
         
+        // TODO Player 움직임 봉쇄
         Managers.Input.KeyAction -= OnKeyboard;
         Managers.Input.KeyAction += OnKeyboard;
     }
 
     public void Clear()
     {
+        // TODO Player 움직임 복원
         Managers.Input.KeyAction -= OnKeyboard;
         Managers.Mission.TriggerEnter -= OnEnter;
         Managers.Mission.TriggerExit -= OnExit;
     }
     
     
-    void OnKeyboard()
+    protected virtual void OnKeyboard()
     {
-        if (Input.anyKeyDown == false)
+        if (Input.anyKeyDown)
             return;
         
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         
-        Vector3 dir = new Vector3(h, 0, v).normalized;
-
+        _dir = new Vector3(h, 0, v).normalized;
         
-        if (Managers.Mission.CheckMoveNextGrid(dir))
-        {
-            
-        }
-        else
-        {
-                
-        }
-        
-        
+        // if (Managers.Mission.CheckMoveNextGrid(dir))
+        // {
+        //     
+        // }
+        // else
+        // {
+        //         
+        // }
     }
 }

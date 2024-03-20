@@ -78,7 +78,7 @@ public class Managers : MonoBehaviour
             s_instance._data.Init();
             s_instance._pool.Init();
             s_instance._sound.Init();
-            s_instance._mission.Init();
+            //s_instance._mission.Init();
 
             Network.Init();
         }
@@ -92,7 +92,7 @@ public class Managers : MonoBehaviour
         Scene.Clear();
         UI.CLear();
         Pool.Clear();
-        Mission.CLear();
+        //Mission.CLear();
     }
 
 }
