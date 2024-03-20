@@ -12,7 +12,7 @@ public class GameScene : BaseScene
 
         Managers.Resource.Instantiate("Player");
         // Managers.UI.ShowPopupUI<UI_Button>();
-        Managers.UI.ShowPopupUI<UI_TM1Police>();
+        //Managers.UI.ShowPopupUI<UI_TM1Police>();
     }
     
     public override void Clear()

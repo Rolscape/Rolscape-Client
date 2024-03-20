@@ -31,6 +31,7 @@ public class TeamMission1 : MonoBehaviour
 
     public void Mission1Start<T>(GameObject go) where T : Player
     {
+        Debug.Log("mission start");
         T player = go.GetComponent<T>();
         player.Mission1Start();
         
