@@ -40,15 +40,15 @@ public class UI_Button : UI_Scene
         
         Bind<Button>(typeof(Buttons));
         Bind<TextMeshProUGUI>(typeof(Texts));
-        Bind<Image>(typeof(Images));
+        //Bind<Image>(typeof(Images));
 
         GetText((int)Texts.PointText).text = "Settings";
         GetText((int)Texts.TimerText).text = "Timer";
         
         GetButton((int)Buttons.PointButton).gameObject.BindEvent(OnButtonClicked);
 
-        GameObject go = GetImage((int)Images.ItemIcon).gameObject;
-        BindEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag );
+        // GameObject go = GetImage((int)Images.ItemIcon).gameObject;
+        // BindEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag );
     }
     
     public void OnButtonClicked(PointerEventData data)
