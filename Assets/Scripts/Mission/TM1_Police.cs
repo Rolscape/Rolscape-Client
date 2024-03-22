@@ -2,32 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TM1_Police : TM1
+public class TM1_Police : UI_TM1
 {
     private UI_TM1Police _ui;
+    
+    private int _teacherDestPos;
+    private int _studentDestPos;
 
-    protected override void Init()
+    public override void Init()
     {
         base.Init();
         
-       
+        
+        _teacherDestPos = Random.Range(0, 45);
+        SetDestPos(_teacherDestPos);
     }
 
     void Start()
     {
         Init();
-    }
-
-    protected override void Mission1Start()
-    {
-        base.Mission1Start();
-
-        _ui = Managers.UI.ShowPopupUI<UI_TM1Police>();
-    }
-
-    protected override void OnKeyboard()
-    {
-    
     }
     
     public void CheckMoveNextGrid(int nextPos)
@@ -35,5 +28,11 @@ public class TM1_Police : TM1
         // TODO Add job type
 
         
+    }
+    
+    
+    public void SetDestPos(int idx)
+    {
+        _grid[idx].color = Color.green;
     }
 }

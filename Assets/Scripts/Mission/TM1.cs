@@ -53,8 +53,6 @@ public class TM1 : MonoBehaviour
     
     protected virtual void OnKeyboard()
     {
-        if (Input.anyKeyDown)
-            return;
         
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
