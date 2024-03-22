@@ -11,12 +11,35 @@ public class MissionManager
     public Action<Collider> TriggerEnter = null;
     public Action<Collider> TriggerExit = null;
 
-    public Action _mission1 = null;
-    
+    public Action Mission1Start = null;
+    public Action Mission1End = null;
+    public Action<int> MoveTile = null;
 
-    public void Mission1Start()
+    public void OnTriggerEnter(Collider other)
     {
-        if(_mission1!=null)
-            _mission1.Invoke();
+        TriggerEnter.Invoke(other);
+    }
+    
+    public void OnTriggerExit(Collider other)
+    {
+        TriggerExit.Invoke(other);
+    }
+
+    public void MoveTileInvoke(int nextPos)
+    {
+        if(MoveTile!=null)
+            MoveTile.Invoke(nextPos);
+    }
+    
+    public void Mission1StartInvoke()
+    {
+        if(Mission1Start!=null)
+            Mission1Start.Invoke();
+    }
+
+    public void Mission1EndInvoke()
+    {
+        if(Mission1End!=null)
+            Mission1End.Invoke();
     }
 }
