@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestMyPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 7857681917871523536, guid: 00317e3b953be2741ac8d11af3e9cf13, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

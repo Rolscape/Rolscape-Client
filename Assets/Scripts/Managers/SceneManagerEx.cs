@@ -7,10 +7,22 @@ public class SceneManagerEx
 {
     public BaseScene CurrentScene { get { return GameObject.FindObjectOfType<BaseScene>(); } }
     
+    public Scene UnLoadScene { get; set; }
     public void LoadScene(Define.Scene type)
     {
         Managers.Clear();
-        SceneManager.LoadScene(GetSceneName(type));
+        SceneManager.sceneLoaded += OnGameSceneLoaded;
+        SceneManager.LoadScene(GetSceneName(type), LoadSceneMode.Additive);
+    }
+
+    public void UnloadScene(Define.Scene type)
+    {
+        //Scene scene = SceneManager.GetSceneByName(GetSceneName(type));
+        AsyncOperation operation = SceneManager.UnloadSceneAsync(UnLoadScene);
+        while (operation.isDone)
+        {
+
+        }
     }
 
     string GetSceneName(Define.Scene type)
@@ -28,5 +40,12 @@ public class SceneManagerEx
     {
         LoadScene(Define.Scene.Game);
         UI_Nickname.NickName = name;
+    }
+
+    public void OnGameSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnGameSceneLoaded;
+        UnLoadScene = SceneManager.GetActiveScene();
+        SceneManager.SetActiveScene(scene);
     }
 }

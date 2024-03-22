@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager
 {
     public GameObject MyPlayer { get; set; }
+    public GameObject Camera { get; set; }
     public MyPlayerController MyPlayerController { get; set; }
-    Dictionary<UInt32, GameObject> _players = new Dictionary<UInt32, GameObject>();
+    Dictionary<uint, GameObject> _players = new Dictionary<uint, GameObject>();
 
     public GameObject GetPlayer(UInt32 id)
     {
@@ -16,7 +18,7 @@ public class PlayerManager
             return _players[id];
         }
         else
-        { 
+        {
             return null;
         }
     }
@@ -34,10 +36,11 @@ public class PlayerManager
             if (player == null)
                 return;
             MyPlayer = player;
-            
+
             MyPlayerController controller = player.GetComponent<MyPlayerController>();
             if (controller == null)
                 return;
+
             controller.Info = playerInfo;
             controller.SyncPos(new Vector3(playerInfo.PosX, 1, playerInfo.PosZ));
             MyPlayerController = controller;
@@ -45,6 +48,7 @@ public class PlayerManager
             GameObject camera = Managers.Resource.Instantiate("Camera/MainCamera");
             if (camera == null)
                 return;
+            Camera = camera;
             camera.GetComponent<CameraController>()._player = MyPlayer;
         }
         else
@@ -63,6 +67,19 @@ public class PlayerManager
         }
     }
 
+    public void MovePlayerToScene(Scene scene)
+    {
+        foreach (var player in _players.Values)
+        {
+            SceneManager.MoveGameObjectToScene(player, scene);
+        }
+
+        {
+            SceneManager.MoveGameObjectToScene(MyPlayer, scene);
+            SceneManager.MoveGameObjectToScene(Camera, scene);
+        }
+    }
+
     public void SyncPlayerInfo(PlayerMoveInfo moveInfo)
     {
         GameObject player = GetPlayer(moveInfo.Id);
@@ -76,5 +93,10 @@ public class PlayerManager
     public void Update()
     {
 
-    }    
+    }
+
+    public void Clear()
+    {
+        
+    }
 }
