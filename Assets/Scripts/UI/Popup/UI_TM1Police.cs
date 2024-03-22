@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Diagnostics;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UI_TM1Police : UI_TM1
 {
@@ -13,6 +14,9 @@ public class UI_TM1Police : UI_TM1
 
     public int _tCurPos;
     public int _sCurPos;
+
+    public int _teacherDestPos;
+    public int _studentDestPos;
     
     public override void Init()
     {
@@ -22,6 +26,9 @@ public class UI_TM1Police : UI_TM1
         _tColor = Color.blue;
         _tCurPos = 0;
         _sCurPos = 0;
+
+        _teacherDestPos = Random.Range(0, _gridSizeX * _gridSizeY);
+        _studentDestPos = Random.Range(0, _gridSizeX * _gridSizeY);
     }
 
     public override void MoveTile(int nextPos)
@@ -30,6 +37,13 @@ public class UI_TM1Police : UI_TM1
         // TODO 타입에 따라 색깔 다르게 
         _grid[nextPos].color = _color;
         _curPos = nextPos;
+    }
+
+    public void SetDestPos(int idx)
+    {
+        // Add type and select teacher or student then set color
+        _grid[idx].color = Color.green;
+        _grid[idx].color = Color.cyan;
     }
    
 }
