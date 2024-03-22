@@ -12,7 +12,7 @@ public class Teacher : Player
         Job = Protocol.PlayerJob.Teacher; 
 
         _tm1Student = gameObject.GetOrAddComponent<TM1_Teacher>();
-        
+    
     }
     // Start is called before the first frame update
     void Start()

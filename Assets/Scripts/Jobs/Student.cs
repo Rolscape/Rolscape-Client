@@ -8,7 +8,7 @@ public class Student : Player
     protected override void Init()
     {
         base.Init();
-        _isLeader = false;
+        _isLeader = true;
         Job = Protocol.PlayerJob.Student;
 
         _tm1Student = gameObject.GetOrAddComponent<TM1_Student>();

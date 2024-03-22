@@ -22,6 +22,7 @@ public class UI_TM1 : UI_Popup
       CreateGrid();
       _CurrentTile = _grid[0];
    }
+
    private void Start() 
    { 
       Init();

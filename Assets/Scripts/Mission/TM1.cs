@@ -10,11 +10,11 @@ public class TM1 : MonoBehaviour
     protected Vector3 _dir;
     protected virtual void Init()
     {
-        Managers.Mission.TriggerEnter -= OnEnter;
-        Managers.Mission.TriggerEnter += OnEnter;
-        Managers.Mission.TriggerExit -= OnExit;
-        Managers.Mission.TriggerExit += OnExit;
-
+        // Managers.Mission.TriggerEnter -= OnEnter;
+        // Managers.Mission.TriggerEnter += OnEnter;
+        // Managers.Mission.TriggerExit -= OnExit;
+        // Managers.Mission.TriggerExit += OnExit;
+       
     }
 
     private void Start()
@@ -26,28 +26,11 @@ public class TM1 : MonoBehaviour
     {
         // TEMP code
         // TODO Send to Server trigger
-        MyPlayerController controller = other.gameObject.GetComponent<MyPlayerController>();
-        if (controller != null)
-        {
-            C_PATH_GAME_JOIN pkt = new C_PATH_GAME_JOIN();
-            pkt.IsJoin = true;
-            pkt.PlayerInfo = controller.Info;
-            Managers.Network.Send(pkt, INGAME.PathGameJoin);
-        }
-
-        //Managers.Mission.Mission1Start();
     }
 
     void OnExit(Collider other)
     {
-        MyPlayerController controller = other.gameObject.GetComponent<MyPlayerController>();
-        if (controller != null)
-        {
-            C_PATH_GAME_JOIN pkt = new C_PATH_GAME_JOIN();
-            pkt.IsJoin = false;
-            pkt.PlayerInfo = controller.Info;
-            Managers.Network.Send(pkt, INGAME.PathGameJoin);
-        }
+
     }
 
     protected virtual void Mission1Start()

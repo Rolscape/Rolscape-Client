@@ -94,6 +94,7 @@ namespace GameServer.Packet
         {
 
         }
+
         public static void Handle_S_PATH_GAME_START(IMessage packet)
         {
             // 게임 시작하면 
@@ -101,8 +102,9 @@ namespace GameServer.Packet
             if (pkt == null)
                 return;
 
-            Managers.Mission.Mission1Start();
+            Managers.Mission.Mission1StartInvoke();
         }
+
         public static void Handle_S_PATH_GAME_MOVE(IMessage packet)
         {
             // 이동 전달 받음
@@ -110,8 +112,15 @@ namespace GameServer.Packet
             if (pkt == null)
                 return;
 
+            if (!pkt.IsSuccess)
+                return;
 
+            if (Managers.Player.MyPlayerController.Job == PlayerJob.Police)
+                Managers.Mission.PoliceMoveTileInvoke(pkt.PlayerInfo.PlayerJob, pkt.DestPos);
+            else
+                Managers.Mission.MoveTileInvoke(pkt.DestPos);
         }
+
         public static void Handle_S_PATH_GAME_END(IMessage packet)
         {
             // 게임 종료

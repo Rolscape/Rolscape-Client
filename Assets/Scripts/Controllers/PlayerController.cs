@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public PlayerJob Job
+    {
+        get { return Info.PlayerJob; }
+    }
+
     public uint ID
     {
         get { return _moveInfo.Id; }

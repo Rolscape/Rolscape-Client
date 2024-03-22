@@ -1,3 +1,4 @@
+using Protocol;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,13 +6,17 @@ using UnityEngine;
 public class TM1_Teacher : TM1
 {
     private UI_TM1Teacher _ui;
+    private bool _isMoved = false;
 
     protected override void Init()
     {
         base.Init();
         
-        Managers.Mission._mission1 -= Mission1Start;
-        Managers.Mission._mission1 += Mission1Start;
+        Managers.Mission.Mission1Start -= Mission1Start;
+        Managers.Mission.Mission1Start += Mission1Start;
+
+        Managers.Mission.MoveTile -= MoveTile;
+        Managers.Mission.MoveTile += MoveTile;
     }
 
     protected override void Mission1Start()
@@ -30,33 +35,42 @@ public class TM1_Teacher : TM1
 
     public bool CheckMoveNextGrid(Vector3 dir)
     {
-        int nextPos = _ui._curPos;
-        
+        if (_isMoved)
+            return false;
+
+        _isMoved = true;
+        C_PATH_GAME_MOVE pkt = new C_PATH_GAME_MOVE();
+        pkt.PlayerInfo = Managers.Player.MyPlayerController.Info;
+
         if (dir == Vector3.forward)
         {
-            nextPos -= _ui._gridSizeX;
+            pkt.MoveType = MiniGameMoveType.Up;
         }
         if (dir == Vector3.back)
         {
-            nextPos += _ui._gridSizeX;
-    
+            pkt.MoveType = MiniGameMoveType.Down;
         }
         if (dir == Vector3.left)
         {
-            if((nextPos) % _ui._gridSizeX != 0)
-                nextPos--;
+            pkt.MoveType = MiniGameMoveType.Left;
         }
         if (dir == Vector3.right)
         {
-            if((nextPos+1) % _ui._gridSizeX != 0)
-                nextPos++;
+            pkt.MoveType = MiniGameMoveType.Right;
         }
-    
-        if (nextPos >= 0 && nextPos < _ui._gridSizeY * _ui._gridSizeX)
-        {
-            _ui.MoveTile(nextPos);
-        }
-        
-        return false;
+
+        Managers.Network.Send(pkt, INGAME.PathGameMove);
+
+        return true;
+    }
+    public void MoveTile(Protocol.Pos destPos)
+    {
+        if (!_isMoved)
+            return;
+
+        int pos = destPos.X + (9 * destPos.Y);
+        _ui.MoveTile(pos);
+
+        _isMoved = false;
     }
 }
