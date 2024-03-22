@@ -15,7 +15,7 @@ public class TM1_Police : UI_TM1
         
         
         _teacherDestPos = Random.Range(0, 45);
-        SetDestPos(_teacherDestPos);
+        _studentDestPos = Random.Range(0, 45);
     }
 
     void Start()
@@ -33,6 +33,8 @@ public class TM1_Police : UI_TM1
     
     public void SetDestPos(int idx)
     {
+        // TODO Add Type and Select Student or Teacher  
         _grid[idx].color = Color.green;
+        _grid[idx].color = Color.cyan;
     }
 }
