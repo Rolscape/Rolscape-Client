@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerManager
 {
     public GameObject MyPlayer { get; set; }
+    public MyPlayerController MyPlayerController { get; set; }
     Dictionary<UInt32, GameObject> _players = new Dictionary<UInt32, GameObject>();
 
     public GameObject GetPlayer(UInt32 id)
@@ -29,23 +30,28 @@ public class PlayerManager
         {
             Debug.Log("Player Info");
 
-            GameObject player = Managers.Resource.Instantiate("Player");
+            GameObject player = Managers.Resource.Instantiate("TestMyPlayer");
             if (player == null)
                 return;
             MyPlayer = player;
             
-            PlayerController controller = player.GetComponent<PlayerController>();
+            MyPlayerController controller = player.GetComponent<MyPlayerController>();
+            if (controller == null)
+                return;
             controller.Info = playerInfo;
             controller.SyncPos(new Vector3(playerInfo.PosX, 1, playerInfo.PosZ));
+            MyPlayerController = controller;
 
-            GameObject camera = GameObject.Find("Main Camera");
+            GameObject camera = Managers.Resource.Instantiate("Camera/MainCamera");
+            if (camera == null)
+                return;
             camera.GetComponent<CameraController>()._player = MyPlayer;
         }
         else
         {
             // 캐릭터 Spawn
             // 0 0 0
-            GameObject player = Managers.Resource.Instantiate("AnotherPlayer");
+            GameObject player = Managers.Resource.Instantiate("TestAnotherPlayer");
             if (player == null)
                 return;
 
@@ -54,7 +60,6 @@ public class PlayerManager
             PlayerController controller = player.GetComponent<PlayerController>();
             controller.Info = playerInfo;
             controller.SyncPos(new Vector3(playerInfo.PosX, 1, playerInfo.PosZ));
-
         }
     }
 

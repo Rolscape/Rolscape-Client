@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class MyPlayerController : PlayerController
 {
+    private Animator _animator;
+    private bool _isLeader;
+    
     // Start is called before the first frame update
     private const float TickTime = 0.1f;
     private float _lastTick = TickTime;
@@ -14,11 +17,18 @@ public class MyPlayerController : PlayerController
     protected override void Init()
     {
         base.Init();
-
+        
+        _animator = gameObject.GetComponent<Animator>();
+        
         Managers.Input.KeyAction -= OnKeyboard;
         Managers.Input.KeyAction += OnKeyboard;
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.MouseAction += OnMouseClicked;
+
+        Managers.UI.MakeWorldSpaceUI<UI_Nickname>(transform);
+        
+        //Player player = GetComponent<Player>();
+        //_isLeader = player._isLeader;
 
         _moveInfo.Type = MoveType.MoveIdle;
         //Managers.Resource.Instantiate("UI/UI_Button");
@@ -47,10 +57,25 @@ public class MyPlayerController : PlayerController
     void Start()
     {
         Init();
+        
     }
 
     void OnKeyboard()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Managers.UI.ClosePopupUI();
+        }
+
+        if (Input.GetKey(KeyCode.M))
+        {
+            // TODO 중복으로 열리지 않게
+            if (_isLeader)
+                Managers.UI.ShowPopupUI<UI_LeaderMap>();
+            else
+                Managers.UI.ShowPopupUI<UI_CrewMap>();
+        }
+        
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
@@ -59,7 +84,6 @@ public class MyPlayerController : PlayerController
         
         if (dir != Vector3.zero)
         {
-
             _characterController.Move(dir * (_speed * Time.deltaTime));
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.3f);
 
@@ -69,6 +93,8 @@ public class MyPlayerController : PlayerController
             {
                 SendMovePacket();
             }
+
+            _animator.SetFloat("Speed", _speed);
         }
         else
         {
@@ -76,6 +102,8 @@ public class MyPlayerController : PlayerController
             {
                 SendStopPacket();
             }
+
+            _animator.SetFloat("Speed", 0.0f);
         }
     }
 

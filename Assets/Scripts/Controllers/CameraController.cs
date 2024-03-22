@@ -6,19 +6,27 @@ public class CameraController : MonoBehaviour
 {
     public Define.CameraMode _mode = Define.CameraMode.QuarterView;
 
-    [SerializeField] private Vector3 _delta = new Vector3(0.0f, 10.0f, -3.0f);
+    private Vector3 _delta = new Vector3(0.0f, 20.0f, -10.0f);
     
     [SerializeField]
     public GameObject _player = null;
 
+    public void Init()
+    {
+        if (_player == null)
+        {
+            GameObject go = GameObject.Find("Player");
+            if (go == null)
+                Managers.Resource.Instantiate("Player");
+
+            _player = go;    
+        }
+        transform.rotation = Quaternion.Euler(55.0f, -1.0f, 0.0f);
+    }
+    
     void Start()
     {
-        // TODO Player 찾아서 넣어주기
-        // if (_player == null)
-        // {
-        //     _player = GameObject.Find("@Player");
-        // }
-       transform.rotation = Quaternion.Euler(70.0f, -1.0f, 0.0f);
+        Init();
     }
 
     void LateUpdate()

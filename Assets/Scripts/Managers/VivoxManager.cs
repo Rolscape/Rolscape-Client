@@ -184,7 +184,7 @@ public class VivoxManager
         await VivoxService.Instance.SendChannelTextMessageAsync(_channelName, text);
     }
 
-    public async  MessageHistory(int requestSize = 10)
+    public async void MessageHistory(int requestSize = 10)
     {
         var messages = await VivoxService.Instance.GetChannelTextMessageHistoryAsync(_channelName, requestSize);
         foreach (var message in messages)

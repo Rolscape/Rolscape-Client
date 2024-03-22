@@ -34,14 +34,14 @@ namespace GameServer.Packet
         {
             UnityEngine.Debug.Log("On Connected");
 
-            {
-                Debug.Log("Game Start");
-                C_ENTER_GAME enterGame = new C_ENTER_GAME();
-                enterGame.Name = "hello";
-                enterGame.RoomId = "AAAA";
+            //{
+            //    Debug.Log("Game Start");
+            //    C_ENTER_GAME enterGame = new C_ENTER_GAME();
+            //    enterGame.Name = "hello";
+            //    enterGame.RoomId = "AAAA";
 
-                Managers.Network.Send(enterGame, INGAME.EnterGame);
-            }
+            //    Managers.Network.Send(enterGame, INGAME.EnterGame);
+            //}
             //Managers.Network.StartRTT();
         }
 

@@ -40,8 +40,14 @@ namespace GameServer.ServerCore
             _handle.Add((UInt16)INGAME.Despawn, ClientPacketHandler.Handle_S_DESPAWN);
             _onRecv.Add((UInt16)INGAME.Move, MakePacket<S_MOVE>);
             _handle.Add((UInt16)INGAME.Move, ClientPacketHandler.Handle_S_MOVE);
-            _onRecv.Add((UInt16)INGAME.PlayerAction, MakePacket<S_PLAYER_ACTION>);
-            _handle.Add((UInt16)INGAME.PlayerAction, ClientPacketHandler.Handle_S_PLAYER_ACTION);
+            _onRecv.Add((UInt16)INGAME.PathGameJoin, MakePacket<S_PATH_GAME_JOIN>);
+            _handle.Add((UInt16)INGAME.PathGameJoin, ClientPacketHandler.Handle_S_PATH_GAME_JOIN);
+            _onRecv.Add((UInt16)INGAME.PathGameStart, MakePacket<S_PATH_GAME_START>);
+            _handle.Add((UInt16)INGAME.PathGameStart, ClientPacketHandler.Handle_S_PATH_GAME_START);
+            _onRecv.Add((UInt16)INGAME.PathGameMove, MakePacket<S_PATH_GAME_MOVE>);
+            _handle.Add((UInt16)INGAME.PathGameMove, ClientPacketHandler.Handle_S_PATH_GAME_MOVE);
+            _onRecv.Add((UInt16)INGAME.PathGameEnd, MakePacket<S_PATH_GAME_END>);
+            _handle.Add((UInt16)INGAME.PathGameEnd, ClientPacketHandler.Handle_S_PATH_GAME_END);
 
         }
 

@@ -23,4 +23,10 @@ public class SceneManagerEx
     {
         CurrentScene.Clear();
     }
+
+    public void LoadGameScene(string name)
+    {
+        LoadScene(Define.Scene.Game);
+        UI_Nickname.NickName = name;
+    }
 }

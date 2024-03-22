@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class UI_Button : UI_Popup
+public class UI_Button : UI_Scene
 {
     enum Buttons
     {

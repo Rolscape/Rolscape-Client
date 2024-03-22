@@ -22,7 +22,8 @@ public class Managers : MonoBehaviour
     private SceneManagerEx _scene = new SceneManagerEx();
     private UIManager _ui = new UIManager();
     private SoundManager _sound = new SoundManager();
-
+    private MissionManager _mission = new MissionManager();
+    
     // Network Manager
     private NetworkManager networkManager = new NetworkManager();
     private VivoxManager vivoxManager = new VivoxManager();
@@ -42,10 +43,8 @@ public class Managers : MonoBehaviour
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static SceneManagerEx Scene { get { return Instance._scene; } }
-    public static SoundManager Sound
-    {
-        get { return Instance._sound; }
-    }
+    public static SoundManager Sound { get { return Instance._sound; } }
+    public static MissionManager Mission { get { return Instance._mission; } }
 
     public static NetworkManager Network { get { return Instance._network; } }
     public static VivoxManager Vivox { get { return Instance._vivox; } }
@@ -84,6 +83,7 @@ public class Managers : MonoBehaviour
             s_instance._data.Init();
             s_instance._pool.Init();
             s_instance._sound.Init();
+            //s_instance._mission.Init();
 
             Network.Init();
         }
@@ -96,6 +96,7 @@ public class Managers : MonoBehaviour
         Scene.Clear();
         UI.CLear();
         Pool.Clear();
+        //Mission.CLear();
     }
 
 }

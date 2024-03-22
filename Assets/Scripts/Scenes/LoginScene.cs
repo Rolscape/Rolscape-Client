@@ -11,13 +11,12 @@ public class LoginScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Login;
+        Managers.UI.ShowPopupUI<UI_Login>();
     }
 
     private void Update()
     {
-        // Temp Code
-        if (Input.GetKeyDown(KeyCode.Q))
-            Managers.Scene.LoadScene(Define.Scene.Game);
+            
     }
 
     public override void Clear()

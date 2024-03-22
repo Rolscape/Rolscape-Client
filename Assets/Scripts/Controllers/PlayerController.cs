@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public string NickName { get; set; }
     // Start is called before the first frame update
-
-    [SerializeField]
-    protected float _speed = 10.0f;
-
-    protected CharacterController _characterController;
-    protected PlayerMoveInfo _moveInfo = new PlayerMoveInfo();
+    
+    protected float _speed = 20.0f;
+    
+    protected CharacterController   _characterController;
+    protected PlayerMoveInfo        _moveInfo = new PlayerMoveInfo();
+    protected PlayerInfo            _info = new PlayerInfo();
     private Vector3 _destPos = new Vector3(0, 0, 0);
 
     protected bool _isUpdated = false;
@@ -38,11 +39,13 @@ public class PlayerController : MonoBehaviour
     {
         set
         {
+            _info = value;
             _moveInfo.Id = value.Id;
             _moveInfo.PosX = value.PosX;
             _moveInfo.PosZ = value.PosZ;
             _moveInfo.Type = MoveType.MoveIdle;
         }
+        get { return _info; }
     }
 
     public float Speed
@@ -63,11 +66,8 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void Init()
     {
-        if (_characterController == null)
-        {
-            gameObject.AddComponent<CharacterController>();
-        }
-        _characterController = GetComponent<CharacterController>();
+        _characterController = Util.GetOrAddComponent<CharacterController>(gameObject);
+       
     }
     
     // Update is called once per frame

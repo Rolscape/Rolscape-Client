@@ -24,16 +24,24 @@ namespace Protocol {
     static EnumReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgpFbnVtLnByb3RvEghQcm90b2NvbCqPAQoGSU5HQU1FEg8KC1BJTkdfU09D",
+            "CgpFbnVtLnByb3RvEghQcm90b2NvbCrMAQoGSU5HQU1FEg8KC1BJTkdfU09D",
             "S0VUEAASDgoKRU5URVJfR0FNRRABEg8KC0NSRUFURV9HQU1FEAISDgoKR0FN",
             "RV9TVEFSVBADEg4KCkxFQVZFX0dBTUUQBBIJCgVTUEFXThAFEgsKB0RFU1BB",
-            "V04QBhIICgRNT1ZFEAcSEQoNUExBWUVSX0FDVElPThAIKhYKCkFjdGlvblR5",
-            "cGUSCAoESURMRRAAKkUKCE1vdmVUeXBlEg0KCU1PVkVfTk9ORRAAEg0KCU1P",
-            "VkVfSURMRRABEg0KCU1PVkVfV0FMSxACEgwKCE1PVkVfUlVOEAMqKAoIVGlt",
-            "ZVR5cGUSDQoJQ0hFQ0tfUlRUEAASDQoJU1lOQ19USU1FEAFiBnByb3RvMw=="));
+            "V04QBhIICgRNT1ZFEAcSEgoOUEFUSF9HQU1FX0pPSU4QCBITCg9QQVRIX0dB",
+            "TUVfU1RBUlQQCRISCg5QQVRIX0dBTUVfTU9WRRAKEhEKDVBBVEhfR0FNRV9F",
+            "TkQQCyo7CglQbGF5ZXJKb2ISCAoETk9ORRAAEgsKB1NUVURFTlQQARILCgdU",
+            "RUFDSEVSEAISCgoGUE9MSUNFEAMqRQoITW92ZVR5cGUSDQoJTU9WRV9OT05F",
+            "EAASDQoJTU9WRV9JRExFEAESDQoJTU9WRV9XQUxLEAISDAoITU9WRV9SVU4Q",
+            "AyooCghUaW1lVHlwZRINCglDSEVDS19SVFQQABINCglTWU5DX1RJTUUQASoh",
+            "Cg5TaW5nbGVHYW1lVHlwZRIPCgtTSU5HTEVfSURMRRAAKjkKDU11bHRpR2Ft",
+            "ZVR5cGUSDgoKTVVMVElfSURMRRAAEhgKFE1VTFRJX0ZJTkRfUEFUSF9HQU1F",
+            "EAEqVgoOR2FtZUFjdGlvblR5cGUSCgoGSU5TSURFEAASCwoHT1VUU0lERRAB",
+            "EgkKBVNUQVJUEAISBwoDRU5EEAMSCwoHU1VDQ0VTUxAEEgoKBkZBSUxFRBAF",
+            "KjkKEE1pbmlHYW1lTW92ZVR5cGUSBgoCVVAQABIICgRET1dOEAESCAoETEVG",
+            "VBACEgkKBVJJR0hUEANiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.INGAME), typeof(global::Protocol.ActionType), typeof(global::Protocol.MoveType), typeof(global::Protocol.TimeType), }, null, null));
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.INGAME), typeof(global::Protocol.PlayerJob), typeof(global::Protocol.MoveType), typeof(global::Protocol.TimeType), typeof(global::Protocol.SingleGameType), typeof(global::Protocol.MultiGameType), typeof(global::Protocol.GameActionType), typeof(global::Protocol.MiniGameMoveType), }, null, null));
     }
     #endregion
 
@@ -48,11 +56,17 @@ namespace Protocol {
     [pbr::OriginalName("SPAWN")] Spawn = 5,
     [pbr::OriginalName("DESPAWN")] Despawn = 6,
     [pbr::OriginalName("MOVE")] Move = 7,
-    [pbr::OriginalName("PLAYER_ACTION")] PlayerAction = 8,
+    [pbr::OriginalName("PATH_GAME_JOIN")] PathGameJoin = 8,
+    [pbr::OriginalName("PATH_GAME_START")] PathGameStart = 9,
+    [pbr::OriginalName("PATH_GAME_MOVE")] PathGameMove = 10,
+    [pbr::OriginalName("PATH_GAME_END")] PathGameEnd = 11,
   }
 
-  public enum ActionType {
-    [pbr::OriginalName("IDLE")] Idle = 0,
+  public enum PlayerJob {
+    [pbr::OriginalName("NONE")] None = 0,
+    [pbr::OriginalName("STUDENT")] Student = 1,
+    [pbr::OriginalName("TEACHER")] Teacher = 2,
+    [pbr::OriginalName("POLICE")] Police = 3,
   }
 
   public enum MoveType {
@@ -65,6 +79,31 @@ namespace Protocol {
   public enum TimeType {
     [pbr::OriginalName("CHECK_RTT")] CheckRtt = 0,
     [pbr::OriginalName("SYNC_TIME")] SyncTime = 1,
+  }
+
+  public enum SingleGameType {
+    [pbr::OriginalName("SINGLE_IDLE")] SingleIdle = 0,
+  }
+
+  public enum MultiGameType {
+    [pbr::OriginalName("MULTI_IDLE")] MultiIdle = 0,
+    [pbr::OriginalName("MULTI_FIND_PATH_GAME")] MultiFindPathGame = 1,
+  }
+
+  public enum GameActionType {
+    [pbr::OriginalName("INSIDE")] Inside = 0,
+    [pbr::OriginalName("OUTSIDE")] Outside = 1,
+    [pbr::OriginalName("START")] Start = 2,
+    [pbr::OriginalName("END")] End = 3,
+    [pbr::OriginalName("SUCCESS")] Success = 4,
+    [pbr::OriginalName("FAILED")] Failed = 5,
+  }
+
+  public enum MiniGameMoveType {
+    [pbr::OriginalName("UP")] Up = 0,
+    [pbr::OriginalName("DOWN")] Down = 1,
+    [pbr::OriginalName("LEFT")] Left = 2,
+    [pbr::OriginalName("RIGHT")] Right = 3,
   }
 
   #endregion
