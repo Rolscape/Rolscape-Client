@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TM1_Teacher : TM1
@@ -12,6 +13,11 @@ public class TM1_Teacher : TM1
         
         Managers.Mission.Mission1Start -= Mission1Start;
         Managers.Mission.Mission1Start += Mission1Start;
+    }
+
+    void Start()
+    {
+        Init();
     }
 
     protected override void Mission1Start()
@@ -54,6 +60,7 @@ public class TM1_Teacher : TM1
     
         if (nextPos >= 0 && nextPos < _ui._gridSizeY * _ui._gridSizeX)
         {
+            // TODO Change call MoveTile to Action
             _ui.MoveTile(nextPos);
         }
         

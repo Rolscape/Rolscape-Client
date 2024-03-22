@@ -2,17 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TM1_Police : MonoBehaviour
+public class TM1_Police : TM1
 {
-    // Start is called before the first frame update
-    void Start()
+    private UI_TM1Police _ui;
+
+    protected override void Init()
     {
+        base.Init();
         
+       
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
+        Init();
+    }
+
+    protected override void Mission1Start()
+    {
+        base.Mission1Start();
+
+        _ui = Managers.UI.ShowPopupUI<UI_TM1Police>();
+    }
+
+    protected override void OnKeyboard()
+    {
+    
+    }
+    
+    public void CheckMoveNextGrid(int nextPos)
+    {
+        // TODO Add job type
+
         
     }
 }

@@ -54,8 +54,7 @@ public class PlayerController : MonoBehaviour
             //State = CreatureState.Moving;
         }
     }
-
-    // Ű���� �̺�Ʈ �߻� �� 
+    
 
 
     protected virtual void MoveToNextPos() { }

@@ -47,8 +47,7 @@ public class TM1 : MonoBehaviour
     {
         // TODO Player 움직임 복원
         Managers.Input.KeyAction -= OnKeyboard;
-        Managers.Mission.TriggerEnter -= OnEnter;
-        Managers.Mission.TriggerExit -= OnExit;
+        
     }
     
     

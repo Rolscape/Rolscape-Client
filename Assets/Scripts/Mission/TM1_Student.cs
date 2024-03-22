@@ -54,6 +54,7 @@ public class TM1_Student : TM1
     
         if (nextPos >= 0 && nextPos < _ui._gridSizeY * _ui._gridSizeX)
         {
+            // TODO Change call MoveTile to Action
             _ui.MoveTile(nextPos);
         }
         
