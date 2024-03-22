@@ -3,6 +3,7 @@ using Protocol;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,6 +38,20 @@ public class PlayerManager
 
         if (isMine)
         {
+            switch (playerInfo.PlayerJob)
+            {
+                case PlayerJob.None:
+                    break;
+                case PlayerJob.Student:
+                    Util.GetOrAddComponent<TM1_Student>(player);
+                    break;
+                case PlayerJob.Teacher:
+                    Util.GetOrAddComponent<TM1_Teacher>(player);
+                    break;
+                case PlayerJob.Police:
+                    Util.GetOrAddComponent<TM1_Police>(player);
+                    break;
+            }
             Debug.Log(playerInfo.PlayerJob);
             MyPlayer = player;
 

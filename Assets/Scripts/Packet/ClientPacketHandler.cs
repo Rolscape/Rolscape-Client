@@ -1,11 +1,6 @@
 using Google.Protobuf;
 using Protocol;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine.SceneManagement;
+using UnityEngine;
 
 namespace GameServer.Packet
 {
@@ -106,9 +101,9 @@ namespace GameServer.Packet
                 return;
 
             if (Managers.Player.MyPlayerController.Job == PlayerJob.Police)
-                Managers.Mission.PoliceStartInvoke(pkt.DestPos);
-
-            Managers.Mission.Mission1StartInvoke();
+                Managers.Mission.Mission1StartInvoke(pkt.StartPos, pkt.DestPos);
+            else
+                Managers.Mission.Mission1StartInvoke(pkt.StartPos);
         }
 
         public static void Handle_S_PATH_GAME_MOVE(IMessage packet)
@@ -125,6 +120,7 @@ namespace GameServer.Packet
                 Managers.Mission.PoliceMoveTileInvoke(pkt.PlayerInfo.PlayerJob, pkt.DestPos);
             else
                 Managers.Mission.MoveTileInvoke(pkt.DestPos);
+
         }
 
         public static void Handle_S_PATH_GAME_END(IMessage packet)

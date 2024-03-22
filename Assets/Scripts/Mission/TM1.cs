@@ -33,13 +33,10 @@ public class TM1 : MonoBehaviour
 
     }
 
-    protected virtual void Mission1Start()
+    protected virtual void Mission1Start(PathGamePos startPos, PathGamePos destPos)
     {
         // TODO 1번만 실행되게 
         Debug.Log("mission start");
-
-        Managers.Input.ClickedKeyAction -= OnKeyboard;
-        Managers.Input.ClickedKeyAction += OnKeyboard;
 
         // TODO Player 움직임 봉쇄
         Managers.Input.IsMission = true;
@@ -48,7 +45,9 @@ public class TM1 : MonoBehaviour
     protected virtual void Mission1End(bool isSuccess)
     {
         Clear();
-        Managers.UI.ClosePopupUI(_ui);
+        Managers.UI.ClosePopupUI();
+        var ui = Managers.UI.ShowPopupUI<UI_MissionResult>();
+        ui.PrintMissionResult(isSuccess);
 
         // 성공 실패 보여주기
     }

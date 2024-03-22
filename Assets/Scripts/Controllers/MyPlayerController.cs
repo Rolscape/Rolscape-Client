@@ -9,6 +9,7 @@ public class MyPlayerController : PlayerController
 {
     private Animator _animator;
     private bool _isLeader;
+    public bool _isMission = false;
     
     // Start is called before the first frame update
     private const float TickTime = 0.1f;
@@ -62,6 +63,9 @@ public class MyPlayerController : PlayerController
 
     void OnKeyboard()
     {
+        if (_isMission)
+            return;
+        
         if (Input.GetKey(KeyCode.Escape))
         {
             Managers.UI.ClosePopupUI();

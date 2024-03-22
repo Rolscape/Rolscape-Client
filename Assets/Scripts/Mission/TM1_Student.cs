@@ -2,6 +2,7 @@ using Protocol;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 
 public class TM1_Student : TM1
 {
@@ -11,15 +12,20 @@ public class TM1_Student : TM1
     {
         base.Init();
 
+        Managers.Input.ClickedKeyAction -= OnKeyboard;
+        Managers.Input.ClickedKeyAction += OnKeyboard;
+
         Managers.Mission.MoveTile -= MoveTile;
         Managers.Mission.MoveTile += MoveTile;
     }
 
-    protected override void Mission1Start()
+    protected override void Mission1Start(PathGamePos startPos, PathGamePos destPos)
     {
-        base.Mission1Start();
+        base.Mission1Start(startPos, destPos);
 
         _ui = Managers.UI.ShowPopupUI<UI_TM1Student>();
+        int pos = Util.GetPos(startPos.StudentPos);
+        _ui.SetDefaultPos(pos);
     }
 
     protected override void OnKeyboard(KeyCode keyCode)
@@ -31,10 +37,6 @@ public class TM1_Student : TM1
 
     public bool CheckMoveNextGrid(KeyCode code)
     {
-        if (_isMoved)
-            return false;
-
-        _isMoved = true;
         C_PATH_GAME_MOVE pkt = new C_PATH_GAME_MOVE();
         pkt.PlayerInfo = Managers.Player.MyPlayerController.Info;
 
@@ -62,12 +64,7 @@ public class TM1_Student : TM1
 
     public void MoveTile(Protocol.Pos destPos)
     {
-        if (!_isMoved)
-            return;
-
-        int pos = destPos.X + (9 * destPos.Y);
+        int pos = Util.GetPos(destPos);
         _ui.MoveTile(pos);
-
-        _isMoved = false;
     }
 }

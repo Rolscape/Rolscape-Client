@@ -29,9 +29,9 @@ public class UI_TM1 : UI_Popup
         Init();
     }
 
-    public virtual void SetDefaultPos(Protocol.Pos startPos) { }
+    public virtual void SetDefaultPos(int startPos) { }
 
-    public virtual void SetDefaultPolicePos(PathGameDestPos destPos) { }
+    public virtual void SetDefaultPolicePos(int studentStartPos, int teacherStartPos, int studentDestPos, int teacherDestPos) { }
 
     protected void CreateGrid()
     {

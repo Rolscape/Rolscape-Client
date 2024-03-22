@@ -58,4 +58,9 @@ public class Util
 
         return null;
     }
+
+    public static int GetPos(Protocol.Pos pos)
+    {
+        return pos.X + (9 * pos.Y);
+    }
 }

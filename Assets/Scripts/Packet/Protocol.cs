@@ -44,16 +44,17 @@ namespace Protocol {
             "b2wuUGxheWVyTW92ZUluZm8iTwoQU19QQVRIX0dBTUVfSk9JThIoCgpwbGF5",
             "ZXJJbmZvGAEgASgLMhQuUHJvdG9jb2wuUGxheWVySW5mbxIRCglpc1N1Y2Nl",
             "c3MYAiABKAgiTAoQQ19QQVRIX0dBTUVfSk9JThIoCgpwbGF5ZXJJbmZvGAEg",
-            "ASgLMhQuUHJvdG9jb2wuUGxheWVySW5mbxIOCgZpc0pvaW4YAiABKAgiUAoR",
-            "U19QQVRIX0dBTUVfU1RBUlQSKgoHZGVzdFBvcxgBIAEoCzIZLlByb3RvY29s",
-            "LlBhdGhHYW1lRGVzdFBvcxIPCgdpc1N0YXJ0GAIgASgIIhMKEUNfUEFUSF9H",
-            "QU1FX1NUQVJUIm8KEFNfUEFUSF9HQU1FX01PVkUSEQoJaXNTdWNjZXNzGAEg",
-            "ASgIEigKCnBsYXllckluZm8YAiABKAsyFC5Qcm90b2NvbC5QbGF5ZXJJbmZv",
-            "Eh4KB2Rlc3RQb3MYAyABKAsyDS5Qcm90b2NvbC5Qb3MiagoQQ19QQVRIX0dB",
-            "TUVfTU9WRRIoCgpwbGF5ZXJJbmZvGAEgASgLMhQuUHJvdG9jb2wuUGxheWVy",
-            "SW5mbxIsCghtb3ZlVHlwZRgCIAEoDjIaLlByb3RvY29sLk1pbmlHYW1lTW92",
-            "ZVR5cGUiIwoPU19QQVRIX0dBTUVfRU5EEhAKCGlzU3VjY2VzGAEgASgIIhEK",
-            "D0NfUEFUSF9HQU1FX0VORGIGcHJvdG8z"));
+            "ASgLMhQuUHJvdG9jb2wuUGxheWVySW5mbxIOCgZpc0pvaW4YAiABKAgidQoR",
+            "U19QQVRIX0dBTUVfU1RBUlQSJwoIc3RhcnRQb3MYASABKAsyFS5Qcm90b2Nv",
+            "bC5QYXRoR2FtZVBvcxImCgdkZXN0UG9zGAIgASgLMhUuUHJvdG9jb2wuUGF0",
+            "aEdhbWVQb3MSDwoHaXNTdGFydBgDIAEoCCITChFDX1BBVEhfR0FNRV9TVEFS",
+            "VCJvChBTX1BBVEhfR0FNRV9NT1ZFEhEKCWlzU3VjY2VzcxgBIAEoCBIoCgpw",
+            "bGF5ZXJJbmZvGAIgASgLMhQuUHJvdG9jb2wuUGxheWVySW5mbxIeCgdkZXN0",
+            "UG9zGAMgASgLMg0uUHJvdG9jb2wuUG9zImoKEENfUEFUSF9HQU1FX01PVkUS",
+            "KAoKcGxheWVySW5mbxgBIAEoCzIULlByb3RvY29sLlBsYXllckluZm8SLAoI",
+            "bW92ZVR5cGUYAiABKA4yGi5Qcm90b2NvbC5NaW5pR2FtZU1vdmVUeXBlIiMK",
+            "D1NfUEFUSF9HQU1FX0VORBIQCghpc1N1Y2NlcxgBIAEoCCIRCg9DX1BBVEhf",
+            "R0FNRV9FTkRiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protocol.EnumReflection.Descriptor, global::Protocol.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -75,7 +76,7 @@ namespace Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_MOVE), global::Protocol.C_MOVE.Parser, new[]{ "MoveInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_PATH_GAME_JOIN), global::Protocol.S_PATH_GAME_JOIN.Parser, new[]{ "PlayerInfo", "IsSuccess" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_PATH_GAME_JOIN), global::Protocol.C_PATH_GAME_JOIN.Parser, new[]{ "PlayerInfo", "IsJoin" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_PATH_GAME_START), global::Protocol.S_PATH_GAME_START.Parser, new[]{ "DestPos", "IsStart" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_PATH_GAME_START), global::Protocol.S_PATH_GAME_START.Parser, new[]{ "StartPos", "DestPos", "IsStart" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_PATH_GAME_START), global::Protocol.C_PATH_GAME_START.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_PATH_GAME_MOVE), global::Protocol.S_PATH_GAME_MOVE.Parser, new[]{ "IsSuccess", "PlayerInfo", "DestPos" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_PATH_GAME_MOVE), global::Protocol.C_PATH_GAME_MOVE.Parser, new[]{ "PlayerInfo", "MoveType" }, null, null, null, null),
@@ -3656,6 +3657,7 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public S_PATH_GAME_START(S_PATH_GAME_START other) : this() {
+      startPos_ = other.startPos_ != null ? other.startPos_.Clone() : null;
       destPos_ = other.destPos_ != null ? other.destPos_.Clone() : null;
       isStart_ = other.isStart_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -3667,12 +3669,24 @@ namespace Protocol {
       return new S_PATH_GAME_START(this);
     }
 
-    /// <summary>Field number for the "destPos" field.</summary>
-    public const int DestPosFieldNumber = 1;
-    private global::Protocol.PathGameDestPos destPos_;
+    /// <summary>Field number for the "startPos" field.</summary>
+    public const int StartPosFieldNumber = 1;
+    private global::Protocol.PathGamePos startPos_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Protocol.PathGameDestPos DestPos {
+    public global::Protocol.PathGamePos StartPos {
+      get { return startPos_; }
+      set {
+        startPos_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "destPos" field.</summary>
+    public const int DestPosFieldNumber = 2;
+    private global::Protocol.PathGamePos destPos_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Protocol.PathGamePos DestPos {
       get { return destPos_; }
       set {
         destPos_ = value;
@@ -3680,7 +3694,7 @@ namespace Protocol {
     }
 
     /// <summary>Field number for the "isStart" field.</summary>
-    public const int IsStartFieldNumber = 2;
+    public const int IsStartFieldNumber = 3;
     private bool isStart_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -3706,6 +3720,7 @@ namespace Protocol {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (!object.Equals(StartPos, other.StartPos)) return false;
       if (!object.Equals(DestPos, other.DestPos)) return false;
       if (IsStart != other.IsStart) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -3715,6 +3730,7 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (startPos_ != null) hash ^= StartPos.GetHashCode();
       if (destPos_ != null) hash ^= DestPos.GetHashCode();
       if (IsStart != false) hash ^= IsStart.GetHashCode();
       if (_unknownFields != null) {
@@ -3735,12 +3751,16 @@ namespace Protocol {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (destPos_ != null) {
+      if (startPos_ != null) {
         output.WriteRawTag(10);
+        output.WriteMessage(StartPos);
+      }
+      if (destPos_ != null) {
+        output.WriteRawTag(18);
         output.WriteMessage(DestPos);
       }
       if (IsStart != false) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteBool(IsStart);
       }
       if (_unknownFields != null) {
@@ -3753,12 +3773,16 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (destPos_ != null) {
+      if (startPos_ != null) {
         output.WriteRawTag(10);
+        output.WriteMessage(StartPos);
+      }
+      if (destPos_ != null) {
+        output.WriteRawTag(18);
         output.WriteMessage(DestPos);
       }
       if (IsStart != false) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(24);
         output.WriteBool(IsStart);
       }
       if (_unknownFields != null) {
@@ -3771,6 +3795,9 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (startPos_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StartPos);
+      }
       if (destPos_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DestPos);
       }
@@ -3789,9 +3816,15 @@ namespace Protocol {
       if (other == null) {
         return;
       }
+      if (other.startPos_ != null) {
+        if (startPos_ == null) {
+          StartPos = new global::Protocol.PathGamePos();
+        }
+        StartPos.MergeFrom(other.StartPos);
+      }
       if (other.destPos_ != null) {
         if (destPos_ == null) {
-          DestPos = new global::Protocol.PathGameDestPos();
+          DestPos = new global::Protocol.PathGamePos();
         }
         DestPos.MergeFrom(other.DestPos);
       }
@@ -3814,13 +3847,20 @@ namespace Protocol {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
+            if (startPos_ == null) {
+              StartPos = new global::Protocol.PathGamePos();
+            }
+            input.ReadMessage(StartPos);
+            break;
+          }
+          case 18: {
             if (destPos_ == null) {
-              DestPos = new global::Protocol.PathGameDestPos();
+              DestPos = new global::Protocol.PathGamePos();
             }
             input.ReadMessage(DestPos);
             break;
           }
-          case 16: {
+          case 24: {
             IsStart = input.ReadBool();
             break;
           }
@@ -3840,13 +3880,20 @@ namespace Protocol {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
+            if (startPos_ == null) {
+              StartPos = new global::Protocol.PathGamePos();
+            }
+            input.ReadMessage(StartPos);
+            break;
+          }
+          case 18: {
             if (destPos_ == null) {
-              DestPos = new global::Protocol.PathGameDestPos();
+              DestPos = new global::Protocol.PathGamePos();
             }
             input.ReadMessage(DestPos);
             break;
           }
-          case 16: {
+          case 24: {
             IsStart = input.ReadBool();
             break;
           }

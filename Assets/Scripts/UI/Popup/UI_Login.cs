@@ -42,7 +42,7 @@ public class UI_Login : UI_Popup
         Bind<TMP_InputField>(typeof(InputFields));
 
         GetText((int)Texts.PointText).text = "Setting User Nickname";
-        GetText((int)Texts.SettingText).text = "Setting";
+        GetText((int)Texts.SettingText).text = "Join Game";
         GetText((int)Texts.InputPointText).text = "Input User Nickname";
 
         TMP_InputField inputField = Get<TMP_InputField>((int)InputFields.InputField);
@@ -55,10 +55,12 @@ public class UI_Login : UI_Popup
     public void OnButtonClicked(PointerEventData data)
     {
         String text = GetText((int)Texts.InputText).text;
-        gameObject.SetActive(false);
 
         if (text.Length > 1)
         {
+            gameObject.SetActive(false);
+            UI_Nickname.NickName = text;
+
             C_ENTER_GAME enterGame = new C_ENTER_GAME();
             enterGame.Name = text;
             enterGame.RoomId = "AAAA";

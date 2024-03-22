@@ -39,7 +39,6 @@ public class SceneManagerEx
     {
         SceneManager.sceneLoaded += OnGameSceneLoaded;
         LoadScene(Define.Scene.Game);
-        UI_Nickname.NickName = name;
     }
 
     public void OnGameSceneLoaded(Scene scene, LoadSceneMode mode)

@@ -10,9 +10,7 @@ public class GameScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Game;
-
-        Managers.UI.ShowSceneUI<UI_Button>();
-
+       
         //Managers.UI.ShowPopupUI<UI_Start>();
 
         // TEMP Code
@@ -22,6 +20,8 @@ public class GameScene : BaseScene
 
     public void Start()
     {
+        Managers.UI.ShowSceneUI<UI_Button>();
+
         Managers.Player.MovePlayerToScene(gameObject.scene);
 
         Managers.Scene.UnloadScene(Define.Scene.Login);

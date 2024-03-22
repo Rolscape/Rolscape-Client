@@ -11,21 +11,21 @@ public class TM1_Teacher : TM1
     protected override void Init()
     {
         base.Init();
-        
+
+        Managers.Input.ClickedKeyAction -= OnKeyboard;
+        Managers.Input.ClickedKeyAction += OnKeyboard;
+
         Managers.Mission.MoveTile -= MoveTile;
         Managers.Mission.MoveTile += MoveTile;
     }
 
-    void Start()
+    protected override void Mission1Start(PathGamePos startPos, PathGamePos destPos)
     {
-        Init();
-    }
-
-    protected override void Mission1Start()
-    {
-        base.Mission1Start();
+        base.Mission1Start(startPos, destPos);
 
         _ui = Managers.UI.ShowPopupUI<UI_TM1Teacher>();
+        int pos = Util.GetPos(startPos.TeacherPos);
+        _ui.SetDefaultPos(pos);
     }
 
     protected override void OnKeyboard(KeyCode keyCode)
@@ -37,10 +37,10 @@ public class TM1_Teacher : TM1
 
     public bool CheckMoveNextGrid(KeyCode code)
     {
-        if (_isMoved)
-            return false;
+        //if (_isMoved)
+        //    return false;
 
-        _isMoved = true;
+        //_isMoved = true;
         C_PATH_GAME_MOVE pkt = new C_PATH_GAME_MOVE();
         pkt.PlayerInfo = Managers.Player.MyPlayerController.Info;
 
@@ -67,12 +67,12 @@ public class TM1_Teacher : TM1
     }
     public void MoveTile(Protocol.Pos destPos)
     {
-        if (!_isMoved)
-            return;
+        //if (!_isMoved)
+        //    return;
 
-        int pos = destPos.X + (9 * destPos.Y);
+        int pos = Util.GetPos(destPos);
         _ui.MoveTile(pos);
 
-        _isMoved = false;
+        //_isMoved = false;
     }
 }

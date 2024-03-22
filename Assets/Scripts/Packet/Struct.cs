@@ -31,16 +31,16 @@ namespace Protocol {
             "b3ZlSW5mbxIKCgJpZBgBIAEoDRIgCgR0eXBlGAIgASgOMhIuUHJvdG9jb2wu",
             "TW92ZVR5cGUSDQoFcG9zX3gYAyABKAISDQoFcG9zX3oYBCABKAISDQoFZGly",
             "X3gYBSABKAISDQoFZGlyX3oYBiABKAIiGwoDUG9zEgkKAXgYASABKAUSCQoB",
-            "eRgCIAEoBSJfCg9QYXRoR2FtZURlc3RQb3MSJQoOc3R1ZGVudERlc3RQb3MY",
-            "ASABKAsyDS5Qcm90b2NvbC5Qb3MSJQoOdGVhY2hlckRlc3RQb3MYAiABKAsy",
-            "DS5Qcm90b2NvbC5Qb3NiBnByb3RvMw=="));
+            "eRgCIAEoBSJTCgtQYXRoR2FtZVBvcxIhCgpzdHVkZW50UG9zGAEgASgLMg0u",
+            "UHJvdG9jb2wuUG9zEiEKCnRlYWNoZXJQb3MYAiABKAsyDS5Qcm90b2NvbC5Q",
+            "b3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protocol.EnumReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PlayerInfo), global::Protocol.PlayerInfo.Parser, new[]{ "Id", "UserName", "IsHost", "PosX", "PosZ", "PlayerJob" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PlayerMoveInfo), global::Protocol.PlayerMoveInfo.Parser, new[]{ "Id", "Type", "PosX", "PosZ", "DirX", "DirZ" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Pos), global::Protocol.Pos.Parser, new[]{ "X", "Y" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PathGameDestPos), global::Protocol.PathGameDestPos.Parser, new[]{ "StudentDestPos", "TeacherDestPos" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PathGamePos), global::Protocol.PathGamePos.Parser, new[]{ "StudentPos", "TeacherPos" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1021,16 +1021,16 @@ namespace Protocol {
 
   }
 
-  public sealed partial class PathGameDestPos : pb::IMessage<PathGameDestPos>
+  public sealed partial class PathGamePos : pb::IMessage<PathGamePos>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<PathGameDestPos> _parser = new pb::MessageParser<PathGameDestPos>(() => new PathGameDestPos());
+    private static readonly pb::MessageParser<PathGamePos> _parser = new pb::MessageParser<PathGamePos>(() => new PathGamePos());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<PathGameDestPos> Parser { get { return _parser; } }
+    public static pb::MessageParser<PathGamePos> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1046,7 +1046,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PathGameDestPos() {
+    public PathGamePos() {
       OnConstruction();
     }
 
@@ -1054,59 +1054,59 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PathGameDestPos(PathGameDestPos other) : this() {
-      studentDestPos_ = other.studentDestPos_ != null ? other.studentDestPos_.Clone() : null;
-      teacherDestPos_ = other.teacherDestPos_ != null ? other.teacherDestPos_.Clone() : null;
+    public PathGamePos(PathGamePos other) : this() {
+      studentPos_ = other.studentPos_ != null ? other.studentPos_.Clone() : null;
+      teacherPos_ = other.teacherPos_ != null ? other.teacherPos_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PathGameDestPos Clone() {
-      return new PathGameDestPos(this);
+    public PathGamePos Clone() {
+      return new PathGamePos(this);
     }
 
-    /// <summary>Field number for the "studentDestPos" field.</summary>
-    public const int StudentDestPosFieldNumber = 1;
-    private global::Protocol.Pos studentDestPos_;
+    /// <summary>Field number for the "studentPos" field.</summary>
+    public const int StudentPosFieldNumber = 1;
+    private global::Protocol.Pos studentPos_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Protocol.Pos StudentDestPos {
-      get { return studentDestPos_; }
+    public global::Protocol.Pos StudentPos {
+      get { return studentPos_; }
       set {
-        studentDestPos_ = value;
+        studentPos_ = value;
       }
     }
 
-    /// <summary>Field number for the "teacherDestPos" field.</summary>
-    public const int TeacherDestPosFieldNumber = 2;
-    private global::Protocol.Pos teacherDestPos_;
+    /// <summary>Field number for the "teacherPos" field.</summary>
+    public const int TeacherPosFieldNumber = 2;
+    private global::Protocol.Pos teacherPos_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Protocol.Pos TeacherDestPos {
-      get { return teacherDestPos_; }
+    public global::Protocol.Pos TeacherPos {
+      get { return teacherPos_; }
       set {
-        teacherDestPos_ = value;
+        teacherPos_ = value;
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as PathGameDestPos);
+      return Equals(other as PathGamePos);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(PathGameDestPos other) {
+    public bool Equals(PathGamePos other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(StudentDestPos, other.StudentDestPos)) return false;
-      if (!object.Equals(TeacherDestPos, other.TeacherDestPos)) return false;
+      if (!object.Equals(StudentPos, other.StudentPos)) return false;
+      if (!object.Equals(TeacherPos, other.TeacherPos)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1114,8 +1114,8 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (studentDestPos_ != null) hash ^= StudentDestPos.GetHashCode();
-      if (teacherDestPos_ != null) hash ^= TeacherDestPos.GetHashCode();
+      if (studentPos_ != null) hash ^= StudentPos.GetHashCode();
+      if (teacherPos_ != null) hash ^= TeacherPos.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1134,13 +1134,13 @@ namespace Protocol {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (studentDestPos_ != null) {
+      if (studentPos_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(StudentDestPos);
+        output.WriteMessage(StudentPos);
       }
-      if (teacherDestPos_ != null) {
+      if (teacherPos_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(TeacherDestPos);
+        output.WriteMessage(TeacherPos);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1152,13 +1152,13 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (studentDestPos_ != null) {
+      if (studentPos_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(StudentDestPos);
+        output.WriteMessage(StudentPos);
       }
-      if (teacherDestPos_ != null) {
+      if (teacherPos_ != null) {
         output.WriteRawTag(18);
-        output.WriteMessage(TeacherDestPos);
+        output.WriteMessage(TeacherPos);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1170,11 +1170,11 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (studentDestPos_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StudentDestPos);
+      if (studentPos_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(StudentPos);
       }
-      if (teacherDestPos_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TeacherDestPos);
+      if (teacherPos_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(TeacherPos);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1184,21 +1184,21 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(PathGameDestPos other) {
+    public void MergeFrom(PathGamePos other) {
       if (other == null) {
         return;
       }
-      if (other.studentDestPos_ != null) {
-        if (studentDestPos_ == null) {
-          StudentDestPos = new global::Protocol.Pos();
+      if (other.studentPos_ != null) {
+        if (studentPos_ == null) {
+          StudentPos = new global::Protocol.Pos();
         }
-        StudentDestPos.MergeFrom(other.StudentDestPos);
+        StudentPos.MergeFrom(other.StudentPos);
       }
-      if (other.teacherDestPos_ != null) {
-        if (teacherDestPos_ == null) {
-          TeacherDestPos = new global::Protocol.Pos();
+      if (other.teacherPos_ != null) {
+        if (teacherPos_ == null) {
+          TeacherPos = new global::Protocol.Pos();
         }
-        TeacherDestPos.MergeFrom(other.TeacherDestPos);
+        TeacherPos.MergeFrom(other.TeacherPos);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1216,17 +1216,17 @@ namespace Protocol {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (studentDestPos_ == null) {
-              StudentDestPos = new global::Protocol.Pos();
+            if (studentPos_ == null) {
+              StudentPos = new global::Protocol.Pos();
             }
-            input.ReadMessage(StudentDestPos);
+            input.ReadMessage(StudentPos);
             break;
           }
           case 18: {
-            if (teacherDestPos_ == null) {
-              TeacherDestPos = new global::Protocol.Pos();
+            if (teacherPos_ == null) {
+              TeacherPos = new global::Protocol.Pos();
             }
-            input.ReadMessage(TeacherDestPos);
+            input.ReadMessage(TeacherPos);
             break;
           }
         }
@@ -1245,17 +1245,17 @@ namespace Protocol {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            if (studentDestPos_ == null) {
-              StudentDestPos = new global::Protocol.Pos();
+            if (studentPos_ == null) {
+              StudentPos = new global::Protocol.Pos();
             }
-            input.ReadMessage(StudentDestPos);
+            input.ReadMessage(StudentPos);
             break;
           }
           case 18: {
-            if (teacherDestPos_ == null) {
-              TeacherDestPos = new global::Protocol.Pos();
+            if (teacherPos_ == null) {
+              TeacherPos = new global::Protocol.Pos();
             }
-            input.ReadMessage(TeacherDestPos);
+            input.ReadMessage(TeacherPos);
             break;
           }
         }
