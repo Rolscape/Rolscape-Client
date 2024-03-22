@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class TM1_Police : TM1
 {
-    private UI_TM1Police _ui;
-
     public int _studentPos;
     public int _teacherPos;
 
@@ -15,12 +13,14 @@ public class TM1_Police : TM1
     {
         base.Init();
 
-        Managers.Mission.Mission1Start -= Mission1Start;
-        Managers.Mission.Mission1Start += Mission1Start;
-
         Managers.Mission.PoliceMoveTile -= MoveTile;
         Managers.Mission.PoliceMoveTile += MoveTile;
+    }
 
+    public void SetDestPos(PathGameDestPos dests)
+    {
+        _studentPos = (dests.StudentDestPos.X) + (dests.StudentDestPos.Y * 9);
+        _teacherPos = (dests.TeacherDestPos.X) + (dests.TeacherDestPos.Y * 9);
     }
 
     protected override void Mission1Start()
@@ -28,12 +28,13 @@ public class TM1_Police : TM1
         base.Mission1Start();
 
         _ui = Managers.UI.ShowPopupUI<UI_TM1Police>();
+        // 목적지 설정
     }
 
     public void MoveTile(PlayerJob job, Protocol.Pos destPos)
     {
         // TODO
         int pos = destPos.X + (9 * destPos.Y);
-        //_ui.MoveTile(pos);
+        _ui.PoliceMoveTile(job, pos);
     }
 }

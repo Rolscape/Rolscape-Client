@@ -37,7 +37,7 @@ public class PlayerManager
 
         if (isMine)
         {
-            Debug.Log("Player Info");
+            Debug.Log(playerInfo.PlayerJob);
             MyPlayer = player;
 
             MyPlayerController controller = Util.GetOrAddComponent<MyPlayerController>(player);

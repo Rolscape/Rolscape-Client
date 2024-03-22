@@ -102,6 +102,12 @@ namespace GameServer.Packet
             if (pkt == null)
                 return;
 
+            if (!pkt.IsStart)
+                return;
+
+            if (Managers.Player.MyPlayerController.Job == PlayerJob.Police)
+                Managers.Mission.PoliceStartInvoke(pkt.DestPos);
+
             Managers.Mission.Mission1StartInvoke();
         }
 
@@ -128,7 +134,7 @@ namespace GameServer.Packet
             if (pkt == null)
                 return;
 
-
+            Managers.Mission.Mission1End(pkt.IsSucces);
         }
     }
 }

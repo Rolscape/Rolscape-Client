@@ -1,22 +1,24 @@
 using Protocol;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TM1_Teacher : TM1
 {
-    private UI_TM1Teacher _ui;
     private bool _isMoved = false;
 
     protected override void Init()
     {
         base.Init();
         
-        Managers.Mission.Mission1Start -= Mission1Start;
-        Managers.Mission.Mission1Start += Mission1Start;
-
         Managers.Mission.MoveTile -= MoveTile;
         Managers.Mission.MoveTile += MoveTile;
+    }
+
+    void Start()
+    {
+        Init();
     }
 
     protected override void Mission1Start()
@@ -26,14 +28,14 @@ public class TM1_Teacher : TM1
         _ui = Managers.UI.ShowPopupUI<UI_TM1Teacher>();
     }
 
-    protected override void OnKeyboard()
+    protected override void OnKeyboard(KeyCode keyCode)
     {
-        base.OnKeyboard();
+        base.OnKeyboard(keyCode);
 
-        CheckMoveNextGrid(_dir);
+        CheckMoveNextGrid(keyCode);
     }
 
-    public bool CheckMoveNextGrid(Vector3 dir)
+    public bool CheckMoveNextGrid(KeyCode code)
     {
         if (_isMoved)
             return false;
@@ -42,19 +44,19 @@ public class TM1_Teacher : TM1
         C_PATH_GAME_MOVE pkt = new C_PATH_GAME_MOVE();
         pkt.PlayerInfo = Managers.Player.MyPlayerController.Info;
 
-        if (dir == Vector3.forward)
-        {
-            pkt.MoveType = MiniGameMoveType.Up;
-        }
-        if (dir == Vector3.back)
+        if (code == KeyCode.W)
         {
             pkt.MoveType = MiniGameMoveType.Down;
         }
-        if (dir == Vector3.left)
+        else if (code == KeyCode.S)
+        {
+            pkt.MoveType = MiniGameMoveType.Up;
+        }
+        else if (code == KeyCode.A)
         {
             pkt.MoveType = MiniGameMoveType.Left;
         }
-        if (dir == Vector3.right)
+        else if (code == KeyCode.D)
         {
             pkt.MoveType = MiniGameMoveType.Right;
         }

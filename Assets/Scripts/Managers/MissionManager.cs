@@ -14,10 +14,10 @@ public class MissionManager
     public Action<Collider> TriggerExit = null;
 
     public Action Mission1Start = null;
-    public Action Mission1End = null;
+    public Action<bool> Mission1End = null;
     public Action<Protocol.Pos> MoveTile = null;
     public Action<PlayerJob, Protocol.Pos> PoliceMoveTile = null;
-
+    public Action<PathGameDestPos> PoliceStart = null;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -37,6 +37,11 @@ public class MissionManager
             MoveTile.Invoke(destPos);
     }
 
+    public void PoliceStartInvoke(PathGameDestPos destPos)
+    {
+        if(PoliceStart != null)
+            PoliceStart.Invoke(destPos);
+    }
     public void Mission1StartInvoke()
     {
         if (Mission1Start != null)
@@ -50,9 +55,9 @@ public class MissionManager
     }
 
 
-    public void Mission1EndInvoke()
+    public void Mission1EndInvoke(bool isSuccess)
     {
         if (Mission1End != null)
-            Mission1End.Invoke();
+            Mission1End.Invoke(isSuccess);
     }
 }

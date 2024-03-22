@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour
 {
     public string NickName { get; set; }
     // Start is called before the first frame update
-    
+
     protected float _speed = 20.0f;
-    
-    protected CharacterController   _characterController;
-    protected PlayerMoveInfo        _moveInfo = new PlayerMoveInfo();
-    protected PlayerInfo            _info = new PlayerInfo();
+
+    protected CharacterController _characterController;
+    protected PlayerMoveInfo _moveInfo = new PlayerMoveInfo();
+    protected PlayerInfo _info = new PlayerInfo();
     private Vector3 _destPos = new Vector3(0, 0, 0);
 
     protected bool _isUpdated = false;
@@ -72,9 +72,9 @@ public class PlayerController : MonoBehaviour
     protected virtual void Init()
     {
         _characterController = Util.GetOrAddComponent<CharacterController>(gameObject);
-       
+
     }
-    
+
     // Update is called once per frame
     private void Update()
     {

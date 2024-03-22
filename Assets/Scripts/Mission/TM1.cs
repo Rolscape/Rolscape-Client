@@ -7,14 +7,14 @@ using UnityEngine;
 
 public class TM1 : MonoBehaviour
 {
-    protected Vector3 _dir;
+    protected UI_TM1 _ui;
     protected virtual void Init()
     {
-        // Managers.Mission.TriggerEnter -= OnEnter;
-        // Managers.Mission.TriggerEnter += OnEnter;
-        // Managers.Mission.TriggerExit -= OnExit;
-        // Managers.Mission.TriggerExit += OnExit;
-       
+        Managers.Mission.Mission1Start -= Mission1Start;
+        Managers.Mission.Mission1Start += Mission1Start;
+
+        Managers.Mission.Mission1End -= Mission1End;
+        Managers.Mission.Mission1End += Mission1End;
     }
 
     private void Start()
@@ -38,29 +38,30 @@ public class TM1 : MonoBehaviour
         // TODO 1번만 실행되게 
         Debug.Log("mission start");
 
+        Managers.Input.ClickedKeyAction -= OnKeyboard;
+        Managers.Input.ClickedKeyAction += OnKeyboard;
+
         // TODO Player 움직임 봉쇄
-        Managers.Input.KeyAction -= OnKeyboard;
-        Managers.Input.KeyAction += OnKeyboard;
+        Managers.Input.IsMission = true;
+    }
+
+    protected virtual void Mission1End(bool isSuccess)
+    {
+        Clear();
+        Managers.UI.ClosePopupUI(_ui);
+
+        // 성공 실패 보여주기
     }
 
     public void Clear()
     {
         // TODO Player 움직임 복원
-        Managers.Input.KeyAction -= OnKeyboard;
-        Managers.Mission.TriggerEnter -= OnEnter;
-        Managers.Mission.TriggerExit -= OnExit;
+        Managers.Input.IsMission = false;
+        Managers.Input.ClickedKeyAction -= OnKeyboard;
     }
 
-    protected virtual void OnKeyboard()
+    protected virtual void OnKeyboard(KeyCode keyCode)
     {
-        if (Input.anyKeyDown)
-            return;
-
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        _dir = new Vector3(h, 0, v).normalized;
-
         // if (Managers.Mission.CheckMoveNextGrid(dir))
         // {
         //     
