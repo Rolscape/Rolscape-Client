@@ -12,8 +12,7 @@ public class MissionManager
     public Action<Collider> TriggerExit = null;
 
     public Action _mission1 = null;
-    public int _studentPos;
-    public int _teacherPos;
+    
 
     public void Mission1Start()
     {

@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (_mode == Define.CameraMode.QuarterView)
+        if (_mode == Define.CameraMode.QuarterView && _player != null)
         {
             RaycastHit hit;
             
