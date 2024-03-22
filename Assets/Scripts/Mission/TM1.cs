@@ -9,10 +9,10 @@ public class TM1 : MonoBehaviour
     protected Vector3 _dir;
     protected virtual void Init()
     {
-        Managers.Mission.TriggerEnter -= OnEnter;
-        Managers.Mission.TriggerEnter += OnEnter;
-        Managers.Mission.TriggerExit -= OnExit;
-        Managers.Mission.TriggerExit += OnExit;
+        // Managers.Mission.TriggerEnter -= OnEnter;
+        // Managers.Mission.TriggerEnter += OnEnter;
+        // Managers.Mission.TriggerExit -= OnExit;
+        // Managers.Mission.TriggerExit += OnExit;
        
     }
 
@@ -25,7 +25,7 @@ public class TM1 : MonoBehaviour
     {
         // TEMP code
         // TODO Send to Server trigger
-        Managers.Mission.Mission1Start();
+        // Managers.Mission.Mission1Start();
     }
 
     void OnExit(Collider other)

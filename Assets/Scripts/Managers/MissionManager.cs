@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,12 +18,14 @@ public class MissionManager
 
     public void OnTriggerEnter(Collider other)
     {
-        TriggerEnter.Invoke(other);
+        if(TriggerEnter != null)
+            TriggerEnter.Invoke(other);
     }
     
     public void OnTriggerExit(Collider other)
     {
-        TriggerExit.Invoke(other);
+        if(TriggerExit != null)
+            TriggerExit.Invoke(other);
     }
 
     public void MoveTileInvoke(int nextPos)
