@@ -13,7 +13,7 @@ public class GameScene : BaseScene
 
         Managers.UI.ShowSceneUI<UI_Button>();
 
-        Managers.UI.ShowPopupUI<UI_Start>();
+        //Managers.UI.ShowPopupUI<UI_Start>();
 
         // TEMP Code
         // Managers.Resource.Instantiate("Player");

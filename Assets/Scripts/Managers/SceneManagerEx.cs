@@ -11,7 +11,6 @@ public class SceneManagerEx
     public void LoadScene(Define.Scene type)
     {
         Managers.Clear();
-        SceneManager.sceneLoaded += OnGameSceneLoaded;
         SceneManager.LoadScene(GetSceneName(type), LoadSceneMode.Additive);
     }
 
@@ -38,6 +37,7 @@ public class SceneManagerEx
 
     public void LoadGameScene(string name)
     {
+        SceneManager.sceneLoaded += OnGameSceneLoaded;
         LoadScene(Define.Scene.Game);
         UI_Nickname.NickName = name;
     }

@@ -1,11 +1,14 @@
-﻿using Protocol;
+﻿using Google.Protobuf.Collections;
+using Protocol;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerManager
 {
+    public uint MyPlayerID {  get; private set; }
     public GameObject MyPlayer { get; set; }
     public GameObject Camera { get; set; }
     public MyPlayerController MyPlayerController { get; set; }
@@ -28,19 +31,20 @@ public class PlayerManager
         if (GetPlayer(playerInfo.Id) != null)
             return;
 
+        GameObject player = Managers.Resource.InstantiatePlayer(playerInfo.PlayerJob);
+        if (player == null)
+            return;
+
         if (isMine)
         {
             Debug.Log("Player Info");
-
-            GameObject player = Managers.Resource.Instantiate("TestMyPlayer");
-            if (player == null)
-                return;
             MyPlayer = player;
 
-            MyPlayerController controller = player.GetComponent<MyPlayerController>();
+            MyPlayerController controller = Util.GetOrAddComponent<MyPlayerController>(player);
             if (controller == null)
                 return;
 
+            MyPlayerID = playerInfo.Id;
             controller.Info = playerInfo;
             controller.SyncPos(new Vector3(playerInfo.PosX, 1, playerInfo.PosZ));
             MyPlayerController = controller;
@@ -55,15 +59,24 @@ public class PlayerManager
         {
             // 캐릭터 Spawn
             // 0 0 0
-            GameObject player = Managers.Resource.Instantiate("TestAnotherPlayer");
-            if (player == null)
-                return;
-
             _players.Add(playerInfo.Id, player);
 
-            PlayerController controller = player.GetComponent<PlayerController>();
+            PlayerController controller = Util.GetOrAddComponent<PlayerController>(player);
             controller.Info = playerInfo;
             controller.SyncPos(new Vector3(playerInfo.PosX, 1, playerInfo.PosZ));
+        }
+    }
+
+    public void OnGameStart(S_GAME_START packet)
+    {
+        Clear();
+
+        foreach (var player in packet.PlayerInfo)
+        {
+            if(player.Id == MyPlayerID)
+                AddPlayer(player, true);
+            else
+                AddPlayer(player, false);
         }
     }
 
@@ -97,6 +110,9 @@ public class PlayerManager
 
     public void Clear()
     {
-        
+        MyPlayer = null;
+        Camera = null;
+        MyPlayerController = null;
+        _players.Clear();
     }
 }

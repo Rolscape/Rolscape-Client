@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 namespace GameServer.Packet
 {
@@ -31,7 +32,6 @@ namespace GameServer.Packet
 
             if (pkt.IsSuccess)
             {
-                Managers.Scene.LoadGameScene(pkt.SpawnInfo.UserName);
                 Managers.Player.AddPlayer(pkt.SpawnInfo, true);
             }
         }
@@ -44,7 +44,7 @@ namespace GameServer.Packet
 
             if (pkt.IsSuccess)
             {
-                Managers.Scene.LoadGameScene(pkt.SpawnInfo.UserName);
+                // 로비로 들어간다 치고?
                 Managers.Player.AddPlayer(pkt.SpawnInfo, true);
             }
         }
@@ -52,27 +52,13 @@ namespace GameServer.Packet
         public static void Handle_S_GAME_START(IMessage packet)
         {
             S_GAME_START pkt = packet as S_GAME_START;
-            foreach(PlayerInfo info in pkt.PlayerInfo)
-            {
-                if(Managers.Player.MyPlayerController.ID == info.Id)
-                {
-                    Managers.Player.MyPlayerController.Info = info;
-                    if(info.PlayerJob == PlayerJob.Teacher)
-                    {
-                        Util.GetOrAddComponent<Teacher>(Managers.Player.MyPlayer);
-                    }
-                    else if(info.PlayerJob == PlayerJob.Student)
-                    {
-                        Util.GetOrAddComponent<Student>(Managers.Player.MyPlayer);
-                    }
-                    else if(info.PlayerJob == PlayerJob.Police)
-                    {
-                        Util.GetOrAddComponent<Police>(Managers.Player.MyPlayer);
-                    }
+            if (pkt == null)
+                return;
 
-                    break;
-                }
-            }
+            // 수정 예정
+            Managers.Player.OnGameStart(pkt);
+
+            Managers.Scene.LoadGameScene(Managers.Player.MyPlayerController.NickName);
         }
 
         public static void Handle_S_LEAVE_GAME(IMessage packet)
@@ -107,7 +93,7 @@ namespace GameServer.Packet
         public static void Handle_S_PATH_GAME_JOIN(IMessage packet)
         {
 
-		}
+        }
         public static void Handle_S_PATH_GAME_START(IMessage packet)
         {
             // 게임 시작하면 
@@ -116,7 +102,7 @@ namespace GameServer.Packet
                 return;
 
             Managers.Mission.Mission1Start();
-		}
+        }
         public static void Handle_S_PATH_GAME_MOVE(IMessage packet)
         {
             // 이동 전달 받음

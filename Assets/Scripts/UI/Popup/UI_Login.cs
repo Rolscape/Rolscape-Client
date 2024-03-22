@@ -55,13 +55,25 @@ public class UI_Login : UI_Popup
     public void OnButtonClicked(PointerEventData data)
     {
         String text = GetText((int)Texts.InputText).text;
-        
+        gameObject.SetActive(false);
+
         if (text.Length > 1)
         {
             C_ENTER_GAME enterGame = new C_ENTER_GAME();
             enterGame.Name = text;
             enterGame.RoomId = "AAAA";
             Managers.Network.Send(enterGame, INGAME.EnterGame);
+            Managers.UI.ShowPopupUI<UI_Start>();
         }
+    }
+
+    public void SuccessLoginGame()
+    {
+        Managers.UI.ShowPopupUI<UI_Start>();
+    }
+
+    public void FailedLoginGame()
+    {
+        gameObject.SetActive(true);
     }
 }

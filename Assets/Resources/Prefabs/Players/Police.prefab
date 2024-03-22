@@ -50,7 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 539ae2e966e95cb469feafc213b5b4fc, type: 3}
       propertyPath: m_Name
-      value: police
+      value: Police
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 539ae2e966e95cb469feafc213b5b4fc, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -62,9 +66,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 539ae2e966e95cb469feafc213b5b4fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1003755999359054261}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 539ae2e966e95cb469feafc213b5b4fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2877917181384422839}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 539ae2e966e95cb469feafc213b5b4fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4903553920890340962}
@@ -124,18 +125,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2877917181384422839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518299813316809614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 739bfdf37a6d9a44ab893d465e8d0390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4903553920890340962
 MonoBehaviour:
   m_ObjectHideFlags: 0

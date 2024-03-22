@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Protocol;
 using UnityEngine;
 
 public class ResourceManager
@@ -19,7 +18,7 @@ public class ResourceManager
             if (go != null)
                 return go as T;
         }
-        
+
         return Resources.Load<T>(path);
     }
 
@@ -43,12 +42,34 @@ public class ResourceManager
         return go;
     }
 
+    public GameObject InstantiatePlayer(PlayerJob playerJob)
+    {
+        string path = "";
+        switch (playerJob)
+        {
+            case PlayerJob.None:
+                path = "Players/Default";
+                break;
+            case PlayerJob.Student:
+                path = "Players/Student";
+                break;
+            case PlayerJob.Teacher:
+                path = "Players/Teacher";
+                break;
+            case PlayerJob.Police:
+                path = "Players/Police";
+                break;
+        }
+
+        return Instantiate(path);
+    }
+
     // 오브젝트 소멸 함수
     public void Destory(GameObject go)
     {
         if (go == null)
             return;
-        
+
         // if target is pooling object
         Poolable poolable = go.GetComponent<Poolable>();
         if (poolable != null)
@@ -56,7 +77,7 @@ public class ResourceManager
             Managers.Pool.Push(poolable);
             return;
         }
-        
+
         Object.Destroy(go);
     }
 }

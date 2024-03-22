@@ -1,3 +1,4 @@
+using Protocol;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -36,5 +37,9 @@ public class UI_Start : UI_Popup
     public void OnButtonClicked(PointerEventData data)
     {
         Debug.Log("Start Button Clicked");
+
+        C_GAME_START pkt = new C_GAME_START();
+        pkt.PlayerInfo = Managers.Player.MyPlayerController.Info;
+        Managers.Network.Send(pkt, INGAME.GameStart);
     }
 }
