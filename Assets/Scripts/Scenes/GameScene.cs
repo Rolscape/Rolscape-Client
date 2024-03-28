@@ -10,7 +10,7 @@ public class GameScene : BaseScene
 
         SceneType = Define.Scene.Game;
         Managers.UI.ShowSceneUI<UI_Button>();
-        Managers.UI.ShowPopupUI<UI_Start>();
+        //Managers.UI.ShowPopupUI<UI_Start>();
         
         // Temp Code
         GameObject go = Managers.Resource.Instantiate("Player");
