@@ -17,7 +17,7 @@ public class TM1_Police : TM1
         Managers.Mission.PoliceMoveTile += MoveTile;
     }
 
-    protected override void Mission1Start(PathGamePos startPos, PathGamePos destPos)
+    protected override void Mission1Start(PathMissionPos startPos, PathMissionPos destPos)
     {
         base.Mission1Start(startPos, destPos);
 

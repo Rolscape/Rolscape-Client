@@ -33,7 +33,7 @@ public class TM1 : MonoBehaviour
 
     }
 
-    protected virtual void Mission1Start(PathGamePos startPos, PathGamePos destPos)
+    protected virtual void Mission1Start(PathMissionPos startPos, PathMissionPos destPos)
     {
         // TODO 1번만 실행되게 
         Debug.Log("mission start");

@@ -2,6 +2,7 @@ using Protocol;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public string NickName { get; set; }
     // Start is called before the first frame update
 
+    protected Animator _animator;
     protected float _speed = 20.0f;
 
     protected CharacterController _characterController;
@@ -72,7 +74,7 @@ public class PlayerController : MonoBehaviour
     protected virtual void Init()
     {
         _characterController = Util.GetOrAddComponent<CharacterController>(gameObject);
-
+        _animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -109,5 +111,15 @@ public class PlayerController : MonoBehaviour
     protected virtual void MoveToNextPos()
     {
         _isUpdated = false;
+    }
+
+    protected virtual void UpdateAnimationMOVE()
+    {
+
+    }
+    
+    protected virtual void UpdateAnimationIDLE()
+    {
+
     }
 }

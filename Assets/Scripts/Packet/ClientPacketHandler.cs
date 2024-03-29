@@ -1,5 +1,6 @@
 using Google.Protobuf;
 using Protocol;
+using System;
 using UnityEngine;
 
 namespace GameServer.Packet
@@ -56,6 +57,13 @@ namespace GameServer.Packet
             Managers.Scene.LoadGameScene(Managers.Player.MyPlayerController.NickName);
         }
 
+        public static void Handle_S_GAME_END(IMessage packet)
+        {
+            S_GAME_END pkt = packet as S_GAME_END;
+            if (pkt == null)
+                return;
+        }
+
         public static void Handle_S_LEAVE_GAME(IMessage packet)
         {
 
@@ -85,15 +93,15 @@ namespace GameServer.Packet
 
             Managers.Player.SyncPlayerInfo(pkt.MoveInfo);
         }
-        public static void Handle_S_PATH_GAME_JOIN(IMessage packet)
+        public static void Handle_S_PATH_MISSION_JOIN(IMessage packet)
         {
 
         }
 
-        public static void Handle_S_PATH_GAME_START(IMessage packet)
+        public static void Handle_S_PATH_MISSION_START(IMessage packet)
         {
             // 게임 시작하면 
-            S_PATH_GAME_START pkt = packet as S_PATH_GAME_START;
+            S_PATH_MISSION_START pkt = packet as S_PATH_MISSION_START;
             if (pkt == null)
                 return;
 
@@ -106,10 +114,10 @@ namespace GameServer.Packet
                 Managers.Mission.Mission1StartInvoke(pkt.StartPos);
         }
 
-        public static void Handle_S_PATH_GAME_MOVE(IMessage packet)
+        public static void Handle_S_PATH_MISSION_MOVE(IMessage packet)
         {
             // 이동 전달 받음
-            S_PATH_GAME_MOVE pkt = packet as S_PATH_GAME_MOVE;
+            S_PATH_MISSION_MOVE pkt = packet as S_PATH_MISSION_MOVE;
             if (pkt == null)
                 return;
 
@@ -123,14 +131,39 @@ namespace GameServer.Packet
 
         }
 
-        public static void Handle_S_PATH_GAME_END(IMessage packet)
+        public static void Handle_S_PATH_MISSION_END(IMessage packet)
         {
             // 게임 종료
-            S_PATH_GAME_END pkt = packet as S_PATH_GAME_END;
+            S_PATH_MISSION_END pkt = packet as S_PATH_MISSION_END;
             if (pkt == null)
                 return;
 
             Managers.Mission.Mission1End(pkt.IsSucces);
+        }
+
+        public static void Handle_S_SINGLE_MISSION_JOIN(IMessage message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Handle_S_SINGLE_MISSION_START(IMessage message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Handle_S_SINGLE_MISSION_TODO(IMessage message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void Handle_S_SINGLE_MISSION_END(IMessage message)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void Handle_S_SINGLE_MISSION_LEAVE(IMessage message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -6,8 +6,7 @@ using Protocol;
 using UnityEngine;
 
 public class MyPlayerController : PlayerController
-{
-    private Animator _animator;
+{   
     private bool _isLeader;
     public bool _isMission = false;
     
@@ -18,8 +17,6 @@ public class MyPlayerController : PlayerController
     protected override void Init()
     {
         base.Init();
-        
-        _animator = gameObject.GetComponent<Animator>();
         
         Managers.Input.KeyAction -= OnKeyboard;
         Managers.Input.KeyAction += OnKeyboard;
@@ -52,7 +49,6 @@ public class MyPlayerController : PlayerController
             return;
 
         SendMovePacket();
-        
     }
 
     void Start()

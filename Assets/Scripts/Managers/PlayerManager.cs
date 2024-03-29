@@ -81,6 +81,10 @@ public class PlayerManager
             controller.SyncPos(new Vector3(playerInfo.PosX, 1, playerInfo.PosZ));
         }
     }
+    public void DeletePlayer(PlayerInfo player)
+    {
+
+    }
 
     public void OnGameStart(S_GAME_START packet)
     {

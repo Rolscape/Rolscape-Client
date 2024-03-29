@@ -24,24 +24,29 @@ namespace Protocol {
     static EnumReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgpFbnVtLnByb3RvEghQcm90b2NvbCrMAQoGSU5HQU1FEg8KC1BJTkdfU09D",
+            "CgpFbnVtLnByb3RvEghQcm90b2NvbCrkAgoGSU5HQU1FEg8KC1BJTkdfU09D",
             "S0VUEAASDgoKRU5URVJfR0FNRRABEg8KC0NSRUFURV9HQU1FEAISDgoKR0FN",
-            "RV9TVEFSVBADEg4KCkxFQVZFX0dBTUUQBBIJCgVTUEFXThAFEgsKB0RFU1BB",
-            "V04QBhIICgRNT1ZFEAcSEgoOUEFUSF9HQU1FX0pPSU4QCBITCg9QQVRIX0dB",
-            "TUVfU1RBUlQQCRISCg5QQVRIX0dBTUVfTU9WRRAKEhEKDVBBVEhfR0FNRV9F",
-            "TkQQCyo7CglQbGF5ZXJKb2ISCAoETk9ORRAAEgsKB1NUVURFTlQQARILCgdU",
-            "RUFDSEVSEAISCgoGUE9MSUNFEAMqRQoITW92ZVR5cGUSDQoJTU9WRV9OT05F",
-            "EAASDQoJTU9WRV9JRExFEAESDQoJTU9WRV9XQUxLEAISDAoITU9WRV9SVU4Q",
-            "AyooCghUaW1lVHlwZRINCglDSEVDS19SVFQQABINCglTWU5DX1RJTUUQASoh",
-            "Cg5TaW5nbGVHYW1lVHlwZRIPCgtTSU5HTEVfSURMRRAAKjkKDU11bHRpR2Ft",
-            "ZVR5cGUSDgoKTVVMVElfSURMRRAAEhgKFE1VTFRJX0ZJTkRfUEFUSF9HQU1F",
-            "EAEqVgoOR2FtZUFjdGlvblR5cGUSCgoGSU5TSURFEAASCwoHT1VUU0lERRAB",
-            "EgkKBVNUQVJUEAISBwoDRU5EEAMSCwoHU1VDQ0VTUxAEEgoKBkZBSUxFRBAF",
-            "KjkKEE1pbmlHYW1lTW92ZVR5cGUSBgoCVVAQABIICgRET1dOEAESCAoETEVG",
-            "VBACEgkKBVJJR0hUEANiBnByb3RvMw=="));
+            "RV9TVEFSVBADEgwKCEdBTUVfRU5EEAQSDgoKTEVBVkVfR0FNRRAFEgkKBVNQ",
+            "QVdOEAYSCwoHREVTUEFXThAHEggKBE1PVkUQCBIVChFQQVRIX01JU1NJT05f",
+            "Sk9JThAJEhYKElBBVEhfTUlTU0lPTl9TVEFSVBAKEhUKEVBBVEhfTUlTU0lP",
+            "Tl9NT1ZFEAsSFAoQUEFUSF9NSVNTSU9OX0VORBAMEhcKE1NJTkdMRV9NSVNT",
+            "SU9OX0pPSU4QDRIYChRTSU5HTEVfTUlTU0lPTl9MRUFWRRAOEhgKFFNJTkdM",
+            "RV9NSVNTSU9OX1NUQVJUEA8SFwoTU0lOR0xFX01JU1NJT05fVE9ETxAQEhYK",
+            "ElNJTkdMRV9NSVNTSU9OX0VORBARKjsKCVBsYXllckpvYhIICgROT05FEAAS",
+            "CwoHU1RVREVOVBABEgsKB1RFQUNIRVIQAhIKCgZQT0xJQ0UQAypFCghNb3Zl",
+            "VHlwZRINCglNT1ZFX05PTkUQABINCglNT1ZFX0lETEUQARINCglNT1ZFX1dB",
+            "TEsQAhIMCghNT1ZFX1JVThADKigKCFRpbWVUeXBlEg0KCUNIRUNLX1JUVBAA",
+            "Eg0KCVNZTkNfVElNRRABKlkKEU1pc3Npb25BY3Rpb25UeXBlEgoKBklOU0lE",
+            "RRAAEgsKB09VVFNJREUQARIJCgVTVEFSVBACEgcKA0VORBADEgsKB1NVQ0NF",
+            "U1MQBBIKCgZGQUlMRUQQBSo/ChBNdWx0aU1pc3Npb25UeXBlEg4KCk1VTFRJ",
+            "X0lETEUQABIbChdNVUxUSV9GSU5EX1BBVEhfTUlTU0lPThABKj0KFE11bHRp",
+            "TWlzc2lvbk1vdmVUeXBlEgYKAlVQEAASCAoERE9XThABEggKBExFRlQQAhIJ",
+            "CgVSSUdIVBADKl0KEVNpbmdsZU1pc3Npb25UeXBlEg8KC1NJTkdMRV9JRExF",
+            "EAASEAoMU1RVREVOVF9NQVRIEAESEQoNU1RVREVOVF9BTFBIQRACEhIKDlRF",
+            "QUNIRVJfU1VET0tVEANiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.INGAME), typeof(global::Protocol.PlayerJob), typeof(global::Protocol.MoveType), typeof(global::Protocol.TimeType), typeof(global::Protocol.SingleGameType), typeof(global::Protocol.MultiGameType), typeof(global::Protocol.GameActionType), typeof(global::Protocol.MiniGameMoveType), }, null, null));
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.INGAME), typeof(global::Protocol.PlayerJob), typeof(global::Protocol.MoveType), typeof(global::Protocol.TimeType), typeof(global::Protocol.MissionActionType), typeof(global::Protocol.MultiMissionType), typeof(global::Protocol.MultiMissionMoveType), typeof(global::Protocol.SingleMissionType), }, null, null));
     }
     #endregion
 
@@ -52,14 +57,20 @@ namespace Protocol {
     [pbr::OriginalName("ENTER_GAME")] EnterGame = 1,
     [pbr::OriginalName("CREATE_GAME")] CreateGame = 2,
     [pbr::OriginalName("GAME_START")] GameStart = 3,
-    [pbr::OriginalName("LEAVE_GAME")] LeaveGame = 4,
-    [pbr::OriginalName("SPAWN")] Spawn = 5,
-    [pbr::OriginalName("DESPAWN")] Despawn = 6,
-    [pbr::OriginalName("MOVE")] Move = 7,
-    [pbr::OriginalName("PATH_GAME_JOIN")] PathGameJoin = 8,
-    [pbr::OriginalName("PATH_GAME_START")] PathGameStart = 9,
-    [pbr::OriginalName("PATH_GAME_MOVE")] PathGameMove = 10,
-    [pbr::OriginalName("PATH_GAME_END")] PathGameEnd = 11,
+    [pbr::OriginalName("GAME_END")] GameEnd = 4,
+    [pbr::OriginalName("LEAVE_GAME")] LeaveGame = 5,
+    [pbr::OriginalName("SPAWN")] Spawn = 6,
+    [pbr::OriginalName("DESPAWN")] Despawn = 7,
+    [pbr::OriginalName("MOVE")] Move = 8,
+    [pbr::OriginalName("PATH_MISSION_JOIN")] PathMissionJoin = 9,
+    [pbr::OriginalName("PATH_MISSION_START")] PathMissionStart = 10,
+    [pbr::OriginalName("PATH_MISSION_MOVE")] PathMissionMove = 11,
+    [pbr::OriginalName("PATH_MISSION_END")] PathMissionEnd = 12,
+    [pbr::OriginalName("SINGLE_MISSION_JOIN")] SingleMissionJoin = 13,
+    [pbr::OriginalName("SINGLE_MISSION_LEAVE")] SingleMissionLeave = 14,
+    [pbr::OriginalName("SINGLE_MISSION_START")] SingleMissionStart = 15,
+    [pbr::OriginalName("SINGLE_MISSION_TODO")] SingleMissionTodo = 16,
+    [pbr::OriginalName("SINGLE_MISSION_END")] SingleMissionEnd = 17,
   }
 
   public enum PlayerJob {
@@ -81,16 +92,7 @@ namespace Protocol {
     [pbr::OriginalName("SYNC_TIME")] SyncTime = 1,
   }
 
-  public enum SingleGameType {
-    [pbr::OriginalName("SINGLE_IDLE")] SingleIdle = 0,
-  }
-
-  public enum MultiGameType {
-    [pbr::OriginalName("MULTI_IDLE")] MultiIdle = 0,
-    [pbr::OriginalName("MULTI_FIND_PATH_GAME")] MultiFindPathGame = 1,
-  }
-
-  public enum GameActionType {
+  public enum MissionActionType {
     [pbr::OriginalName("INSIDE")] Inside = 0,
     [pbr::OriginalName("OUTSIDE")] Outside = 1,
     [pbr::OriginalName("START")] Start = 2,
@@ -99,11 +101,23 @@ namespace Protocol {
     [pbr::OriginalName("FAILED")] Failed = 5,
   }
 
-  public enum MiniGameMoveType {
+  public enum MultiMissionType {
+    [pbr::OriginalName("MULTI_IDLE")] MultiIdle = 0,
+    [pbr::OriginalName("MULTI_FIND_PATH_MISSION")] MultiFindPathMission = 1,
+  }
+
+  public enum MultiMissionMoveType {
     [pbr::OriginalName("UP")] Up = 0,
     [pbr::OriginalName("DOWN")] Down = 1,
     [pbr::OriginalName("LEFT")] Left = 2,
     [pbr::OriginalName("RIGHT")] Right = 3,
+  }
+
+  public enum SingleMissionType {
+    [pbr::OriginalName("SINGLE_IDLE")] SingleIdle = 0,
+    [pbr::OriginalName("STUDENT_MATH")] StudentMath = 1,
+    [pbr::OriginalName("STUDENT_ALPHA")] StudentAlpha = 2,
+    [pbr::OriginalName("TEACHER_SUDOKU")] TeacherSudoku = 3,
   }
 
   #endregion

@@ -31,16 +31,16 @@ namespace Protocol {
             "b3ZlSW5mbxIKCgJpZBgBIAEoDRIgCgR0eXBlGAIgASgOMhIuUHJvdG9jb2wu",
             "TW92ZVR5cGUSDQoFcG9zX3gYAyABKAISDQoFcG9zX3oYBCABKAISDQoFZGly",
             "X3gYBSABKAISDQoFZGlyX3oYBiABKAIiGwoDUG9zEgkKAXgYASABKAUSCQoB",
-            "eRgCIAEoBSJTCgtQYXRoR2FtZVBvcxIhCgpzdHVkZW50UG9zGAEgASgLMg0u",
-            "UHJvdG9jb2wuUG9zEiEKCnRlYWNoZXJQb3MYAiABKAsyDS5Qcm90b2NvbC5Q",
-            "b3NiBnByb3RvMw=="));
+            "eRgCIAEoBSJWCg5QYXRoTWlzc2lvblBvcxIhCgpzdHVkZW50UG9zGAEgASgL",
+            "Mg0uUHJvdG9jb2wuUG9zEiEKCnRlYWNoZXJQb3MYAiABKAsyDS5Qcm90b2Nv",
+            "bC5Qb3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protocol.EnumReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PlayerInfo), global::Protocol.PlayerInfo.Parser, new[]{ "Id", "UserName", "IsHost", "PosX", "PosZ", "PlayerJob" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PlayerMoveInfo), global::Protocol.PlayerMoveInfo.Parser, new[]{ "Id", "Type", "PosX", "PosZ", "DirX", "DirZ" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.Pos), global::Protocol.Pos.Parser, new[]{ "X", "Y" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PathGamePos), global::Protocol.PathGamePos.Parser, new[]{ "StudentPos", "TeacherPos" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.PathMissionPos), global::Protocol.PathMissionPos.Parser, new[]{ "StudentPos", "TeacherPos" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1021,16 +1021,16 @@ namespace Protocol {
 
   }
 
-  public sealed partial class PathGamePos : pb::IMessage<PathGamePos>
+  public sealed partial class PathMissionPos : pb::IMessage<PathMissionPos>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<PathGamePos> _parser = new pb::MessageParser<PathGamePos>(() => new PathGamePos());
+    private static readonly pb::MessageParser<PathMissionPos> _parser = new pb::MessageParser<PathMissionPos>(() => new PathMissionPos());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<PathGamePos> Parser { get { return _parser; } }
+    public static pb::MessageParser<PathMissionPos> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1046,7 +1046,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PathGamePos() {
+    public PathMissionPos() {
       OnConstruction();
     }
 
@@ -1054,7 +1054,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PathGamePos(PathGamePos other) : this() {
+    public PathMissionPos(PathMissionPos other) : this() {
       studentPos_ = other.studentPos_ != null ? other.studentPos_.Clone() : null;
       teacherPos_ = other.teacherPos_ != null ? other.teacherPos_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1062,8 +1062,8 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PathGamePos Clone() {
-      return new PathGamePos(this);
+    public PathMissionPos Clone() {
+      return new PathMissionPos(this);
     }
 
     /// <summary>Field number for the "studentPos" field.</summary>
@@ -1093,12 +1093,12 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as PathGamePos);
+      return Equals(other as PathMissionPos);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(PathGamePos other) {
+    public bool Equals(PathMissionPos other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1184,7 +1184,7 @@ namespace Protocol {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(PathGamePos other) {
+    public void MergeFrom(PathMissionPos other) {
       if (other == null) {
         return;
       }

@@ -13,7 +13,7 @@ public class MissionManager
     public Action<Collider> TriggerEnter = null;
     public Action<Collider> TriggerExit = null;
 
-    public Action<PathGamePos, PathGamePos> Mission1Start = null;
+    public Action<PathMissionPos, PathMissionPos> Mission1Start = null;
     public Action<bool> Mission1End = null;
     public Action<Protocol.Pos> MoveTile = null;
     public Action<PlayerJob, Protocol.Pos> PoliceMoveTile = null;
@@ -36,7 +36,7 @@ public class MissionManager
             MoveTile.Invoke(destPos);
     }
 
-    public void Mission1StartInvoke(PathGamePos startPos, PathGamePos destPos = null)
+    public void Mission1StartInvoke(PathMissionPos startPos, PathMissionPos destPos = null)
     {
         if (Mission1Start != null)
             Mission1Start.Invoke(startPos, destPos);

@@ -19,7 +19,7 @@ public class TM1_Teacher : TM1
         Managers.Mission.MoveTile += MoveTile;
     }
 
-    protected override void Mission1Start(PathGamePos startPos, PathGamePos destPos)
+    protected override void Mission1Start(PathMissionPos startPos, PathMissionPos destPos)
     {
         base.Mission1Start(startPos, destPos);
 
@@ -41,27 +41,27 @@ public class TM1_Teacher : TM1
         //    return false;
 
         //_isMoved = true;
-        C_PATH_GAME_MOVE pkt = new C_PATH_GAME_MOVE();
+        C_PATH_MISSION_MOVE pkt = new C_PATH_MISSION_MOVE();
         pkt.PlayerInfo = Managers.Player.MyPlayerController.Info;
 
         if (code == KeyCode.W)
         {
-            pkt.MoveType = MiniGameMoveType.Down;
+            pkt.MoveType = MultiMissionMoveType.Down;
         }
         else if (code == KeyCode.S)
         {
-            pkt.MoveType = MiniGameMoveType.Up;
+            pkt.MoveType = MultiMissionMoveType.Up;
         }
         else if (code == KeyCode.A)
         {
-            pkt.MoveType = MiniGameMoveType.Left;
+            pkt.MoveType = MultiMissionMoveType.Left;
         }
         else if (code == KeyCode.D)
         {
-            pkt.MoveType = MiniGameMoveType.Right;
+            pkt.MoveType = MultiMissionMoveType.Right;
         }
 
-        Managers.Network.Send(pkt, INGAME.PathGameMove);
+        Managers.Network.Send(pkt, INGAME.PathMissionMove);
 
         return true;
     }
