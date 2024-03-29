@@ -23,6 +23,8 @@ public class MyPlayerController : PlayerController
         Managers.Input.MouseAction += OnMouseClicked;
 
         Managers.UI.MakeWorldSpaceUI<UI_Nickname>(transform);
+
+        _animator = Util.FindChild<Animator>(gameObject);
         
         Player player = GetComponent<Player>();
         _isLeader = player._isLeader;

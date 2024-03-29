@@ -16,7 +16,7 @@ public class InputManager
     {
         // 키보드 입력이 들어오고 KeyAction을 구독한 오브젝트가 있다면 
         // KeyAction을 구독한 오브젝트에 BroadCasting
-        if(Input.anyKey && KeyAction != null)
+        if(KeyAction != null)
             KeyAction.Invoke();
 
         // 마우스 입력에 대한 BroadCasting

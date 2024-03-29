@@ -16,14 +16,10 @@ public class GameScene : BaseScene
         GameObject go = Managers.Resource.Instantiate("Player");
         go.name = "Player";
         
-        GameObject student = Managers.Resource.Instantiate("StudentRoot");
+        GameObject student = Managers.Resource.Instantiate("TeacherRoot");
         student.transform.SetParent(go.transform);
-
-        go.GetOrAddComponent<Student>();
-
-        // TEMP Code
-        // Managers.Resource.Instantiate("Player");
-        //Managers.UI.ShowPopupUI<UI_TM1Police>();
+        
+        go.GetOrAddComponent<Teacher>();
     }
     
     public override void Clear()
