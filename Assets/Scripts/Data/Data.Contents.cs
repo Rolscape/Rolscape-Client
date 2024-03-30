@@ -25,3 +25,30 @@ public class StatData : ILoader<int, Stat>
     }
 }
 #endregion
+
+#region Cal
+
+[Serializable]
+public class Cal
+{
+    public int id;
+    public string question;
+    public int result;
+}
+
+[Serializable]
+public class CalData : ILoader<int, Cal>
+{
+    public List<Cal> cals = new List<Cal>();
+    public Dictionary<int, Cal> MakeDict()
+    {
+        Dictionary<int, Cal> dict = new Dictionary<int, Cal>();
+        foreach (Cal cal in cals)
+            dict.Add(cal.id, cal);
+
+        return dict;
+    }
+}
+
+
+#endregion
