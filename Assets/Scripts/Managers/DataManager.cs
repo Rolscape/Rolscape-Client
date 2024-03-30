@@ -16,7 +16,7 @@ public class DataManager
     public void Init()
     {
         StatDict = LoadJson<StatData, int, Stat>("StatData").MakeDict();
-        CalDict = LoadJson<CalData, int, Cal>("CalData").MakeDict();
+        //CalDict = LoadJson<CalData, int, Cal>("CalData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
