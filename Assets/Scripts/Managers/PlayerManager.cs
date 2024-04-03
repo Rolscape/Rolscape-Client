@@ -83,7 +83,11 @@ public class PlayerManager
     }
     public void DeletePlayer(PlayerInfo player)
     {
+        GameObject playerObject = GetPlayer(player.Id);
+        if (playerObject == null) return;
 
+        _players.Remove(player.Id);
+        Managers.Resource.Destory(playerObject);
     }
 
     public void OnGameStart(S_GAME_START packet)

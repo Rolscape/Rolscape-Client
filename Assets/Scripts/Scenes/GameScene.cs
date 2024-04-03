@@ -10,12 +10,17 @@ public class GameScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Game;
-       
+        Managers.UI.ShowSceneUI<UI_Button>();
         //Managers.UI.ShowPopupUI<UI_Start>();
-
-        // TEMP Code
-        // Managers.Resource.Instantiate("Player");
-        //Managers.UI.ShowPopupUI<UI_TM1Police>();
+        
+        // Temp Code
+        GameObject go = Managers.Resource.Instantiate("Player");
+        go.name = "Player";
+        
+        GameObject student = Managers.Resource.Instantiate("TeacherRoot");
+        student.transform.SetParent(go.transform);
+        
+        go.GetOrAddComponent<Teacher>();
     }
 
     public void Start()

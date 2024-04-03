@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7370080033753160810, guid: 00317e3b953be2741ac8d11af3e9cf13, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7370080033753160810, guid: 00317e3b953be2741ac8d11af3e9cf13, type: 3}
       propertyPath: m_LocalPosition.y
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7857681917871523536, guid: 00317e3b953be2741ac8d11af3e9cf13, type: 3}
       propertyPath: m_Name
-      value: TestPlayer
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -68,9 +68,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7857681917871523536, guid: 00317e3b953be2741ac8d11af3e9cf13, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7903964882297935420}
-    - targetCorrespondingSourceObject: {fileID: 7857681917871523536, guid: 00317e3b953be2741ac8d11af3e9cf13, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7739833612548765165}
   m_SourcePrefab: {fileID: 100100000, guid: 00317e3b953be2741ac8d11af3e9cf13, type: 3}
 --- !u!1 &5547453102416763330 stripped
 GameObject:
@@ -115,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739bfdf37a6d9a44ab893d465e8d0390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isMission: 0
 --- !u!114 &7903964882297935420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,24 +126,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isUsing: 0
---- !u!95 &7739833612548765165
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5547453102416763330}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 11214a1e60487ca4fb84311882a7cdab, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

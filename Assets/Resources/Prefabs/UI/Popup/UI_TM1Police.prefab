@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 2370182224482132771}
   - component: {fileID: 1206473781063147866}
   - component: {fileID: -7000780379411345794}
+  - component: {fileID: 4873566330731787100}
   m_Layer: 5
   m_Name: UI_TM1Police
   m_TagString: Untagged
@@ -190,3 +191,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e9d3e9e4d88e242969dae41a9c2524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gridSizeX: 9
+  _gridSizeY: 6
+  _curPos: 0
+  _tCurPos: 0
+  _sCurPos: 0
+  _teacherDestPos: 0
+  _studentDestPos: 0
+--- !u!222 &4873566330731787100
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4985362613578474033}
+  m_CullTransparentMesh: 1

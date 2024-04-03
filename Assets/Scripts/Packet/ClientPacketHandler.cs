@@ -66,7 +66,11 @@ namespace GameServer.Packet
 
         public static void Handle_S_LEAVE_GAME(IMessage packet)
         {
+            S_LEAVE_GAME pkt = packet as S_LEAVE_GAME;
+            if(pkt == null)
+                return;
 
+            // TODO 
         }
 
         public static void Handle_S_SPAWN(IMessage packet)
@@ -83,7 +87,11 @@ namespace GameServer.Packet
 
         public static void Handle_S_DESPAWN(IMessage packet)
         {
+            S_DESPAWN pkt = packet as S_DESPAWN;
+            if(pkt == null)
+                return;
 
+            Managers.Player.DeletePlayer(pkt.PlayerInfo);
         }
         public static void Handle_S_MOVE(IMessage packet)
         {
@@ -121,7 +129,7 @@ namespace GameServer.Packet
             if (pkt == null)
                 return;
 
-            if (!pkt.IsSuccess)
+            if (!pkt.IsSucces)
                 return;
 
             if (Managers.Player.MyPlayerController.Job == PlayerJob.Police)

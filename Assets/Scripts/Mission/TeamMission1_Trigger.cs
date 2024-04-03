@@ -30,10 +30,10 @@ public class TeamMission1_Trigger : MonoBehaviour
         MyPlayerController controller = other.gameObject.GetComponent<MyPlayerController>();
         if (controller != null)
         {
-            C_PATH_GAME_JOIN pkt = new C_PATH_GAME_JOIN();
+            C_PATH_MISSION_JOIN pkt = new C_PATH_MISSION_JOIN();
             pkt.IsJoin = true;
             pkt.PlayerInfo = controller.Info;
-            Managers.Network.Send(pkt, INGAME.PathGameJoin);
+            Managers.Network.Send(pkt, INGAME.PathMissionJoin);
         }
     }
 
@@ -43,10 +43,10 @@ public class TeamMission1_Trigger : MonoBehaviour
         MyPlayerController controller = other.gameObject.GetComponent<MyPlayerController>();
         if (controller != null)
         {
-            C_PATH_GAME_JOIN pkt = new C_PATH_GAME_JOIN();
+            C_PATH_MISSION_JOIN pkt = new C_PATH_MISSION_JOIN();
             pkt.IsJoin = false;
             pkt.PlayerInfo = controller.Info;
-            Managers.Network.Send(pkt, INGAME.PathGameJoin);
+            Managers.Network.Send(pkt, INGAME.PathMissionJoin);
         }
     }
 }

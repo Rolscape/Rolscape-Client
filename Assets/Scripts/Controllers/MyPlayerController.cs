@@ -24,6 +24,8 @@ public class MyPlayerController : PlayerController
         Managers.Input.MouseAction += OnMouseClicked;
 
         Managers.UI.MakeWorldSpaceUI<UI_Nickname>(transform);
+
+        _animator = Util.GetOrAddComponent<Animator>(gameObject);
         
         //Player player = GetComponent<Player>();
         //_isLeader = player._isLeader;
@@ -106,6 +108,7 @@ public class MyPlayerController : PlayerController
             _animator.SetFloat("Speed", 0.0f);
         }
     }
+    // 멈추는 작업이 필요하다.
 
     // CallBack Func When Mouse Event 
     void OnMouseClicked(Define.MouseEvent evt)
