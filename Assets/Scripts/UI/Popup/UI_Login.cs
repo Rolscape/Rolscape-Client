@@ -76,8 +76,6 @@ public class UI_Login : UI_Popup
     void OnEndEdit(string text)
     {
         // TODO End setting nickname 
-        String text = GetText((int)Texts.InputText).text;
-
         if (text.Length > 1)
         {
             gameObject.SetActive(false);
@@ -94,11 +92,6 @@ public class UI_Login : UI_Popup
     public void SuccessLoginGame()
     {
         Managers.UI.ShowPopupUI<UI_Start>();
-    }
-
-    void OnEndEdit(string text)
-    {
-        // TODO End setting nickname 
     }
 
     public void FailedLoginGame()

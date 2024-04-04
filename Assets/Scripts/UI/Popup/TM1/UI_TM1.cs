@@ -67,4 +67,14 @@ public class UI_TM1 : UI_Popup
     {
         
     }
+
+    public virtual void SetDefaultPos(int startPos)
+    {
+
+    }
+
+    public virtual void SetDefaultPolicePos(int studentStartPos, int teacherStartPos, int studentDestPos, int teacherDestPos)
+    {
+
+    }
 }

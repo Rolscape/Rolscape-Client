@@ -26,7 +26,6 @@ public class MissionManager
     
     // Teacher
 
-    public void Init()
     public Action<Collider> TriggerEnter = null;
     public Action<Collider> TriggerExit = null;
 
