@@ -19,8 +19,12 @@ public class SM_StudentCalTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(Managers.Mission.bStudentCal)
+        if (Managers.Mission.bStudentCal)
+        {
             Destroy(gameObject);
+            return;
+        }
+            
         // TODO 미션 했는지 안했는지 여부 및 직업 체크 
         Student student = other.GetComponent<Student>();
         if(student == null)
