@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Start : UI_Popup
+public class UI_SMStart : UI_Popup
 {
     enum Buttons
     {
@@ -35,6 +35,7 @@ public class UI_Start : UI_Popup
 
     public void OnButtonClicked(PointerEventData data)
     {
-        
+        Managers.UI.ClosePopupUI();
+        Managers.Mission.SMStart.Invoke();
     }
 }

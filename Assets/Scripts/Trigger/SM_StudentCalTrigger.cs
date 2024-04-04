@@ -31,7 +31,7 @@ public class SM_StudentCalTrigger : MonoBehaviour
             return;
         
         // TODO 암산 미션 시작하기 창 띄우기
-        Managers.UI.ShowPopupUI<UI_Start>();
+        Managers.UI.ShowPopupUI<UI_SMStart>();
     }
 
 
