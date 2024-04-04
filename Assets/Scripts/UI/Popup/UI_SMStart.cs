@@ -23,7 +23,7 @@ public class UI_SMStart : UI_Popup
         Bind<Button>(typeof(Buttons));
         Bind<TextMeshProUGUI>(typeof(Texts));
 
-        GetText((int)Texts.PointText).text = "Start Game";
+        GetText((int)Texts.PointText).text = "Mission Start";
         
         GetButton((int)Buttons.PointButton).gameObject.BindEvent(OnButtonClicked);
     }
