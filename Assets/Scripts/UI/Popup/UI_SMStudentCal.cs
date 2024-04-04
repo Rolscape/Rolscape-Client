@@ -81,8 +81,8 @@ public class UI_SMStudentCal : UI_Popup
         // 성공 시 정답
         // Managers.Mission.bStudentCal = true;
         // 실패 시 다시 시작
-        Managers.UI.ShowPopupUI<UI_Start>();
-
+        //Managers.UI.ShowPopupUI<UI_Start>();
+        
     }
     
 }

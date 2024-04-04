@@ -22,8 +22,9 @@ public class SM_StudentCal : MonoBehaviour
       Managers.UI.ShowPopupUI<UI_SMStudentCal>();
    }
 
-   public void Claer()
+   public void Clear()
    {
       Managers.Mission.SMStart -= MissionStart;
+      
    }
 }
