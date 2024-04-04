@@ -15,6 +15,9 @@ public class TM1 : MonoBehaviour
 
         Managers.Mission.Mission1End -= Mission1End;
         Managers.Mission.Mission1End += Mission1End;
+
+        Managers.Input.ClickedKeyAction -= OnKeyboard;
+        Managers.Input.ClickedKeyAction += OnKeyboard;
     }
 
     private void Start()
@@ -61,13 +64,6 @@ public class TM1 : MonoBehaviour
 
     protected virtual void OnKeyboard(KeyCode keyCode)
     {
-        // if (Managers.Mission.CheckMoveNextGrid(dir))
-        // {
-        //     
-        // }
-        // else
-        // {
-        //          
-        // }
+
     }
 }

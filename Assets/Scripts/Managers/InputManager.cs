@@ -7,8 +7,12 @@ using UnityEngine;
 public class InputManager
 {
     public Action KeyAction = null;
+
     public Action<KeyCode> ClickedKeyAction = null;
     public Action<Define.MouseEvent> MouseAction = null;
+
+    public Action AnimationActionStart = null;
+    public Action AnimationActionStop = null;
 
     public bool IsMission { get; set; } = false;
     private bool _pressed = false;
@@ -17,19 +21,30 @@ public class InputManager
     {
         // 키보드 입력이 들어오고 KeyAction을 구독한 오브젝트가 있다면 
         // KeyAction을 구독한 오브젝트에 BroadCasting
-        if (Input.anyKey && KeyAction != null && !IsMission)
-            KeyAction.Invoke();
-
-        if (IsMission)
+        if (Input.anyKeyDown && KeyAction != null)
         {
-            if (Input.GetKeyDown(KeyCode.W))
-                ClickedKeyAction.Invoke(KeyCode.W);
-            else if (Input.GetKeyDown(KeyCode.A))
-                ClickedKeyAction.Invoke(KeyCode.A);
-            else if (Input.GetKeyDown(KeyCode.S))
-                ClickedKeyAction.Invoke(KeyCode.S);
-            else if (Input.GetKeyDown(KeyCode.D))
-                ClickedKeyAction.Invoke(KeyCode.D);
+            if (!IsMission)
+            {
+                KeyAction.Invoke();
+                _pressed = true;
+                AnimationActionStart.Invoke();
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.W))
+                    ClickedKeyAction.Invoke(KeyCode.W);
+                else if (Input.GetKeyDown(KeyCode.A))
+                    ClickedKeyAction.Invoke(KeyCode.A);
+                else if (Input.GetKeyDown(KeyCode.S))
+                    ClickedKeyAction.Invoke(KeyCode.S);
+                else if (Input.GetKeyDown(KeyCode.D))
+                    ClickedKeyAction.Invoke(KeyCode.D);
+            }
+        }
+        else if (_pressed)
+        {
+            _pressed = false;
+            AnimationActionStop.Invoke();
         }
 
         // 마우스 입력에 대한 BroadCasting

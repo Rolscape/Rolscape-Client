@@ -1,71 +1,8 @@
 using Protocol;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public partial class PlayerController : MonoBehaviour
 {
-    public string NickName { get; set; }
-    // Start is called before the first frame update
-
-    protected Animator _animator;
-    protected float _speed = 20.0f;
-
-    protected CharacterController _characterController;
-    protected PlayerMoveInfo _moveInfo = new PlayerMoveInfo();
-    protected PlayerInfo _info = new PlayerInfo();
-    private Vector3 _destPos = new Vector3(0, 0, 0);
-
-    protected bool _isUpdated = false;
-
-    public PlayerMoveInfo MoveInfo
-    {
-        get { return _moveInfo; }
-        set
-        {
-            _moveInfo = value;
-            _destPos = new Vector3(value.PosX, 0, value.PosZ);
-            _isUpdated = true;
-        }
-    }
-
-    public PlayerJob Job
-    {
-        get { return Info.PlayerJob; }
-    }
-
-    public uint ID
-    {
-        get { return _moveInfo.Id; }
-        set { _moveInfo.Id = value; }
-    }
-
-    public PlayerInfo Info
-    {
-        set
-        {
-            _info = value;
-            _moveInfo.Id = value.Id;
-            _moveInfo.PosX = value.PosX;
-            _moveInfo.PosZ = value.PosZ;
-            _moveInfo.Type = MoveType.MoveIdle;
-        }
-        get { return _info; }
-    }
-
-    public float Speed
-    {
-        get { return _speed; }
-        set { _speed = value; }
-    }
-
-    public void SyncPos(Vector3 pos)
-    {
-        transform.position = pos;
-    }
-
     void Start()
     {
         Init();
@@ -74,7 +11,8 @@ public class PlayerController : MonoBehaviour
     protected virtual void Init()
     {
         _characterController = Util.GetOrAddComponent<CharacterController>(gameObject);
-        _animator = gameObject.GetComponent<Animator>();
+
+        _animator = Util.GetOrAddComponent<Animator>(gameObject);
     }
 
     // Update is called once per frame
@@ -87,8 +25,21 @@ public class PlayerController : MonoBehaviour
     {
         if (_isUpdated)
         {
-            UpdateMoving();
+            switch (MoveInfo.Type)
+            {
+                case MoveType.MoveIdle:
+                    UpdateIdle(); break;
+                case MoveType.MoveWalk:
+                    UpdateMoving(); break;
+                default:
+                    break;
+            }
         }
+    }
+
+    protected virtual void UpdateIdle()
+    {
+        UpdateAnimationIDLE();
     }
 
     protected virtual void UpdateMoving()
@@ -106,6 +57,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDir), 0.3f);
             transform.position += moveDir.normalized * _speed * Time.deltaTime;
         }
+
+        UpdateAnimationMOVE();
     }
 
     protected virtual void MoveToNextPos()
@@ -115,11 +68,11 @@ public class PlayerController : MonoBehaviour
 
     protected virtual void UpdateAnimationMOVE()
     {
-
+        _animator.SetFloat("Speed", _speed);
     }
-    
+
     protected virtual void UpdateAnimationIDLE()
     {
-
+        _animator.SetFloat("Speed", 0.0f);
     }
 }

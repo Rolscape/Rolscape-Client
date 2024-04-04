@@ -6,10 +6,10 @@ using Protocol;
 using UnityEngine;
 
 public class MyPlayerController : PlayerController
-{   
+{
     private bool _isLeader;
     public bool _isMission = false;
-    
+
     // Start is called before the first frame update
     private const float TickTime = 0.1f;
     private float _lastTick = TickTime;
@@ -17,16 +17,12 @@ public class MyPlayerController : PlayerController
     protected override void Init()
     {
         base.Init();
-        
-        Managers.Input.KeyAction -= OnKeyboard;
-        Managers.Input.KeyAction += OnKeyboard;
-        Managers.Input.MouseAction -= OnMouseClicked;
-        Managers.Input.MouseAction += OnMouseClicked;
+
+        KeyActionOutput();
+        KeyActionInput();
 
         Managers.UI.MakeWorldSpaceUI<UI_Nickname>(transform);
 
-        _animator = Util.GetOrAddComponent<Animator>(gameObject);
-        
         //Player player = GetComponent<Player>();
         //_isLeader = player._isLeader;
 
@@ -53,23 +49,37 @@ public class MyPlayerController : PlayerController
         SendMovePacket();
     }
 
+    public void KeyActionInput()
+    {
+        Managers.Input.KeyAction += OnKeyboard;
+        Managers.Input.MouseAction += OnMouseClicked;
+        Managers.Input.AnimationActionStart += OnAnimationStart;
+        Managers.Input.AnimationActionStop += OnAnimationStop;
+    }
+
+    public void KeyActionOutput()
+    {
+        Managers.Input.KeyAction -= OnKeyboard;
+        Managers.Input.MouseAction -= OnMouseClicked;
+        Managers.Input.AnimationActionStart -= OnAnimationStart;
+        Managers.Input.AnimationActionStop -= OnAnimationStop;
+    }
+
     void Start()
     {
         Init();
-        
     }
 
     void OnKeyboard()
     {
         if (_isMission)
             return;
-        
+
         if (Input.GetKey(KeyCode.Escape))
         {
             Managers.UI.ClosePopupUI();
         }
-
-        if (Input.GetKey(KeyCode.M))
+        else if (Input.GetKey(KeyCode.M))
         {
             // TODO 중복으로 열리지 않게
             if (_isLeader)
@@ -77,35 +87,33 @@ public class MyPlayerController : PlayerController
             else
                 Managers.UI.ShowPopupUI<UI_CrewMap>();
         }
-        
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-
-        Vector3 dir = new Vector3(h, 0, v).normalized;
-        // TODO CharcterController
-        
-        if (dir != Vector3.zero)
-        {
-            _characterController.Move(dir * (_speed * Time.deltaTime));
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.3f);
-
-            _movedir = dir;
-
-            if (MoveInfo.Type == MoveType.MoveIdle)
-            {
-                SendMovePacket();
-            }
-
-            _animator.SetFloat("Speed", _speed);
-        }
         else
         {
-            if (MoveInfo.Type == MoveType.MoveWalk)
-            {
-                SendStopPacket();
-            }
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
 
-            _animator.SetFloat("Speed", 0.0f);
+            Vector3 dir = new Vector3(h, 0, v).normalized;
+            // TODO CharcterController
+
+            if (dir != Vector3.zero)
+            {
+                _characterController.Move(dir * (_speed * Time.deltaTime));
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 0.3f);
+
+                _movedir = dir;
+
+                if (MoveInfo.Type == MoveType.MoveIdle)
+                {
+                    SendMovePacket();
+                }
+            }
+            else
+            {
+                if (MoveInfo.Type == MoveType.MoveWalk)
+                {
+                    SendStopPacket();
+                }
+            }
         }
     }
     // 멈추는 작업이 필요하다.
@@ -117,42 +125,48 @@ public class MyPlayerController : PlayerController
             return;
 
         // TODO Mouse Event 
-        // RayCasting Etc
-        
+
+    }
+
+    public void OnAnimationStart()
+    {
+        _animator.SetFloat("Speed", _speed);
+    }
+
+    public void OnAnimationStop()
+    {
+        _animator.SetFloat("Speed", 0.0f);
     }
 
     void SendMovePacket()
     {
         Vector3 pos = transform.position;
 
-        PlayerMoveInfo moveInfo = new PlayerMoveInfo();
-        moveInfo.Id = MoveInfo.Id;
-        moveInfo.PosX = pos.x;
-        moveInfo.PosZ = pos.z;
+        MoveInfo.Id = MoveInfo.Id;
+        MoveInfo.PosX = pos.x;
+        MoveInfo.PosZ = pos.z;
 
-        moveInfo.DirX = _movedir.x;
-        moveInfo.DirZ = _movedir.z;
+        MoveInfo.DirX = _movedir.x;
+        MoveInfo.DirZ = _movedir.z;
 
-        moveInfo.Type = MoveType.MoveWalk;
+        MoveInfo.Type = MoveType.MoveWalk;
 
         C_MOVE pkt = new C_MOVE();
-        pkt.MoveInfo = moveInfo;
+        pkt.MoveInfo = MoveInfo;
         Managers.Network.Send(pkt, INGAME.Move);
     }
 
     void SendStopPacket()
     {
-        MoveInfo.Type = MoveType.MoveIdle;
         Vector3 pos = transform.position;
-        
-        PlayerMoveInfo moveInfo = new PlayerMoveInfo();
-        moveInfo.Id = MoveInfo.Id;
-        moveInfo.PosX = pos.x;
-        moveInfo.PosZ = pos.z;
-        moveInfo.Type = MoveType.MoveIdle;
+
+        MoveInfo.Id = MoveInfo.Id;
+        MoveInfo.PosX = pos.x;
+        MoveInfo.PosZ = pos.z;
+        MoveInfo.Type = MoveType.MoveIdle;
 
         C_MOVE pkt = new C_MOVE();
-        pkt.MoveInfo = moveInfo;
+        pkt.MoveInfo = MoveInfo;
         Managers.Network.Send(pkt, INGAME.Move);
     }
 }

@@ -122,6 +122,8 @@ public class PlayerManager
         if (player == null)
             return;
 
+        Debug.Log("Sync Move Info");
+
         PlayerController controller = player.GetComponent<PlayerController>();
         controller.MoveInfo = moveInfo;
     }

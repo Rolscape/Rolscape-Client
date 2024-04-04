@@ -12,9 +12,6 @@ public class TM1_Student : TM1
     {
         base.Init();
 
-        Managers.Input.ClickedKeyAction -= OnKeyboard;
-        Managers.Input.ClickedKeyAction += OnKeyboard;
-
         Managers.Mission.MoveTile -= MoveTile;
         Managers.Mission.MoveTile += MoveTile;
     }

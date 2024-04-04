@@ -37,21 +37,31 @@ public class UI_Login : UI_Popup
     {
         base.Init();
         
+        Bind();
+        SetUpInputField();
+        
+        GameObject go = GetButton((int)Buttons.NicknameButton).gameObject;
+        BindEvent(go, OnButtonClicked, Define.UIEvent.Click);
+    }
+
+    void Bind()
+    {
         Bind<Button>(typeof(Buttons));
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<TMP_InputField>(typeof(InputFields));
+    }
 
+    void SetUpInputField()
+    {
         GetText((int)Texts.PointText).text = "Setting User Nickname";
         GetText((int)Texts.SettingText).text = "Join Game";
         GetText((int)Texts.InputPointText).text = "Input User Nickname";
 
         TMP_InputField inputField = Get<TMP_InputField>((int)InputFields.InputField);
         inputField.characterLimit = 9;
-        
-        GameObject go = GetButton((int)Buttons.NicknameButton).gameObject;
-        BindEvent(go, OnButtonClicked, Define.UIEvent.Click);
+        inputField.onEndEdit.AddListener(OnEndEdit);
     }
-
+    
     public void OnButtonClicked(PointerEventData data)
     {
         String text = GetText((int)Texts.InputText).text;
@@ -72,6 +82,11 @@ public class UI_Login : UI_Popup
     public void SuccessLoginGame()
     {
         Managers.UI.ShowPopupUI<UI_Start>();
+    }
+
+    void OnEndEdit(string text)
+    {
+        // TODO End setting nickname 
     }
 
     public void FailedLoginGame()
