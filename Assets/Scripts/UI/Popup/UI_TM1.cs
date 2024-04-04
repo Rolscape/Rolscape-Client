@@ -21,9 +21,6 @@ public class UI_TM1 : UI_Popup
       _grid = new Image[_gridSizeX * _gridSizeY];
       CreateGrid();
       _CurrentTile = _grid[0];
-
-      Managers.Mission.MoveTile -= MoveTile;
-      Managers.Mission.MoveTile += MoveTile;
    }
    private void Start() 
    { 

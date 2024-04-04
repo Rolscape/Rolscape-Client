@@ -62,18 +62,23 @@ public class UI_Login : UI_Popup
     
     public void OnButtonClicked(PointerEventData data)
     {
-        String text = GetText((int)Texts.InputText).text;
-        
-        if (text.Length > 1)
-        {
-            Managers.Scene.LoadScene(Define.Scene.Game);
-            UI_Nickname.NickName = text;
-        }
+        // String text = GetText((int)Texts.InputText).text;
+        //
+        // if (text.Length > 1)
+        // {
+        //     Managers.Scene.LoadScene(Define.Scene.Game);
+        //     UI_Nickname.NickName = text;
+        // }
     }
 
     void OnEndEdit(string text)
     {
         // TODO End setting nickname 
+        if (text.Length > 1)
+        {
+            Managers.Scene.LoadScene(Define.Scene.Game);
+            UI_Nickname.NickName = text;
+        }
     }
     
 }

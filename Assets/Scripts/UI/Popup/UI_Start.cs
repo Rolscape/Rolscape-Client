@@ -35,6 +35,7 @@ public class UI_Start : UI_Popup
 
     public void OnButtonClicked(PointerEventData data)
     {
-        Debug.Log("Start Button Clicked");
+        Managers.UI.ClosePopupUI();
+        Managers.Mission.SMStart.Invoke();
     }
 }

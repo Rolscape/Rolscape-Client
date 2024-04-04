@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 5129031477786811851}
   - component: {fileID: 3757555604530160227}
   m_Layer: 5
-  m_Name: UI_Question
+  m_Name: UI_SMStudentCal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

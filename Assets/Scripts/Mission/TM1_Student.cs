@@ -10,8 +10,6 @@ public class TM1_Student : TM1
     {
         base.Init();
         
-        Managers.Mission.Mission1Start -= Mission1Start;
-        Managers.Mission.Mission1Start += Mission1Start;
     }
 
     protected override void Mission1Start()

@@ -11,8 +11,6 @@ public class TM1_Teacher : TM1
     {
         base.Init();
         
-        Managers.Mission.Mission1Start -= Mission1Start;
-        Managers.Mission.Mission1Start += Mission1Start;
     }
 
     void Start()

@@ -9,40 +9,29 @@ using Random = UnityEngine.Random;
 
 public class MissionManager
 {
-    public Action<Collider> TriggerEnter = null;
-    public Action<Collider> TriggerExit = null;
-
-    public Action Mission1Start = null;
-    public Action Mission1End = null;
-    public Action<int> MoveTile = null;
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if(TriggerEnter != null)
-            TriggerEnter.Invoke(other);
-    }
+    // Single Mission Action
+    public Action SMStart = null;
     
-    public void OnTriggerExit(Collider other)
-    {
-        if(TriggerExit != null)
-            TriggerExit.Invoke(other);
-    }
-
-    public void MoveTileInvoke(int nextPos)
-    {
-        if(MoveTile!=null)
-            MoveTile.Invoke(nextPos);
-    }
+    // Team Mission Action
     
-    public void Mission1StartInvoke()
+    // Team
+    
+    
+    // Student
+    public bool bStudentCal = false;
+    
+    // Police
+    
+    
+    // Teacher
+
+    public void Init()
     {
-        if(Mission1Start!=null)
-            Mission1Start.Invoke();
+        
     }
 
-    public void Mission1EndInvoke()
+    public void Clear()
     {
-        if(Mission1End!=null)
-            Mission1End.Invoke();
+        
     }
 }
