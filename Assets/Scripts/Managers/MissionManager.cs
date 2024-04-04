@@ -18,7 +18,7 @@ public class MissionManager
     
     
     // Student
-    public bool bStudentCal = true;
+    public bool bStudentCal = false;
     
     // Police
     
