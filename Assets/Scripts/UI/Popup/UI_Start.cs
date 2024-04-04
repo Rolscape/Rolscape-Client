@@ -36,6 +36,8 @@ public class UI_Start : UI_Popup
 
     public void OnButtonClicked(PointerEventData data)
     {
+        Managers.UI.ClosePopupUI();
+        Managers.Mission.SMStart.Invoke();
         Debug.Log("Start Button Clicked");
 
         C_GAME_START pkt = new C_GAME_START();

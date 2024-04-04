@@ -17,10 +17,10 @@ public class GameScene : BaseScene
         GameObject go = Managers.Resource.Instantiate("Player");
         go.name = "Player";
         
-        GameObject student = Managers.Resource.Instantiate("TeacherRoot");
+        GameObject student = Managers.Resource.Instantiate("StudentRoot");
         student.transform.SetParent(go.transform);
         
-        go.GetOrAddComponent<Teacher>();
+        go.GetOrAddComponent<Student>();
     }
 
     public void Start()

@@ -23,6 +23,7 @@ public class Managers : MonoBehaviour
     private UIManager _ui = new UIManager();
     private SoundManager _sound = new SoundManager();
     private MissionManager _mission = new MissionManager();
+    private TriggerManager _trigger = new TriggerManager();
     
     // Network Manager
     private NetworkManager networkManager = new NetworkManager();
@@ -45,6 +46,7 @@ public class Managers : MonoBehaviour
     public static SceneManagerEx Scene { get { return Instance._scene; } }
     public static SoundManager Sound { get { return Instance._sound; } }
     public static MissionManager Mission { get { return Instance._mission; } }
+    public static TriggerManager Trigger { get { return Instance._trigger; } }
 
     public static NetworkManager Network { get { return Instance._network; } }
     public static VivoxManager Vivox { get { return Instance._vivox; } }

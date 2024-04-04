@@ -10,6 +10,23 @@ using Random = UnityEngine.Random;
 
 public class MissionManager
 {
+    // Single Mission Action
+    public Action SMStart = null;
+    
+    // Team Mission Action
+    
+    // Team
+    
+    
+    // Student
+    public bool bStudentCal = false;
+    
+    // Police
+    
+    
+    // Teacher
+
+    public void Init()
     public Action<Collider> TriggerEnter = null;
     public Action<Collider> TriggerExit = null;
 

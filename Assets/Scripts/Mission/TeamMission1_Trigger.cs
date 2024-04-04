@@ -10,10 +10,7 @@ public class TeamMission1_Trigger : MonoBehaviour
     
     public void Init()
     {
-        Managers.Mission.TriggerEnter -= OnTriggerEnter;
-        Managers.Mission.TriggerEnter += OnTriggerEnter;
-        Managers.Mission.TriggerExit -= OnTriggerExit;
-        Managers.Mission.TriggerExit += OnTriggerExit;
+        
     }
     
     void Start()

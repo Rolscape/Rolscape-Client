@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_Question : UI_Popup
+public class UI_SMStudentCal : UI_Popup
 {
     enum Panel
     {
@@ -74,8 +74,15 @@ public class UI_Question : UI_Popup
 
     void OnEndEdit(string text)
     {
-        // TODO Answer Check
+        Managers.UI.ClosePopupUI();
+        // TODO 정답 체크
         Debug.Log($"사용자가 입력한 정담은: {text}");
+        // TODO 정답 여부에 따라 
+        // 성공 시 정답
+        // Managers.Mission.bStudentCal = true;
+        // 실패 시 다시 시작
+        //Managers.UI.ShowPopupUI<UI_Start>();
+        
     }
     
 }
