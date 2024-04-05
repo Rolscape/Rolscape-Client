@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 784016279084204523}
   - component: {fileID: 3639727942202693784}
   - component: {fileID: -7429814540941734946}
-  - component: {fileID: 3850519404741554402}
   m_Layer: 0
   m_Name: SM_StudentCalTrigger
   m_TagString: Untagged
@@ -65,17 +64,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f03d72f8bf4e5904e9ce415533cc2c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3850519404741554402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581580373484979585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96a8fd678f8194a8f8e321a18fba2d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
