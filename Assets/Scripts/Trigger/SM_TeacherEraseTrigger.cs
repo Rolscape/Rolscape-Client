@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class SM_StudentCalTrigger : MonoBehaviour
+public class SM_TeacherEraseTrigger : MonoBehaviour
 {
     public void Init()
     {
@@ -18,17 +16,18 @@ public class SM_StudentCalTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Managers.Mission.bStudentCal)
+        if (Managers.Mission.bTeacherErase)
         {
             Destroy(gameObject);
             return;
         }
-
-        Student student = other.GetComponent<Student>();
-        if(student == null)
+        
+        Teacher teacher = other.GetComponent<Teacher>();
+        if(teacher == null)
             return;
         
-        Util.GetOrAddComponent<SM_StudentCal>(gameObject);
+        Util.GetOrAddComponent<SM_TeacherErase>(gameObject);
+
         
         // TODO 암산 미션 시작하기 창 띄우기
         Managers.UI.ShowPopupUI<UI_SMStart>();

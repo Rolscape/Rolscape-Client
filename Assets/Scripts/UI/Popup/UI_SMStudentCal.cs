@@ -67,7 +67,7 @@ public class UI_SMStudentCal : UI_Popup
         Image image = GetImage((int)Images.Question);
         image.rectTransform.sizeDelta = new Vector2(1500.0f, 800.0f);
         int idx = Random.Range(1, 13);
-        Texture2D texture2D = Managers.Resource.Load<Texture2D>($"Arts/Question/Question{idx}");
+        Texture2D texture2D = Managers.Resource.Load<Texture2D>($"Arts/Mission/Question/Question{idx}");
         Sprite sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), Vector2.one * 0.5f);
         image.sprite = sprite;
     }

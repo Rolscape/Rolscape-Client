@@ -24,6 +24,7 @@ public class MissionManager
     
     
     // Teacher
+    public bool bTeacherErase = false;
 
     public void Init()
     {
