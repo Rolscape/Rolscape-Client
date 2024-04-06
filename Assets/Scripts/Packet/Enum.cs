@@ -24,7 +24,7 @@ namespace Protocol {
     static EnumReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CgpFbnVtLnByb3RvEghQcm90b2NvbCrkAgoGSU5HQU1FEg8KC1BJTkdfU09D",
+            "CgpFbnVtLnByb3RvEghQcm90b2NvbCruAgoGSU5HQU1FEg8KC1BJTkdfU09D",
             "S0VUEAASDgoKRU5URVJfR0FNRRABEg8KC0NSRUFURV9HQU1FEAISDgoKR0FN",
             "RV9TVEFSVBADEgwKCEdBTUVfRU5EEAQSDgoKTEVBVkVfR0FNRRAFEgkKBVNQ",
             "QVdOEAYSCwoHREVTUEFXThAHEggKBE1PVkUQCBIVChFQQVRIX01JU1NJT05f",
@@ -32,21 +32,23 @@ namespace Protocol {
             "Tl9NT1ZFEAsSFAoQUEFUSF9NSVNTSU9OX0VORBAMEhcKE1NJTkdMRV9NSVNT",
             "SU9OX0pPSU4QDRIYChRTSU5HTEVfTUlTU0lPTl9MRUFWRRAOEhgKFFNJTkdM",
             "RV9NSVNTSU9OX1NUQVJUEA8SFwoTU0lOR0xFX01JU1NJT05fVE9ETxAQEhYK",
-            "ElNJTkdMRV9NSVNTSU9OX0VORBARKjsKCVBsYXllckpvYhIICgROT05FEAAS",
-            "CwoHU1RVREVOVBABEgsKB1RFQUNIRVIQAhIKCgZQT0xJQ0UQAypFCghNb3Zl",
-            "VHlwZRINCglNT1ZFX05PTkUQABINCglNT1ZFX0lETEUQARINCglNT1ZFX1dB",
-            "TEsQAhIMCghNT1ZFX1JVThADKigKCFRpbWVUeXBlEg0KCUNIRUNLX1JUVBAA",
-            "Eg0KCVNZTkNfVElNRRABKlkKEU1pc3Npb25BY3Rpb25UeXBlEgoKBklOU0lE",
-            "RRAAEgsKB09VVFNJREUQARIJCgVTVEFSVBACEgcKA0VORBADEgsKB1NVQ0NF",
-            "U1MQBBIKCgZGQUlMRUQQBSo/ChBNdWx0aU1pc3Npb25UeXBlEg4KCk1VTFRJ",
-            "X0lETEUQABIbChdNVUxUSV9GSU5EX1BBVEhfTUlTU0lPThABKj0KFE11bHRp",
-            "TWlzc2lvbk1vdmVUeXBlEgYKAlVQEAASCAoERE9XThABEggKBExFRlQQAhIJ",
-            "CgVSSUdIVBADKl0KEVNpbmdsZU1pc3Npb25UeXBlEg8KC1NJTkdMRV9JRExF",
-            "EAASEAoMU1RVREVOVF9NQVRIEAESEQoNU1RVREVOVF9BTFBIQRACEhIKDlRF",
-            "QUNIRVJfU1VET0tVEANiBnByb3RvMw=="));
+            "ElNJTkdMRV9NSVNTSU9OX0VORBAREggKBENIQVQQEio7CglQbGF5ZXJKb2IS",
+            "CAoETk9ORRAAEgsKB1NUVURFTlQQARILCgdURUFDSEVSEAISCgoGUE9MSUNF",
+            "EAMqRQoITW92ZVR5cGUSDQoJTU9WRV9OT05FEAASDQoJTU9WRV9JRExFEAES",
+            "DQoJTU9WRV9XQUxLEAISDAoITU9WRV9SVU4QAyooCghUaW1lVHlwZRINCglD",
+            "SEVDS19SVFQQABINCglTWU5DX1RJTUUQASpZChFNaXNzaW9uQWN0aW9uVHlw",
+            "ZRIKCgZJTlNJREUQABILCgdPVVRTSURFEAESCQoFU1RBUlQQAhIHCgNFTkQQ",
+            "AxILCgdTVUNDRVNTEAQSCgoGRkFJTEVEEAUqPwoQTXVsdGlNaXNzaW9uVHlw",
+            "ZRIOCgpNVUxUSV9JRExFEAASGwoXTVVMVElfRklORF9QQVRIX01JU1NJT04Q",
+            "ASo9ChRNdWx0aU1pc3Npb25Nb3ZlVHlwZRIGCgJVUBAAEggKBERPV04QARII",
+            "CgRMRUZUEAISCQoFUklHSFQQAypdChFTaW5nbGVNaXNzaW9uVHlwZRIPCgtT",
+            "SU5HTEVfSURMRRAAEhAKDFNUVURFTlRfTUFUSBABEhEKDVNUVURFTlRfQUxQ",
+            "SEEQAhISCg5URUFDSEVSX1NVRE9LVRADKkEKCENoYXRUeXBlEg0KCUNIQVRf",
+            "U0VORBAAEhAKDENIQVRfUkVDRUlWRRABEhQKEENIQVRfUkVDRUlWRV9BTEwQ",
+            "AmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.INGAME), typeof(global::Protocol.PlayerJob), typeof(global::Protocol.MoveType), typeof(global::Protocol.TimeType), typeof(global::Protocol.MissionActionType), typeof(global::Protocol.MultiMissionType), typeof(global::Protocol.MultiMissionMoveType), typeof(global::Protocol.SingleMissionType), }, null, null));
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.INGAME), typeof(global::Protocol.PlayerJob), typeof(global::Protocol.MoveType), typeof(global::Protocol.TimeType), typeof(global::Protocol.MissionActionType), typeof(global::Protocol.MultiMissionType), typeof(global::Protocol.MultiMissionMoveType), typeof(global::Protocol.SingleMissionType), typeof(global::Protocol.ChatType), }, null, null));
     }
     #endregion
 
@@ -71,6 +73,7 @@ namespace Protocol {
     [pbr::OriginalName("SINGLE_MISSION_START")] SingleMissionStart = 15,
     [pbr::OriginalName("SINGLE_MISSION_TODO")] SingleMissionTodo = 16,
     [pbr::OriginalName("SINGLE_MISSION_END")] SingleMissionEnd = 17,
+    [pbr::OriginalName("CHAT")] Chat = 18,
   }
 
   public enum PlayerJob {
@@ -118,6 +121,12 @@ namespace Protocol {
     [pbr::OriginalName("STUDENT_MATH")] StudentMath = 1,
     [pbr::OriginalName("STUDENT_ALPHA")] StudentAlpha = 2,
     [pbr::OriginalName("TEACHER_SUDOKU")] TeacherSudoku = 3,
+  }
+
+  public enum ChatType {
+    [pbr::OriginalName("CHAT_SEND")] ChatSend = 0,
+    [pbr::OriginalName("CHAT_RECEIVE")] ChatReceive = 1,
+    [pbr::OriginalName("CHAT_RECEIVE_ALL")] ChatReceiveAll = 2,
   }
 
   #endregion

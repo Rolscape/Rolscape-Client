@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class InputManager
 {
-    public Action KeyAction = null;
+    public Action KeyDownAction = null;
+    public Action KeyUpAction = null;
 
     public Action<KeyCode> ClickedKeyAction = null;
     public Action<Define.MouseEvent> MouseAction = null;
@@ -15,18 +16,20 @@ public class InputManager
     public Action AnimationActionStop = null;
 
     public bool IsMission { get; set; } = false;
+    private bool _keyPressed = false;
     private bool _pressed = false;
     // 리스너 패턴으로 입력을 받아옴
-    public void OnUpdate()
+    public void Update()
     {
         // 키보드 입력이 들어오고 KeyAction을 구독한 오브젝트가 있다면 
         // KeyAction을 구독한 오브젝트에 BroadCasting
-        if (Input.anyKeyDown && KeyAction != null)
+        if (Input.anyKey && KeyDownAction != null)
         {
             if (!IsMission)
             {
-                KeyAction.Invoke();
-                _pressed = true;
+                // keyPressed가 제대로 찍히는지 로그
+                _keyPressed = true;
+                KeyDownAction.Invoke();
                 AnimationActionStart.Invoke();
             }
             else
@@ -41,9 +44,12 @@ public class InputManager
                     ClickedKeyAction.Invoke(KeyCode.D);
             }
         }
-        else if (_pressed)
+        else if (_keyPressed)
         {
-            _pressed = false;
+            Debug.Log("Key Pressed");
+            // 키를 땟을 경우
+            _keyPressed = false;
+            KeyUpAction.Invoke();
             AnimationActionStop.Invoke();
         }
 
@@ -70,7 +76,8 @@ public class InputManager
 
     public void Clear()
     {
-        KeyAction = null;
+        KeyUpAction = null;
+        KeyDownAction = null;
         MouseAction = null;
     }
 }

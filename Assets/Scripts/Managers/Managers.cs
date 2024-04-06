@@ -64,10 +64,10 @@ public class Managers : MonoBehaviour
 
     void Update()
     {
-        _input.OnUpdate();
+        _input.Update();
         Network.Update();
     }
-
+    
     static void Init()
     {
         if (s_instance == null)

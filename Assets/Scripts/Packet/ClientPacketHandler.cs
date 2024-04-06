@@ -67,10 +67,10 @@ namespace GameServer.Packet
         public static void Handle_S_LEAVE_GAME(IMessage packet)
         {
             S_LEAVE_GAME pkt = packet as S_LEAVE_GAME;
-            if(pkt == null)
+            if (pkt == null)
                 return;
 
-            // TODO 
+            // TODO
         }
 
         public static void Handle_S_SPAWN(IMessage packet)
@@ -88,7 +88,7 @@ namespace GameServer.Packet
         public static void Handle_S_DESPAWN(IMessage packet)
         {
             S_DESPAWN pkt = packet as S_DESPAWN;
-            if(pkt == null)
+            if (pkt == null)
                 return;
 
             Managers.Player.DeletePlayer(pkt.PlayerInfo);
@@ -149,29 +149,55 @@ namespace GameServer.Packet
             Managers.Mission.Mission1End(pkt.IsSucces);
         }
 
-        public static void Handle_S_SINGLE_MISSION_JOIN(IMessage message)
+        public static void Handle_S_SINGLE_MISSION_JOIN(IMessage packet)
         {
-            throw new NotImplementedException();
+            S_SINGLE_MISSION_JOIN pkt = packet as S_SINGLE_MISSION_JOIN;
+            if (pkt == null) return;
+            if (!pkt.IsSucces) return;
+
+            if (Managers.Mission.CurrentMissoinTrigger != null)
+                Managers.Mission.CurrentMissoinTrigger.OnShowUI();
         }
 
-        public static void Handle_S_SINGLE_MISSION_START(IMessage message)
+        public static void Handle_S_SINGLE_MISSION_START(IMessage packet)
         {
-            throw new NotImplementedException();
+            S_SINGLE_MISSION_START pkt = packet as S_SINGLE_MISSION_START;
+            if (pkt == null) return;
+            if (!pkt.IsSucces) return;
+
+            if (pkt.PlayerInfo.Id == Managers.Player.MyPlayerID)
+            {
+                // 내가 하고 있느냐
+                Managers.Mission.SingleMissionStart();
+            }
+            else
+            {
+                // 남이 하고 있느냐
+                Managers.Mission.SingleMissionStart(false);
+            }
         }
 
-        public static void Handle_S_SINGLE_MISSION_TODO(IMessage message)
+        public static void Handle_S_SINGLE_MISSION_TODO(IMessage packet)
         {
-            throw new NotImplementedException();
+            return;
         }
 
-        public static void Handle_S_SINGLE_MISSION_END(IMessage message)
+        public static void Handle_S_SINGLE_MISSION_END(IMessage packet)
         {
-            throw new NotImplementedException();
+            S_SINGLE_MISSION_END pkt = packet as S_SINGLE_MISSION_END;
+            if (pkt == null) return;
+
+            Managers.Mission.SingleMissionStop(pkt.MissionType, pkt.IsSucces);
         }
 
-        internal static void Handle_S_SINGLE_MISSION_LEAVE(IMessage message)
+        internal static void Handle_S_SINGLE_MISSION_LEAVE(IMessage packet)
         {
-            throw new NotImplementedException();
+            return;
+        }
+
+        internal static void Handle_S_CHAT(IMessage message)
+        {
+            return;
         }
     }
 }

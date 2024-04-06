@@ -1,3 +1,4 @@
+using Protocol;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -27,12 +28,11 @@ public class UI_SMStudentCal : UI_Popup
         PointText,
         Answer,
     }
-    
-    
+
     public override void Init()
     {
         base.Init();
-        
+
         BindUI();
         SetInputField();
         SetImage();
@@ -58,7 +58,7 @@ public class UI_SMStudentCal : UI_Popup
         inputField.pointSize = 100;
         inputField.characterLimit = 3;
         inputField.contentType = TMP_InputField.ContentType.DecimalNumber;
-        
+
         inputField.onEndEdit.AddListener(OnEndEdit);
     }
 
@@ -79,10 +79,12 @@ public class UI_SMStudentCal : UI_Popup
         Debug.Log($"사용자가 입력한 정담은: {text}");
         // TODO 정답 여부에 따라 
         // 성공 시 정답
+        bool isSuccess = true;
+
+        Managers.Player.MyPlayerController.SendSingleMissionStop(isSuccess);
+
+        if(!isSuccess)
+            Managers.UI.ShowPopupUI<UI_Start>();
         // Managers.Mission.bStudentCal = true;
-        // 실패 시 다시 시작
-        //Managers.UI.ShowPopupUI<UI_Start>();
-        
     }
-    
 }

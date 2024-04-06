@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using Protocol;
 using UnityEngine;
 
-public class MyPlayerController : PlayerController
+public partial class MyPlayerController : PlayerController
 {
     private bool _isLeader;
     public bool _isMission = false;
@@ -51,7 +51,8 @@ public class MyPlayerController : PlayerController
 
     public void KeyActionInput()
     {
-        Managers.Input.KeyAction += OnKeyboard;
+        Managers.Input.KeyDownAction += OnKeyboardDown;
+        Managers.Input.KeyUpAction += OnKeyboardUp;
         Managers.Input.MouseAction += OnMouseClicked;
         Managers.Input.AnimationActionStart += OnAnimationStart;
         Managers.Input.AnimationActionStop += OnAnimationStop;
@@ -59,7 +60,8 @@ public class MyPlayerController : PlayerController
 
     public void KeyActionOutput()
     {
-        Managers.Input.KeyAction -= OnKeyboard;
+        Managers.Input.KeyDownAction -= OnKeyboardDown;
+        Managers.Input.KeyUpAction -= OnKeyboardUp;
         Managers.Input.MouseAction -= OnMouseClicked;
         Managers.Input.AnimationActionStart -= OnAnimationStart;
         Managers.Input.AnimationActionStop -= OnAnimationStop;
@@ -70,7 +72,7 @@ public class MyPlayerController : PlayerController
         Init();
     }
 
-    void OnKeyboard()
+    void OnKeyboardDown()
     {
         if (_isMission)
             return;
@@ -95,6 +97,8 @@ public class MyPlayerController : PlayerController
             Vector3 dir = new Vector3(h, 0, v).normalized;
             // TODO CharcterController
 
+            Debug.Log("SendMove : " + dir);
+
             if (dir != Vector3.zero)
             {
                 _characterController.Move(dir * (_speed * Time.deltaTime));
@@ -102,21 +106,21 @@ public class MyPlayerController : PlayerController
 
                 _movedir = dir;
 
-                if (MoveInfo.Type == MoveType.MoveIdle)
+                if (MoveType == MoveType.MoveIdle)
                 {
                     SendMovePacket();
                 }
             }
-            else
-            {
-                if (MoveInfo.Type == MoveType.MoveWalk)
-                {
-                    SendStopPacket();
-                }
-            }
         }
     }
-    // 멈추는 작업이 필요하다.
+    void OnKeyboardUp()
+    {
+        Debug.Log($"Move Stop Packet Send {MoveType}");
+        if (MoveType == MoveType.MoveWalk)
+        {
+            SendStopPacket();
+        }
+    }
 
     // CallBack Func When Mouse Event 
     void OnMouseClicked(Define.MouseEvent evt)
@@ -136,37 +140,5 @@ public class MyPlayerController : PlayerController
     public void OnAnimationStop()
     {
         _animator.SetFloat("Speed", 0.0f);
-    }
-
-    void SendMovePacket()
-    {
-        Vector3 pos = transform.position;
-
-        MoveInfo.Id = MoveInfo.Id;
-        MoveInfo.PosX = pos.x;
-        MoveInfo.PosZ = pos.z;
-
-        MoveInfo.DirX = _movedir.x;
-        MoveInfo.DirZ = _movedir.z;
-
-        MoveInfo.Type = MoveType.MoveWalk;
-
-        C_MOVE pkt = new C_MOVE();
-        pkt.MoveInfo = MoveInfo;
-        Managers.Network.Send(pkt, INGAME.Move);
-    }
-
-    void SendStopPacket()
-    {
-        Vector3 pos = transform.position;
-
-        MoveInfo.Id = MoveInfo.Id;
-        MoveInfo.PosX = pos.x;
-        MoveInfo.PosZ = pos.z;
-        MoveInfo.Type = MoveType.MoveIdle;
-
-        C_MOVE pkt = new C_MOVE();
-        pkt.MoveInfo = MoveInfo;
-        Managers.Network.Send(pkt, INGAME.Move);
     }
 }

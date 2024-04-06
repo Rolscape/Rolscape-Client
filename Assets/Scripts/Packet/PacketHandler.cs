@@ -60,6 +60,8 @@ namespace GameServer.ServerCore
             _handle.Add((UInt16)INGAME.SingleMissionTodo, ClientPacketHandler.Handle_S_SINGLE_MISSION_TODO);
             _onRecv.Add((UInt16)INGAME.SingleMissionEnd, MakePacket<S_SINGLE_MISSION_END>);
             _handle.Add((UInt16)INGAME.SingleMissionEnd, ClientPacketHandler.Handle_S_SINGLE_MISSION_END);
+            _onRecv.Add((UInt16)INGAME.Chat, MakePacket<S_CHAT>);
+            _handle.Add((UInt16)INGAME.Chat, ClientPacketHandler.Handle_S_CHAT);
 
         }
 

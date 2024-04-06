@@ -7,46 +7,65 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+public struct CurrentMission
+{
+    public GameObject triggerObject;
+    public SM_DefaultTrigger trigger;
+    public SingleMissionType type;
+}
 
 public class MissionManager
 {
+    // Team Mission Action
+
+    // Team
+
     // Single Mission Action
     public Action SMStart = null;
-    
-    // Team Mission Action
-    
-    // Team
-    
-    
+    public Action<bool> SMStop = null;
+
     // Student
     public bool bStudentCal = false;
-    
+
     // Police
-    
-    
+
+
     // Teacher
 
-    public Action<Collider> TriggerEnter = null;
-    public Action<Collider> TriggerExit = null;
+
+    // 현재 미션
+
+    CurrentMission _currnetMission = new CurrentMission();
+
+    public GameObject CurrentMissionTriggerObject
+    {
+        get => _currnetMission.triggerObject;
+        set
+        {
+            if (value == null)
+            {
+                _currnetMission.trigger = null;
+                _currnetMission.triggerObject = null;
+                _currnetMission.type = SingleMissionType.SingleIdle;
+            }
+            else
+            {
+                _currnetMission.triggerObject = value;
+                _currnetMission.trigger = value.GetComponent<SM_DefaultTrigger>();
+                _currnetMission.type = _currnetMission.trigger.missionType;
+            }
+        }
+    }
+
+    public SM_DefaultTrigger CurrentMissoinTrigger { get => _currnetMission.trigger; }
+    public SingleMissionType CurrentMissionType { get => _currnetMission.type; }
 
     public Action<PathMissionPos, PathMissionPos> Mission1Start = null;
     public Action<bool> Mission1End = null;
-    public Action<Protocol.Pos> MoveTile = null;
-    public Action<PlayerJob, Protocol.Pos> PoliceMoveTile = null;
+    public Action<Pos> MoveTile = null;
+    public Action<PlayerJob, Pos> PoliceMoveTile = null;
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (TriggerEnter != null)
-            TriggerEnter.Invoke(other);
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (TriggerExit != null)
-            TriggerExit.Invoke(other);
-    }
-
-    public void MoveTileInvoke(Protocol.Pos destPos)
+    public void MoveTileInvoke(Pos destPos)
     {
         if (MoveTile != null)
             MoveTile.Invoke(destPos);
@@ -68,5 +87,38 @@ public class MissionManager
     {
         if (Mission1End != null)
             Mission1End.Invoke(isSuccess);
+    }
+
+    public void SingleMissionStart(bool isMine = true)
+    {
+        if (isMine)
+        {
+            switch (CurrentMissionType)
+            {
+                case SingleMissionType.StudentMath:
+                    SMStart();
+                    break;
+
+                default:
+                    break;
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+    public void SingleMissionStop(SingleMissionType type, bool isSuccess)
+    {
+        switch (CurrentMissionType)
+        {
+            case SingleMissionType.StudentMath:
+                SMStop(isSuccess);
+                break;
+
+            default:
+                break;
+        }
     }
 }
