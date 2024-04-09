@@ -17,12 +17,17 @@ public class SM_TeacherErase : MonoBehaviour
 
     public void MissionStart()
     {
+        // Set Cursor Eraser
+        Texture2D texture2D = Managers.Resource.Load<Texture2D>("Arts/Mission/BlackboardErase/Eraser");
+        Cursor.SetCursor(texture2D, Vector2.zero, CursorMode.Auto);
+        
         Managers.UI.ShowPopupUI<UI_SMTeacherErase>();
     }
 
+    // Mission Finished
     public void Clear()
     {
         Managers.Mission.SMStart -= MissionStart;
-      
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 }
