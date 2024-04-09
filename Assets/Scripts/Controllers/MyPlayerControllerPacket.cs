@@ -3,7 +3,6 @@ using UnityEngine;
 
 public partial class MyPlayerController : PlayerController
 {
-
     void SendMovePacket()
     {
         Vector3 pos = transform.position;

@@ -43,13 +43,13 @@ public class PlayerManager
                 case PlayerJob.None:
                     break;
                 case PlayerJob.Student:
-                    Util.GetOrAddComponent<TM1_Student>(player);
+                    Util.GetOrAddComponent<Student>(player);
                     break;
                 case PlayerJob.Teacher:
-                    Util.GetOrAddComponent<TM1_Teacher>(player);
+                    Util.GetOrAddComponent<Teacher>(player);
                     break;
                 case PlayerJob.Police:
-                    Util.GetOrAddComponent<TM1_Police>(player);
+                    Util.GetOrAddComponent<Police>(player);
                     break;
             }
             Debug.Log(playerInfo.PlayerJob);

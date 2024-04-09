@@ -22,12 +22,12 @@ public partial class MyPlayerController : PlayerController
         KeyActionInput();
 
         Managers.UI.MakeWorldSpaceUI<UI_Nickname>(transform);
-
-        //Player player = GetComponent<Player>();
-        //_isLeader = player._isLeader;
-
         _moveInfo.Type = MoveType.MoveIdle;
-        //Managers.Resource.Instantiate("UI/UI_Button");
+    }
+
+    void Clear()
+    {
+        KeyActionOutput();
     }
 
     protected override void UpdateController()
@@ -113,6 +113,7 @@ public partial class MyPlayerController : PlayerController
             }
         }
     }
+
     void OnKeyboardUp()
     {
         Debug.Log($"Move Stop Packet Send {MoveType}");
@@ -129,7 +130,6 @@ public partial class MyPlayerController : PlayerController
             return;
 
         // TODO Mouse Event 
-
     }
 
     public void OnAnimationStart()

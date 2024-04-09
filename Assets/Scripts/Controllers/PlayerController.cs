@@ -29,11 +29,9 @@ public partial class PlayerController : MonoBehaviour
             {
                 case MoveType.MoveIdle:
                     UpdateIdle();
-                    UpdateAnimationIDLE();
                     break;
                 case MoveType.MoveWalk:
                     UpdateMoving();
-                    UpdateAnimationMOVE();
                     break;
                 default:
                     break;
@@ -45,8 +43,11 @@ public partial class PlayerController : MonoBehaviour
     {
         if (transform.position != _destPos)
         {
-            transform.position = _destPos;
-            MoveToNextPos();
+            UpdateMoving();
+        }
+        else
+        {
+            UpdateAnimationIDLE();
         }
     }
 
@@ -64,6 +65,9 @@ public partial class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDir), 0.3f);
             transform.position += moveDir.normalized * _speed * Time.deltaTime;
+
+
+            UpdateAnimationMOVE();
         }
     }
 
