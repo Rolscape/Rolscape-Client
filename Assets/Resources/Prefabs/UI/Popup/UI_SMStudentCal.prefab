@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 8125177735290847555}
   - component: {fileID: 5095600083064122052}
   - component: {fileID: 5129031477786811851}
-  - component: {fileID: 3757555604530160227}
+  - component: {fileID: 81089653992521121}
   m_Layer: 5
   m_Name: UI_SMStudentCal
   m_TagString: Untagged
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3757555604530160227
+--- !u!114 &81089653992521121
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6126255745056567173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89a0a862b4c974759b5a7fa2a9e92a32, type: 3}
+  m_Script: {fileID: 11500000, guid: 96a8fd678f8194a8f8e321a18fba2d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6501803532458359164

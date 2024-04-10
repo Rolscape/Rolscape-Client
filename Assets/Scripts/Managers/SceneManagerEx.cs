@@ -17,7 +17,9 @@ public class SceneManagerEx
     public void UnloadScene(Define.Scene type)
     {
         //Scene scene = SceneManager.GetSceneByName(GetSceneName(type));
+        Debug.Log("Unload Scene");
         AsyncOperation operation = SceneManager.UnloadSceneAsync(UnLoadScene);
+
         while (operation.isDone)
         {
 

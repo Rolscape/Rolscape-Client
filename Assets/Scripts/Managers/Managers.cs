@@ -93,12 +93,17 @@ public class Managers : MonoBehaviour
 
     public static void Clear()
     {
+        //C_LEAVE_GAME pkt = new C_LEAVE_GAME();
+        //pkt.PlayerInfo = Player.PlayerInfo;
+        //Network.Send(pkt, INGAME.LeaveGame);
+
         Input.Clear();
         Sound.Clear();
         Scene.Clear();
         UI.CLear();
         Pool.Clear();
+        //Player.Clear();
+        //Network.Clear();
         //Mission.CLear();
     }
-
 }

@@ -8,18 +8,25 @@ public partial class PlayerController : MonoBehaviour
         Init();
     }
 
-    protected virtual void Init()
+    private void OnDestroy()
     {
-        _characterController = Util.GetOrAddComponent<CharacterController>(gameObject);
-
-        _animator = Util.GetOrAddComponent<Animator>(gameObject);
+        Clear();
     }
+
 
     // Update is called once per frame
     private void Update()
     {
         UpdateController();
     }
+
+    protected virtual void Init()
+    {
+        _characterController = Util.GetOrAddComponent<CharacterController>(gameObject);
+        _animator = Util.GetOrAddComponent<Animator>(gameObject);
+    }
+
+    protected virtual void Clear() { }
 
     protected virtual void UpdateController()
     {

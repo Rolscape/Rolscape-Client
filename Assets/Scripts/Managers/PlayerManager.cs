@@ -9,9 +9,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager
 {
-    public uint MyPlayerID {  get; private set; }
+    public uint MyPlayerID { get; private set; }
     public GameObject MyPlayer { get; set; }
     public GameObject Camera { get; set; }
+    public PlayerInfo PlayerInfo { get; set; }
     public MyPlayerController MyPlayerController { get; set; }
     Dictionary<uint, GameObject> _players = new Dictionary<uint, GameObject>();
 
@@ -52,9 +53,8 @@ public class PlayerManager
                     Util.GetOrAddComponent<Police>(player);
                     break;
             }
-            Debug.Log(playerInfo.PlayerJob);
-            MyPlayer = player;
 
+            MyPlayer = player;
             MyPlayerController controller = Util.GetOrAddComponent<MyPlayerController>(player);
             if (controller == null)
                 return;
@@ -63,10 +63,12 @@ public class PlayerManager
             controller.Info = playerInfo;
             controller.SyncPos(new Vector3(playerInfo.PosX, 1, playerInfo.PosZ));
             MyPlayerController = controller;
+            PlayerInfo = MyPlayerController.Info;
 
             GameObject camera = Managers.Resource.Instantiate("Camera/MainCamera");
             if (camera == null)
                 return;
+
             Camera = camera;
             camera.GetComponent<CameraController>()._player = MyPlayer;
         }
@@ -96,7 +98,7 @@ public class PlayerManager
 
         foreach (var player in packet.PlayerInfo)
         {
-            if(player.Id == MyPlayerID)
+            if (player.Id == MyPlayerID)
                 AddPlayer(player, true);
             else
                 AddPlayer(player, false);
@@ -135,9 +137,21 @@ public class PlayerManager
 
     public void Clear()
     {
-        MyPlayer = null;
+        {
+            //GameObject.Destroy(MyPlayer);
+            MyPlayer = null;
+            MyPlayerController = null;
+            PlayerInfo = null;
+        }
+
         Camera = null;
-        MyPlayerController = null;
-        _players.Clear();
+
+        {
+            //foreach(var player in _players.Values)
+            //{
+            //    GameObject.Destroy(player);
+            //}
+            _players.Clear();
+        }
     }
 }

@@ -35,7 +35,6 @@ public class UI_SMStart : UI_Popup
     {
         Managers.UI.ClosePopupUI();
         //Managers.Mission.SMStart.Invoke();
-
         
         Managers.Player.MyPlayerController.SendSingleMssionStart();
     }

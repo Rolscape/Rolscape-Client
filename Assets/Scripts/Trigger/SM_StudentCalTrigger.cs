@@ -11,9 +11,6 @@ public class SM_StudentCalTrigger : SM_DefaultTrigger
 
     protected override bool TriggerEnterEvent(Collider other)
     {
-        base.TriggerEnterEvent(other);
-
-        // TODO 미션 했는지 안했는지 여부 및 직업 체크 
         Student student = other.GetComponent<Student>();
         if (student == null)
             return false;
@@ -31,6 +28,11 @@ public class SM_StudentCalTrigger : SM_DefaultTrigger
         // TODO 암산 미션 시작하기 창 띄우기
         Managers.UI.ShowPopupUI<UI_SMStart>();
 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Managers.UI.ClosePopupUI();
     }
 
     public void Clear()

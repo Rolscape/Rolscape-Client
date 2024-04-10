@@ -65,6 +65,6 @@ public partial class PlayerController : MonoBehaviour
 
     public void SyncPos(Vector3 pos)
     {
-        transform.position = pos;
+        transform.position = new Vector3(pos.x, 0, pos.z);
     }
 }

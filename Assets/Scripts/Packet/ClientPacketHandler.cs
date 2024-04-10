@@ -103,7 +103,11 @@ namespace GameServer.Packet
         }
         public static void Handle_S_PATH_MISSION_JOIN(IMessage packet)
         {
+            S_PATH_MISSION_JOIN pkt = packet as S_PATH_MISSION_JOIN;
+            if (pkt == null) return;
 
+            if(pkt.IsSucces && (pkt.PlayerInfo.Id == Managers.Player.MyPlayerID))
+                Managers.Mission.CurrentMissoinTrigger.OnShowUI();
         }
 
         public static void Handle_S_PATH_MISSION_START(IMessage packet)

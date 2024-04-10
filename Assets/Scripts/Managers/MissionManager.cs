@@ -20,9 +20,12 @@ public class MissionManager
 
     // Team
 
-    // Single Mission Action
+    // Single Mission Action To Student
     public Action SMStart = null;
     public Action<bool> SMStop = null;
+
+    public Action TeacherEraseStart = null;
+    public Action<bool> TeacherEraseStop = null;
 
     // Student
     public bool bStudentCal = false;
@@ -31,6 +34,7 @@ public class MissionManager
 
 
     // Teacher
+    public bool bTeacherErase = false;
 
 
     // 현재 미션

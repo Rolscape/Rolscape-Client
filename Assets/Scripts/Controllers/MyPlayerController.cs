@@ -25,7 +25,7 @@ public partial class MyPlayerController : PlayerController
         _moveInfo.Type = MoveType.MoveIdle;
     }
 
-    void Clear()
+    protected override void Clear()
     {
         KeyActionOutput();
     }
@@ -97,7 +97,7 @@ public partial class MyPlayerController : PlayerController
             Vector3 dir = new Vector3(h, 0, v).normalized;
             // TODO CharcterController
 
-            Debug.Log("SendMove : " + dir);
+            //Debug.Log("SendMove : " + dir);
 
             if (dir != Vector3.zero)
             {

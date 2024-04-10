@@ -22,7 +22,7 @@ namespace GameServer.Packet
             Connect();
         }
 
-        public void Destroy()
+        public void Clear()
         {
             session.Disconnect();
         }

@@ -14,13 +14,13 @@ public class GameScene : BaseScene
         //Managers.UI.ShowPopupUI<UI_Start>();
         
         // Temp Code
-        GameObject go = Managers.Resource.Instantiate("Player");
-        go.name = "Player";
+        //GameObject go = Managers.Resource.Instantiate("Player");
+        //go.name = "Player";
         
-        GameObject student = Managers.Resource.Instantiate("StudentRoot");
-        student.transform.SetParent(go.transform);
+        //GameObject student = Managers.Resource.Instantiate("TeacherRoot");
+        //student.transform.SetParent(go.transform);
         
-        go.GetOrAddComponent<Student>();
+        //go.GetOrAddComponent<Teacher>();
     }
 
     public void Start()
@@ -30,6 +30,8 @@ public class GameScene : BaseScene
         Managers.Player.MovePlayerToScene(gameObject.scene);
 
         Managers.Scene.UnloadScene(Define.Scene.Login);
+
+        Init();
     }
 
     public override void Clear()

@@ -19,11 +19,17 @@ public class SM_DefaultTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("It Trigger 1");
+
         if (other.gameObject != Managers.Player.MyPlayer)
             return;
 
+        Debug.Log("It Trigger 2");
+
         if (!TriggerEnterEvent(other))
             return;
+
+        Debug.Log("It Trigger 3");
 
         Managers.Mission.CurrentMissionTriggerObject = gameObject;
 
