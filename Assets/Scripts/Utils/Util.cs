@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Util
 {
+    public const int POSX = 100;
+    public const int POSY = 65;
+
     // 컴포넌트를 반환하는 함수 -> 컴포넌트가 없으면 붙여서 반환
     public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
     {
@@ -59,8 +62,10 @@ public class Util
         return null;
     }
 
-    public static int GetPos(Protocol.Pos pos)
+    public static Vector2Int GetPos(Protocol.Pos pos)
     {
-        return pos.X + (9 * pos.Y);
+        int x = pos.X * POSX;
+        int y = pos.Y * POSY;
+        return new Vector2Int(x, y);
     }
 }

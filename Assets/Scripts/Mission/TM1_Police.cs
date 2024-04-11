@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class TM1_Police : TM1
 {
-    public int _studentPos;
-    public int _teacherPos;
-
     // Start is called before the first frame update
     protected override void Init()
     {
@@ -22,10 +19,10 @@ public class TM1_Police : TM1
         base.Mission1Start(startPos, destPos);
 
         _ui = Managers.UI.ShowPopupUI<UI_TM1Police>();
-        int studentStartPos = Util.GetPos(startPos.StudentPos);
-        int teacherStartPos = Util.GetPos(startPos.TeacherPos);
-        int studentDestPos = Util.GetPos(destPos.StudentPos);
-        int teacherDestPos = Util.GetPos(destPos.TeacherPos);
+        Vector2Int studentStartPos = Util.GetPos(startPos.StudentPos);
+        Vector2Int teacherStartPos = Util.GetPos(startPos.TeacherPos);
+        Vector2Int studentDestPos = Util.GetPos(destPos.StudentPos);
+        Vector2Int teacherDestPos = Util.GetPos(destPos.TeacherPos);
 
         _ui.SetDefaultPolicePos(
             studentStartPos,
@@ -40,7 +37,7 @@ public class TM1_Police : TM1
     public void MoveTile(PlayerJob job, Protocol.Pos destPos)
     {
         // TODO
-        int pos = Util.GetPos(destPos);
+        Vector2Int pos = Util.GetPos(destPos);
         _ui.PoliceMoveTile(job, pos);
     }
 }

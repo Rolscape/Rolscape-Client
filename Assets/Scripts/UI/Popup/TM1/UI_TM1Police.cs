@@ -10,65 +10,75 @@ using Random = UnityEngine.Random;
 
 public class UI_TM1Police : UI_TM1
 {
-    private Color _sColor = Color.red;
-    private Color _tColor = Color.blue;
+    protected new enum Images
+    {
+        TeacherDest,
+        StudentDest,
+        Teacher,
+        Student,
+    }
+    private Image _teacherDest;
+    private Image _studentDest;
 
-    public int _tCurPos;
-    public int _sCurPos;
+    private Image _teacher;
+    private Image _student;
 
-    public int _teacherDestPos;
-    public int _studentDestPos;
-    
+    //public Vector2Int _tCurPos;
+    //public Vector2Int _sCurPos;
+
+    //public Vector2Int _teacherDestPos;
+    //public Vector2Int _studentDestPos;
+
     public override void Init()
     {
-        base.Init();
-        //_color = Color.red;
-        //_sColor = Color.red;
-        //_tColor = Color.blue;
-
-        //_grid[_sCurPos].color = _sColor;
-        //_grid[_tCurPos].color = _tColor;
-
-        //_grid[_studentDestPos].color = Color.green;
-        //_grid[_teacherDestPos].color = Color.black;
-    }
-    
-    public override void PoliceMoveTile(PlayerJob job, int nextPos)
-    {
-        // TODO 타입에 따라 색깔 다르게 
-        //if (job == PlayerJob.Student)
-        //{
-        //    if (_sCurPos == _teacherDestPos)
-        //        _grid[_sCurPos].color = Color.black;
-        //    else if (_sCurPos == _studentDestPos)
-        //        _grid[_sCurPos].color = Color.green;
-        //    else
-        //        _grid[_sCurPos].color = Color.white;
-
-        //    _grid[nextPos].color = _sColor;
-        //    _sCurPos = nextPos;
-        //}
-        //else
-        //{
-        //    if (_tCurPos == _teacherDestPos)
-        //        _grid[_tCurPos].color = Color.black;
-        //    else if (_tCurPos == _studentDestPos)
-        //        _grid[_tCurPos].color = Color.green;
-        //    else
-        //        _grid[_tCurPos].color = Color.white;
-
-        //    _grid[nextPos].color = _tColor;
-        //    _tCurPos = nextPos;
-        //}
+        BindUI();
+        SetUI();
     }
 
-    public override void SetDefaultPolicePos(int studentStartPos, int teacherStartPos, int studentDestPos, int teacherDestPos)
+    protected override void BindUI()
     {
-        _sCurPos = studentStartPos;
-        _tCurPos = teacherStartPos;
+        Bind<Image>(typeof(Images));
+    }
 
-        _studentDestPos = studentDestPos;
-        _teacherDestPos = teacherDestPos;
-        //_grid
+    private void Start()
+    {
+        Init();
+    }
+
+    protected override void SetUI()
+    {
+        _studentDest = GetImage((int)Images.StudentDest);
+        _studentDest.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/bluesquare");
+
+        _teacherDest = GetImage((int)Images.TeacherDest);
+        _teacherDest.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/pinksquare");
+
+        _student = GetImage((int)Images.Student);
+        _student.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/blueeraser");
+
+        _teacher = GetImage((int)Images.Teacher);
+        _teacher.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/pinkeraser");
+    }
+
+    public override void SetDefaultPolicePos(Vector2Int studentStartPos, Vector2Int teacherStartPos, Vector2Int studentDestPos, Vector2Int teacherDestPos)
+    {
+        //_student.
+        _student.rectTransform.anchoredPosition = studentStartPos;
+        _teacher.rectTransform.anchoredPosition = teacherStartPos;
+
+        _studentDest.rectTransform.anchoredPosition = studentDestPos;
+        _teacherDest.rectTransform.anchoredPosition = teacherDestPos;
+    }
+
+    public override void PoliceMoveTile(PlayerJob job, Vector2Int nextPos)
+    {
+        if(job == PlayerJob.Student)
+        {
+            _student.rectTransform.anchoredPosition = nextPos;
+        }
+        else if(job == PlayerJob.Teacher)
+        {
+            _teacher.rectTransform.anchoredPosition = nextPos;
+        }
     }
 }

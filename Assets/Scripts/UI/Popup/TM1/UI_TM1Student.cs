@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_TM1Student : UI_TM1
 {
@@ -9,27 +10,28 @@ public class UI_TM1Student : UI_TM1
     public override void Init()
     {
         base.Init();
-
-        //_color = Color.red;
-        //_grid[_curPos].color = Color.red;
-        //Debug.Log(_grid[_curPos].color);
     }
-    public override void SetDefaultPos(int startPos)
-    {
-        base.SetDefaultPos(startPos);
-        _curPos = startPos;
-    }
-
+    
     protected override void SetUI()
     {
         base.SetUI();
-        GetImage((int)Images.Dest).sprite = Managers.Resource.Load<Sprite>("TMMove/bluesqure");
-        GetImage((int)Images.Player).sprite = Managers.Resource.Load<Sprite>("TMMove/blueeraser");
+
+        _player = GetImage((int)Images.Player);
+        _player.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/blueeraser");
     }
-    
-    protected override void MoveTile(int nextPos)
+
+    private void Start()
     {
-        
-        _curPos = nextPos;
+        Init();
+    }
+
+    public override void MoveTile(Vector2Int nextPos)
+    {
+        SetPlayerPos(nextPos);
+    }
+
+    public override void SetDefaultPos(Vector2Int startPos)
+    {
+        SetPlayerPos(startPos);
     }
 }

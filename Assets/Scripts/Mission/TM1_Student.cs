@@ -16,12 +16,17 @@ public class TM1_Student : TM1
         Managers.Mission.MoveTile += MoveTile;
     }
 
+    void Start()
+    {
+        Init();
+    }
+
     protected override void Mission1Start(PathMissionPos startPos, PathMissionPos destPos)
     {
         base.Mission1Start(startPos, destPos);
 
         _ui = Managers.UI.ShowPopupUI<UI_TM1Student>();
-        int pos = Util.GetPos(startPos.StudentPos);
+        Vector2Int pos = Util.GetPos(startPos.StudentPos);
         _ui.SetDefaultPos(pos);
     }
 
@@ -61,7 +66,7 @@ public class TM1_Student : TM1
 
     public void MoveTile(Protocol.Pos destPos)
     {
-        int pos = Util.GetPos(destPos);
-        //_ui.MoveTile(pos);
+        Vector2Int pos = Util.GetPos(destPos);
+        _ui.MoveTile(pos);
     }
 }

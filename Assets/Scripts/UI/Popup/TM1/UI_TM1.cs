@@ -9,50 +9,45 @@ public class UI_TM1 : UI_Popup
     protected enum Images
     {
         BackGround,
-        Dest,
         Player,
     }
 
-    public int _curPos;
+    // x, y (100, 65) 단위로 움직이기 
+    // minX (-405, 405), minY(-165, 165)
+    protected Image _player;
+    public Vector2Int _curPos;
 
     public override void Init()
     {
         base.Init();
+        _curPos = new Vector2Int(-405, -165);
+        BindUI();
+        SetUI();
 
     }
     private void Start()
     {
         Init();
-        BindUI();
-        SetUI();
+    }
+
+    protected void SetPlayerPos(Vector2Int pos)
+    {
+        _player.rectTransform.anchoredPosition = pos;
     }
 
     protected virtual void BindUI()
     {
         Bind<Image>(typeof(Images));
+        _player = GetImage((int)Images.Player);
     }
 
     protected virtual void SetUI() { }
 
-    protected virtual void MoveTile(int nextPos)
-    {
-        //_grid[_curPos].color = Color.white;
-        //_grid[nextPos].color = _color;
-        //_curPos = nextPos;
-    }
+    public virtual void MoveTile(Vector2Int nextPos) { }
 
-    public virtual void PoliceMoveTile(PlayerJob job, int nextPos)
-    {
+    public virtual void PoliceMoveTile(PlayerJob job, Vector2Int nextPos) { }
 
-    }
+    public virtual void SetDefaultPos(Vector2Int startPos) { }
 
-    public virtual void SetDefaultPos(int startPos)
-    {
-
-    }
-
-    public virtual void SetDefaultPolicePos(int studentStartPos, int teacherStartPos, int studentDestPos, int teacherDestPos)
-    {
-
-    }
+    public virtual void SetDefaultPolicePos(Vector2Int studentStartPos, Vector2Int teacherStartPos, Vector2Int studentDestPos, Vector2Int teacherDestPos) { }
 }

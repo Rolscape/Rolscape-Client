@@ -21,7 +21,7 @@ public class TM1_Teacher : TM1
         base.Mission1Start(startPos, destPos);
 
         _ui = Managers.UI.ShowPopupUI<UI_TM1Teacher>();
-        int pos = Util.GetPos(startPos.TeacherPos);
+        Vector2Int pos = Util.GetPos(startPos.TeacherPos);
         _ui.SetDefaultPos(pos);
     }
 
@@ -64,12 +64,7 @@ public class TM1_Teacher : TM1
     }
     public void MoveTile(Protocol.Pos destPos)
     {
-        //if (!_isMoved)
-        //    return;
-
-        int pos = Util.GetPos(destPos);
-        //_ui.MoveTile(pos);
-
-        //_isMoved = false;
+        Vector2Int pos = Util.GetPos(destPos);
+        _ui.MoveTile(pos);
     }
 }
