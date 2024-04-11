@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
+public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
 {
     private Image[] hearts = new Image[3];
     private Image[] shadows = new Image[8];
@@ -22,9 +22,6 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
     private bool bFind = false;
 
     private int countTimer = 16;
-
-    private Coroutine handsupCoroutine;
-    private Coroutine timerCoroutine;
     
     enum Texts
     {
@@ -53,8 +50,8 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
         base.Init();
         BindUI();
 
-        timerCoroutine = StartCoroutine(TimerCoroutine());
-        handsupCoroutine = StartCoroutine(HandsUp());
+        StartCoroutine(TimerCoroutine());
+        StartCoroutine(HandsUp());
     }
 
     void Start()
@@ -82,42 +79,26 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
         for (int i = 0; i < shadows.Length; i++)
             shadows[i] = GetImage((int)Images.Shadow + i);
     }
-
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        // TODO obejct check
-        GameObject gameObject = eventData.pointerCurrentRaycast.gameObject;
-        Image image = gameObject.GetComponent<Image>();
-        if (image.sprite == handsup)
-        {
-            image.sprite = handsdown;
-            clickCount++;
-        }
-        else
-        {
-            MinusHp();
-        }
-
-        if(clickCount >= 2)
-            bFind = true;
-    }
-
+    
     IEnumerator HandsUp()
     {
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
-            int idx1 = Random.Range(0, 8);
-            int idx2 = Random.Range(0, 8);
+            int idx1 = Random.Range(0, 4);
+            int idx2 = Random.Range(4, 8);
             shadows[idx1].sprite = handsup;
             shadows[idx2].sprite = handsup;
             yield return new WaitForSeconds(0.7f);
             shadows[idx1].sprite = handsdown;
             shadows[idx2].sprite = handsdown;
+
+            if (clickCount >= 2)
+                bFind = true;
+            
+            clickCount = 0;
             if(!bFind)
                 MinusHp();
-            clickCount = 0;
             bFind = false;            
         }
     }
@@ -126,7 +107,7 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
     {
         while (true)
         {
-            if(countTimer < 0)
+            if(countTimer <= 0)
                 MissionFailed();     // 미션 실패
         
             countTimer -= 1;
@@ -138,7 +119,8 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
 
     private void MinusHp()
     {
-        if (hp < 0)
+        Debug.Log("HP --");
+        if (hp <= 0)
         {
             MissionFailed(); // 미션 실패
             return;
@@ -153,15 +135,30 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
 
     public void MissionFailed()
     {
-        Debug.Log("Mission Failed");
         Clear();
     }
 
     public void Clear()
     {
-        Debug.Log("Clear");
-        StopCoroutine(timerCoroutine);
-        StopCoroutine(handsupCoroutine);
+        StopAllCoroutines();
         Managers.UI.ClosePopupUI();
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        // TODO obejct check
+        GameObject gameObject = eventData.pointerCurrentRaycast.gameObject;
+        Image image = gameObject.GetComponent<Image>();
+        Debug.Log($"Image: {image.sprite.name}");
+        if (image.sprite == handsup)
+        {
+            image.sprite = handsdown;
+            clickCount++;
+        }
+        else
+        {
+            MinusHp();
+        }
+        
     }
 }
