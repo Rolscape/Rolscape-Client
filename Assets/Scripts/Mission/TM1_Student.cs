@@ -14,7 +14,6 @@ public class TM1_Student : TM1
     void Start()
     {
         Init();
-        Mission1Start();
     }
 
     protected override void Mission1Start()
