@@ -21,8 +21,7 @@ public class TM1_Police : TM1
     protected override void Mission1Start()
     {
         base.Mission1Start();
-
-        _ui = Managers.UI.ShowPopupUI<UI_TM1Police>("UI_TM1");
+        _ui = Managers.UI.ShowPopupUI<UI_TM1Police>();
     }
 
     protected override void OnKeyboard()

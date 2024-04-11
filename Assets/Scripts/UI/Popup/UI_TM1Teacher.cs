@@ -12,13 +12,20 @@ public class UI_TM1Teacher : UI_TM1
     protected override void SetUI()
     {
         base.SetUI();
-        GetImage((int)Images.Dest).sprite = Managers.Resource.Load<Sprite>("TMMove/pinksqure");
-        GetImage((int)Images.Player).sprite = Managers.Resource.Load<Sprite>("TMMove/pinkeraser");
+        _player = GetImage((int)Images.Player);
+        _player.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/pinkeraser");
+        _player.rectTransform.anchoredPosition = _curPos;
     }
 
-    protected override void MoveTile(int nextPos)
+    private void Start()
     {
+        Init();
+    }
+
+    protected override void MoveTile(Vector2Int nextPos)
+    {
+        _player.rectTransform.anchoredPosition = nextPos;
+
         
-        _curPos = nextPos;
     }
 }

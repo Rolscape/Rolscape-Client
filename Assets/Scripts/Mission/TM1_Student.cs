@@ -11,6 +11,11 @@ public class TM1_Student : TM1
         base.Init();
         
     }
+    void Start()
+    {
+        Init();
+        Mission1Start();
+    }
 
     protected override void Mission1Start()
     {

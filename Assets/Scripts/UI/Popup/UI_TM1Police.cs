@@ -11,24 +11,33 @@ public class UI_TM1Police : UI_TM1
 {
     protected new enum Images
     {
-        Dest1,
-        Dest2,
-        Player1,
-        Player2,
+        TeacherDest,
+        StudentDest,
+        Teacher,
+        Student,
     }
-    
-    public int _tCurPos;
-    public int _sCurPos;
 
-    public int _teacherDestPos;
-    public int _studentDestPos;
+    private Image _teacher;
+    private Image _student;
+    
+    public Vector2Int _tCurPos;
+    public Vector2Int _sCurPos;
+
+    public Vector2Int _teacherDestPos;
+    public Vector2Int _studentDestPos;
     
     public override void Init()
     {
-        base.Init();
+        BindUI();
+        SetUI();
         
-        _tCurPos = 0;
-        _sCurPos = 0;
+        
+    }
+
+
+    protected override void BindUI()
+    {
+        Bind<Image>(typeof(Images));
     }
 
     private void Start()
@@ -38,16 +47,17 @@ public class UI_TM1Police : UI_TM1
 
     protected override void SetUI()
     {
-        base.SetUI();
-        GetImage((int)Images.Dest1).sprite = Managers.Resource.Load<Sprite>("TMMove/bluesqure");
-        GetImage((int)Images.Dest2).sprite = Managers.Resource.Load<Sprite>("TMMove/pinksqure");
-        GetImage((int)Images.Player1).sprite = Managers.Resource.Load<Sprite>("TMMove/blueeraser");
-        GetImage((int)Images.Player2).sprite = Managers.Resource.Load<Sprite>("TMMove/pinkeraser");
+        GetImage((int)Images.StudentDest).sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/bluesquare");
+        GetImage((int)Images.TeacherDest).sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/pinksquare");
+        _student = GetImage((int)Images.Student);
+        _student.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/blueeraser");
+        _teacher = GetImage((int)Images.Teacher);
+        _teacher.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/pinkeraser");
     }
 
-    public void SetDestPos(int idx)
+    public void SetDestPos(Vector2Int idx)
     {
-        
+        _teacher.rectTransform.anchoredPosition = idx;
     }
    
 }
