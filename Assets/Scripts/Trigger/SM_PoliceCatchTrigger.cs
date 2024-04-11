@@ -8,7 +8,8 @@ public class SM_PoliceCatchTrigger : MonoBehaviour
 {
     public void Init()
     {
-        
+        Managers.Mission.SMStart -= MissionStart;
+        Managers.Mission.SMStart += MissionStart;
     }
     
     private void Start()
@@ -28,8 +29,6 @@ public class SM_PoliceCatchTrigger : MonoBehaviour
         if(police == null)
             return;
         
-        Util.GetOrAddComponent<SM_PoliceCatch>(gameObject);
-        
         // TODO 암산 미션 시작하기 창 띄우기
         Managers.UI.ShowPopupUI<UI_SMStart>();
     }
@@ -40,8 +39,13 @@ public class SM_PoliceCatchTrigger : MonoBehaviour
         Managers.UI.ClosePopupUI();
     }
 
+    public void MissionStart()
+    {
+        Managers.UI.ShowPopupUI<UI_SMPoliceCatch>();
+    }
+    
     public void Clear()
     {
-        
+        Managers.Mission.SMStart -= MissionStart;
     }
 }

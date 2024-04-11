@@ -26,6 +26,7 @@ public class UI_SMStudentCal : UI_Popup
     {
         PointText,
         Answer,
+        Timer,
     }
     
     
