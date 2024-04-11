@@ -103,6 +103,7 @@ public class UI_SMStudentCal : UI_Popup
             countTimer -= 1;
             timerText.text = (countTimer / 3600).ToString("D2") + ":" + (countTimer / 60 % 60).ToString("D2") + ":" +
                              (countTimer % 60).ToString("D2");
+            
             yield return new WaitForSeconds(1f);            
         }
     }
@@ -117,6 +118,7 @@ public class UI_SMStudentCal : UI_Popup
 
     public void MissionFailed()
     {
+        Debug.Log("Mission Failed");
         Managers.Sound.Play("MissionFailed");
         Managers.Player.MyPlayerController.SendSingleMissionStop(false);
         Clear();

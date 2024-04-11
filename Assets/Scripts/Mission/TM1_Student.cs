@@ -60,7 +60,6 @@ public class TM1_Student : TM1
         }
 
         Managers.Network.Send(pkt, INGAME.PathMissionMove);
-
         return true;
     }
 
