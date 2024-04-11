@@ -86,6 +86,7 @@ public partial class PlayerController : MonoBehaviour
 
     protected virtual void UpdateAnimationIDLE()
     {
+        Debug.Log("Animation Stop");
         _animator.SetFloat("Speed", 0.0f);
     }
 }

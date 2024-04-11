@@ -41,7 +41,7 @@ public class UI_TM1 : UI_Popup
         //_curPos = nextPos;
     }
 
-    public virtual void PoliceMoveTile(int nextPos)
+    public virtual void PoliceMoveTile(PlayerJob job, int nextPos)
     {
 
     }

@@ -62,6 +62,6 @@ public class TM1_Student : TM1
     public void MoveTile(Protocol.Pos destPos)
     {
         int pos = Util.GetPos(destPos);
-        _ui.MoveTile(pos);
+        //_ui.MoveTile(pos);
     }
 }

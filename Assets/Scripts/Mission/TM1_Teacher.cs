@@ -68,7 +68,7 @@ public class TM1_Teacher : TM1
         //    return;
 
         int pos = Util.GetPos(destPos);
-        _ui.MoveTile(pos);
+        //_ui.MoveTile(pos);
 
         //_isMoved = false;
     }
