@@ -15,12 +15,11 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
     private Sprite heart;
     private Sprite emptyHeart;
     
-    private TextMeshProUGUI timerText;
-
     private int clickCount = 0;
     private int hp = 2;
     private bool bFind = false;
 
+    private TextMeshProUGUI timerText;
     private int countTimer = 16;
     
     enum Texts
@@ -50,6 +49,8 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
         base.Init();
         BindUI();
 
+        Managers.Sound.Play("MinigameFast", Define.Sound.Bgm);
+        Managers.Sound.Play("Timer");
         StartCoroutine(TimerCoroutine());
         StartCoroutine(HandsUp());
     }
@@ -57,7 +58,6 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
     void Start()
     {
         Init();
-        
     }
 
     void BindUI()
@@ -119,7 +119,6 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
 
     private void MinusHp()
     {
-        Debug.Log("HP --");
         if (hp <= 0)
         {
             MissionFailed(); // 미션 실패
@@ -131,15 +130,19 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
     public void MissionSuccess()
     {
         // 미션 성공
+        Managers.Sound.Play("MissionClear");
+        Clear();
     }
 
     public void MissionFailed()
     {
+        Managers.Sound.Play("MissionFailed");
         Clear();
     }
 
     public void Clear()
     {
+        Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
         StopAllCoroutines();
         Managers.UI.ClosePopupUI();
     }
@@ -147,18 +150,17 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         // TODO obejct check
+        Managers.Sound.Play("Click");
         GameObject gameObject = eventData.pointerCurrentRaycast.gameObject;
         Image image = gameObject.GetComponent<Image>();
-        Debug.Log($"Image: {image.sprite.name}");
+
         if (image.sprite == handsup)
         {
             image.sprite = handsdown;
             clickCount++;
         }
         else
-        {
             MinusHp();
-        }
         
     }
 }

@@ -54,18 +54,20 @@ public class SoundManager
         
         if (type == Define.Sound.Bgm)
         {
-            AudioSource audioSource = _audioSources[(int)Define.Sound.Effect];
+            AudioSource audioSource = _audioSources[(int)Define.Sound.Bgm];
             if(audioSource.isPlaying)
                 audioSource.Stop();
             
             audioSource.pitch = pitch;
             audioSource.clip = audioClip;
+            audioSource.volume = 0.3f;
             audioSource.Play();
         }
         else
         {
             AudioSource audioSource = _audioSources[(int)Define.Sound.Effect];
             audioSource.pitch = pitch;
+            audioSource.volume = 0.4f;
             audioSource.PlayOneShot(audioClip);
         }
     }
