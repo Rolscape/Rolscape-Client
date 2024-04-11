@@ -20,7 +20,7 @@ public class UI_TM1 : UI_Popup
     public override void Init()
     {
         base.Init();
-        _curPos = new Vector2Int(-405, -165);
+        //_curPos = new Vector2Int(-405, -165);
         BindUI();
         SetUI();
 

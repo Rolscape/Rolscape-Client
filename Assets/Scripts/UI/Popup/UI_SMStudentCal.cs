@@ -118,7 +118,6 @@ public class UI_SMStudentCal : UI_Popup
 
     public void MissionFailed()
     {
-        Debug.Log("Mission Failed");
         Managers.Sound.Play("MissionFailed");
         Managers.Player.MyPlayerController.SendSingleMissionStop(false);
         Clear();

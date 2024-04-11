@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Util
 {
+    public const int StartPosX = -465;
+    public const int StartPosY = -165;
+
     public const int POSX = 100;
     public const int POSY = 65;
 
@@ -16,7 +19,7 @@ public class Util
 
         return component;
     }
-    
+
     // 자식 게임 오브젝트를 찾는 함수
     public static GameObject FindChild(GameObject go, string name = null, bool recursive = false)
     {
@@ -24,11 +27,11 @@ public class Util
         Transform transform = FindChild<Transform>(go, name, recursive);
         if (transform == null)
             return null;
-        
+
         // 트랜스폼의 게임 오브젝트 return
         return transform.gameObject;
     }
-    
+
     // 자식 컴포넌트를 찾는 함수
     public static T FindChild<T>(GameObject go, string name = null, bool recursive = false) where T : UnityEngine.Object
     {
@@ -64,8 +67,8 @@ public class Util
 
     public static Vector2Int GetPos(Protocol.Pos pos)
     {
-        int x = pos.X * POSX;
-        int y = pos.Y * POSY;
+        int x = pos.X * POSX + StartPosX;
+        int y = pos.Y * POSY + StartPosY;
         return new Vector2Int(x, y);
     }
 }

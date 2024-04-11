@@ -122,6 +122,8 @@ namespace GameServer.Packet
             if (!pkt.IsStart)
                 return;
 
+            Debug.Log("Path Mission Start");
+
             if (Managers.Player.MyPlayerController.Job == PlayerJob.Police)
                 Managers.Mission.Mission1StartInvoke(pkt.StartPos, pkt.DestPos);
             else

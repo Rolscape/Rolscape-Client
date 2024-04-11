@@ -43,11 +43,11 @@ public class TM1_Teacher : TM1
 
         if (code == KeyCode.W)
         {
-            pkt.MoveType = MultiMissionMoveType.Down;
+            pkt.MoveType = MultiMissionMoveType.Up;
         }
         else if (code == KeyCode.S)
         {
-            pkt.MoveType = MultiMissionMoveType.Up;
+            pkt.MoveType = MultiMissionMoveType.Down;
         }
         else if (code == KeyCode.A)
         {
