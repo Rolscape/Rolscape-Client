@@ -16,10 +16,10 @@ public class GameScene : BaseScene
         GameObject go = Managers.Resource.Instantiate("Player");
         go.name = "Player";
         
-        GameObject student = Managers.Resource.Instantiate("PoliceRoot");
+        GameObject student = Managers.Resource.Instantiate("TeacherRoot");
         student.transform.SetParent(go.transform);
         
-        go.GetOrAddComponent<Police>();
+        go.GetOrAddComponent<Teacher>();
     }
     
     public override void Clear()
