@@ -151,12 +151,6 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
             if (totalDragTime >= 5.0f)
             {
                 MissionSuccess();
-                // 미션 성공
-                bool isSuccess = true;
-
-                Managers.Player.MyPlayerController.SendSingleMissionStop(isSuccess);
-
-                ClosePopupUI();
             }
             //Erase(eventData.position);
         }
@@ -193,12 +187,14 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
     {
         // 미션 성공
         Managers.Sound.Play("MissionClear");
+        Managers.Player.MyPlayerController.SendSingleMissionStop(true);
         Clear();
     }
 
     public void MissionFailed()
     {
         Managers.Sound.Play("MissionFailed");
+        Managers.Player.MyPlayerController.SendSingleMissionStop(false);
         Clear();
     }
 

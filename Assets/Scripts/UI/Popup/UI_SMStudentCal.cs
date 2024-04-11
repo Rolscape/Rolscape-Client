@@ -87,16 +87,10 @@ public class UI_SMStudentCal : UI_Popup
         Debug.Log($"사용자가 입력한 정담은: {text}");
         // TODO 정답 여부에 따라 
         // 성공 시 정답
-        bool isSuccess = true;
-
-        Managers.Player.MyPlayerController.SendSingleMissionStop(isSuccess);
-
-        if(!isSuccess)
-            Managers.UI.ShowPopupUI<UI_Start>();
+        
         // Managers.Mission.bStudentCal = true;
         // 실패 시 다시 시작
         //Managers.UI.ShowPopupUI<UI_Start>();
-        
     }
     
     IEnumerator TimerCoroutine()
@@ -117,12 +111,14 @@ public class UI_SMStudentCal : UI_Popup
     {
         // 미션 성공
         Managers.Sound.Play("MissionClear");
+        Managers.Player.MyPlayerController.SendSingleMissionStop(true);
         Clear();
     }
 
     public void MissionFailed()
     {
         Managers.Sound.Play("MissionFailed");
+        Managers.Player.MyPlayerController.SendSingleMissionStop(false);
         Clear();
     }
 

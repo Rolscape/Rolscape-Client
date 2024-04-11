@@ -4,48 +4,42 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-public class SM_PoliceCatchTrigger : MonoBehaviour
+public class SM_PoliceCatchTrigger : SM_DefaultTrigger
 {
-    public void Init()
+    protected override void Init()
     {
-        Managers.Mission.SMStart -= MissionStart;
-        Managers.Mission.SMStart += MissionStart;
-    }
-    
-    private void Start()
-    {
-        Init();
+        missionType = Protocol.SingleMissionType.PoliceCatch;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnShowUI()
     {
-        if (Managers.Mission.bPoliceCatch)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        //Util.GetOrAddComponent<SM_StudentCal>(gameObject);
 
-        Police police = other.GetComponent<Police>();
-        if(police == null)
-            return;
-        
-        // TODO 암산 미션 시작하기 창 띄우기
         Managers.UI.ShowPopupUI<UI_SMStart>();
     }
 
-
-    private void OnTriggerExit(Collider other)
+    protected override bool TriggerEnterEvent(Collider other)
     {
-        Managers.UI.ClosePopupUI();
+        Police police = other.GetComponent<Police>();
+        if (police == null)
+            return false;
+
+        return true;
     }
 
-    public void MissionStart()
+    protected override void TriggerExitEvent(Collider other)
+    {
+        base.TriggerExitEvent(other);
+    }
+
+
+    protected override void MissionStart()
     {
         Managers.UI.ShowPopupUI<UI_SMPoliceCatch>();
     }
-    
-    public void Clear()
+
+    protected override void MissionStop(bool isSuccess)
     {
-        Managers.Mission.SMStart -= MissionStart;
+        Managers.Mission.bPoliceCatch = isSuccess;
     }
 }

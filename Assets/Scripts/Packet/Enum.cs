@@ -41,11 +41,12 @@ namespace Protocol {
             "AxILCgdTVUNDRVNTEAQSCgoGRkFJTEVEEAUqPwoQTXVsdGlNaXNzaW9uVHlw",
             "ZRIOCgpNVUxUSV9JRExFEAASGwoXTVVMVElfRklORF9QQVRIX01JU1NJT04Q",
             "ASo9ChRNdWx0aU1pc3Npb25Nb3ZlVHlwZRIGCgJVUBAAEggKBERPV04QARII",
-            "CgRMRUZUEAISCQoFUklHSFQQAypwChFTaW5nbGVNaXNzaW9uVHlwZRIPCgtT",
-            "SU5HTEVfSURMRRAAEhAKDFNUVURFTlRfTUFUSBABEhEKDVNUVURFTlRfQUxQ",
-            "SEEQAhISCg5URUFDSEVSX1NVRE9LVRADEhEKDVRFQUNIRVJfRVJBU0UQBCpB",
-            "CghDaGF0VHlwZRINCglDSEFUX1NFTkQQABIQCgxDSEFUX1JFQ0VJVkUQARIU",
-            "ChBDSEFUX1JFQ0VJVkVfQUxMEAJiBnByb3RvMw=="));
+            "CgRMRUZUEAISCQoFUklHSFQQAyqCAQoRU2luZ2xlTWlzc2lvblR5cGUSDwoL",
+            "U0lOR0xFX0lETEUQABIQCgxTVFVERU5UX01BVEgQARIRCg1TVFVERU5UX0FM",
+            "UEhBEAISEgoOVEVBQ0hFUl9TVURPS1UQAxIRCg1URUFDSEVSX0VSQVNFEAQS",
+            "EAoMUE9MSUNFX0NBVENIEAUqQQoIQ2hhdFR5cGUSDQoJQ0hBVF9TRU5EEAAS",
+            "EAoMQ0hBVF9SRUNFSVZFEAESFAoQQ0hBVF9SRUNFSVZFX0FMTBACYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.INGAME), typeof(global::Protocol.PlayerJob), typeof(global::Protocol.MoveType), typeof(global::Protocol.TimeType), typeof(global::Protocol.MissionActionType), typeof(global::Protocol.MultiMissionType), typeof(global::Protocol.MultiMissionMoveType), typeof(global::Protocol.SingleMissionType), typeof(global::Protocol.ChatType), }, null, null));
@@ -122,6 +123,7 @@ namespace Protocol {
     [pbr::OriginalName("STUDENT_ALPHA")] StudentAlpha = 2,
     [pbr::OriginalName("TEACHER_SUDOKU")] TeacherSudoku = 3,
     [pbr::OriginalName("TEACHER_ERASE")] TeacherErase = 4,
+    [pbr::OriginalName("POLICE_CATCH")] PoliceCatch = 5,
   }
 
   public enum ChatType {

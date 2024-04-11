@@ -131,12 +131,14 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
     {
         // 미션 성공
         Managers.Sound.Play("MissionClear");
+        Managers.Player.MyPlayerController.SendSingleMissionStop(true);
         Clear();
     }
 
     public void MissionFailed()
     {
         Managers.Sound.Play("MissionFailed");
+        Managers.Player.MyPlayerController.SendSingleMissionStop(false);
         Clear();
     }
 
@@ -161,6 +163,5 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
         }
         else
             MinusHp();
-        
     }
 }
