@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.PlayerLoop;
@@ -17,6 +18,15 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
     private float startTime; // 드래그 시작 시간
     private float endTime; // 드래그 종료 시간
     
+    private TextMeshProUGUI timerText;
+    private int countTimer = 16;
+
+
+    enum Texts
+    {
+        Timer,
+    }
+    
     enum Images
     {
         Background,
@@ -29,6 +39,8 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
         BindUI();
         SetBackground();
         SetDoodle();
+        StartCoroutine(TimerCoroutine());
+        Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
     }
     
     void SetBackground()
@@ -54,11 +66,29 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
     void BindUI()
     {
         Bind<Image>(typeof(Images));
+        Bind<TextMeshProUGUI>(typeof(Texts));
+        
+        timerText = GetText((int)Texts.Timer);
+        timerText.text = countTimer.ToString("D2");
     }
 
     private void Start()
     {
         Init();
+    }
+    
+    IEnumerator TimerCoroutine()
+    {
+        while (true)
+        {
+            if(countTimer <= 0)
+                MissionFailed();     // 미션 실패
+        
+            countTimer -= 1;
+            timerText.text = (countTimer / 3600).ToString("D2") + ":" + (countTimer / 60 % 60).ToString("D2") + ":" +
+                             (countTimer % 60).ToString("D2");
+            yield return new WaitForSeconds(1f);            
+        }
     }
 
     // void Erase(Vector2 position)
@@ -120,6 +150,7 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
             Debug.Log("누적 드래그 시간: " + totalDragTime + "초");
             if (totalDragTime >= 5.0f)
             {
+                MissionSuccess();
                 // 미션 성공
                 bool isSuccess = true;
 
@@ -156,5 +187,25 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
     {
         // 드래그가 시작된 시간 기록
         startTime = Time.time;
+    }
+    
+    public void MissionSuccess()
+    {
+        // 미션 성공
+        Managers.Sound.Play("MissionClear");
+        Clear();
+    }
+
+    public void MissionFailed()
+    {
+        Managers.Sound.Play("MissionFailed");
+        Clear();
+    }
+
+    public void Clear()
+    {
+        Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
+        StopAllCoroutines();
+        ClosePopupUI();
     }
 }

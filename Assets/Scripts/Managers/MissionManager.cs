@@ -28,8 +28,8 @@ public class MissionManager
     public bool bStudentCal = false;
 
     // Police
-
-
+    public bool bPoliceCatch = false;
+    
     // Teacher
     public bool bTeacherErase = false;
 

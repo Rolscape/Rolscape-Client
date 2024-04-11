@@ -12,7 +12,7 @@ public class UI_SMStudentCal : UI_Popup
     {
         Panel,
     }
-
+    
     enum Images
     {
         Question,
@@ -27,8 +27,12 @@ public class UI_SMStudentCal : UI_Popup
     {
         PointText,
         Answer,
+        Timer,
     }
-
+    
+    private TextMeshProUGUI timerText;
+    private int countTimer = 16;
+    
     public override void Init()
     {
         base.Init();
@@ -36,6 +40,8 @@ public class UI_SMStudentCal : UI_Popup
         BindUI();
         SetInputField();
         SetImage();
+        StartCoroutine(TimerCoroutine());
+        Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
     }
 
     void Start()
@@ -48,6 +54,8 @@ public class UI_SMStudentCal : UI_Popup
         Bind<Image>(typeof(Images));
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<TMP_InputField>(typeof(InputFields));
+        timerText = GetText((int)Texts.Timer);
+        timerText.text = countTimer.ToString("D2");
     }
 
     void SetInputField()
@@ -86,5 +94,42 @@ public class UI_SMStudentCal : UI_Popup
         if(!isSuccess)
             Managers.UI.ShowPopupUI<UI_Start>();
         // Managers.Mission.bStudentCal = true;
+        // 실패 시 다시 시작
+        //Managers.UI.ShowPopupUI<UI_Start>();
+        
+    }
+    
+    IEnumerator TimerCoroutine()
+    {
+        while (true)
+        {
+            if(countTimer <= 0)
+                MissionFailed();     // 미션 실패
+        
+            countTimer -= 1;
+            timerText.text = (countTimer / 3600).ToString("D2") + ":" + (countTimer / 60 % 60).ToString("D2") + ":" +
+                             (countTimer % 60).ToString("D2");
+            yield return new WaitForSeconds(1f);            
+        }
+    }
+    
+    public void MissionSuccess()
+    {
+        // 미션 성공
+        Managers.Sound.Play("MissionClear");
+        Clear();
+    }
+
+    public void MissionFailed()
+    {
+        Managers.Sound.Play("MissionFailed");
+        Clear();
+    }
+
+    public void Clear()
+    {
+        Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
+        StopAllCoroutines();
+        Managers.UI.ClosePopupUI();
     }
 }

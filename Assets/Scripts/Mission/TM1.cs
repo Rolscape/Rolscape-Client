@@ -8,6 +8,9 @@ using UnityEngine;
 public class TM1 : MonoBehaviour
 {
     protected UI_TM1 _ui;
+    
+    
+    protected Vector3 _dir;
     protected virtual void Init()
     {
         Managers.Mission.Mission1Start -= Mission1Start;

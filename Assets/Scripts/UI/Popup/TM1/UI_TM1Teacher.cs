@@ -7,8 +7,13 @@ public class UI_TM1Teacher : UI_TM1
     public override void Init()
     {
         base.Init();
-        _color = Color.blue;
-        _grid[_curPos].color = _color;
+    }
+    
+    protected override void SetUI()
+    {
+        base.SetUI();
+        GetImage((int)Images.Dest).sprite = Managers.Resource.Load<Sprite>("TMMove/pinksqure");
+        GetImage((int)Images.Player).sprite = Managers.Resource.Load<Sprite>("TMMove/pinkeraser");
     }
 
     public override void SetDefaultPos(int startPos)
@@ -17,10 +22,9 @@ public class UI_TM1Teacher : UI_TM1
         _curPos = startPos;
     }
 
-    public override void MoveTile(int nextPos)
+    protected override void MoveTile(int nextPos)
     {
-        _grid[_curPos].color = Color.white;
-        _grid[nextPos].color = _color;
+        
         _curPos = nextPos;
     }
 }
