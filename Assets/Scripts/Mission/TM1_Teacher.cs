@@ -22,7 +22,7 @@ public class TM1_Teacher : TM1
     {
         base.Mission1Start();
 
-        _ui = Managers.UI.ShowPopupUI<UI_TM1Teacher>();
+        _ui = Managers.UI.ShowPopupUI<UI_TM1Teacher>("UI_TM1");
     }
 
     protected override void OnKeyboard()
@@ -34,33 +34,7 @@ public class TM1_Teacher : TM1
 
     public bool CheckMoveNextGrid(Vector3 dir)
     {
-        int nextPos = _ui._curPos;
         
-        if (dir == Vector3.forward)
-        {
-            nextPos -= _ui._gridSizeX;
-        }
-        if (dir == Vector3.back)
-        {
-            nextPos += _ui._gridSizeX;
-    
-        }
-        if (dir == Vector3.left)
-        {
-            if((nextPos) % _ui._gridSizeX != 0)
-                nextPos--;
-        }
-        if (dir == Vector3.right)
-        {
-            if((nextPos+1) % _ui._gridSizeX != 0)
-                nextPos++;
-        }
-    
-        if (nextPos >= 0 && nextPos < _ui._gridSizeY * _ui._gridSizeX)
-        {
-            // TODO Change call MoveTile to Action
-            _ui.MoveTile(nextPos);
-        }
         
         return false;
     }

@@ -9,14 +9,19 @@ public class UI_TM1Student : UI_TM1
     public override void Init()
     {
         base.Init();
-        _color = Color.red;
 
     }
 
-    public override void MoveTile(int nextPos)
+    protected override void SetUI()
     {
-        _grid[_curPos].color = Color.white;
-        _grid[nextPos].color = _color;
+        base.SetUI();
+        GetImage((int)Images.Dest).sprite = Managers.Resource.Load<Sprite>("TMMove/bluesqure");
+        GetImage((int)Images.Player).sprite = Managers.Resource.Load<Sprite>("TMMove/blueeraser");
+    }
+    
+    protected override void MoveTile(int nextPos)
+    {
+        
         _curPos = nextPos;
     }
 

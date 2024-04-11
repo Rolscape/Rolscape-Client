@@ -22,7 +22,7 @@ public class TM1_Police : TM1
     {
         base.Mission1Start();
 
-        _ui = Managers.UI.ShowPopupUI<UI_TM1Police>();
+        _ui = Managers.UI.ShowPopupUI<UI_TM1Police>("UI_TM1");
     }
 
     protected override void OnKeyboard()

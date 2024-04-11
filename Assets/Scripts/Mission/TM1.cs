@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class TM1 : MonoBehaviour
 {
+    
+    
     protected Vector3 _dir;
     protected virtual void Init()
     {

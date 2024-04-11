@@ -9,9 +9,13 @@ using Random = UnityEngine.Random;
 
 public class UI_TM1Police : UI_TM1
 {
-    private Color _sColor = Color.red;
-    private Color _tColor = Color.blue;
-
+    protected enum Images
+    {
+        Dest1,
+        Dest2,
+        Player1,
+        Player2,
+    }
     public int _tCurPos;
     public int _sCurPos;
 
@@ -21,29 +25,28 @@ public class UI_TM1Police : UI_TM1
     public override void Init()
     {
         base.Init();
-        _color = Color.red;
-        _sColor = Color.red;
-        _tColor = Color.blue;
+        
         _tCurPos = 0;
         _sCurPos = 0;
-
-        _teacherDestPos = Random.Range(0, _gridSizeX * _gridSizeY);
-        _studentDestPos = Random.Range(0, _gridSizeX * _gridSizeY);
     }
 
-    public override void MoveTile(int nextPos)
+    private void Start()
     {
-        _grid[_curPos].color = Color.white;
-        // TODO 타입에 따라 색깔 다르게 
-        _grid[nextPos].color = _color;
-        _curPos = nextPos;
+        Init();
+    }
+
+    protected override void SetUI()
+    {
+        base.SetUI();
+        GetImage((int)Images.Dest1).sprite = Managers.Resource.Load<Sprite>("TMMove/bluesqure");
+        GetImage((int)Images.Dest2).sprite = Managers.Resource.Load<Sprite>("TMMove/pinksqure");
+        GetImage((int)Images.Player1).sprite = Managers.Resource.Load<Sprite>("TMMove/blueeraser");
+        GetImage((int)Images.Player2).sprite = Managers.Resource.Load<Sprite>("TMMove/pinkeraser");
     }
 
     public void SetDestPos(int idx)
     {
-        // Add type and select teacher or student then set color
-        _grid[idx].color = Color.green;
-        _grid[idx].color = Color.cyan;
+        
     }
    
 }
