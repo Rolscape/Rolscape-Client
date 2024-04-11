@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 public class UI_Login : UI_Popup
 {
@@ -41,7 +42,7 @@ public class UI_Login : UI_Popup
         GameObject go = GetButton((int)Buttons.NicknameButton).gameObject;
         BindEvent(go, OnButtonClicked, Define.UIEvent.Click);
     }
-
+    
     void Bind()
     {
         Bind<Button>(typeof(Buttons));
