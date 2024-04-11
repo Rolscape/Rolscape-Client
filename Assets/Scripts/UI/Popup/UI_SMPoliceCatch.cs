@@ -144,7 +144,7 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
     {
         Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
         StopAllCoroutines();
-        Managers.UI.ClosePopupUI();
+        ClosePopupUI();
     }
 
     public void OnPointerDown(PointerEventData eventData)

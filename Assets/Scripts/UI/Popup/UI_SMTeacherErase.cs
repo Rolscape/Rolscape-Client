@@ -151,7 +151,6 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
             if (totalDragTime >= 5.0f)
             {
                 MissionSuccess();
-                ClosePopupUI();
             }
             //Erase(eventData.position);
         }
@@ -201,6 +200,6 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
     {
         Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
         StopAllCoroutines();
-        Managers.UI.ClosePopupUI();
+        ClosePopupUI();
     }
 }
