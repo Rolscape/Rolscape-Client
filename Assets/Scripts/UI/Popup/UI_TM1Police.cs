@@ -9,13 +9,14 @@ using Random = UnityEngine.Random;
 
 public class UI_TM1Police : UI_TM1
 {
-    protected enum Images
+    protected new enum Images
     {
         Dest1,
         Dest2,
         Player1,
         Player2,
     }
+    
     public int _tCurPos;
     public int _sCurPos;
 
