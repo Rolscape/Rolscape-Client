@@ -14,9 +14,17 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
     private Sprite handsdown;
     private Sprite heart;
     private Sprite emptyHeart;
+    
+    private TextMeshProUGUI timerText;
 
+    private int clickCount = 0;
     private int hp = 2;
     private bool bFind = false;
+
+    private int countTimer = 16;
+
+    private Coroutine handsupCoroutine;
+    private Coroutine timerCoroutine;
     
     enum Texts
     {
@@ -45,7 +53,8 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
         base.Init();
         BindUI();
 
-        StartCoroutine(HandsUp());
+        timerCoroutine = StartCoroutine(TimerCoroutine());
+        handsupCoroutine = StartCoroutine(HandsUp());
     }
 
     void Start()
@@ -58,6 +67,9 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
     {
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<Image>(typeof(Images));
+
+        timerText = GetText((int)Texts.Timer);
+        timerText.text = countTimer.ToString("D2");
         
         heart = Managers.Resource.Load<Sprite>("Arts/Mission/Prison/heart");
         emptyHeart = Managers.Resource.Load<Sprite>("Arts/Mission/Prison/blackheart");
@@ -75,9 +87,20 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         // TODO obejct check
-        Debug.Log($"object name: {eventData.pointerCurrentRaycast.gameObject.name}");
+        GameObject gameObject = eventData.pointerCurrentRaycast.gameObject;
+        Image image = gameObject.GetComponent<Image>();
+        if (image.sprite == handsup)
+        {
+            image.sprite = handsdown;
+            clickCount++;
+        }
+        else
+        {
+            MinusHp();
+        }
 
-        bFind = true;
+        if(clickCount >= 2)
+            bFind = true;
     }
 
     IEnumerator HandsUp()
@@ -94,20 +117,51 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerClickHandler
             shadows[idx2].sprite = handsdown;
             if(!bFind)
                 MinusHp();
-            bFind = false;
+            clickCount = 0;
+            bFind = false;            
+        }
+    }
+
+    IEnumerator TimerCoroutine()
+    {
+        while (true)
+        {
+            if(countTimer < 0)
+                MissionFailed();     // 미션 실패
+        
+            countTimer -= 1;
+            timerText.text = (countTimer / 3600).ToString("D2") + ":" + (countTimer / 60 % 60).ToString("D2") + ":" +
+                             (countTimer % 60).ToString("D2");
+            yield return new WaitForSeconds(1f);            
         }
     }
 
     private void MinusHp()
     {
         if (hp < 0)
+        {
+            MissionFailed(); // 미션 실패
             return;
-        
+        }
         hearts[hp--].sprite = emptyHeart;
+    }
+
+    public void MissionSuccess()
+    {
+        // 미션 성공
+    }
+
+    public void MissionFailed()
+    {
+        Debug.Log("Mission Failed");
+        Clear();
     }
 
     public void Clear()
     {
-        StopCoroutine(HandsUp());
+        Debug.Log("Clear");
+        StopCoroutine(timerCoroutine);
+        StopCoroutine(handsupCoroutine);
+        Managers.UI.ClosePopupUI();
     }
 }
