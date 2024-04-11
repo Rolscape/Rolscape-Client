@@ -47,20 +47,38 @@ public partial class MyPlayerController : PlayerController
     // Join Leave는 DefaultTrigger에 존재
     public void SendSingleMssionStart()
     {
-        C_SINGLE_MISSION_START mission = new C_SINGLE_MISSION_START();
-        mission.PlayerInfo = Info;
-        mission.MissionType = Managers.Mission.CurrentMissionType;
+        C_SINGLE_MISSION_START missionStartPkt = new C_SINGLE_MISSION_START();
+        missionStartPkt.PlayerInfo = Info;
+        missionStartPkt.MissionType = Managers.Mission.CurrentMissionType;
 
-        Managers.Network.Send(mission, INGAME.SingleMissionStart);
+        Managers.Network.Send(missionStartPkt, INGAME.SingleMissionStart);
     }
 
     public void SendSingleMissionStop(bool isSuccess)
     {
-        S_SINGLE_MISSION_END endPkt = new S_SINGLE_MISSION_END();
-        endPkt.PlayerInfo = Info;
-        endPkt.IsSucces = isSuccess;
-        endPkt.MissionType = Managers.Mission.CurrentMissionType;
+        C_SINGLE_MISSION_END missionEndPkt = new C_SINGLE_MISSION_END();
+        missionEndPkt.PlayerInfo = Info;
+        missionEndPkt.IsSucces = isSuccess;
+        missionEndPkt.MissionType = Managers.Mission.CurrentMissionType;
 
-        Managers.Network.Send(endPkt, INGAME.SingleMissionEnd);
+        Managers.Network.Send(missionEndPkt, INGAME.SingleMissionEnd);
+    }
+
+    public void SendChat(string message)
+    {
+        C_CHAT sendChatPkt = new C_CHAT();
+        sendChatPkt.ChatType = ChatType.ChatSend;
+        sendChatPkt.Message = message;
+        sendChatPkt.PlayerInfo = Info;
+
+        Managers.Network.Send(sendChatPkt, INGAME.Chat);
+    }
+
+    public void StartChat()
+    {
+        C_CHAT chatPkt = new C_CHAT();
+        chatPkt.ChatType = ChatType.ChatReceiveAll;
+
+        Managers.Network.Send(chatPkt, INGAME.Chat);
     }
 }

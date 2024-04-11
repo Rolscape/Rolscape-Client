@@ -2,20 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SM_TeacherErase : MonoBehaviour
+public class SM_TeacherErase : SM_Single
 {
-    public void Init()
-    {
-        Managers.Mission.TeacherEraseStart -= MissionStart;
-        Managers.Mission.TeacherEraseStart += MissionStart;
-    }
-
-    private void Start()
-    {
-        Init();
-    }
-
-    public void MissionStart()
+    public override void MissionStart()
     {
         // Set Cursor Eraser
         Texture2D texture2D = Managers.Resource.Load<Texture2D>("Arts/Mission/BlackboardErase/Eraser");
@@ -24,10 +13,9 @@ public class SM_TeacherErase : MonoBehaviour
         Managers.UI.ShowPopupUI<UI_SMTeacherErase>();
     }
 
-    // Mission Finished
-    public void Clear()
+    public override void MissionStop(bool isSuccess)
     {
-        Managers.Mission.SMStart -= MissionStart;
+        Managers.Mission.bTeacherErase = isSuccess;
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 }

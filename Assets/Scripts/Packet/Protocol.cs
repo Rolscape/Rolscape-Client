@@ -81,10 +81,12 @@ namespace Protocol {
             "Z2xlTWlzc2lvblR5cGUSEAoIaXNTdWNjZXMYAyABKAgihAEKFENfU0lOR0xF",
             "X01JU1NJT05fRU5EEigKCnBsYXllckluZm8YASABKAsyFC5Qcm90b2NvbC5Q",
             "bGF5ZXJJbmZvEjAKC21pc3Npb25UeXBlGAIgASgOMhsuUHJvdG9jb2wuU2lu",
-            "Z2xlTWlzc2lvblR5cGUSEAoIaXNTdWNjZXMYAyABKAgiLQoGU19DSEFUEiMK",
-            "CG1lc3NhZ2VzGAEgAygLMhEuUHJvdG9jb2wuTWVzc2FnZSJDCgZDX0NIQVQS",
-            "KAoKcGxheWVySW5mbxgBIAEoCzIULlByb3RvY29sLlBsYXllckluZm8SDwoH",
-            "bWVzc2FnZRgCIAEoCWIGcHJvdG8z"));
+            "Z2xlTWlzc2lvblR5cGUSEAoIaXNTdWNjZXMYAyABKAgiUwoGU19DSEFUEiQK",
+            "CGNoYXRUeXBlGAEgASgOMhIuUHJvdG9jb2wuQ2hhdFR5cGUSIwoIbWVzc2Fn",
+            "ZXMYAiADKAsyES5Qcm90b2NvbC5NZXNzYWdlImkKBkNfQ0hBVBIkCghjaGF0",
+            "VHlwZRgBIAEoDjISLlByb3RvY29sLkNoYXRUeXBlEigKCnBsYXllckluZm8Y",
+            "AiABKAsyFC5Qcm90b2NvbC5QbGF5ZXJJbmZvEg8KB21lc3NhZ2UYAyABKAli",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Protocol.EnumReflection.Descriptor, global::Protocol.StructReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -124,8 +126,8 @@ namespace Protocol {
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_SINGLE_MISSION_TODO), global::Protocol.C_SINGLE_MISSION_TODO.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_SINGLE_MISSION_END), global::Protocol.S_SINGLE_MISSION_END.Parser, new[]{ "PlayerInfo", "MissionType", "IsSucces" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_SINGLE_MISSION_END), global::Protocol.C_SINGLE_MISSION_END.Parser, new[]{ "PlayerInfo", "MissionType", "IsSucces" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_CHAT), global::Protocol.S_CHAT.Parser, new[]{ "Messages" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_CHAT), global::Protocol.C_CHAT.Parser, new[]{ "PlayerInfo", "Message" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.S_CHAT), global::Protocol.S_CHAT.Parser, new[]{ "ChatType", "Messages" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Protocol.C_CHAT), global::Protocol.C_CHAT.Parser, new[]{ "ChatType", "PlayerInfo", "Message" }, null, null, null, null)
           }));
     }
     #endregion
@@ -7821,6 +7823,7 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public S_CHAT(S_CHAT other) : this() {
+      chatType_ = other.chatType_;
       messages_ = other.messages_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -7831,10 +7834,22 @@ namespace Protocol {
       return new S_CHAT(this);
     }
 
+    /// <summary>Field number for the "chatType" field.</summary>
+    public const int ChatTypeFieldNumber = 1;
+    private global::Protocol.ChatType chatType_ = global::Protocol.ChatType.ChatSend;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Protocol.ChatType ChatType {
+      get { return chatType_; }
+      set {
+        chatType_ = value;
+      }
+    }
+
     /// <summary>Field number for the "messages" field.</summary>
-    public const int MessagesFieldNumber = 1;
+    public const int MessagesFieldNumber = 2;
     private static readonly pb::FieldCodec<global::Protocol.Message> _repeated_messages_codec
-        = pb::FieldCodec.ForMessage(10, global::Protocol.Message.Parser);
+        = pb::FieldCodec.ForMessage(18, global::Protocol.Message.Parser);
     private readonly pbc::RepeatedField<global::Protocol.Message> messages_ = new pbc::RepeatedField<global::Protocol.Message>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -7857,6 +7872,7 @@ namespace Protocol {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (ChatType != other.ChatType) return false;
       if(!messages_.Equals(other.messages_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -7865,6 +7881,7 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (ChatType != global::Protocol.ChatType.ChatSend) hash ^= ChatType.GetHashCode();
       hash ^= messages_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -7884,6 +7901,10 @@ namespace Protocol {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (ChatType != global::Protocol.ChatType.ChatSend) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) ChatType);
+      }
       messages_.WriteTo(output, _repeated_messages_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -7895,6 +7916,10 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ChatType != global::Protocol.ChatType.ChatSend) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) ChatType);
+      }
       messages_.WriteTo(ref output, _repeated_messages_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -7906,6 +7931,9 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (ChatType != global::Protocol.ChatType.ChatSend) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChatType);
+      }
       size += messages_.CalculateSize(_repeated_messages_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -7918,6 +7946,9 @@ namespace Protocol {
     public void MergeFrom(S_CHAT other) {
       if (other == null) {
         return;
+      }
+      if (other.ChatType != global::Protocol.ChatType.ChatSend) {
+        ChatType = other.ChatType;
       }
       messages_.Add(other.messages_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -7935,7 +7966,11 @@ namespace Protocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 8: {
+            ChatType = (global::Protocol.ChatType) input.ReadEnum();
+            break;
+          }
+          case 18: {
             messages_.AddEntriesFrom(input, _repeated_messages_codec);
             break;
           }
@@ -7954,7 +7989,11 @@ namespace Protocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 8: {
+            ChatType = (global::Protocol.ChatType) input.ReadEnum();
+            break;
+          }
+          case 18: {
             messages_.AddEntriesFrom(ref input, _repeated_messages_codec);
             break;
           }
@@ -7999,6 +8038,7 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public C_CHAT(C_CHAT other) : this() {
+      chatType_ = other.chatType_;
       playerInfo_ = other.playerInfo_ != null ? other.playerInfo_.Clone() : null;
       message_ = other.message_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -8010,8 +8050,20 @@ namespace Protocol {
       return new C_CHAT(this);
     }
 
+    /// <summary>Field number for the "chatType" field.</summary>
+    public const int ChatTypeFieldNumber = 1;
+    private global::Protocol.ChatType chatType_ = global::Protocol.ChatType.ChatSend;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Protocol.ChatType ChatType {
+      get { return chatType_; }
+      set {
+        chatType_ = value;
+      }
+    }
+
     /// <summary>Field number for the "playerInfo" field.</summary>
-    public const int PlayerInfoFieldNumber = 1;
+    public const int PlayerInfoFieldNumber = 2;
     private global::Protocol.PlayerInfo playerInfo_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8023,7 +8075,7 @@ namespace Protocol {
     }
 
     /// <summary>Field number for the "message" field.</summary>
-    public const int MessageFieldNumber = 2;
+    public const int MessageFieldNumber = 3;
     private string message_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -8049,6 +8101,7 @@ namespace Protocol {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (ChatType != other.ChatType) return false;
       if (!object.Equals(PlayerInfo, other.PlayerInfo)) return false;
       if (Message != other.Message) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -8058,6 +8111,7 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (ChatType != global::Protocol.ChatType.ChatSend) hash ^= ChatType.GetHashCode();
       if (playerInfo_ != null) hash ^= PlayerInfo.GetHashCode();
       if (Message.Length != 0) hash ^= Message.GetHashCode();
       if (_unknownFields != null) {
@@ -8078,12 +8132,16 @@ namespace Protocol {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
+      if (ChatType != global::Protocol.ChatType.ChatSend) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) ChatType);
+      }
       if (playerInfo_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteMessage(PlayerInfo);
       }
       if (Message.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Message);
       }
       if (_unknownFields != null) {
@@ -8096,12 +8154,16 @@ namespace Protocol {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ChatType != global::Protocol.ChatType.ChatSend) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) ChatType);
+      }
       if (playerInfo_ != null) {
-        output.WriteRawTag(10);
+        output.WriteRawTag(18);
         output.WriteMessage(PlayerInfo);
       }
       if (Message.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(26);
         output.WriteString(Message);
       }
       if (_unknownFields != null) {
@@ -8114,6 +8176,9 @@ namespace Protocol {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (ChatType != global::Protocol.ChatType.ChatSend) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ChatType);
+      }
       if (playerInfo_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(PlayerInfo);
       }
@@ -8131,6 +8196,9 @@ namespace Protocol {
     public void MergeFrom(C_CHAT other) {
       if (other == null) {
         return;
+      }
+      if (other.ChatType != global::Protocol.ChatType.ChatSend) {
+        ChatType = other.ChatType;
       }
       if (other.playerInfo_ != null) {
         if (playerInfo_ == null) {
@@ -8156,14 +8224,18 @@ namespace Protocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 8: {
+            ChatType = (global::Protocol.ChatType) input.ReadEnum();
+            break;
+          }
+          case 18: {
             if (playerInfo_ == null) {
               PlayerInfo = new global::Protocol.PlayerInfo();
             }
             input.ReadMessage(PlayerInfo);
             break;
           }
-          case 18: {
+          case 26: {
             Message = input.ReadString();
             break;
           }
@@ -8182,14 +8254,18 @@ namespace Protocol {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
+          case 8: {
+            ChatType = (global::Protocol.ChatType) input.ReadEnum();
+            break;
+          }
+          case 18: {
             if (playerInfo_ == null) {
               PlayerInfo = new global::Protocol.PlayerInfo();
             }
             input.ReadMessage(PlayerInfo);
             break;
           }
-          case 18: {
+          case 26: {
             Message = input.ReadString();
             break;
           }

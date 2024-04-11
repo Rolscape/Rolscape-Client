@@ -1,4 +1,5 @@
 using Protocol;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -33,6 +34,8 @@ public class UI_SMStart : UI_Popup
 
     public void OnButtonClicked(PointerEventData data)
     {
+        UnityEngine.Debug.Log("OnButtonClicked");
+
         Managers.UI.ClosePopupUI();
         //Managers.Mission.SMStart.Invoke();
         

@@ -41,11 +41,11 @@ namespace Protocol {
             "AxILCgdTVUNDRVNTEAQSCgoGRkFJTEVEEAUqPwoQTXVsdGlNaXNzaW9uVHlw",
             "ZRIOCgpNVUxUSV9JRExFEAASGwoXTVVMVElfRklORF9QQVRIX01JU1NJT04Q",
             "ASo9ChRNdWx0aU1pc3Npb25Nb3ZlVHlwZRIGCgJVUBAAEggKBERPV04QARII",
-            "CgRMRUZUEAISCQoFUklHSFQQAypdChFTaW5nbGVNaXNzaW9uVHlwZRIPCgtT",
+            "CgRMRUZUEAISCQoFUklHSFQQAypwChFTaW5nbGVNaXNzaW9uVHlwZRIPCgtT",
             "SU5HTEVfSURMRRAAEhAKDFNUVURFTlRfTUFUSBABEhEKDVNUVURFTlRfQUxQ",
-            "SEEQAhISCg5URUFDSEVSX1NVRE9LVRADKkEKCENoYXRUeXBlEg0KCUNIQVRf",
-            "U0VORBAAEhAKDENIQVRfUkVDRUlWRRABEhQKEENIQVRfUkVDRUlWRV9BTEwQ",
-            "AmIGcHJvdG8z"));
+            "SEEQAhISCg5URUFDSEVSX1NVRE9LVRADEhEKDVRFQUNIRVJfRVJBU0UQBCpB",
+            "CghDaGF0VHlwZRINCglDSEFUX1NFTkQQABIQCgxDSEFUX1JFQ0VJVkUQARIU",
+            "ChBDSEFUX1JFQ0VJVkVfQUxMEAJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Protocol.INGAME), typeof(global::Protocol.PlayerJob), typeof(global::Protocol.MoveType), typeof(global::Protocol.TimeType), typeof(global::Protocol.MissionActionType), typeof(global::Protocol.MultiMissionType), typeof(global::Protocol.MultiMissionMoveType), typeof(global::Protocol.SingleMissionType), typeof(global::Protocol.ChatType), }, null, null));
@@ -121,6 +121,7 @@ namespace Protocol {
     [pbr::OriginalName("STUDENT_MATH")] StudentMath = 1,
     [pbr::OriginalName("STUDENT_ALPHA")] StudentAlpha = 2,
     [pbr::OriginalName("TEACHER_SUDOKU")] TeacherSudoku = 3,
+    [pbr::OriginalName("TEACHER_ERASE")] TeacherErase = 4,
   }
 
   public enum ChatType {

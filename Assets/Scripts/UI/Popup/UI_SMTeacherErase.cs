@@ -121,6 +121,10 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
             if (totalDragTime >= 5.0f)
             {
                 // 미션 성공
+                bool isSuccess = true;
+
+                Managers.Player.MyPlayerController.SendSingleMissionStop(isSuccess);
+
                 ClosePopupUI();
             }
             //Erase(eventData.position);

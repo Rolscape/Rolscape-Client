@@ -2,45 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SM_TeacherEraseTrigger : MonoBehaviour
+public class SM_TeacherEraseTrigger : SM_DefaultTrigger
 {
-    public void Init()
+    protected override void Init()
     {
-        
-    }
-    
-    private void Start()
-    {
-        Init();
+        missionType = Protocol.SingleMissionType.TeacherErase;
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override bool TriggerEnterEvent(Collider other)
     {
-        if (Managers.Mission.bTeacherErase)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        
-        Teacher teacher = other.GetComponent<Teacher>();
-        if(teacher == null)
-            return;
-        
-        Util.GetOrAddComponent<SM_TeacherErase>(gameObject);
+        Teacher student = other.GetComponent<Teacher>();
+        if (student == null)
+            return false;
 
-        
+        return true;
+    }
+
+    protected override void TriggerExitEvent(Collider other)
+    {
+        base.TriggerExitEvent(other);
+    }
+
+    public override void OnShowUI()
+    {
+        //Util.GetOrAddComponent<SM_TeacherErase>(gameObject);
+
         // TODO 암산 미션 시작하기 창 띄우기
         Managers.UI.ShowPopupUI<UI_SMStart>();
     }
 
-
-    private void OnTriggerExit(Collider other)
+    protected override void MissionStart()
     {
-        Managers.UI.ClosePopupUI();
+        Texture2D texture2D = Managers.Resource.Load<Texture2D>("Arts/Mission/BlackboardErase/Eraser");
+        Cursor.SetCursor(texture2D, Vector2.zero, CursorMode.Auto);
+
+        Managers.UI.ShowPopupUI<UI_SMTeacherErase>();
     }
 
-    public void Clear()
+    protected override void MissionStop(bool isSuccess)
     {
-        
+        Managers.Mission.bTeacherErase = isSuccess;
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 }

@@ -1,3 +1,4 @@
+using Protocol;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,6 +13,7 @@ public class UIManager
     // Use Stack in Popup Structure
     private Stack<UI_Popup> _popupStack = new Stack<UI_Popup>();
     private UI_Scene _sceneUI = null;
+    public UI_Chat Chat = null;
 
     // Find UI Root GameObject
     public GameObject Root
@@ -123,9 +125,17 @@ public class UIManager
             ClosePopupUI();
     }
 
-    public void CLear()
+    public void Clear()
     {
         CloseAllPopupUI();
         _sceneUI = null;
+    }
+
+    public void StartChat()
+    {
+        UI_Chat uiChat = ShowSceneUI<UI_Chat>();
+        Chat = uiChat;
+
+        Managers.Player.MyPlayerController.StartChat();
     }
 }

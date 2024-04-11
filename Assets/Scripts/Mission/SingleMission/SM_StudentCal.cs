@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class SM_StudentCal : SM_Single
 {
-    private void Start()
-    {
-        Init();
-    }
-
     public override void MissionStart()
     {
         Managers.UI.ShowPopupUI<UI_SMStudentCal>();

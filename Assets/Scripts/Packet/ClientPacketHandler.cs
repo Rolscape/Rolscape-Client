@@ -29,6 +29,7 @@ namespace GameServer.Packet
             if (pkt.IsSuccess)
             {
                 Managers.Player.AddPlayer(pkt.SpawnInfo, true);
+                Managers.UI.StartChat();
             }
         }
 
@@ -42,6 +43,7 @@ namespace GameServer.Packet
             {
                 // 로비로 들어간다 치고?
                 Managers.Player.AddPlayer(pkt.SpawnInfo, true);
+                Managers.UI.StartChat();
             }
         }
 
@@ -196,12 +198,23 @@ namespace GameServer.Packet
 
         internal static void Handle_S_SINGLE_MISSION_LEAVE(IMessage packet)
         {
-            return;
+            S_SINGLE_MISSION_LEAVE pkt = packet as S_SINGLE_MISSION_LEAVE;
+            if (pkt == null) return;
+
         }
 
         internal static void Handle_S_CHAT(IMessage message)
         {
-            return;
+            S_CHAT pkt = message as S_CHAT;
+            if (pkt == null) return;
+
+            Debug.Log("Receive Chat " + pkt.ChatType);
+
+            if (pkt.ChatType == ChatType.ChatSend)
+                return;
+
+
+            Managers.UI.Chat.ReceiveAllMessage(pkt);
         }
     }
 }

@@ -24,9 +24,6 @@ public class MissionManager
     public Action SMStart = null;
     public Action<bool> SMStop = null;
 
-    public Action TeacherEraseStart = null;
-    public Action<bool> TeacherEraseStop = null;
-
     // Student
     public bool bStudentCal = false;
 
@@ -97,32 +94,22 @@ public class MissionManager
     {
         if (isMine)
         {
-            switch (CurrentMissionType)
+            if(SMStart != null)
+                SMStart();
+            else
             {
-                case SingleMissionType.StudentMath:
-                    SMStart();
-                    break;
-
-                default:
-                    break;
+                // 실패 처리 해야됨.
             }
         }
         else
         {
-
+            //if (SMStart != null)
+            //    SMStart();
         }
     }
 
     public void SingleMissionStop(SingleMissionType type, bool isSuccess)
     {
-        switch (CurrentMissionType)
-        {
-            case SingleMissionType.StudentMath:
-                SMStop(isSuccess);
-                break;
-
-            default:
-                break;
-        }
+        SMStop(isSuccess);
     }
 }

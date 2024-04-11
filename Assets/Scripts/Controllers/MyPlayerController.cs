@@ -116,7 +116,7 @@ public partial class MyPlayerController : PlayerController
 
     void OnKeyboardUp()
     {
-        Debug.Log($"Move Stop Packet Send {MoveType}");
+        //Debug.Log($"Move Stop Packet Send {MoveType}");
         if (MoveType == MoveType.MoveWalk)
         {
             SendStopPacket();

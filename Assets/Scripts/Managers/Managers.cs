@@ -24,10 +24,6 @@ public class Managers : MonoBehaviour
     private SoundManager _sound = new SoundManager();
     private MissionManager _mission = new MissionManager();
     private TriggerManager _trigger = new TriggerManager();
-    
-    // Network Manager
-    private NetworkManager networkManager = new NetworkManager();
-    private VivoxManager vivoxManager = new VivoxManager();
 
     public static Managers Instance
     {
@@ -100,7 +96,7 @@ public class Managers : MonoBehaviour
         Input.Clear();
         Sound.Clear();
         Scene.Clear();
-        UI.CLear();
+        UI.Clear();
         Pool.Clear();
         //Player.Clear();
         //Network.Clear();

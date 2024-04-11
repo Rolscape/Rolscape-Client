@@ -10,7 +10,7 @@ public class SceneManagerEx
     public Scene UnLoadScene { get; set; }
     public void LoadScene(Define.Scene type)
     {
-        Managers.Clear();
+        //Managers.Clear();
         SceneManager.LoadScene(GetSceneName(type), LoadSceneMode.Additive);
     }
 

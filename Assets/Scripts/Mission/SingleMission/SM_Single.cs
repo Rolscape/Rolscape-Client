@@ -5,12 +5,12 @@ public class SM_Single : MonoBehaviour
 {
     public void Init()
     {
-        Managers.Mission.SMStart -= MissionStart;
-        Managers.Mission.SMStart += MissionStart;
+        //Managers.Mission.SMStart -= MissionStart;
+        //Managers.Mission.SMStart += MissionStart;
 
 
-        Managers.Mission.SMStop -= MissionStop;
-        Managers.Mission.SMStop += MissionStop;
+        //Managers.Mission.SMStop -= MissionStop;
+        //Managers.Mission.SMStop += MissionStop;
     }
 
     private void Start()

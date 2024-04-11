@@ -48,14 +48,10 @@ public partial class PlayerController : MonoBehaviour
 
     protected virtual void UpdateIdle()
     {
-        if (transform.position != _destPos)
-        {
+        if(_isUpdated)
             UpdateMoving();
-        }
         else
-        {
             UpdateAnimationIDLE();
-        }
     }
 
     protected virtual void UpdateMoving()

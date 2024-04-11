@@ -5,10 +5,27 @@ using UnityEngine;
 public class SM_DefaultTrigger : MonoBehaviour
 {
     public SingleMissionType missionType;
+    bool isJoin = false;
 
-    public virtual void Init()
+    public void Clear()
     {
+        MissionLeave();
+    }
 
+    public void MissionJoin()
+    {
+        Managers.Mission.SMStart += MissionStart;
+        Managers.Mission.SMStop += MissionStop;
+
+        isJoin = true;
+    }
+
+    public void MissionLeave()
+    {
+        Managers.Mission.SMStart -= MissionStart;
+        Managers.Mission.SMStop -= MissionStop;
+
+        Managers.UI.ClosePopupUI();
     }
 
     private void Start()
@@ -16,20 +33,13 @@ public class SM_DefaultTrigger : MonoBehaviour
         Init();
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("It Trigger 1");
-
         if (other.gameObject != Managers.Player.MyPlayer)
             return;
 
-        Debug.Log("It Trigger 2");
-
         if (!TriggerEnterEvent(other))
             return;
-
-        Debug.Log("It Trigger 3");
 
         Managers.Mission.CurrentMissionTriggerObject = gameObject;
 
@@ -38,6 +48,8 @@ public class SM_DefaultTrigger : MonoBehaviour
         joinPkt.MissionType = missionType;
 
         Managers.Network.Send(joinPkt, INGAME.SingleMissionJoin);
+
+        MissionJoin();
     }
 
     private void OnTriggerExit(Collider other)
@@ -51,17 +63,22 @@ public class SM_DefaultTrigger : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        else
+        else if (isJoin)
         {
             C_SINGLE_MISSION_LEAVE leavePkt = new C_SINGLE_MISSION_LEAVE();
             leavePkt.PlayerInfo = Managers.Player.MyPlayerController.Info;
             leavePkt.MissionType = missionType;
 
             Managers.Network.Send(leavePkt, INGAME.SingleMissionLeave);
+
+            MissionLeave();
         }
     }
 
     public virtual void OnShowUI() { }
     protected virtual bool TriggerEnterEvent(Collider other) { return true; }
     protected virtual void TriggerExitEvent(Collider other) { }
+    protected virtual void MissionStart() { }
+    protected virtual void MissionStop(bool isSuccess) { }
+    protected virtual void Init() { }
 }
