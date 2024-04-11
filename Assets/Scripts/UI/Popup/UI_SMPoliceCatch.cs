@@ -108,7 +108,7 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
         while (true)
         {
             if(countTimer <= 0)
-                MissionFailed();     // 미션 실패
+                MissionSuccess();     // 미션 실패
         
             countTimer -= 1;
             timerText.text = (countTimer / 3600).ToString("D2") + ":" + (countTimer / 60 % 60).ToString("D2") + ":" +

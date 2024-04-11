@@ -186,12 +186,14 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
     public void MissionSuccess()
     {
         // 미션 성공
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         Managers.Sound.Play("MissionClear");
         Clear();
     }
 
     public void MissionFailed()
     {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         Managers.Sound.Play("MissionFailed");
         Clear();
     }
