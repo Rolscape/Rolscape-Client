@@ -22,12 +22,12 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
     private int countTimer = 16;
 
 
-    enum Texts
+    public enum Texts
     {
         Timer,
     }
     
-    enum Images
+    public enum Images
     {
         Background,
         Doodle,
@@ -186,6 +186,7 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
     public void MissionSuccess()
     {
         // 미션 성공
+        Managers.Mission.bTeacherErase = true;
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         Managers.Sound.Play("MissionClear");
         Clear();

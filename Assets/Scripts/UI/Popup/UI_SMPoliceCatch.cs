@@ -22,12 +22,12 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
     private TextMeshProUGUI timerText;
     private int countTimer = 16;
     
-    enum Texts
+    public enum Texts
     {
         Timer,
     }
 
-    enum Images
+    public enum Images
     {
         Note,
         Prison,
@@ -130,6 +130,7 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
     public void MissionSuccess()
     {
         // 미션 성공
+        Managers.Mission.bPoliceCatch = true;
         Managers.Sound.Play("MissionClear");
         Clear();
     }

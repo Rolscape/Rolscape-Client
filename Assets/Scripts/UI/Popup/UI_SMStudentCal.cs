@@ -7,29 +7,29 @@ using UnityEngine.UI;
 
 public class UI_SMStudentCal : UI_Popup
 {
-    enum Panel
+    public enum Panel
     {
         Panel,
     }
     
-    enum Images
+    public enum Images
     {
         Question,
     }
 
-    enum InputFields
+    public enum InputFields
     {
         InputField,
     }
 
-    enum Texts
+    public enum Texts
     {
         PointText,
         Answer,
         Timer,
     }
 
-    enum Solutions
+    public enum Solutions
     {
         Question1 = 100,
         Question2 = 6,
@@ -39,7 +39,7 @@ public class UI_SMStudentCal : UI_Popup
         Question6 = 120,
         Question7 = 5,
         Question8 = 23,
-        Question9 = 6,
+        Question9 = 9,
         Question10 = 0,
         Question11 = 200,
         Question12 = 14,
@@ -48,8 +48,8 @@ public class UI_SMStudentCal : UI_Popup
     
     private TextMeshProUGUI timerText;
     private int countTimer = 16;
+    private Dictionary<string, int> solDict = new Dictionary<string, int>();
     private int solution;
-    
     public override void Init()
     {
         base.Init();
@@ -73,6 +73,13 @@ public class UI_SMStudentCal : UI_Popup
         Bind<TMP_InputField>(typeof(InputFields));
         timerText = GetText((int)Texts.Timer);
         timerText.text = countTimer.ToString("D2");
+
+        foreach (Solutions sol in System.Enum.GetValues(typeof(Solutions)))
+        {
+            if(!solDict.ContainsKey(sol.ToString()))
+                solDict.Add(sol.ToString(), (int)sol);
+            
+        }
     }
 
     void SetInputField()
@@ -92,6 +99,11 @@ public class UI_SMStudentCal : UI_Popup
         Image image = GetImage((int)Images.Question);
         image.rectTransform.sizeDelta = new Vector2(1500.0f, 800.0f);
         int idx = Random.Range(1, 13);
+        
+        string key = $"Question{idx}";
+        if (solDict.ContainsKey(key))
+            solution = solDict[$"Question{idx}"];
+        
         Texture2D texture2D = Managers.Resource.Load<Texture2D>($"Arts/Mission/Question/Question{idx}");
         Sprite sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), Vector2.one * 0.5f);
         image.sprite = sprite;
@@ -100,18 +112,11 @@ public class UI_SMStudentCal : UI_Popup
     void OnEndEdit(string text)
     {
         Managers.UI.ClosePopupUI();
-        // TODO 정답 체크
-        Debug.Log($"사용자가 입력한 정담은: {text}");
-
         int answer = int.Parse(text);
-        
-            
-        // TODO 정답 여부에 따라 
-        // 성공 시 정답
-        // Managers.Mission.bStudentCal = true;
-        // 실패 시 다시 시작
-        //Managers.UI.ShowPopupUI<UI_Start>();
-
+        if(answer == solution)
+            MissionSuccess();
+        else
+            MissionFailed();
     }
     
     IEnumerator TimerCoroutine()
@@ -132,6 +137,7 @@ public class UI_SMStudentCal : UI_Popup
     public void MissionSuccess()
     {
         // 미션 성공
+        Managers.Mission.bStudentCal = true;
         Managers.Sound.Play("MissionClear");
         Clear();
     }
