@@ -16,14 +16,6 @@ public class GameScene : BaseScene
         Managers.UI.ShowSceneUI<UI_Button>();
         Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
 
-        // Temp Code
-        //GameObject go = Managers.Resource.Instantiate("Player");
-        //go.name = "Player";
-
-        //GameObject student = Managers.Resource.Instantiate("TeacherRoot");
-        //student.transform.SetParent(go.transform);
-
-        //go.GetOrAddComponent<Teacher>();
         Managers.Player.SettingMainCameraToPlayer(MainCamera);
     }
 
