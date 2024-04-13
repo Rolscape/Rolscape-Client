@@ -24,9 +24,20 @@ public class UI_Chat : UI_Scene
 
     public void Update()
     {
-        if(Input.GetKey(KeyCode.Return) && messageInputField.isFocused == false)
+        if(messageInputField.isFocused == false)
         {
-            messageInputField.ActivateInputField();
+            if (Input.GetKey(KeyCode.Return))
+            {
+                FocusInputField(true);
+            }
+            else
+            {
+                Managers.Input.IsChatting = false;
+            }
+        }
+        else
+        {
+            Managers.Input.IsChatting = true;
         }
     }
 
@@ -62,5 +73,13 @@ public class UI_Chat : UI_Scene
         {
             ReceiveMessage(message);
         }
+    }
+
+    public void FocusInputField(bool isFocus)
+    {
+        if(isFocus)
+            messageInputField.ActivateInputField();
+        else
+            messageInputField.DeactivateInputField();
     }
 }

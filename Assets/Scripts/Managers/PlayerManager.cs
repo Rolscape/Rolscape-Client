@@ -11,7 +11,6 @@ public class PlayerManager
 {
     public uint MyPlayerID { get; private set; }
     public GameObject MyPlayer { get; set; }
-    public GameObject Camera { get; set; }
     public PlayerInfo PlayerInfo { get; set; }
     public MyPlayerController MyPlayerController { get; set; }
     Dictionary<uint, GameObject> _players = new Dictionary<uint, GameObject>();
@@ -65,12 +64,7 @@ public class PlayerManager
             MyPlayerController = controller;
             PlayerInfo = MyPlayerController.Info;
 
-            GameObject camera = Managers.Resource.Instantiate("Camera/MainCamera");
-            if (camera == null)
-                return;
-
-            Camera = camera;
-            camera.GetComponent<CameraController>()._player = MyPlayer;
+            SettingMainCameraToPlayer(Camera.main);
         }
         else
         {
@@ -90,6 +84,11 @@ public class PlayerManager
 
         _players.Remove(player.Id);
         Managers.Resource.Destory(playerObject);
+    }
+
+    public void SettingMainCameraToPlayer(Camera camera)
+    {
+        camera.GetComponent<CameraController>()._player = MyPlayer;
     }
 
     public void OnGameStart(S_GAME_START packet)
@@ -114,7 +113,6 @@ public class PlayerManager
 
         {
             SceneManager.MoveGameObjectToScene(MyPlayer, scene);
-            SceneManager.MoveGameObjectToScene(Camera, scene);
         }
     }
 
@@ -130,11 +128,6 @@ public class PlayerManager
         controller.MoveInfo = moveInfo;
     }
 
-    public void Update()
-    {
-
-    }
-
     public void Clear()
     {
         {
@@ -143,8 +136,6 @@ public class PlayerManager
             MyPlayerController = null;
             PlayerInfo = null;
         }
-
-        Camera = null;
 
         {
             //foreach(var player in _players.Values)

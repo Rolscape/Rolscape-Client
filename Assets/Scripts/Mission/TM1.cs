@@ -9,7 +9,6 @@ public class TM1 : MonoBehaviour
 {
     protected UI_TM1 _ui;
     
-    
     protected Vector3 _dir;
     protected virtual void Init()
     {
@@ -36,7 +35,7 @@ public class TM1 : MonoBehaviour
 
     void OnExit(Collider other)
     {
-
+        
     }
 
     protected virtual void Mission1Start(PathMissionPos startPos, PathMissionPos destPos)
@@ -50,8 +49,8 @@ public class TM1 : MonoBehaviour
 
     protected virtual void Mission1End(bool isSuccess)
     {
-        Clear();
         Managers.UI.ClosePopupUI();
+        Managers.Input.IsMission = false;
         var ui = Managers.UI.ShowPopupUI<UI_MissionResult>();
         ui.PrintMissionResult(isSuccess);
 

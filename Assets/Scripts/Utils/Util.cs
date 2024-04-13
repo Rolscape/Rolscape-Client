@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Util
 {
-    public const int StartPosX = -465;
+    public const int StartPosX = -405;
     public const int StartPosY = -165;
 
     public const int POSX = 100;

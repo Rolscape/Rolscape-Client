@@ -23,11 +23,11 @@ public class UI_TM1Police : UI_TM1
     private Image _teacher;
     private Image _student;
 
-    //public Vector2Int _tCurPos;
-    //public Vector2Int _sCurPos;
+    public Vector2Int _tCurPos;
+    public Vector2Int _sCurPos;
 
-    //public Vector2Int _teacherDestPos;
-    //public Vector2Int _studentDestPos;
+    public Vector2Int _teacherDestPos;
+    public Vector2Int _studentDestPos;
 
     public override void Init()
     {
@@ -49,25 +49,29 @@ public class UI_TM1Police : UI_TM1
     {
         _studentDest = GetImage((int)Images.StudentDest);
         _studentDest.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/bluesquare");
+        _studentDest.rectTransform.anchoredPosition = _studentDestPos;
 
         _teacherDest = GetImage((int)Images.TeacherDest);
         _teacherDest.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/pinksquare");
+        _teacherDest.rectTransform.anchoredPosition = _teacherDestPos;
 
         _student = GetImage((int)Images.Student);
         _student.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/blueeraser");
+        _student.rectTransform.anchoredPosition = _sCurPos;
 
         _teacher = GetImage((int)Images.Teacher);
         _teacher.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/pinkeraser");
+        _teacher.rectTransform.anchoredPosition = _tCurPos;
     }
 
     public override void SetDefaultPolicePos(Vector2Int studentStartPos, Vector2Int teacherStartPos, Vector2Int studentDestPos, Vector2Int teacherDestPos)
     {
         //_student.
-        _student.rectTransform.anchoredPosition = studentStartPos;
-        _teacher.rectTransform.anchoredPosition = teacherStartPos;
+        _sCurPos = studentStartPos;
+        _tCurPos = teacherStartPos;
 
-        _studentDest.rectTransform.anchoredPosition = studentDestPos;
-        _teacherDest.rectTransform.anchoredPosition = teacherDestPos;
+        _studentDestPos = studentDestPos;
+        _teacherDestPos= teacherDestPos;
     }
 
     public override void PoliceMoveTile(PlayerJob job, Vector2Int nextPos)

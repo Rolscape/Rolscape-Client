@@ -16,6 +16,7 @@ public class InputManager
     public Action AnimationActionStop = null;
 
     public bool IsMission { get; set; } = false;
+    public bool IsChatting { get; set; } = false;
     private bool _keyPressed = false;
     private bool _pressed = false;
     // 리스너 패턴으로 입력을 받아옴
@@ -23,33 +24,44 @@ public class InputManager
     {
         // 키보드 입력이 들어오고 KeyAction을 구독한 오브젝트가 있다면 
         // KeyAction을 구독한 오브젝트에 BroadCasting
-        if (Input.anyKey && KeyDownAction != null)
+        if (!IsChatting)
         {
-            if (!IsMission)
+            if (Input.anyKey && KeyDownAction != null)
             {
-                // keyPressed가 제대로 찍히는지 로그
-                _keyPressed = true;
-                KeyDownAction.Invoke();
-                AnimationActionStart.Invoke();
+                if (!IsMission)
+                {
+                    // keyPressed가 제대로 찍히는지 로그
+                    _keyPressed = true;
+                    KeyDownAction.Invoke();
+                    AnimationActionStart.Invoke();
+                }
+                else
+                {
+                    if (Input.GetKeyDown(KeyCode.W))
+                        ClickedKeyAction.Invoke(KeyCode.W);
+                    else if (Input.GetKeyDown(KeyCode.A))
+                        ClickedKeyAction.Invoke(KeyCode.A);
+                    else if (Input.GetKeyDown(KeyCode.S))
+                        ClickedKeyAction.Invoke(KeyCode.S);
+                    else if (Input.GetKeyDown(KeyCode.D))
+                        ClickedKeyAction.Invoke(KeyCode.D);
+
+                    AnimationActionStop.Invoke();
+                }
             }
-            else
+            else if (_keyPressed)
             {
-                if (Input.GetKeyDown(KeyCode.W))
-                    ClickedKeyAction.Invoke(KeyCode.W);
-                else if (Input.GetKeyDown(KeyCode.A))
-                    ClickedKeyAction.Invoke(KeyCode.A);
-                else if (Input.GetKeyDown(KeyCode.S))
-                    ClickedKeyAction.Invoke(KeyCode.S);
-                else if (Input.GetKeyDown(KeyCode.D))
-                    ClickedKeyAction.Invoke(KeyCode.D);
+                Debug.Log("Key Pressed");
+                // 키를 땟을 경우
+                _keyPressed = false;
+                KeyUpAction.Invoke();
+                AnimationActionStop.Invoke();
             }
         }
-        else if (_keyPressed)
+        else
         {
-            Debug.Log("Key Pressed");
-            // 키를 땟을 경우
-            _keyPressed = false;
-            KeyUpAction.Invoke();
+            if (Input.GetKey(KeyCode.Escape))
+                Managers.UI.Chat.FocusInputField(false);
             AnimationActionStop.Invoke();
         }
 

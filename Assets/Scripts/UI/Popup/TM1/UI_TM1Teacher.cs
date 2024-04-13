@@ -15,7 +15,7 @@ public class UI_TM1Teacher : UI_TM1
 
         _player = GetImage((int)Images.Player);
         _player.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/pinkeraser");
-        
+        _player.rectTransform.anchoredPosition = _curPos;
     }
 
     private void Start()
@@ -30,6 +30,6 @@ public class UI_TM1Teacher : UI_TM1
 
     public override void SetDefaultPos(Vector2Int startPos)
     {
-        SetPlayerPos(startPos);
+        _curPos = startPos;
     }
 }

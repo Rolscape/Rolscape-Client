@@ -25,7 +25,7 @@ public class TM1_Student : TM1
     {
         base.Mission1Start(startPos, destPos);
 
-        _ui = Managers.UI.ShowPopupUI<UI_TM1Student>();
+        _ui = Managers.UI.ShowPopupUI<UI_TM1Student>("UI_TM1");
         Vector2Int pos = Util.GetPos(startPos.StudentPos);
         _ui.SetDefaultPos(pos);
     }
@@ -44,11 +44,11 @@ public class TM1_Student : TM1
 
         if (code == KeyCode.W)
         {
-            pkt.MoveType = MultiMissionMoveType.Down;
+            pkt.MoveType = MultiMissionMoveType.Up;
         }
         else if (code == KeyCode.S)
         {
-            pkt.MoveType = MultiMissionMoveType.Up;
+            pkt.MoveType = MultiMissionMoveType.Down;
         }
         else if (code == KeyCode.A)
         {

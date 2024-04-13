@@ -29,9 +29,27 @@ public class UI_SMStudentCal : UI_Popup
         Answer,
         Timer,
     }
+
+    enum Solutions
+    {
+        Question1 = 100,
+        Question2 = 6,
+        Question3 = 40,
+        Question4 = 4,
+        Question5 = 6,
+        Question6 = 120,
+        Question7 = 5,
+        Question8 = 23,
+        Question9 = 6,
+        Question10 = 0,
+        Question11 = 200,
+        Question12 = 14,
+    }
+    
     
     private TextMeshProUGUI timerText;
     private int countTimer = 16;
+    private int solution;
     
     public override void Init()
     {
@@ -85,9 +103,12 @@ public class UI_SMStudentCal : UI_Popup
         Managers.UI.ClosePopupUI();
         // TODO 정답 체크
         Debug.Log($"사용자가 입력한 정담은: {text}");
+
+        int answer = int.Parse(text);
+        
+            
         // TODO 정답 여부에 따라 
         // 성공 시 정답
-        
         // Managers.Mission.bStudentCal = true;
         // 실패 시 다시 시작
         //Managers.UI.ShowPopupUI<UI_Start>();

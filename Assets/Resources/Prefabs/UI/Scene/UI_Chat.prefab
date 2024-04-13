@@ -595,7 +595,6 @@ GameObject:
   - component: {fileID: 6196212739958206732}
   - component: {fileID: 4499301222072671256}
   - component: {fileID: 4082612352829829445}
-  - component: {fileID: 6743238127878845295}
   m_Layer: 5
   m_Name: TextView
   m_TagString: Untagged
@@ -693,21 +692,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6743238127878845295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 263285828071283089, guid: b957dc2813b01244d9089b12e7669392, type: 3}
-  m_PrefabInstance: {fileID: 2566841663142145338}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6142594375479246102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b1fb5e42889d2c47b3f6a3c92829f18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  messageInputField: {fileID: 1500404223732848185}
-  messagePrefab: {fileID: 8799562119367644501, guid: 8aca9911d4bb26241a330d897b4d9018, type: 3}
-  parentContent: {fileID: 7398508639168912273}
 --- !u!1 &6802577373021386987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,7 +1104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 218.31203}
+  m_AnchoredPosition: {x: 0, y: 218.31201}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7704740792738916209
