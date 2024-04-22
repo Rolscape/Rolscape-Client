@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Define 
 {
+    public enum SingleMissionType
+    {
+        SingleIdle,
+        StudentMath,
+        StudentAlpha,
+        TeacherSudoku,
+        TeacherErase,
+        PoliceCatch,
+    }
+    
     public enum Scene
     {
         Unknown,
