@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 
-public class UI_Login : UI_Popup
+public class UI_Login : UI_Scene
 {
     enum Buttons
     {

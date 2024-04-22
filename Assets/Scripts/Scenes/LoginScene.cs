@@ -11,7 +11,7 @@ public class LoginScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Login;
-        Managers.UI.ShowPopupUI<UI_Login>();
+        Managers.UI.ShowSceneUI<UI_Login>();
         Managers.Sound.Play("LoadingBgm", Define.Sound.Bgm);
     }
 
