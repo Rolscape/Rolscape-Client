@@ -6,7 +6,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
-
 public struct CurrentMission
 {
     public GameObject triggerObject;
@@ -16,23 +15,25 @@ public struct CurrentMission
 
 public class MissionManager
 {
-    // Single Mission Action
+    // Team Mission Action
+
+    // Team
+
+    // Single Mission Action To Student
     public Action SMStart = null;
     public Action<bool> SMStop = null;
-    
-    // Team Mission Action
-    
-    // Team
-    
-    
+
     // Student
     public bool bStudentCal = false;
-    
+
     // Police
     public bool bPoliceCatch = false;
     
     // Teacher
     public bool bTeacherErase = false;
+
+
+    // 현재 미션
 
     CurrentMission _currnetMission = new CurrentMission();
 
@@ -55,26 +56,39 @@ public class MissionManager
             }
         }
     }
-    
+
     public SM_DefaultTrigger CurrentMissoinTrigger { get => _currnetMission.trigger; }
     public Define.SingleMissionType CurrentMissionType { get => _currnetMission.type; }
-    
-    //public Action<PathMissionPos, PathMissionPos> Mission1Start = null;
+
+    public Action<Define.PathMissionPos, Define.PathMissionPos> Mission1Start = null;
     public Action<bool> Mission1End = null;
-    //public Action<Pos> MoveTile = null;
-    //public Action<PlayerJob, Pos> PoliceMoveTile = null;
-    
-    public void Init()
-    
+    public Action<Define.Pos> MoveTile = null;
+    public Action<Define.PlayerJob, Define.Pos> PoliceMoveTile = null;
+
+    public void MoveTileInvoke(Define.Pos destPos)
     {
-        
+        if (MoveTile != null)
+            MoveTile.Invoke(destPos);
     }
 
-    public void Clear()
+    public void Mission1StartInvoke(Define.PathMissionPos startPos, Define.PathMissionPos destPos)
     {
-        
+        if (Mission1Start != null)
+            Mission1Start.Invoke(startPos, destPos);
     }
-    
+
+    public void PoliceMoveTileInvoke(Define.PlayerJob playerJob, Define.Pos destPos)
+    {
+        if (PoliceMoveTile != null)
+            PoliceMoveTile.Invoke(playerJob, destPos);
+    }
+
+    public void Mission1EndInvoke(bool isSuccess)
+    {
+        if (Mission1End != null)
+            Mission1End.Invoke(isSuccess);
+    }
+
     public void SingleMissionStart(bool isMine = true)
     {
         if (isMine)

@@ -1,9 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Google.Protobuf.WellKnownTypes;
 using UnityEngine;
 
 public class Define 
 {
+    public enum PlayerJob
+    {
+        Student,
+        Teacher,
+        Police,
+    }
+
+    public struct PathMissionPos
+    {
+        public Pos StudentPos;
+        public Pos TeacherPos;
+    }
+    
+    public struct Pos
+    {
+        public int X;
+        public int Y;
+    }
     public enum SingleMissionType
     {
         SingleIdle,

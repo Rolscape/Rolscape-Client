@@ -6,16 +6,19 @@ using UnityEngine;
 
 public class TM1 : MonoBehaviour
 {
-    
+    protected UI_TM1 _ui;
     
     protected Vector3 _dir;
     protected virtual void Init()
     {
-        // Managers.Mission.TriggerEnter -= OnEnter;
-        // Managers.Mission.TriggerEnter += OnEnter;
-        // Managers.Mission.TriggerExit -= OnExit;
-        // Managers.Mission.TriggerExit += OnExit;
-       
+        Managers.Mission.Mission1Start -= Mission1Start;
+        Managers.Mission.Mission1Start += Mission1Start;
+
+        Managers.Mission.Mission1End -= Mission1End;
+        Managers.Mission.Mission1End += Mission1End;
+
+        Managers.Input.ClickedKeyAction -= OnKeyboard;
+        Managers.Input.ClickedKeyAction += OnKeyboard;
     }
 
     private void Start()
@@ -27,7 +30,6 @@ public class TM1 : MonoBehaviour
     {
         // TEMP code
         // TODO Send to Server trigger
-        // Managers.Mission.Mission1Start();
     }
 
     void OnExit(Collider other)
@@ -35,39 +37,34 @@ public class TM1 : MonoBehaviour
         
     }
 
-    protected virtual void Mission1Start()
+    protected virtual void Mission1Start(Define.PathMissionPos startPos, Define.PathMissionPos destPos)
     {
         // TODO 1번만 실행되게 
         Debug.Log("mission start");
-        
+
         // TODO Player 움직임 봉쇄
-        Managers.Input.KeyAction -= OnKeyboard;
-        Managers.Input.KeyAction += OnKeyboard;
+        Managers.Input.bIsMission = true;
+    }
+
+    protected virtual void Mission1End(bool isSuccess)
+    {
+        Managers.UI.ClosePopupUI();
+        Managers.Input.bIsMission = false;
+        var ui = Managers.UI.ShowPopupUI<UI_MissionResult>();
+        ui.PrintMissionResult(isSuccess);
+
+        // 성공 실패 보여주기
     }
 
     public void Clear()
     {
         // TODO Player 움직임 복원
-        Managers.Input.KeyAction -= OnKeyboard;
-        
+        Managers.Input.bIsMission = false;
+        Managers.Input.ClickedKeyAction -= OnKeyboard;
     }
-    
-    
-    protected virtual void OnKeyboard()
+
+    protected virtual void OnKeyboard(KeyCode keyCode)
     {
-        
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        
-        _dir = new Vector3(h, 0, v).normalized;
-        
-        // if (Managers.Mission.CheckMoveNextGrid(dir))
-        // {
-        //     
-        // }
-        // else
-        // {
-        //         
-        // }
+
     }
 }

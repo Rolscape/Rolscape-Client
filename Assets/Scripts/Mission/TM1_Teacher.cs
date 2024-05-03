@@ -5,39 +5,63 @@ using UnityEngine;
 
 public class TM1_Teacher : TM1
 {
-    private UI_TM1Teacher _ui;
+    private bool _isMoved = false;
 
     protected override void Init()
     {
         base.Init();
-        
+
+        Managers.Mission.MoveTile -= MoveTile;
+        Managers.Mission.MoveTile += MoveTile;
     }
 
-    void Start()
+    protected override void Mission1Start(Define.PathMissionPos startPos, Define.PathMissionPos destPos)
     {
-        Init();
-    }
-
-    protected override void Mission1Start()
-    {
-        base.Mission1Start();
+        base.Mission1Start(startPos, destPos);
 
         _ui = Managers.UI.ShowPopupUI<UI_TM1Teacher>("UI_TM1");
+        Vector2Int pos = Util.GetPos(startPos.TeacherPos);
+        _ui.SetDefaultPos(pos);
     }
 
-    protected override void OnKeyboard()
+    protected override void OnKeyboard(KeyCode keyCode)
     {
-        base.OnKeyboard();
+        base.OnKeyboard(keyCode);
 
-        CheckMoveNextGrid(_dir);
+        CheckMoveNextGrid(keyCode);
     }
 
-    public bool CheckMoveNextGrid(Vector3 dir)
+    public bool CheckMoveNextGrid(KeyCode code)
     {
-        
-        
-        return false;
+        // Server Code
+        // ==========================================================
+        // C_PATH_MISSION_MOVE pkt = new C_PATH_MISSION_MOVE();
+        // pkt.PlayerInfo = Managers.Player.MyPlayerController.Info;
+        //
+        // if (code == KeyCode.W)
+        // {
+        //     pkt.MoveType = MultiMissionMoveType.Up;
+        // }
+        // else if (code == KeyCode.S)
+        // {
+        //     pkt.MoveType = MultiMissionMoveType.Down;
+        // }
+        // else if (code == KeyCode.A)
+        // {
+        //     pkt.MoveType = MultiMissionMoveType.Left;
+        // }
+        // else if (code == KeyCode.D)
+        // {
+        //     pkt.MoveType = MultiMissionMoveType.Right;
+        // }
+        //
+        // Managers.Network.Send(pkt, INGAME.PathMissionMove);
+
+        return true;
     }
-    
-    
+    public void MoveTile(Define.Pos destPos)
+    {
+        Vector2Int pos = Util.GetPos(destPos);
+        _ui.MoveTile(pos);
+    }
 }

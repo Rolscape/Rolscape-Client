@@ -12,6 +12,7 @@ public class UI_TM1Teacher : UI_TM1
     protected override void SetUI()
     {
         base.SetUI();
+
         _player = GetImage((int)Images.Player);
         _player.sprite = Managers.Resource.Load<Sprite>("Arts/Mission/TMMove/pinkeraser");
         _player.rectTransform.anchoredPosition = _curPos;
@@ -22,10 +23,13 @@ public class UI_TM1Teacher : UI_TM1
         Init();
     }
 
-    protected override void MoveTile(Vector2Int nextPos)
+    public override void MoveTile(Vector2Int nextPos)
     {
-        _player.rectTransform.anchoredPosition = nextPos;
+        SetPlayerPos(nextPos);
+    }
 
-        
+    public override void SetDefaultPos(Vector2Int startPos)
+    {
+        _curPos = startPos;
     }
 }

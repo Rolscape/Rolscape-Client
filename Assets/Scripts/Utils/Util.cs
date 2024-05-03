@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Util
 {
+    public const int StartPosX = -405;
+    public const int StartPosY = -165;
+
+    public const int POSX = 100;
+    public const int POSY = 65;
     // 컴포넌트를 반환하는 함수 -> 컴포넌트가 없으면 붙여서 반환
     public static T GetOrAddComponent<T>(GameObject go) where T : UnityEngine.Component
     {
@@ -57,5 +62,12 @@ public class Util
         }
 
         return null;
+    }
+    
+    public static Vector2Int GetPos(Define.Pos pos)
+    {
+        int x = pos.X * POSX + StartPosX;
+        int y = pos.Y * POSY + StartPosY;
+        return new Vector2Int(x, y);
     }
 }

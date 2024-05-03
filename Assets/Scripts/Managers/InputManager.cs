@@ -9,6 +9,10 @@ public class InputManager
     public Action KeyAction = null;
     public Action<Define.MouseEvent> MouseAction = null;
 
+    public Action<KeyCode> ClickedKeyAction = null;
+
+    public bool bIsMission = false;
+
     private bool _pressed = false;
     
     // 리스너 패턴으로 입력을 받아옴
