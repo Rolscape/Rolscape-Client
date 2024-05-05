@@ -57,7 +57,7 @@ public class MissionManager
         }
     }
 
-    public SM_DefaultTrigger CurrentMissoinTrigger { get => _currnetMission.trigger; }
+    public SM_DefaultTrigger CurrentMissionTrigger { get => _currnetMission.trigger; }
     public Define.SingleMissionType CurrentMissionType { get => _currnetMission.type; }
 
     public Action<Define.PathMissionPos, Define.PathMissionPos> Mission1Start = null;
