@@ -11,7 +11,7 @@ public class UI_SMStudentWord : UI_SM
     {
         base.Init();
         BindUI();
-        SetWord();
+        SetInputField();
     }
 
     void Start()
@@ -24,9 +24,15 @@ public class UI_SMStudentWord : UI_SM
         
     }
 
-    void SetWord()
+    void SetInputField()
     {
         
+    }
+
+    void SetWord()
+    {
+        size = 3;
+        word = "pen";
     }
     
 }
