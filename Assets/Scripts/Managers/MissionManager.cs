@@ -25,6 +25,7 @@ public class MissionManager
 
     // Student
     public bool bStudentCal = false;
+    public bool bStudentWord = false;
 
     // Police
     public bool bPoliceCatch = false;

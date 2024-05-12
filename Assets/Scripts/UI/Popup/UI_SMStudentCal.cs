@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_SMStudentCal : UI_Popup
+public class UI_SMStudentCal : UI_SM
 {
     public enum Panel
     {
@@ -45,9 +45,6 @@ public class UI_SMStudentCal : UI_Popup
         Question12 = 14,
     }
     
-    
-    private TextMeshProUGUI timerText;
-    private int countTimer = 16;
     private Dictionary<string, int> solDict = new Dictionary<string, int>();
     private int solution;
     public override void Init()
@@ -57,7 +54,6 @@ public class UI_SMStudentCal : UI_Popup
         BindUI();
         SetInputField();
         SetImage();
-        StartCoroutine(TimerCoroutine());
         Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
     }
 
@@ -118,42 +114,11 @@ public class UI_SMStudentCal : UI_Popup
         else
             MissionFailed();
     }
-    
-    IEnumerator TimerCoroutine()
+
+
+    protected override void MissionSuccess()
     {
-        while (true)
-        {
-            if(countTimer <= 0)
-                MissionFailed();     // 미션 실패
-        
-            countTimer -= 1;
-            timerText.text = (countTimer / 3600).ToString("D2") + ":" + (countTimer / 60 % 60).ToString("D2") + ":" +
-                             (countTimer % 60).ToString("D2");
-            
-            yield return new WaitForSeconds(1f);            
-        }
-    }
-    
-    public void MissionSuccess()
-    {
-        // 미션 성공
+        base.MissionSuccess();
         Managers.Mission.bStudentCal = true;
-        Managers.Sound.Play("MissionClear");
-        Clear();
     }
-
-    public void MissionFailed()
-    {
-        Debug.Log("Mission Failed");
-        Managers.Sound.Play("MissionFailed");
-        Clear();
-    }
-
-    public void Clear()
-    {
-        Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
-        StopAllCoroutines();
-        Managers.UI.ClosePopupUI();
-    }
-    
 }

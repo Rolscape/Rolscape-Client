@@ -8,7 +8,7 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IBeginDragHandler
+public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBeginDragHandler
 {
     private float eraserSize = 20.0f;
     private Vector2Int imageSize;
@@ -18,10 +18,6 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
     private float startTime; // 드래그 시작 시간
     private float endTime; // 드래그 종료 시간
     
-    private TextMeshProUGUI timerText;
-    private int countTimer = 16;
-
-
     public enum Texts
     {
         Timer,
@@ -39,7 +35,6 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
         BindUI();
         SetBackground();
         SetDoodle();
-        StartCoroutine(TimerCoroutine());
         Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
     }
     
@@ -77,19 +72,6 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
         Init();
     }
     
-    IEnumerator TimerCoroutine()
-    {
-        while (true)
-        {
-            if(countTimer <= 0)
-                MissionFailed();     // 미션 실패
-        
-            countTimer -= 1;
-            timerText.text = (countTimer / 3600).ToString("D2") + ":" + (countTimer / 60 % 60).ToString("D2") + ":" +
-                             (countTimer % 60).ToString("D2");
-            yield return new WaitForSeconds(1f);            
-        }
-    }
 
     // void Erase(Vector2 position)
     // {
@@ -182,27 +164,10 @@ public class UI_SMTeacherErase : UI_Popup, IPointerDownHandler, IDragHandler, IB
         // 드래그가 시작된 시간 기록
         startTime = Time.time;
     }
-    
-    public void MissionSuccess()
+
+    protected override void MissionSuccess()
     {
-        // 미션 성공
+        base.MissionSuccess();
         Managers.Mission.bTeacherErase = true;
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        Managers.Sound.Play("MissionClear");
-        Clear();
-    }
-
-    public void MissionFailed()
-    {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        Managers.Sound.Play("MissionFailed");
-        Clear();
-    }
-
-    public void Clear()
-    {
-        Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
-        StopAllCoroutines();
-        ClosePopupUI();
     }
 }

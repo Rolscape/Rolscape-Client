@@ -13,10 +13,12 @@ public class DataManager
 
     public Dictionary<int, Stat> StatDict { get; private set; } = new Dictionary<int, Stat>();
     public Dictionary<int, Cal> CalDict { get; private set; } = new Dictionary<int, Cal>();
+    public Dictionary<int, Word> WordDict { get; private set; } = new Dictionary<int, Word>();
     public void Init()
     {
         StatDict = LoadJson<StatData, int, Stat>("StatData").MakeDict();
         //CalDict = LoadJson<CalData, int, Cal>("CalData").MakeDict();
+        WordDict = LoadJson<WordData, int, Word>("WordData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
