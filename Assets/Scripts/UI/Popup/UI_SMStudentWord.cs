@@ -28,10 +28,5 @@ public class UI_SMStudentWord : UI_SM
     {
         
     }
-
-    protected override void MissionSuccess()
-    {
-        base.MissionSuccess();
-        Managers.Mission.bStudentWord = true;
-    }
+    
 }

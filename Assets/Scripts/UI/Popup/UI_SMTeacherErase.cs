@@ -164,10 +164,5 @@ public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBegi
         // 드래그가 시작된 시간 기록
         startTime = Time.time;
     }
-
-    protected override void MissionSuccess()
-    {
-        base.MissionSuccess();
-        Managers.Mission.bTeacherErase = true;
-    }
+    
 }

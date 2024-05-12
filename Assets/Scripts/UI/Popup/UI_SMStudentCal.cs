@@ -115,10 +115,5 @@ public class UI_SMStudentCal : UI_SM
             MissionFailed();
     }
 
-
-    protected override void MissionSuccess()
-    {
-        base.MissionSuccess();
-        Managers.Mission.bStudentCal = true;
-    }
+    
 }

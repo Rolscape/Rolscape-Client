@@ -136,10 +136,5 @@ public class UI_SMPoliceCatch : UI_SM, IPointerDownHandler
         else
             MinusHp();
     }
-
-    protected override void MissionSuccess()
-    {
-        base.MissionSuccess();
-        Managers.Mission.bPoliceCatch = true;
-    }
+    
 }

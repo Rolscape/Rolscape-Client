@@ -27,6 +27,7 @@ public class Define
     {
         SingleIdle,
         StudentMath,
+        StudentWord,
         StudentAlpha,
         TeacherSudoku,
         TeacherErase,
