@@ -13,7 +13,7 @@ public class GameScene : BaseScene
         base.Init();
 
         SceneType = Define.Scene.Game;
-        Managers.UI.ShowSceneUI<UI_Button>();
+        Managers.UI.ShowSceneUI<UI_Main>();
         Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
 
         Managers.Player.SettingMainCameraToPlayer(MainCamera);

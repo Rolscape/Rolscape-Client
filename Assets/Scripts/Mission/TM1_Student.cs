@@ -2,7 +2,6 @@ using Protocol;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Diagnostics;
 
 public class TM1_Student : TM1
 {

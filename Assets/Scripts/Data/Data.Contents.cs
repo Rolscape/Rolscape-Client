@@ -26,8 +26,34 @@ public class StatData : ILoader<int, Stat>
 }
 #endregion
 
-#region Cal
 
+#region Word
+
+[Serializable]
+public class Word
+{
+    public int id;
+    public int size;
+    public string word;
+}
+
+[Serializable]
+public class WordData : ILoader<int, Word>
+{
+    public List<Word> words = new List<Word>();
+    public Dictionary<int, Word> MakeDict()
+    {
+        Dictionary<int, Word> dict = new Dictionary<int, Word>();
+        foreach (Word word in words)
+            dict.Add(word.id, word);
+
+        return dict;
+    }
+}
+
+#endregion
+
+#region Cal
 [Serializable]
 public class Cal
 {
@@ -49,6 +75,4 @@ public class CalData : ILoader<int, Cal>
         return dict;
     }
 }
-
-
 #endregion

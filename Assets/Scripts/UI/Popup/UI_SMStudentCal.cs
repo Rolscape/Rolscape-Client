@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_SMStudentCal : UI_Popup
+public class UI_SMStudentCal : UI_SM
 {
     public enum Panel
     {
@@ -46,9 +46,6 @@ public class UI_SMStudentCal : UI_Popup
         Question12 = 14,
     }
     
-    
-    private TextMeshProUGUI timerText;
-    private int countTimer = 16;
     private Dictionary<string, int> solDict = new Dictionary<string, int>();
     private int solution;
     public override void Init()
@@ -58,7 +55,6 @@ public class UI_SMStudentCal : UI_Popup
         BindUI();
         SetInputField();
         SetImage();
-        StartCoroutine(TimerCoroutine());
         Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
     }
 
@@ -125,7 +121,7 @@ public class UI_SMStudentCal : UI_Popup
         while (true)
         {
             if(countTimer <= 0)
-                MissionFailed();     // ë¯¸ì…˜ ì‹¤íŒ¨
+                MissionFailed();     // ¹Ì¼Ç ½ÇÆÐ
         
             countTimer -= 1;
             timerText.text = (countTimer / 3600).ToString("D2") + ":" + (countTimer / 60 % 60).ToString("D2") + ":" +
@@ -137,7 +133,7 @@ public class UI_SMStudentCal : UI_Popup
     
     public void MissionSuccess()
     {
-        // ë¯¸ì…˜ ì„±ê³µ
+        // ¹Ì¼Ç ¼º°ø
         Managers.Mission.bStudentCal = true;
         Managers.Sound.Play("MissionClear");
         Managers.Player.MyPlayerController.SendSingleMissionStop(true);

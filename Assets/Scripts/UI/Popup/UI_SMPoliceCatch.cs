@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
+public class UI_SMPoliceCatch : UI_SM, IPointerDownHandler
 {
     private Image[] hearts = new Image[3];
     private Image[] shadows = new Image[8];
@@ -18,9 +18,6 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
     private int clickCount = 0;
     private int hp = 2;
     private bool bFind = false;
-
-    private TextMeshProUGUI timerText;
-    private int countTimer = 16;
     
     public enum Texts
     {
@@ -51,7 +48,6 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
 
         Managers.Sound.Play("MinigameFast", Define.Sound.Bgm);
         Managers.Sound.Play("Timer");
-        StartCoroutine(TimerCoroutine());
         StartCoroutine(HandsUp());
     }
 
@@ -103,16 +99,14 @@ public class UI_SMPoliceCatch : UI_Popup, IPointerDownHandler
         }
     }
 
-    IEnumerator TimerCoroutine()
+    protected override IEnumerator TimerCoroutine()
     {
         while (true)
         {
             if(countTimer <= 0)
                 MissionSuccess();     // 미션 실패
         
-            countTimer -= 1;
-            timerText.text = (countTimer / 3600).ToString("D2") + ":" + (countTimer / 60 % 60).ToString("D2") + ":" +
-                             (countTimer % 60).ToString("D2");
+            SetTimer();
             yield return new WaitForSeconds(1f);            
         }
     }

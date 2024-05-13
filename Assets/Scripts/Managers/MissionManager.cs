@@ -17,8 +17,13 @@ public struct CurrentMission
 public class MissionManager
 {
     // Team Mission Action
-
-    // Team
+    // Mission1
+    public Action<Define.PathMissionPos, Define.PathMissionPos> Mission1Start = null;
+    public Action<bool> Mission1End = null;
+    // Mission2
+    public Action Mission2Start = null;
+    public Action<bool> Mission2End = null;
+    
 
     // Single Mission Action To Student
     public Action SMStart = null;
@@ -26,6 +31,7 @@ public class MissionManager
 
     // Student
     public bool bStudentCal = false;
+    public bool bStudentWord = false;
 
     // Police
     public bool bPoliceCatch = false;
@@ -89,7 +95,25 @@ public class MissionManager
         if (Mission1End != null)
             Mission1End.Invoke(isSuccess);
     }
+    #endregion
+    
+    
+    #region Mission2
 
+    public void Mission2StartInvoke()
+    {
+        if(Mission2Start!=null)
+            Mission2Start.Invoke();
+    }
+
+    public void Mission2EndInvoke(bool isSuccess)
+    {
+        if(Mission2End!=null)
+            Mission2End.Invoke(isSuccess);
+    }
+    
+    
+    #endregion
     public void SingleMissionStart(bool isMine = true)
     {
         if (isMine)
