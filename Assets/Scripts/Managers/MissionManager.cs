@@ -16,8 +16,13 @@ public struct CurrentMission
 public class MissionManager
 {
     // Team Mission Action
-
-    // Team
+    // Mission1
+    public Action<Define.PathMissionPos, Define.PathMissionPos> Mission1Start = null;
+    public Action<bool> Mission1End = null;
+    // Mission2
+    public Action Mission2Start = null;
+    public Action<bool> Mission2End = null;
+    
 
     // Single Mission Action To Student
     public Action SMStart = null;
@@ -60,9 +65,7 @@ public class MissionManager
 
     public SM_DefaultTrigger CurrentMissionTrigger { get => _currnetMission.trigger; }
     public Define.SingleMissionType CurrentMissionType { get => _currnetMission.type; }
-
-    public Action<Define.PathMissionPos, Define.PathMissionPos> Mission1Start = null;
-    public Action<bool> Mission1End = null;
+    
     public Action<Define.Pos> MoveTile = null;
     public Action<Define.PlayerJob, Define.Pos> PoliceMoveTile = null;
 
@@ -72,6 +75,7 @@ public class MissionManager
             MoveTile.Invoke(destPos);
     }
 
+    #region Mission1
     public void Mission1StartInvoke(Define.PathMissionPos startPos, Define.PathMissionPos destPos)
     {
         if (Mission1Start != null)
@@ -89,7 +93,25 @@ public class MissionManager
         if (Mission1End != null)
             Mission1End.Invoke(isSuccess);
     }
+    #endregion
+    
+    
+    #region Mission2
 
+    public void Mission2StartInvoke()
+    {
+        if(Mission2Start!=null)
+            Mission2Start.Invoke();
+    }
+
+    public void Mission2EndInvoke(bool isSuccess)
+    {
+        if(Mission2End!=null)
+            Mission2End.Invoke(isSuccess);
+    }
+    
+    
+    #endregion
     public void SingleMissionStart(bool isMine = true)
     {
         if (isMine)
