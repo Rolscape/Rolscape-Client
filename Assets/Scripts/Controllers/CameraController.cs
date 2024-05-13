@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Define.CameraMode _mode = Define.CameraMode.QuarterView;
-
+    public float DefaultCameraPos = 2.5f;
     private Vector3 _delta = new Vector3(0.0f, 20.0f, -10.0f);
     
     [SerializeField]
@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour
             // 카메라가 벽에 가려졌다면 카메라를 벽 앞으로 이동해 시점 변환하기
             if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Wall")))
             {
-                float dist = (hit.point - _player.transform.position).magnitude * 0.8f;
+                float dist = (hit.point - _player.transform.position).magnitude * 2.0f;
                 transform.position = _player.transform.position + _delta.normalized * dist;
             }
             else

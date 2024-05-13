@@ -34,7 +34,7 @@ public class MissionManager
     public bool bTeacherErase = false;
 
 
-    // ÇöÀç ¹Ì¼Ç
+    // í˜„ì¬ ë¯¸ì…˜
 
     CurrentMission _currnetMission = new CurrentMission();
 
@@ -98,7 +98,7 @@ public class MissionManager
                 SMStart();
             else
             {
-                // ½ÇÆĞ Ã³¸® ÇØ¾ßµÊ.
+                // ì‹¤íŒ¨ ì²˜ë¦¬ í•´ì•¼ë¨.
             }
         }
         else

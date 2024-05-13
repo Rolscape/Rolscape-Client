@@ -17,6 +17,7 @@ public class UI_Start : UI_Popup
     {
         PointText,
     }
+
     public override void Init()
     {
         base.Init();

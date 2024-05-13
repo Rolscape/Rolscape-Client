@@ -66,6 +66,8 @@ public class UIManager
     // Show Scene UI Func
     public T ShowSceneUI<T>(string name = null) where T : UI_Scene
     {
+        Debug.Log(name);
+
         if (string.IsNullOrEmpty(name))
             name = typeof(T).Name;
 
@@ -133,9 +135,9 @@ public class UIManager
 
     public void StartChat()
     {
-        UI_Chat uiChat = ShowSceneUI<UI_Chat>();
-        Chat = uiChat;
+        //UI_Chat uiChat = ShowSceneUI<UI_Chat>();
+        //Chat = uiChat;
 
-        Managers.Player.MyPlayerController.StartChat();
+        //Managers.Player.MyPlayerController.StartChat();
     }
 }

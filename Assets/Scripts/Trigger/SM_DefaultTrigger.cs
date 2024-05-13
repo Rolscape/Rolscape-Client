@@ -1,5 +1,4 @@
 using Protocol;
-using System.Security.Authentication.ExtendedProtection;
 using UnityEngine;
 
 public class SM_DefaultTrigger : MonoBehaviour
