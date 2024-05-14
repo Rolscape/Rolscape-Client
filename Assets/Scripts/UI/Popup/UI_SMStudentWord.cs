@@ -50,7 +50,7 @@ public class UI_SMStudentWord : UI_SM
         Bind<TMP_InputField>(typeof(InputFields));
         Bind<GameObject>(typeof(Grid));
 
-        countTimer = 16;
+        countTimer = 31;
         timerText = GetText((int)Texts.Timer);
         timerText.text = countTimer.ToString("D2");
     }

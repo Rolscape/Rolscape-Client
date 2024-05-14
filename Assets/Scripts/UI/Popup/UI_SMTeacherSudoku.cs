@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Google.Protobuf.WellKnownTypes;
+using Microsoft.Unity.VisualStudio.Editor;
+using TMPro;
 using UnityEngine;
+using Enum = System.Enum;
+using Image = UnityEngine.UI.Image;
 
 public class UI_SMTeacherSudoku : UI_SM
 {
@@ -8,36 +13,102 @@ public class UI_SMTeacherSudoku : UI_SM
     {
         Timer,
     }
+
+    enum Images
+    {
+        Background,
+    }
+
+    enum InputFields
+    {
+        a,
+        b,
+        c,
+        d,
+        e,
+        f,
+        g,
+        h,
+        i,
+        j,
+        k,
+        l,
+        n,
+        m,
+        o,
+        p,
+    }
     
     private int[][,] sudokuArray = new int[12][,];
+    private Dictionary<int, int[]> sudokuSolArray = new Dictionary<int, int[]>();
+
     private int[,] sudoku = new int[4,4];
     private int[] sudokuSol;
-    private Dictionary<int, int[]> sudokuSolArray = new Dictionary<int, int[]>();
+    
+    private int[] answer;
+    private TMP_InputField[] _inputFields = new TMP_InputField[16];
 
     public override void Init()
     {
         base.Init();
+        BiundUI();
+        SetSudoku();
+        SetInputField();
+        StartCoroutine(TimerCoroutine());
     }
 
     void Start()
     {
         Init();
-        BiundUI();
-        StartCoroutine(TimerCoroutine());
     }
 
     void BiundUI()
     {
-        countTimer = 16;
+        Bind<Image>(typeof(Images));
+        Bind<TextMeshProUGUI>(typeof(Texts));
+        Bind<TMP_InputField>(typeof(InputFields));
+        countTimer = 31;
         timerText = GetText((int)Texts.Timer);
         timerText.text = countTimer.ToString("D2");
     }
 
+    void SetInputField()
+    {
+        foreach (int idx in Enum.GetValues(typeof(InputFields))) 
+            _inputFields[idx]=Get<TMP_InputField>(idx);
+            
+
+        int k = 0;
+        for (int i = 0; i < sudoku.GetLength(0); i++)
+        {
+            for (int j = 0; j < sudoku.GetLength(1); j++)
+            {
+                if (sudoku[i, j] != 0)
+                {
+                    _inputFields[k].text = "";
+                    _inputFields[k].enabled = false;g
+                }
+                k++;
+            }
+        }
+    }
+
     void SetSudoku()
     {
+        SetSudokuArray();
         int idx = Random.Range(0, 12);
+        SetBackground(idx);
         sudoku = sudokuArray[idx];
+        sudokuSol = new int[sudokuSolArray[idx].Length];
         sudokuSol = sudokuSolArray[idx];
+        answer = new int[sudoku.Length];
+    }
+
+    void SetBackground(int idx)
+    {
+        Texture2D texture2D = Managers.Resource.Load<Texture2D>($"Arts/Mission/Sudoku/P{idx}");
+        Sprite sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), Vector2.one * 0.5f);
+        GetImage((int)Images.Background).sprite = sprite;
     }
 
     void SetSudokuArray()
@@ -139,5 +210,86 @@ public class UI_SMTeacherSudoku : UI_SM
         };
         sudokuSolArray.Add(11, new int[]{3, 4, 2, 2, 4, 2, 1, 4});
     }
+
+    void OnEndEdit1(string text)
+    {
+        
+    }
+    
+    void OnEndEdit2(string text)
+    {
+        
+    }
+    
+    void OnEndEdit3(string text)
+    {
+        
+    }
+    
+    void OnEndEdit4(string text)
+    {
+        
+    }
+    
+    void OnEndEdit5(string text)
+    {
+        
+    }
+    
+    void OnEndEdit6(string text)
+    {
+        
+    }
+    
+    void OnEndEdit7(string text)
+    {
+        
+    }
+    
+    void OnEndEdit8(string text)
+    {
+        
+    }
+    
+    void OnEndEdit9(string text)
+    {
+        
+    }
+    
+    void OnEndEdit10(string text)
+    {
+        
+    }
+    
+    void OnEndEdit11(string text)
+    {
+        
+    }
+    
+    void OnEndEdit12(string text)
+    {
+        
+    }
+    
+    void OnEndEdit13(string text)
+    {
+        
+    }
+    
+    void OnEndEdit14(string text)
+    {
+        
+    }
+    
+    void OnEndEdit15(string text)
+    {
+        
+    }
+    
+    void OnEndEdit16(string text)
+    {
+        
+    }
+    
 
 }
