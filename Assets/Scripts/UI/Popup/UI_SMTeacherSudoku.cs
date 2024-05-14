@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class UI_SMTeacherSudoku : UI_SM
 {
+    enum Texts
+    {
+        Timer,
+    }
+    
     private int[][,] sudokuArray = new int[12][,];
     private int[,] sudoku = new int[4,4];
     private int[] sudokuSol;
@@ -17,6 +22,15 @@ public class UI_SMTeacherSudoku : UI_SM
     void Start()
     {
         Init();
+        BiundUI();
+        StartCoroutine(TimerCoroutine());
+    }
+
+    void BiundUI()
+    {
+        countTimer = 16;
+        timerText = GetText((int)Texts.Timer);
+        timerText.text = countTimer.ToString("D2");
     }
 
     void SetSudoku()

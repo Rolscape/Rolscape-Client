@@ -10,8 +10,8 @@ public class UI_SM : UI_Popup
     public override void Init()
     {
         base.Init();
-        StartCoroutine(TimerCoroutine());
     }
+    
 
     protected virtual IEnumerator TimerCoroutine()
     {

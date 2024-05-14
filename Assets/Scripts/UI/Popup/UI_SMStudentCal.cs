@@ -54,6 +54,7 @@ public class UI_SMStudentCal : UI_SM
         BindUI();
         SetInputField();
         SetImage();
+        StartCoroutine(TimerCoroutine());
         Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
     }
 

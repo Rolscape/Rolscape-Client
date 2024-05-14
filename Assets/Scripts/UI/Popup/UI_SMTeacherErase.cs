@@ -35,6 +35,7 @@ public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBegi
         BindUI();
         SetBackground();
         SetDoodle();
+        StartCoroutine(TimerCoroutine());
         Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
     }
     
@@ -62,7 +63,8 @@ public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBegi
     {
         Bind<Image>(typeof(Images));
         Bind<TextMeshProUGUI>(typeof(Texts));
-        
+
+        countTimer = 16;
         timerText = GetText((int)Texts.Timer);
         timerText.text = countTimer.ToString("D2");
     }
