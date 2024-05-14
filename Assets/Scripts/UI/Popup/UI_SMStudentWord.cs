@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class UI_SMStudentWord : UI_SM
 {
@@ -31,8 +32,9 @@ public class UI_SMStudentWord : UI_SM
 
     void SetWord()
     {
-        size = 3;
-        word = "pen";
+        int idx = Random.Range(1, 49);
+        size = Managers.Data.WordDict[idx].size;
+        word = Managers.Data.WordDict[idx].word;
     }
     
 }
