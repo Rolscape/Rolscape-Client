@@ -86,7 +86,7 @@ public class UI_SMTeacherSudoku : UI_SM
                 if (sudoku[i, j] != 0)
                 {
                     _inputFields[k].text = "";
-                    _inputFields[k].enabled = false;g
+                    _inputFields[k].enabled = false;
                 }
                 k++;
             }
