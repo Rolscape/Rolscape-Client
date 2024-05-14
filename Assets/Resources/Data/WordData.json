@@ -3,231 +3,231 @@
     {
       "id": "1",
       "size": "6",
-      "word": "School"
+      "word": "school"
     },
     {
       "id": "2",
       "size": "7",
-      "word": "College"
+      "word": "college"
     },
     {
       "id": "3",
       "size": "7",
-      "word": "Student"
+      "word": "student"
     },
     {
       "id": "4",
       "size": "6",
-      "word": "Friend"
+      "word": "friend"
     },{
       "id": "5",
       "size": "8",
-      "word": "Graduate"
+      "word": "graduate"
     },
     {
       "id": "6",
       "size": "9",
-      "word": "Classmate"
+      "word": "classmate"
     },
     {
       "id": "7",
       "size": "9",
-      "word": "Classroom"
+      "word": "classroom"
     },
     {
       "id": "8",
       "size": "7",
-      "word": "Teacher"
+      "word": "teacher"
     },{
       "id": "9",
       "size": "5",
-      "word": "Elite"
+      "word": "elite"
     },
     {
       "id": "10",
       "size": "8",
-      "word": "Vacation"
+      "word": "vacation"
     },
     {
       "id": "11",
       "size": "6",
-      "word": "Picnic"
+      "word": "picnic"
     },
     {
       "id": "12",
       "size": "8",
-      "word": "Semester"
+      "word": "semester"
     },{
       "id": "13",
       "size": "9",
-      "word": "Breaktime"
+      "word": "breaktime"
     },
     {
       "id": "14",
       "size": "7",
-      "word": "Midterm"
+      "word": "midterm"
     },
     {
       "id": "15",
       "size": "9",
-      "word": "Finalexam"
+      "word": "finalexam"
     },
     {
       "id": "16",
       "size": "4",
-      "word": "Quiz"
+      "word": "quiz"
     },{
       "id": "17",
       "size": "10",
-      "word": "Assessment"
+      "word": "assessment"
     },
     {
       "id": "18",
       "size": "4",
-      "word": "Test"
+      "word": "test"
     },
     {
       "id": "19",
       "size": "8",
-      "word": "Backpack"
+      "word": "backpack"
     },
     {
       "id": "20",
       "size": "8",
-      "word": "Notebook"
+      "word": "notebook"
     },{
       "id": "21",
       "size": "6",
-      "word": "Pencil"
+      "word": "pencil"
     },
     {
       "id": "22",
       "size": "6",
-      "word": "Eraser"
+      "word": "eraser"
     },
     {
       "id": "23",
       "size": "8",
-      "word": "Scissors"
+      "word": "scissors"
     },
     {
       "id": "24",
       "size": "4",
-      "word": "Glue"
+      "word": "glue"
     },{
       "id": "25",
       "size": "5",
-      "word": "Ruler"
+      "word": "ruler"
     },
     {
       "id": "26",
       "size": "10",
-      "word": "Calculator"
+      "word": "calculator"
     },
     {
       "id": "27",
       "size": "6",
-      "word": "Marker"
+      "word": "marker"
     },
     {
       "id": "28",
       "size": "11",
-      "word": "Highlighter"
+      "word": "highlighter"
     },{
       "id": "29",
       "size": "6",
-      "word": "Crayon"
+      "word": "crayon"
     },
     {
       "id": "30",
       "size": "4",
-      "word": "Clay"
+      "word": "clay"
     },
     {
       "id": "31",
       "size": "9",
-      "word": "Dormitory"
+      "word": "dormitory"
     },
     {
       "id": "32",
       "size": "7",
-      "word": "Library"
+      "word": "library"
     },{
       "id": "33",
       "size": "7",
-      "word": "Science"
+      "word": "science"
     },
     {
       "id": "34",
       "size": "11",
-      "word": "Mathematics"
+      "word": "mathematics"
     },
     {
       "id": "35",
       "size": "7",
-      "word": "Grammar"
+      "word": "grammar"
     },
     {
       "id": "36",
       "size": "6",
-      "word": "Speech"
+      "word": "speech"
     },{
       "id": "37",
       "size": "9",
-      "word": "Economics"
+      "word": "economics"
     },
     {
       "id": "38",
       "size": "7",
-      "word": "History"
+      "word": "history"
     },
     {
       "id": "39",
       "size": "7",
-      "word": "Physics"
+      "word": "physics"
     },
     {
       "id": "40",
       "size": "9",
-      "word": "Chemistry"
+      "word": "chemistry"
     },{
       "id": "41",
       "size": "7",
-      "word": "Biology"
+      "word": "biology"
     },
     {
       "id": "42",
       "size": "10",
-      "word": "Statistics"
+      "word": "statistics"
     },
     {
       "id": "43",
       "size": "7",
-      "word": "English"
+      "word": "english"
     },
     {
       "id": "44",
       "size": "10",
-      "word": "Technology"
+      "word": "technology"
     },{
       "id": "45",
       "size": "7",
-      "word": "Society"
+      "word": "society"
     },
     {
       "id": "46",
       "size": "8",
-      "word": "Textbook"
+      "word": "textbook"
     },
     {
       "id": "47",
       "size": "7",
-      "word": "Handout"
+      "word": "handout"
     },
     {
       "id": "48",
       "size": "10",
-      "word": "Dictionary"
+      "word": "dictionary"
     }
   ]
 }

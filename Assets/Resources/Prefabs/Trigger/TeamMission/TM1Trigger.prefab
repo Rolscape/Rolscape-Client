@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8309963286962960878}
   - component: {fileID: 8716024862922279726}
-  - component: {fileID: 2133799416095866974}
+  - component: {fileID: 6300862273961712451}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -54,7 +54,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2133799416095866974
+--- !u!114 &6300862273961712451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 271796232254699606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4376e2a34d29b84b973e5c1ba92fc44, type: 3}
+  m_Script: {fileID: 11500000, guid: b34a4f8ceaffd414cb35aa34972657e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4590632533075649236
@@ -76,7 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 659849891051159022}
   - component: {fileID: 5734075973309630803}
-  - component: {fileID: 7646784796844382439}
+  - component: {fileID: 5607361134227263191}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -120,7 +120,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7646784796844382439
+--- !u!114 &5607361134227263191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4590632533075649236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4376e2a34d29b84b973e5c1ba92fc44, type: 3}
+  m_Script: {fileID: 11500000, guid: b34a4f8ceaffd414cb35aa34972657e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5993739495893973139
@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1148457655492902402}
   - component: {fileID: 64331050172286352}
-  - component: {fileID: 1513397858471424756}
+  - component: {fileID: 1653141339251477607}
   m_Layer: 0
   m_Name: Center
   m_TagString: Untagged
@@ -186,7 +186,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1513397858471424756
+--- !u!114 &1653141339251477607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5993739495893973139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4376e2a34d29b84b973e5c1ba92fc44, type: 3}
+  m_Script: {fileID: 11500000, guid: b34a4f8ceaffd414cb35aa34972657e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7340354291908642426
@@ -207,8 +207,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8385806023020606120}
+  - component: {fileID: 2644282695664043111}
   m_Layer: 0
-  m_Name: Misson2Button
+  m_Name: TM1Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,3 +233,15 @@ Transform:
   - {fileID: 659849891051159022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2644282695664043111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7340354291908642426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f77fea667a41a74a8471937f667286f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -26,6 +26,7 @@ public class UI_SMStudentWord : UI_SM
     
     private int size;
     private string word;
+    private int count=0;
     private TextMeshProUGUI[] texts;
 
     public override void Init()
@@ -66,7 +67,8 @@ public class UI_SMStudentWord : UI_SM
 
     void SetWord()
     {
-        int idx = Random.Range(1, 49);
+        int idx = 1;
+        //int idx = Random.Range(1, 49);
         size = Managers.Data.WordDict[idx].size;
         word = Managers.Data.WordDict[idx].word;
         texts = new TextMeshProUGUI[size];
@@ -88,7 +90,18 @@ public class UI_SMStudentWord : UI_SM
     
     void OnEndEdit(string text)
     {
+        char[] answer = text.ToCharArray();
         // TODO 정답 체크
+        for(int i=0; i<size; i++)
+        {
+            if (word[i] == answer[0])
+            {
+                texts[i].text = text;
+                count++;
+            }
+        }
+        if(count == size)
+            MissionSuccess();
     }
     
 }
