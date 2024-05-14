@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UI_SM : UI_Popup
 {
-    protected int countTimer;
+    protected int countTimer=16;
     protected TextMeshProUGUI timerText;
     public override void Init()
     {

@@ -36,6 +36,7 @@ public class UI_SMStart : UI_Popup
     public void OnButtonClicked(PointerEventData data)
     {
         Managers.UI.ClosePopupUI();
-        Managers.Mission.SMStart.Invoke();
+        if(Managers.Mission.SMStart!=null)
+            Managers.Mission.SMStart.Invoke();
     }
 }

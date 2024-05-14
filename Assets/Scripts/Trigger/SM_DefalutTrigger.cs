@@ -20,7 +20,7 @@ public class SM_DefaultTrigger : MonoBehaviour
     }
 
     public void MissionLeave()
-    {
+    {        
         Managers.Mission.SMStart -= MissionStart;
         Managers.Mission.SMStop -= MissionStop;
 
@@ -39,16 +39,20 @@ public class SM_DefaultTrigger : MonoBehaviour
 
         if (!TriggerEnterEvent(other))
             return;
-
+        
+        if(!isJoin)
+            MissionJoin();
+        
         Managers.Mission.CurrentMissionTriggerObject = gameObject;
+        
+        // Client Temp Code
+        OnShowUI();
 
         // C_SINGLE_MISSION_JOIN joinPkt = new C_SINGLE_MISSION_JOIN();
         // joinPkt.PlayerInfo = Managers.Player.MyPlayerController.Info;
         // joinPkt.MissionType = missionType;
         //
         // Managers.Network.Send(joinPkt, INGAME.SingleMissionJoin);
-
-        MissionJoin();
     }
 
     private void OnTriggerExit(Collider other)
@@ -71,6 +75,8 @@ public class SM_DefaultTrigger : MonoBehaviour
             // Managers.Network.Send(leavePkt, INGAME.SingleMissionLeave);
 
             MissionLeave();
+            if(!Managers.Mission.bStudentCal)
+                isJoin = false;
         }
     }
 

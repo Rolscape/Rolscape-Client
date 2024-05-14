@@ -33,6 +33,7 @@ public class SM_StudentWordTrigger : SM_DefaultTrigger
 
     protected override void MissionStart()
     {
+        base.MissionStart();
         Managers.UI.ShowPopupUI<UI_SMStudentWord>();
     }
 
