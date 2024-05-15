@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UI_SMStudentCal : UI_SM
 {
@@ -108,7 +110,8 @@ public class UI_SMStudentCal : UI_SM
 
     void OnEndEdit(string text)
     {
-        Managers.UI.ClosePopupUI();
+        if (String.IsNullOrEmpty(text))
+            return;
         int answer = int.Parse(text);
         if(answer == solution)
             MissionSuccess();

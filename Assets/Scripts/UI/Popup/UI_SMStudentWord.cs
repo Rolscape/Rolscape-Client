@@ -67,8 +67,7 @@ public class UI_SMStudentWord : UI_SM
 
     void SetWord()
     {
-        int idx = 1;
-        //int idx = Random.Range(1, 49);
+        int idx = Random.Range(1, 49);
         size = Managers.Data.WordDict[idx].size;
         word = Managers.Data.WordDict[idx].word;
         texts = new TextMeshProUGUI[size];
