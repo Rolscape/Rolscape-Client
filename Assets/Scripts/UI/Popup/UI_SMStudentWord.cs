@@ -89,6 +89,9 @@ public class UI_SMStudentWord : UI_SM
     
     void OnEndEdit(string text)
     {
+        if (string.IsNullOrEmpty(text))
+            return;
+        
         char[] answer = text.ToCharArray();
         // TODO 정답 체크
         for(int i=0; i<size; i++)

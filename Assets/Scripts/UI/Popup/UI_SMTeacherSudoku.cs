@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Google.Protobuf.WellKnownTypes;
 using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Enum = System.Enum;
 using Image = UnityEngine.UI.Image;
 
@@ -17,6 +20,11 @@ public class UI_SMTeacherSudoku : UI_SM
     enum Images
     {
         Background,
+    }
+
+    enum Buttons
+    {
+        Submit,
     }
 
     enum InputFields
@@ -46,6 +54,7 @@ public class UI_SMTeacherSudoku : UI_SM
     private int[] sudokuSol;
     
     private int[] answer;
+    
     private TMP_InputField[] _inputFields = new TMP_InputField[16];
 
     public override void Init()
@@ -67,6 +76,8 @@ public class UI_SMTeacherSudoku : UI_SM
         Bind<Image>(typeof(Images));
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<TMP_InputField>(typeof(InputFields));
+        Bind<Button>(typeof(Buttons));
+        GetButton((int)Buttons.Submit).gameObject.BindEvent(OnButtonClicked);
         countTimer = 31;
         timerText = GetText((int)Texts.Timer);
         timerText.text = countTimer.ToString("D2");
@@ -76,7 +87,6 @@ public class UI_SMTeacherSudoku : UI_SM
     {
         foreach (int idx in Enum.GetValues(typeof(InputFields))) 
             _inputFields[idx]=Get<TMP_InputField>(idx);
-            
 
         int k = 0;
         for (int i = 0; i < sudoku.GetLength(0); i++)
@@ -91,17 +101,46 @@ public class UI_SMTeacherSudoku : UI_SM
                 k++;
             }
         }
+
+        k = -1;
+        foreach (TMP_InputField inputField in _inputFields)
+        {
+            if (inputField.enabled)
+            {
+                int index = ++k;
+                inputField.onEndEdit.AddListener(msg => UpdateInputField(msg, index));
+            }
+        }
+    }
+
+    void UpdateInputField(string msg, int idx)
+    {
+        if (string.IsNullOrEmpty(msg))
+            return;
+        
+        answer[idx] = Convert.ToInt32(msg);
+    }
+
+    void OnButtonClicked(PointerEventData data)
+    {
+        for (int i = 0; i < sudokuSol.Length; i++)
+        {
+            if(answer[i]!=sudokuSol[i])
+                MissionFailed();
+        }
+        MissionSuccess();
     }
 
     void SetSudoku()
     {
         SetSudokuArray();
-        int idx = Random.Range(0, 12);
+        int idx = 0;
+        // int idx = Random.Range(0, 12);
         SetBackground(idx);
         sudoku = sudokuArray[idx];
         sudokuSol = new int[sudokuSolArray[idx].Length];
         sudokuSol = sudokuSolArray[idx];
-        answer = new int[sudoku.Length];
+        answer = new int[sudokuSol.Length];
     }
 
     void SetBackground(int idx)
@@ -210,86 +249,5 @@ public class UI_SMTeacherSudoku : UI_SM
         };
         sudokuSolArray.Add(11, new int[]{3, 4, 2, 2, 4, 2, 1, 4});
     }
-
-    void OnEndEdit1(string text)
-    {
-        
-    }
-    
-    void OnEndEdit2(string text)
-    {
-        
-    }
-    
-    void OnEndEdit3(string text)
-    {
-        
-    }
-    
-    void OnEndEdit4(string text)
-    {
-        
-    }
-    
-    void OnEndEdit5(string text)
-    {
-        
-    }
-    
-    void OnEndEdit6(string text)
-    {
-        
-    }
-    
-    void OnEndEdit7(string text)
-    {
-        
-    }
-    
-    void OnEndEdit8(string text)
-    {
-        
-    }
-    
-    void OnEndEdit9(string text)
-    {
-        
-    }
-    
-    void OnEndEdit10(string text)
-    {
-        
-    }
-    
-    void OnEndEdit11(string text)
-    {
-        
-    }
-    
-    void OnEndEdit12(string text)
-    {
-        
-    }
-    
-    void OnEndEdit13(string text)
-    {
-        
-    }
-    
-    void OnEndEdit14(string text)
-    {
-        
-    }
-    
-    void OnEndEdit15(string text)
-    {
-        
-    }
-    
-    void OnEndEdit16(string text)
-    {
-        
-    }
-    
 
 }
