@@ -61,7 +61,7 @@ public class UI_SMTeacherSudoku : UI_SM
     public override void Init()
     {
         base.Init();
-        Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
+        Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);git
         BiundUI();
         SetSudoku();
         SetInputField();
