@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: shcool_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1062.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e37d541ce23f8704c8f23292c2f1449c
+      internalID: -1346162760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_1
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1062.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3cb06e6220c1a043a2c558eb45786aa
+      internalID: 1654314649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_2
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1062.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d7ab68fc0af404680e98835932b9ba
+      internalID: -887606070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_3
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1062.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c848b34d1522a7e4599aba4c3b33ed75
+      internalID: -1556091265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 708.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7adfceb6b164604a9a75862d1d3d1d0
+      internalID: -1150925153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_5
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 708.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64823345b12c74e45b3dea6ae115ba48
+      internalID: 1040592202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_6
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 708.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25a4ffe9e8179cd4ca19053e1da0b6f6
+      internalID: 228194633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_7
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 708.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c32a5ba7c53d746a5649fd13bace58
+      internalID: 213195515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 354.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e9cba5d6cd41c44a53cdf00f9e2633
+      internalID: 1241756042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_9
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 354.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 127c3842b7295ae46814b80ac4d7b98f
+      internalID: 1913619380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_10
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 354.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15460378337ce14b81a19f85507ffe9
+      internalID: -38214656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_11
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 354.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34767d41490dcd14c851523fa1326c59
+      internalID: 1640205189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b91de763610a2284a8c37eb938b70d61
+      internalID: -1406235216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_13
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c42b1322b1afeb4aa9bf51969eae243
+      internalID: 1324327054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_14
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558f325ca02156446bfa71ae8a4a85d9
+      internalID: -1733173699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shcool_15
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 0.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13f499345c5d994ea0df637ccbdc2c0
+      internalID: 1519579895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +442,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shcool_0: -1346162760
+      shcool_1: 1654314649
+      shcool_10: -38214656
+      shcool_11: 1640205189
+      shcool_12: -1406235216
+      shcool_13: 1324327054
+      shcool_14: -1733173699
+      shcool_15: 1519579895
+      shcool_2: -887606070
+      shcool_3: -1556091265
+      shcool_4: -1150925153
+      shcool_5: 1040592202
+      shcool_6: 228194633
+      shcool_7: 213195515
+      shcool_8: 1241756042
+      shcool_9: 1913619380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

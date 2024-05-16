@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pencilcase_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1062.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b678f5c57773764788e84ca5c3dc7d9
+      internalID: -1050900890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_1
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1062.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c22bfdb50077d84aa61c176a3f6a3b2
+      internalID: -1364525946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_2
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1062.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f77a03687c051b47b8789cee62ac448
+      internalID: -488976114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_3
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 1063
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c453e812944caa24494f3913f1612667
+      internalID: -1442035362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 708.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe6b96580b77d24891e5ee99a1da45c
+      internalID: 1449949259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_5
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 708.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97a24008712b9d4294a4a3865b6936d
+      internalID: 416384306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_6
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 709
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa8e1d439b8b5194bb2130fb38680c1e
+      internalID: 726026134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_7
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 708.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4495e20e140d2040ab40323973b3e6c
+      internalID: 1202899936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 354.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f82ca83abb16c34abad1df913d4e109
+      internalID: -922071757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_9
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 354.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1cbf37b84e439439651053576c24cf
+      internalID: -65722362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_10
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 354.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3246ad4d5bbbe0448268b5a4628a36c
+      internalID: -964633842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_11
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 354.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada5198674572c94286f17e84c09a996
+      internalID: -1026781581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c73f05ae7fa73e46b2d10f5c1e4a5b1
+      internalID: 1038027185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_13
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb4b9c569b508f34cb0e673b2a1a1efd
+      internalID: 1574660033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_14
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce9d4f0667bbc840adb73ecd1ede376
+      internalID: -1806035167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pencilcase_15
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 0.75
+        width: 354.25
+        height: 354.25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9873ad573db1524c9f0d37cd74bbf32
+      internalID: 121212432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +442,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pencilcase_0: -1050900890
+      pencilcase_1: -1364525946
+      pencilcase_10: -964633842
+      pencilcase_11: -1026781581
+      pencilcase_12: 1038027185
+      pencilcase_13: 1574660033
+      pencilcase_14: -1806035167
+      pencilcase_15: 121212432
+      pencilcase_2: -488976114
+      pencilcase_3: -1442035362
+      pencilcase_4: 1449949259
+      pencilcase_5: 416384306
+      pencilcase_6: 726026134
+      pencilcase_7: 1202899936
+      pencilcase_8: -922071757
+      pencilcase_9: -65722362
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
