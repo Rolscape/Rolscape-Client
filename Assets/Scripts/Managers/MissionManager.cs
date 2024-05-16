@@ -18,16 +18,18 @@ public class MissionManager
 {
     // Team Mission Action
     // Mission1
-    public Action<Define.PathMissionPos, Define.PathMissionPos> Mission1Start = null;
+    public Action<PathMissionPos, PathMissionPos> Mission1Start = null;
     public Action<bool> Mission1End = null;
+
     // Mission2
     public Action Mission2Start = null;
     public Action<bool> Mission2End = null;
-    
 
     // Single Mission Action To Student
     public Action SMStart = null;
     public Action<bool> SMStop = null;
+
+    public bool IsSingleMissionStart = false;
 
     // Student
     public bool bStudentCal = false;
@@ -35,7 +37,7 @@ public class MissionManager
 
     // Police
     public bool bPoliceCatch = false;
-    
+
     // Teacher
     public bool bTeacherErase = false;
 
@@ -67,8 +69,6 @@ public class MissionManager
     public SM_DefaultTrigger CurrentMissoinTrigger { get => _currnetMission.trigger; }
     public SingleMissionType CurrentMissionType { get => _currnetMission.type; }
 
-    public Action<PathMissionPos, PathMissionPos> Mission1Start = null;
-    public Action<bool> Mission1End = null;
     public Action<Pos> MoveTile = null;
     public Action<PlayerJob, Pos> PoliceMoveTile = null;
 
@@ -95,31 +95,33 @@ public class MissionManager
         if (Mission1End != null)
             Mission1End.Invoke(isSuccess);
     }
-    #endregion
-    
-    
+
     #region Mission2
 
     public void Mission2StartInvoke()
     {
-        if(Mission2Start!=null)
+        if (Mission2Start != null)
             Mission2Start.Invoke();
     }
 
     public void Mission2EndInvoke(bool isSuccess)
     {
-        if(Mission2End!=null)
+        if (Mission2End != null)
             Mission2End.Invoke(isSuccess);
     }
-    
-    
+
+
     #endregion
     public void SingleMissionStart(bool isMine = true)
     {
         if (isMine)
         {
-            if(SMStart != null)
+            if (SMStart != null)
+            {
+                IsSingleMissionStart = true;
                 SMStart();
+            }
+
             else
             {
                 // 실패 처리 해야됨.
@@ -135,5 +137,6 @@ public class MissionManager
     public void SingleMissionStop(SingleMissionType type, bool isSuccess)
     {
         SMStop(isSuccess);
+        IsSingleMissionStart = false;
     }
 }

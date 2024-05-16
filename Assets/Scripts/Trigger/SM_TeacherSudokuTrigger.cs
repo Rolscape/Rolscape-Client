@@ -6,7 +6,7 @@ public class SM_TeacherSudokuTrigger : SM_DefaultTrigger
 {
     protected override void Init()
     {
-        missionType = Define.SingleMissionType.TeacherSudoku;
+        missionType = Protocol.SingleMissionType.TeacherSudoku;
     }
 
     public override void OnShowUI()

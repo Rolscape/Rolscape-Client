@@ -1,10 +1,9 @@
-using Protocol;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UI_SMStudentCal : UI_SM
 {
@@ -55,6 +54,7 @@ public class UI_SMStudentCal : UI_SM
         BindUI();
         SetInputField();
         SetImage();
+        StartCoroutine(TimerCoroutine());
         Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
     }
 
@@ -108,7 +108,9 @@ public class UI_SMStudentCal : UI_SM
 
     void OnEndEdit(string text)
     {
-        Managers.UI.ClosePopupUI();
+        if (string.IsNullOrEmpty(text))
+            return;
+
         int answer = int.Parse(text);
         if(answer == solution)
             MissionSuccess();

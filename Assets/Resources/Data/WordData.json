@@ -1,6 +1,233 @@
 {
   "words": [
-    
-    
+    {
+      "id": "1",
+      "size": "6",
+      "word": "school"
+    },
+    {
+      "id": "2",
+      "size": "7",
+      "word": "college"
+    },
+    {
+      "id": "3",
+      "size": "7",
+      "word": "student"
+    },
+    {
+      "id": "4",
+      "size": "6",
+      "word": "friend"
+    },{
+      "id": "5",
+      "size": "8",
+      "word": "graduate"
+    },
+    {
+      "id": "6",
+      "size": "9",
+      "word": "classmate"
+    },
+    {
+      "id": "7",
+      "size": "9",
+      "word": "classroom"
+    },
+    {
+      "id": "8",
+      "size": "7",
+      "word": "teacher"
+    },{
+      "id": "9",
+      "size": "5",
+      "word": "elite"
+    },
+    {
+      "id": "10",
+      "size": "8",
+      "word": "vacation"
+    },
+    {
+      "id": "11",
+      "size": "6",
+      "word": "picnic"
+    },
+    {
+      "id": "12",
+      "size": "8",
+      "word": "semester"
+    },{
+      "id": "13",
+      "size": "9",
+      "word": "breaktime"
+    },
+    {
+      "id": "14",
+      "size": "7",
+      "word": "midterm"
+    },
+    {
+      "id": "15",
+      "size": "9",
+      "word": "finalexam"
+    },
+    {
+      "id": "16",
+      "size": "4",
+      "word": "quiz"
+    },{
+      "id": "17",
+      "size": "10",
+      "word": "assessment"
+    },
+    {
+      "id": "18",
+      "size": "4",
+      "word": "test"
+    },
+    {
+      "id": "19",
+      "size": "8",
+      "word": "backpack"
+    },
+    {
+      "id": "20",
+      "size": "8",
+      "word": "notebook"
+    },{
+      "id": "21",
+      "size": "6",
+      "word": "pencil"
+    },
+    {
+      "id": "22",
+      "size": "6",
+      "word": "eraser"
+    },
+    {
+      "id": "23",
+      "size": "8",
+      "word": "scissors"
+    },
+    {
+      "id": "24",
+      "size": "4",
+      "word": "glue"
+    },{
+      "id": "25",
+      "size": "5",
+      "word": "ruler"
+    },
+    {
+      "id": "26",
+      "size": "10",
+      "word": "calculator"
+    },
+    {
+      "id": "27",
+      "size": "6",
+      "word": "marker"
+    },
+    {
+      "id": "28",
+      "size": "11",
+      "word": "highlighter"
+    },{
+      "id": "29",
+      "size": "6",
+      "word": "crayon"
+    },
+    {
+      "id": "30",
+      "size": "4",
+      "word": "clay"
+    },
+    {
+      "id": "31",
+      "size": "9",
+      "word": "dormitory"
+    },
+    {
+      "id": "32",
+      "size": "7",
+      "word": "library"
+    },{
+      "id": "33",
+      "size": "7",
+      "word": "science"
+    },
+    {
+      "id": "34",
+      "size": "11",
+      "word": "mathematics"
+    },
+    {
+      "id": "35",
+      "size": "7",
+      "word": "grammar"
+    },
+    {
+      "id": "36",
+      "size": "6",
+      "word": "speech"
+    },{
+      "id": "37",
+      "size": "9",
+      "word": "economics"
+    },
+    {
+      "id": "38",
+      "size": "7",
+      "word": "history"
+    },
+    {
+      "id": "39",
+      "size": "7",
+      "word": "physics"
+    },
+    {
+      "id": "40",
+      "size": "9",
+      "word": "chemistry"
+    },{
+      "id": "41",
+      "size": "7",
+      "word": "biology"
+    },
+    {
+      "id": "42",
+      "size": "10",
+      "word": "statistics"
+    },
+    {
+      "id": "43",
+      "size": "7",
+      "word": "english"
+    },
+    {
+      "id": "44",
+      "size": "10",
+      "word": "technology"
+    },{
+      "id": "45",
+      "size": "7",
+      "word": "society"
+    },
+    {
+      "id": "46",
+      "size": "8",
+      "word": "textbook"
+    },
+    {
+      "id": "47",
+      "size": "7",
+      "word": "handout"
+    },
+    {
+      "id": "48",
+      "size": "10",
+      "word": "dictionary"
+    }
   ]
 }

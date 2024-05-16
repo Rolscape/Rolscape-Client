@@ -21,8 +21,6 @@ public class GameScene : BaseScene
 
     public void Start()
     {
-        Managers.UI.ShowSceneUI<UI_Button>();
-
         Managers.Player.MovePlayerToScene(gameObject.scene);
 
         Managers.Scene.UnloadScene(Define.Scene.Login);

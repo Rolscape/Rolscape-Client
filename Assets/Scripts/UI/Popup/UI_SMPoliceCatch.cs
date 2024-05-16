@@ -48,6 +48,7 @@ public class UI_SMPoliceCatch : UI_SM, IPointerDownHandler
 
         Managers.Sound.Play("MinigameFast", Define.Sound.Bgm);
         Managers.Sound.Play("Timer");
+        StartCoroutine(TimerCoroutine());
         StartCoroutine(HandsUp());
     }
 
