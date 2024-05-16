@@ -32,6 +32,7 @@ public class UI_SMStudentWord : UI_SM
     public override void Init()
     {
         base.Init();
+        Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
         BindUI();
         SetWord();
         SetTexts();
