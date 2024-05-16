@@ -16,12 +16,12 @@ public class GameScene : BaseScene
         GameObject go = Managers.Resource.Instantiate("Player");
         go.name = "Player";
         
-        GameObject player = Managers.Resource.Instantiate("StudentRoot");
-        go.GetOrAddComponent<Student>();
+        // GameObject player = Managers.Resource.Instantiate("StudentRoot");
+        // go.GetOrAddComponent<Student>();
         // GameObject player = Managers.Resource.Instantiate("PoliceRoot");
         // go.GetOrAddComponent<Police>();
-        // GameObject player = Managers.Resource.Instantiate("TeacherRoot");
-        // go.GetOrAddComponent<Student>();
+        GameObject player = Managers.Resource.Instantiate("TeacherRoot");
+        go.GetOrAddComponent<Teacher>();
         
         player.transform.SetParent(go.transform);
         

@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Enum = System.Enum;
 using Image = UnityEngine.UI.Image;
+using Random = UnityEngine.Random;
 
 public class UI_SMTeacherSudoku : UI_SM
 {
@@ -134,8 +135,7 @@ public class UI_SMTeacherSudoku : UI_SM
     void SetSudoku()
     {
         SetSudokuArray();
-        int idx = 0;
-        // int idx = Random.Range(0, 12);
+        int idx = Random.Range(0, 12);
         SetBackground(idx);
         sudoku = sudokuArray[idx];
         sudokuSol = new int[sudokuSolArray[idx].Length];
