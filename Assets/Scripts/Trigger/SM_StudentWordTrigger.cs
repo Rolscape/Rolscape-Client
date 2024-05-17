@@ -25,20 +25,23 @@ public class SM_StudentWordTrigger : SM_DefaultTrigger
         return true;
     }
 
-    protected override void TriggerExitEvent(Collider other)
+    protected override bool TriggerExitEvent(Collider other)
     {
-        base.TriggerExitEvent(other);
+        return Managers.Mission.bStudentWord;
     }
 
 
     protected override void MissionStart()
     {
         base.MissionStart();
+
         Managers.UI.ShowPopupUI<UI_SMStudentWord>();
     }
 
     protected override void MissionStop(bool isSuccess)
     {
+        base.MissionStop(isSuccess);
+
         Managers.Mission.bStudentWord = isSuccess;
     }
 }

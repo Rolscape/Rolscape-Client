@@ -148,6 +148,20 @@ public class UI_SMTeacherSudoku : UI_SM
         GetImage((int)Images.Background).sprite = sprite;
     }
 
+    protected override void MissionSuccess()
+    {
+        Managers.Mission.bTeacherSudoku = true;
+
+        base.MissionSuccess();
+    }
+
+    protected override void MissionFailed()
+    {
+        Managers.Mission.bTeacherSudoku = false;
+
+        base.MissionFailed();
+    }
+
     void SetSudokuArray()
     {
         sudokuArray[0] = new int[,] {

@@ -12,7 +12,6 @@ public class UI_SM : UI_Popup
         base.Init();
     }
     
-
     protected virtual IEnumerator TimerCoroutine()
     {
         while (true)
@@ -35,12 +34,15 @@ public class UI_SM : UI_Popup
     protected virtual void MissionSuccess()
     {
         // 미션 성공
+        Managers.Player.MyPlayerController.SendSingleMissionStop(true);
         Managers.Sound.Play("MissionClear");
         Clear();
     }
 
     protected virtual void MissionFailed()
     {
+        // 미션 실패
+        Managers.Player.MyPlayerController.SendSingleMissionStop(false);
         Managers.Sound.Play("MissionFailed");
         Clear();
     }
@@ -49,6 +51,6 @@ public class UI_SM : UI_Popup
     {
         Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
         StopAllCoroutines();
-        ClosePopupUI();
+        Managers.UI.ClosePopupUI();
     }
 }

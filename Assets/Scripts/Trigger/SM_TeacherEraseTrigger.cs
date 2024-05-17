@@ -18,9 +18,9 @@ public class SM_TeacherEraseTrigger : SM_DefaultTrigger
         return true;
     }
 
-    protected override void TriggerExitEvent(Collider other)
+    protected override bool TriggerExitEvent(Collider other)
     {
-        base.TriggerExitEvent(other);
+        return Managers.Mission.bTeacherErase;
     }
 
     public override void OnShowUI()
@@ -36,11 +36,15 @@ public class SM_TeacherEraseTrigger : SM_DefaultTrigger
         Texture2D texture2D = Managers.Resource.Load<Texture2D>("Arts/Mission/BlackboardErase/Eraser");
         Cursor.SetCursor(texture2D, Vector2.zero, CursorMode.Auto);
 
+        base.MissionStart();
+
         Managers.UI.ShowPopupUI<UI_SMTeacherErase>();
     }
 
     protected override void MissionStop(bool isSuccess)
     {
+        base.MissionStop(isSuccess);
+
         Managers.Mission.bTeacherErase = isSuccess;
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }

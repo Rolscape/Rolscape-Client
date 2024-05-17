@@ -20,7 +20,7 @@ public class SM_DefaultTrigger : MonoBehaviour
     }
 
     public void MissionLeave()
-    {        
+    {
         Managers.Mission.SMStart -= MissionStart;
         Managers.Mission.SMStop -= MissionStop;
 
@@ -39,10 +39,10 @@ public class SM_DefaultTrigger : MonoBehaviour
 
         if (!TriggerEnterEvent(other))
             return;
-        
-        if(!isJoin)
+
+        if (!isJoin)
             MissionJoin();
-        
+
         Managers.Mission.CurrentMissionTriggerObject = gameObject;
 
         C_SINGLE_MISSION_JOIN joinPkt = new C_SINGLE_MISSION_JOIN();
@@ -61,11 +61,11 @@ public class SM_DefaultTrigger : MonoBehaviour
             return;
         }
 
-        TriggerExitEvent(other);
+        bool isMissionSuccess = TriggerExitEvent(other);
 
         Managers.Mission.CurrentMissionTriggerObject = null;
 
-        if (Managers.Mission.bStudentCal)
+        if (isMissionSuccess)
         {
             Destroy(gameObject);
             return;
@@ -79,15 +79,24 @@ public class SM_DefaultTrigger : MonoBehaviour
             Managers.Network.Send(leavePkt, INGAME.SingleMissionLeave);
 
             MissionLeave();
-            if(!Managers.Mission.bStudentCal)
+            if (!isMissionSuccess)
                 isJoin = false;
         }
     }
 
     public virtual void OnShowUI() { }
     protected virtual bool TriggerEnterEvent(Collider other) { return true; }
-    protected virtual void TriggerExitEvent(Collider other) { }
-    protected virtual void MissionStart() { }
-    protected virtual void MissionStop(bool isSuccess) { }
+    protected virtual bool TriggerExitEvent(Collider other) { return true; }
+
+    protected virtual void MissionStart()
+    {
+        Managers.Input.IsMission = true;
+    }
+
+    protected virtual void MissionStop(bool isSuccess)
+    {
+        Managers.Input.IsMission = false;
+    }
+
     protected virtual void Init() { }
 }

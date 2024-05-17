@@ -103,8 +103,21 @@ public class UI_SMStudentWord : UI_SM
                 count++;
             }
         }
-        if(count == size)
+        if (count == size)
             MissionSuccess();
     }
-    
+
+    protected override void MissionSuccess()
+    {
+        Managers.Mission.bStudentWord = true;
+
+        base.MissionSuccess();
+    }
+
+    protected override void MissionFailed()
+    {
+        Managers.Mission.bStudentWord = false;
+
+        base.MissionFailed();
+    }
 }

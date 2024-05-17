@@ -118,7 +118,7 @@ public class UI_SMStudentCal : UI_SM
             MissionFailed();
     }
     
-    IEnumerator TimerCoroutine()
+    protected override IEnumerator TimerCoroutine()
     {
         while (true)
         {
@@ -133,26 +133,18 @@ public class UI_SMStudentCal : UI_SM
         }
     }
     
-    public void MissionSuccess()
+    protected override void MissionSuccess()
     {
         // 미션 성공
         Managers.Mission.bStudentCal = true;
-        Managers.Sound.Play("MissionClear");
-        Managers.Player.MyPlayerController.SendSingleMissionStop(true);
-        Clear();
+        
+        base.MissionSuccess();
     }
 
-    public void MissionFailed()
+    protected override void MissionFailed()
     {
-        Managers.Sound.Play("MissionFailed");
-        Managers.Player.MyPlayerController.SendSingleMissionStop(false);
-        Clear();
-    }
+        Managers.Mission.bStudentCal = false;
 
-    public void Clear()
-    {
-        Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
-        StopAllCoroutines();
-        Managers.UI.ClosePopupUI();
+        base.MissionFailed();
     }
 }

@@ -167,28 +167,20 @@ public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBegi
         startTime = Time.time;
     }
     
-    public void MissionSuccess()
+    protected override void MissionSuccess()
     {
         // 미션 성공
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         Managers.Mission.bTeacherErase = true;
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        Managers.Sound.Play("MissionClear");
-        Managers.Player.MyPlayerController.SendSingleMissionStop(true);
-        Clear();
+
+        base.MissionSuccess();
     }
 
-    public void MissionFailed()
+    protected override void MissionFailed()
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        Managers.Sound.Play("MissionFailed");
         Managers.Player.MyPlayerController.SendSingleMissionStop(false);
-        Clear();
-    }
 
-    public void Clear()
-    {
-        Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
-        StopAllCoroutines();
-        ClosePopupUI();
+        base.MissionFailed();
     }
 }

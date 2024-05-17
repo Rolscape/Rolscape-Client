@@ -40,7 +40,7 @@ public class MissionManager
 
     // Teacher
     public bool bTeacherErase = false;
-
+    public bool bTeacherSudoku = false;
 
     // 현재 미션
 

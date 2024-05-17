@@ -26,19 +26,23 @@ public class SM_StudentCalTrigger : SM_DefaultTrigger
         return true;
     }
 
-    protected override void TriggerExitEvent(Collider other)
+    protected override bool TriggerExitEvent(Collider other)
     {
-        base.TriggerExitEvent(other);
+        return Managers.Mission.bStudentCal;
     }
 
 
     protected override void MissionStart()
     {
+        base.MissionStart();
+
         Managers.UI.ShowPopupUI<UI_SMStudentCal>();
     }
 
     protected override void MissionStop(bool isSuccess)
     {
+        base.MissionStop(isSuccess);
+
         Managers.Mission.bStudentCal = isSuccess;
     }
 }

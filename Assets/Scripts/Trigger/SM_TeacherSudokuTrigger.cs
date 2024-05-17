@@ -9,13 +9,6 @@ public class SM_TeacherSudokuTrigger : SM_DefaultTrigger
         missionType = Protocol.SingleMissionType.TeacherSudoku;
     }
 
-    public override void OnShowUI()
-    {
-        //Util.GetOrAddComponent<SM_StudentCal>(gameObject);
-
-        Managers.UI.ShowPopupUI<UI_SMStart>();
-    }
-
     protected override bool TriggerEnterEvent(Collider other)
     {
         Teacher teacher = other.GetComponent<Teacher>();
@@ -25,19 +18,29 @@ public class SM_TeacherSudokuTrigger : SM_DefaultTrigger
         return true;
     }
 
-    protected override void TriggerExitEvent(Collider other)
+    protected override bool TriggerExitEvent(Collider other)
     {
-        base.TriggerExitEvent(other);
+        return Managers.Mission.bTeacherSudoku;
     }
 
+    public override void OnShowUI()
+    {
+        //Util.GetOrAddComponent<SM_StudentCal>(gameObject);
+
+        Managers.UI.ShowPopupUI<UI_SMStart>();
+    }
 
     protected override void MissionStart()
     {
+        base.MissionStart();
+
         Managers.UI.ShowPopupUI<UI_SMTeacherSudoku>();
     }
 
     protected override void MissionStop(bool isSuccess)
     {
+        base.MissionStop(isSuccess);
+
         Managers.Mission.bStudentCal = isSuccess;
     }
 }

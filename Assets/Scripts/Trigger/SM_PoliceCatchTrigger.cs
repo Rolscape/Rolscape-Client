@@ -27,19 +27,23 @@ public class SM_PoliceCatchTrigger : SM_DefaultTrigger
         return true;
     }
 
-    protected override void TriggerExitEvent(Collider other)
+    protected override bool TriggerExitEvent(Collider other)
     {
-        base.TriggerExitEvent(other);
+        return Managers.Mission.bPoliceCatch;
     }
 
 
     protected override void MissionStart()
     {
+        base.MissionStart();
+
         Managers.UI.ShowPopupUI<UI_SMPoliceCatch>();
     }
 
     protected override void MissionStop(bool isSuccess)
     {
+        base.MissionStop(isSuccess);
+
         Managers.Mission.bPoliceCatch = isSuccess;
     }
 }
