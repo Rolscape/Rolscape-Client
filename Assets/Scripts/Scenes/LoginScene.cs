@@ -12,7 +12,7 @@ public class LoginScene : BaseScene
 
         SceneType = Define.Scene.Login;
         Managers.UI.ShowSceneUI<UI_Login>();
-        Managers.Sound.Play("LoadingBgm", Define.Sound.Bgm);
+        Managers.Sound.Play("LobbyBgm", Define.Sound.Bgm);
     }
 
     private void Update()

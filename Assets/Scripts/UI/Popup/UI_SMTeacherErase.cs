@@ -124,6 +124,8 @@ public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBegi
     
     public void OnDrag(PointerEventData eventData)
     {
+        int idx = Random.Range(0, 6);
+        Managers.Sound.Play($"SM_TeacherEraser{idx}", Define.Sound.Effect);
         if (eventData.pointerEnter == GetImage((int)Images.Doodle).gameObject)
         {
             // 드래그가 종료된 시간 기록

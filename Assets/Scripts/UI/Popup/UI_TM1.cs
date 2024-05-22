@@ -26,6 +26,7 @@ public class UI_TM1 : UI_Popup
         BindUI();
         SetUI();
         StartCoroutine(TimerCoroutine());
+        Managers.Sound.Play("TM_Slow", Define.Sound.Bgm);
     }
     private void Start()
     {
@@ -83,7 +84,10 @@ public class UI_TM1 : UI_Popup
 
     protected virtual void SetUI() { }
 
-    public virtual void MoveTile(Vector2Int nextPos) { }
+    public virtual void MoveTile(Vector2Int nextPos)
+    {
+        Managers.Sound.Play("TM_PuzzleOnSuccess");
+    }
 
     public virtual void PoliceMoveTile(Define.PlayerJob job, Vector2Int nextPos) { }
 

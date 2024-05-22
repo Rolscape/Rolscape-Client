@@ -47,7 +47,6 @@ public class UI_SMPoliceCatch : UI_SM, IPointerDownHandler
         BindUI();
 
         Managers.Sound.Play("MinigameFast", Define.Sound.Bgm);
-        Managers.Sound.Play("Timer");
         StartCoroutine(TimerCoroutine());
         StartCoroutine(HandsUp());
     }
@@ -119,13 +118,14 @@ public class UI_SMPoliceCatch : UI_SM, IPointerDownHandler
             MissionFailed(); // 미션 실패
             return;
         }
+        Managers.Sound.Play("HpMinus", Define.Sound.Effect);
         hearts[hp--].sprite = emptyHeart;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        // TODO obejct check
-        Managers.Sound.Play("Click");
+        int idx = Random.Range(0, 4);
+        Managers.Sound.Play($"SM_PoliceCatch{idx}");
         GameObject gameObject = eventData.pointerCurrentRaycast.gameObject;
         Image image = gameObject.GetComponent<Image>();
 
