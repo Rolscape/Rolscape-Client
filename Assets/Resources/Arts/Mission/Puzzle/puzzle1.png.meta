@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8ffc90c6e573d894888bb7b59ac76470
+guid: 387113144a054ca4db17c571e709cc3f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pencilcase_0
+      name: puzzle1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b678f5c57773764788e84ca5c3dc7d9
-      internalID: -1050900890
+      spriteID: 8cb5875beeaafff41beee3931e19e9c9
+      internalID: -1588772398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_1
+      name: puzzle1_1
       rect:
         serializedVersion: 2
         x: 354
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c22bfdb50077d84aa61c176a3f6a3b2
-      internalID: -1364525946
+      spriteID: c7f43c8e4d14fd04faa8e7a79b1006f2
+      internalID: 562358034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_2
+      name: puzzle1_2
       rect:
         serializedVersion: 2
         x: 708
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f77a03687c051b47b8789cee62ac448
-      internalID: -488976114
+      spriteID: d60ab05bad2651645a23d9d0ef860ec8
+      internalID: 1071595156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_3
+      name: puzzle1_3
       rect:
         serializedVersion: 2
-        x: 1063
-        y: 1063
-        width: 354
-        height: 354
+        x: 1062
+        y: 1062.75
+        width: 354.25
+        height: 354.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c453e812944caa24494f3913f1612667
-      internalID: -1442035362
+      spriteID: 6e87648e388e9fe4a8566f6a8a7f9ce2
+      internalID: 463197263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_4
+      name: puzzle1_4
       rect:
         serializedVersion: 2
         x: 0
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe6b96580b77d24891e5ee99a1da45c
-      internalID: 1449949259
+      spriteID: 720245b68146c90418658604ed0119af
+      internalID: 1589908624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_5
+      name: puzzle1_5
       rect:
         serializedVersion: 2
         x: 354
@@ -216,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e97a24008712b9d4294a4a3865b6936d
-      internalID: 416384306
+      spriteID: 1061afddf44e56043a07fbbda1ddda5e
+      internalID: -954513473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_6
+      name: puzzle1_6
       rect:
         serializedVersion: 2
-        x: 711
-        y: 709
-        width: 354
-        height: 354
+        x: 708
+        y: 708.75
+        width: 354.25
+        height: 354.25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa8e1d439b8b5194bb2130fb38680c1e
-      internalID: 726026134
+      spriteID: 67d97ba171880a648880c2093c621728
+      internalID: -212405126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_7
+      name: puzzle1_7
       rect:
         serializedVersion: 2
         x: 1062
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4495e20e140d2040ab40323973b3e6c
-      internalID: 1202899936
+      spriteID: 8df3b7de3818b4a44921ced4fdf495b4
+      internalID: -1767034512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_8
+      name: puzzle1_8
       rect:
         serializedVersion: 2
         x: 0
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f82ca83abb16c34abad1df913d4e109
-      internalID: -922071757
+      spriteID: cd0f806b7aae8794d8d8a3e9580a6806
+      internalID: -1341837665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_9
+      name: puzzle1_9
       rect:
         serializedVersion: 2
         x: 354
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b1cbf37b84e439439651053576c24cf
-      internalID: -65722362
+      spriteID: 7495c1e3988a4ef4ba16954c804fc086
+      internalID: 874217285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_10
+      name: puzzle1_10
       rect:
         serializedVersion: 2
         x: 708
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3246ad4d5bbbe0448268b5a4628a36c
-      internalID: -964633842
+      spriteID: c9665536b745c4042ba91c8467a0a01a
+      internalID: 1496825395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_11
+      name: puzzle1_11
       rect:
         serializedVersion: 2
         x: 1062
@@ -342,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ada5198674572c94286f17e84c09a996
-      internalID: -1026781581
+      spriteID: 7da16f986b5dfbe49bae89c4bbf8ba6a
+      internalID: 229688763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_12
+      name: puzzle1_12
       rect:
         serializedVersion: 2
         x: 0
@@ -363,14 +363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c73f05ae7fa73e46b2d10f5c1e4a5b1
-      internalID: 1038027185
+      spriteID: 6828c91930a9cb549bcf19437a1d3fb6
+      internalID: -209545801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_13
+      name: puzzle1_13
       rect:
         serializedVersion: 2
         x: 354
@@ -384,14 +384,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb4b9c569b508f34cb0e673b2a1a1efd
-      internalID: 1574660033
+      spriteID: 80b0fc9b6318c454eaeebd1dac5fd426
+      internalID: 321568642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_14
+      name: puzzle1_14
       rect:
         serializedVersion: 2
         x: 708
@@ -405,14 +405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ce9d4f0667bbc840adb73ecd1ede376
-      internalID: -1806035167
+      spriteID: d6b28fc774f8b964c96cfda706e32d95
+      internalID: -1296680190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pencilcase_15
+      name: puzzle1_15
       rect:
         serializedVersion: 2
         x: 1062
@@ -426,8 +426,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9873ad573db1524c9f0d37cd74bbf32
-      internalID: 121212432
+      spriteID: 413d70a77a534c04ba022220bc3f4ae1
+      internalID: 1157340599
       vertices: []
       indices: 
       edges: []
@@ -443,22 +443,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pencilcase_0: -1050900890
-      pencilcase_1: -1364525946
-      pencilcase_10: -964633842
-      pencilcase_11: -1026781581
-      pencilcase_12: 1038027185
-      pencilcase_13: 1574660033
-      pencilcase_14: -1806035167
-      pencilcase_15: 121212432
-      pencilcase_2: -488976114
-      pencilcase_3: -1442035362
-      pencilcase_4: 1449949259
-      pencilcase_5: 416384306
-      pencilcase_6: 726026134
-      pencilcase_7: 1202899936
-      pencilcase_8: -922071757
-      pencilcase_9: -65722362
+      puzzle1_0: -1588772398
+      puzzle1_1: 562358034
+      puzzle1_10: 1496825395
+      puzzle1_11: 229688763
+      puzzle1_12: -209545801
+      puzzle1_13: 321568642
+      puzzle1_14: -1296680190
+      puzzle1_15: 1157340599
+      puzzle1_2: 1071595156
+      puzzle1_3: 463197263
+      puzzle1_4: 1589908624
+      puzzle1_5: -954513473
+      puzzle1_6: -212405126
+      puzzle1_7: -1767034512
+      puzzle1_8: -1341837665
+      puzzle1_9: 874217285
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

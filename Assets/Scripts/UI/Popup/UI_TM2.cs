@@ -1,22 +1,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UI_TM2 : UI_Popup
 {
     public Action<int> putPuzzleAction = null;
     enum Images
     {
-        Background,
-        Puzzle,
+        PuzzleResult,
+    }
+
+    enum Texts
+    {
+        Timer,
     }
     
     public override void Init()
     {
         base.Init();
+        BIndUI();
     }
 
     private void Start()
@@ -24,9 +31,18 @@ public class UI_TM2 : UI_Popup
         Init();
     }
 
+    private Image[] puzzle = new Image[16];
+
     void BIndUI()
     {
         Bind<Image>(typeof(Images));
+        Bind<TextMeshProUGUI>(typeof(Texts));
+    }
+
+    void LoadPuzzle()
+    {
+        int idx = Random.Range(0, 2);
+        Sprite[] sprites = Resources.LoadAll<Sprite>($"Arts/Mission/Puzzle/puzzle{idx}");
         
     }
 

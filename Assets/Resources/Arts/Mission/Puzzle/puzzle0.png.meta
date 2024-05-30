@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 387113144a054ca4db17c571e709cc3f
+guid: 8ffc90c6e573d894888bb7b59ac76470
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shcool_0
+      name: puzzle0_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e37d541ce23f8704c8f23292c2f1449c
-      internalID: -1346162760
+      spriteID: 72d6bf2733e9c9443aab4e93a2be1c51
+      internalID: -1165828571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_1
+      name: puzzle0_1
       rect:
         serializedVersion: 2
         x: 354
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3cb06e6220c1a043a2c558eb45786aa
-      internalID: 1654314649
+      spriteID: 7c6cc32bf9447c64092b9309d9ea82d6
+      internalID: 834011849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_2
+      name: puzzle0_2
       rect:
         serializedVersion: 2
         x: 708
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61d7ab68fc0af404680e98835932b9ba
-      internalID: -887606070
+      spriteID: 17ee11f7d1e0d0f44b4cc6a558debd46
+      internalID: -897712511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_3
+      name: puzzle0_3
       rect:
         serializedVersion: 2
         x: 1062
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c848b34d1522a7e4599aba4c3b33ed75
-      internalID: -1556091265
+      spriteID: fa2ca5b85ba4f3e4691744d52d226a4c
+      internalID: 523097210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_4
+      name: puzzle0_4
       rect:
         serializedVersion: 2
         x: 0
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7adfceb6b164604a9a75862d1d3d1d0
-      internalID: -1150925153
+      spriteID: 6287058b40e889d4a99c02342736a0c9
+      internalID: 1522429546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_5
+      name: puzzle0_5
       rect:
         serializedVersion: 2
         x: 354
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64823345b12c74e45b3dea6ae115ba48
-      internalID: 1040592202
+      spriteID: 5d698d852f9d12844bf860a51bd05be1
+      internalID: -980632090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_6
+      name: puzzle0_6
       rect:
         serializedVersion: 2
         x: 708
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25a4ffe9e8179cd4ca19053e1da0b6f6
-      internalID: 228194633
+      spriteID: 4852c5dc2b35ca24395ec1a815b6d058
+      internalID: -1055837208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_7
+      name: puzzle0_7
       rect:
         serializedVersion: 2
         x: 1062
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65c32a5ba7c53d746a5649fd13bace58
-      internalID: 213195515
+      spriteID: ed2bc80a97be51446844819da34bd1e9
+      internalID: 1926170635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_8
+      name: puzzle0_8
       rect:
         serializedVersion: 2
         x: 0
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3e9cba5d6cd41c44a53cdf00f9e2633
-      internalID: 1241756042
+      spriteID: dd3c090490b23f94abc29dc0ef131c9d
+      internalID: -986235588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_9
+      name: puzzle0_9
       rect:
         serializedVersion: 2
         x: 354
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 127c3842b7295ae46814b80ac4d7b98f
-      internalID: 1913619380
+      spriteID: 371dad04372a1d3418e3d6d9001351e4
+      internalID: 1485691089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_10
+      name: puzzle0_10
       rect:
         serializedVersion: 2
         x: 708
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a15460378337ce14b81a19f85507ffe9
-      internalID: -38214656
+      spriteID: 893ebae1216808d4dbef852a033d79ce
+      internalID: 890507811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_11
+      name: puzzle0_11
       rect:
         serializedVersion: 2
         x: 1062
@@ -342,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34767d41490dcd14c851523fa1326c59
-      internalID: 1640205189
+      spriteID: fd7e5762113f4ed4bb70823b5c130158
+      internalID: -568342616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_12
+      name: puzzle0_12
       rect:
         serializedVersion: 2
         x: 0
@@ -363,14 +363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b91de763610a2284a8c37eb938b70d61
-      internalID: -1406235216
+      spriteID: dfaad3150c9a83c449f23b171328ce2d
+      internalID: -825671380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_13
+      name: puzzle0_13
       rect:
         serializedVersion: 2
         x: 354
@@ -384,14 +384,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c42b1322b1afeb4aa9bf51969eae243
-      internalID: 1324327054
+      spriteID: c1f7fa19d839df9429993c117a169699
+      internalID: 828494164
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_14
+      name: puzzle0_14
       rect:
         serializedVersion: 2
         x: 708
@@ -405,14 +405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 558f325ca02156446bfa71ae8a4a85d9
-      internalID: -1733173699
+      spriteID: 203588c31b91f674187fafebe2dd9217
+      internalID: 2094945784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shcool_15
+      name: puzzle0_15
       rect:
         serializedVersion: 2
         x: 1062
@@ -426,8 +426,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d13f499345c5d994ea0df637ccbdc2c0
-      internalID: 1519579895
+      spriteID: 3fc818267634a944badfece02d33b4b8
+      internalID: 1986947277
       vertices: []
       indices: 
       edges: []
@@ -443,22 +443,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      shcool_0: -1346162760
-      shcool_1: 1654314649
-      shcool_10: -38214656
-      shcool_11: 1640205189
-      shcool_12: -1406235216
-      shcool_13: 1324327054
-      shcool_14: -1733173699
-      shcool_15: 1519579895
-      shcool_2: -887606070
-      shcool_3: -1556091265
-      shcool_4: -1150925153
-      shcool_5: 1040592202
-      shcool_6: 228194633
-      shcool_7: 213195515
-      shcool_8: 1241756042
-      shcool_9: 1913619380
+      puzzle0_0: -1165828571
+      puzzle0_1: 834011849
+      puzzle0_10: 890507811
+      puzzle0_11: -568342616
+      puzzle0_12: -825671380
+      puzzle0_13: 828494164
+      puzzle0_14: 2094945784
+      puzzle0_15: 1986947277
+      puzzle0_2: -897712511
+      puzzle0_3: 523097210
+      puzzle0_4: 1522429546
+      puzzle0_5: -980632090
+      puzzle0_6: -1055837208
+      puzzle0_7: 1926170635
+      puzzle0_8: -986235588
+      puzzle0_9: 1485691089
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
