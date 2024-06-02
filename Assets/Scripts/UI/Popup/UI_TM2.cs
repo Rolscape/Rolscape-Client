@@ -12,6 +12,26 @@ public class UI_TM2 : UI_Popup
     public Action<int> putPuzzleAction = null;
     enum Images
     {
+        Puzzle0,
+        Puzzle1,
+        Puzzle2,
+        Puzzle3,
+        Puzzle4,
+        Puzzle5,
+        Puzzle6,
+        Puzzle7,
+        Puzzle8,
+        Puzzle9,
+        Puzzle10,
+        Puzzle11,
+        Puzzle12,
+        Puzzle13,
+        Puzzle14,
+        Puzzle15,
+    }
+
+    enum ResultImage
+    {
         PuzzleResult,
     }
 
@@ -24,6 +44,7 @@ public class UI_TM2 : UI_Popup
     {
         base.Init();
         BIndUI();
+        LoadPuzzle();
     }
 
     private void Start()
@@ -31,11 +52,12 @@ public class UI_TM2 : UI_Popup
         Init();
     }
 
-    private Image[] puzzle = new Image[16];
+    private Image[] puzzles = new Image[16];
 
     void BIndUI()
     {
         Bind<Image>(typeof(Images));
+        //Bind<Image>(typeof(ResultImage));
         Bind<TextMeshProUGUI>(typeof(Texts));
     }
 
@@ -43,7 +65,13 @@ public class UI_TM2 : UI_Popup
     {
         int idx = Random.Range(0, 2);
         Sprite[] sprites = Resources.LoadAll<Sprite>($"Arts/Mission/Puzzle/puzzle{idx}");
-        
+
+        foreach (int index in Enum.GetValues(typeof(Images)))
+        {
+            puzzles[idx] = Get<Image>(index);
+            puzzles[idx].sprite = sprites[index];
+        }
+            
     }
 
     public void putPuzzle(int idx)

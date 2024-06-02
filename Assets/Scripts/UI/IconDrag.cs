@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,17 @@ public class IconDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     // 슬롯이 아닌 다른 오브젝트에 Icon을 드랍할 경우 원복할 부모 백업용 
     [HideInInspector] public Transform startParent;
+
+    private void Start()
+    {
+        GameObject panel =  GameObject.Find("TM2_MainPanel");
+        if (panel != null)
+        {
+            onDragParent = panel.GetComponent<RectTransform>();
+            if(onDragParent==null)
+                Debug.Log("Drag Parent is null");
+        }
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -52,7 +64,7 @@ public class IconDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         if (transform.parent == onDragParent)
         {
             transform.position = startPosition;
-            transform.parent = startParent;
+            transform.SetParent(startParent);
         }
     }
 }
