@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Diagnostics;
@@ -9,7 +10,11 @@ using Random = UnityEngine.Random;
 
 public class UI_TM1Police : UI_TM1
 {
-    protected new enum Images
+    enum Texts
+    {
+        Timer,
+    }
+    enum Images
     {
         TeacherDest,
         StudentDest,
@@ -30,13 +35,16 @@ public class UI_TM1Police : UI_TM1
 
     public override void Init()
     {
-        BindUI();
-        SetUI();
+        base.Init();
+        
     }
 
     protected override void BindUI()
     {
         Bind<Image>(typeof(Images));
+        Bind<TextMeshProUGUI>(typeof(Texts));
+        timerText = GetText((int)Texts.Timer);
+        timerText.text = countTimer.ToString("D2");
     }
 
     private void Start()

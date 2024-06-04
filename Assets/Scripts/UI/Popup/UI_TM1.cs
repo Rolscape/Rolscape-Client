@@ -4,10 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_TM1 : UI_Popup
+public class UI_TM1 : UI_TM
 {
-    protected int countTimer;
-    protected TextMeshProUGUI timerText;
+    enum Texts
+    {
+        Timer,
+    }
+    
     protected enum Images
     {
         BackGround,
@@ -24,7 +27,6 @@ public class UI_TM1 : UI_Popup
         base.Init();
         //_curPos = new Vector2Int(-405, -165);
         BindUI();
-        SetUI();
         StartCoroutine(TimerCoroutine());
         Managers.Sound.Play("TM_Slow", Define.Sound.Bgm);
     }
@@ -38,52 +40,15 @@ public class UI_TM1 : UI_Popup
         _player.rectTransform.anchoredPosition = pos;
     }
 
-    protected virtual void BindUI()
+    protected override void BindUI()
     {
+        Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<Image>(typeof(Images));
+        timerText = GetText((int)Texts.Timer);
+        timerText.text = countTimer.ToString("D2");
         _player = GetImage((int)Images.Player);
     }
     
-    protected virtual IEnumerator TimerCoroutine()
-    {
-        while (true)
-        {
-            if(countTimer <= 0)
-                MissionFailed();     // 미션 실패
-        
-            SetTimer();
-            yield return new WaitForSeconds(1f);            
-        }
-    }
-    
-    protected void SetTimer()
-    {
-        countTimer -= 1;
-        timerText.text = (countTimer / 3600).ToString("D2") + ":" + (countTimer / 60 % 60).ToString("D2") + ":" +
-                         (countTimer % 60).ToString("D2");
-    }
-    protected virtual void MissionSuccess()
-    {
-        // 미션 성공
-        Managers.Sound.Play("MissionClear");
-        Clear();
-    }
-
-    protected virtual void MissionFailed()
-    {
-        Managers.Sound.Play("MissionFailed");
-        Clear();
-    }
-
-    protected virtual void Clear()
-    {
-        Managers.Sound.Play("MainBgm", Define.Sound.Bgm);
-        StopAllCoroutines();
-        ClosePopupUI();
-    }
-
-    protected virtual void SetUI() { }
-
     public virtual void MoveTile(Vector2Int nextPos)
     {
         Managers.Sound.Play("TM_PuzzleOnSuccess");

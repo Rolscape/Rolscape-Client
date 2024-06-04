@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class UI_TM2 : UI_Popup
+public class UI_TM2 : UI_TM
 {
     public Action<int> putPuzzleAction = null;
     enum Images
@@ -41,6 +41,7 @@ public class UI_TM2 : UI_Popup
         base.Init();
         BIndUI();
         LoadPuzzle();
+        StartCoroutine(TimerCoroutine());
     }
 
     private void Start()
@@ -54,6 +55,8 @@ public class UI_TM2 : UI_Popup
     {
         Bind<Image>(typeof(Images));
         Bind<TextMeshProUGUI>(typeof(Texts));
+        timerText = GetText((int)Texts.Timer);
+        timerText.text = countTimer.ToString("D2");
     }
 
     void LoadPuzzle()
