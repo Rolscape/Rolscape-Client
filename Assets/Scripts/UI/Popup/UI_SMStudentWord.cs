@@ -85,7 +85,10 @@ public class UI_SMStudentWord : UI_SM
             texts[i].alignment = TextAlignmentOptions.CenterGeoAligned;
             texts[i].fontStyle = FontStyles.Underline;
             texts[i].color = Color.black;
+            texts[i].fontSize = 42;
         }
+
+        texts[0].text = word[0].ToString();
     }
     
     void OnEndEdit(string text)
