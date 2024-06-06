@@ -41,7 +41,7 @@ public class IconDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         // drag 이벤트를 정상적으로 감지하기 위해 icon rectTransform을 무시
         GetComponent<CanvasGroup>().blocksRaycasts = false;
         
-        // 드래그를 시작할 때 부모 transfomr을 변경
+        // 드래그를 시작할 때 부모 transform을 변경
         transform.SetParent(onDragParent);
 
     }

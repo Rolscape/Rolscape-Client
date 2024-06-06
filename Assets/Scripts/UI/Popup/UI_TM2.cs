@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class UI_TM2 : UI_TM
 {
-    public Action<int> putPuzzleAction = null;
+    private int count = 0;
     enum Images
     {
         Puzzle0,
@@ -39,6 +39,7 @@ public class UI_TM2 : UI_TM
     public override void Init()
     {
         base.Init();
+        Managers.Mission.putPuzzleAction += CheckPuzzle;
         BIndUI();
         LoadPuzzle();
         StartCoroutine(TimerCoroutine());
@@ -75,17 +76,18 @@ public class UI_TM2 : UI_TM
         GetImage((int)Images.PuzzleResult).sprite = puzzle;
 
     }
-
-    public void putPuzzle(int idx)
+    
+    protected override void Clear()
     {
-
-        
+        base.Clear();
+        Managers.Mission.putPuzzleAction = null;
     }
 
-    public void Clear()
+    void CheckPuzzle()
     {
-        putPuzzleAction = null;
+        count++;
+        if(count == 16)
+            MissionSuccess();
     }
-
     
 }

@@ -22,7 +22,7 @@ public class MissionManager
     // Mission2
     public Action Mission2Start = null;
     public Action<bool> Mission2End = null;
-    
+    public Action putPuzzleAction = null; 
 
     // Single Mission Action To Student
     public Action SMStart = null;
