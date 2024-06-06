@@ -698,7 +698,6 @@ GameObject:
   - component: {fileID: 1394160454523185280}
   - component: {fileID: 6161494983603062409}
   - component: {fileID: 4390300141451579842}
-  - component: {fileID: 139158649756327415}
   m_Layer: 5
   m_Name: UI_TM2
   m_TagString: Untagged
@@ -791,18 +790,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &139158649756327415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1563286383945229942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65363620456363847a02433ad1cf7f6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1646675891708690953
 GameObject:
   m_ObjectHideFlags: 0

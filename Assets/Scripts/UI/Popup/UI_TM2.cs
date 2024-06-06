@@ -65,7 +65,8 @@ public class UI_TM2 : UI_TM
         int idx = Random.Range(0, 2);
         Sprite[] sprites = Resources.LoadAll<Sprite>($"Arts/Mission/Puzzle/puzzle{idx}");
         Sprite puzzle = Managers.Resource.Load<Sprite>($"Arts/Mission/Puzzle/puzzleResult{idx}");
-
+        GetImage((int)Images.PuzzleResult).sprite = puzzle;
+        
         foreach (int index in Enum.GetValues(typeof(Images)))
         {
             if(index == (int)Images.PuzzleResult)
@@ -73,7 +74,6 @@ public class UI_TM2 : UI_TM
             puzzles[idx] = Get<Image>(index);
             puzzles[idx].sprite = sprites[index];
         }
-        GetImage((int)Images.PuzzleResult).sprite = puzzle;
 
     }
     
