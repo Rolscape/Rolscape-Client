@@ -118,7 +118,7 @@ public class UI_SMTeacherSudoku : UI_SM
     void UpdateInputField(string msg, int idx)
     {
         Managers.Sound.Play("SM_TeacherSudoku", Define.Sound.Effect);
-        if (string.IsNullOrEmpty(msg))
+        if (string.IsNullOrEmpty(msg) || msg.Equals("?"))
             return;
         
         answer[idx] = Convert.ToInt32(msg);
