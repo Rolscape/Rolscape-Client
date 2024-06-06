@@ -31,7 +31,7 @@ public class IconDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // 드래그가 시작될 때 대상 icon의 gameObject를 static 변수에 할당
+        // 드래그가 시작될 때 대상 icon의 gameObject를 static 변수에 할당   
         beginDraggedIcon = gameObject;
         
         // 백업용 포지션과 부모 트랜스폼을 백업

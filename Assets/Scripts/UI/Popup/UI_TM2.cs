@@ -39,7 +39,7 @@ public class UI_TM2 : UI_TM
     public override void Init()
     {
         base.Init();
-        Managers.Mission.putPuzzleAction += CheckPuzzle;
+        Managers.Mission.CountPuzzle += CountPuzzle;
         BIndUI();
         LoadPuzzle();
         StartCoroutine(TimerCoroutine());
@@ -80,10 +80,10 @@ public class UI_TM2 : UI_TM
     protected override void Clear()
     {
         base.Clear();
-        Managers.Mission.putPuzzleAction = null;
+        Managers.Mission.CountPuzzle = null;
     }
 
-    void CheckPuzzle()
+    void CountPuzzle()
     {
         count++;
         if(count == 16)

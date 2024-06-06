@@ -23,19 +23,32 @@ public class Slot : MonoBehaviour, IDropHandler
         // 슬롯이 비어있다면 Icon을 자식으로 추가 위치변경
         if (Icon() == null && flag)
         {
-            // 퍼즐 위치 확인 
-            string puzzleName = IconDrag.beginDraggedIcon.gameObject.name;
-            puzzleName = puzzleName.Substring(puzzleName.LastIndexOf('e')+1);
-            string slotName = gameObject.name;
-            slotName = slotName.Substring(slotName.LastIndexOf('t') + 1);
-            
-            if (puzzleName.Equals(slotName))
-            {                
-                Managers.Mission.putPuzzleAction.Invoke();
-                IconDrag.beginDraggedIcon.transform.SetParent(transform);
-                IconDrag.beginDraggedIcon.transform.position = transform.position;
-                flag = false;
+            if (checkPuzzle())
+            {               
+                // 알맞은 퍼즐 위치 찾음
+                // TODO Server Code
+                putPuzzle();
             }
         }
+    }
+
+    // 알맞은 퍼즐 위치인지 확인
+    public bool checkPuzzle()
+    {
+        string puzzleName = IconDrag.beginDraggedIcon.gameObject.name;
+        puzzleName = puzzleName.Substring(puzzleName.LastIndexOf('e')+1);
+        string slotName = gameObject.name;
+        slotName = slotName.Substring(slotName.LastIndexOf('t') + 1);
+
+        return puzzleName.Equals(slotName);
+    }
+
+    // 퍼즐을 퍼즐 위치에 놓는 함수
+    public void putPuzzle()
+    {
+        Managers.Mission.CountPuzzle.Invoke();
+        IconDrag.beginDraggedIcon.transform.SetParent(transform);
+        IconDrag.beginDraggedIcon.transform.position = transform.position;
+        flag = false;
     }
 }
