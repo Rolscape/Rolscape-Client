@@ -6,11 +6,7 @@ public class TM2Trigger : MonoBehaviour
 {
     public void Init()
     {
-        Managers.Mission.Mission2Start -= Mission2Start;
-        Managers.Mission.Mission2Start += Mission2Start;
-
-        Managers.Mission.Mission2End -= Mission2End;
-        Managers.Mission.Mission2End += Mission2End;
+      
         
     }
     
@@ -27,38 +23,32 @@ public class TM2Trigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // TODO OnTrigger
+        //Managers.Mission.Mission1Start();
+
+        // MyPlayerController controller = other.gameObject.GetComponent<MyPlayerController>();
+        // if (controller != null)
+        // {
+        //     C_PATH_MISSION_JOIN pkt = new C_PATH_MISSION_JOIN();
+        //     pkt.IsJoin = true;
+        //     pkt.PlayerInfo = controller.Info;
+        //     Managers.Network.Send(pkt, INGAME.PathMissionJoin);
+        // }
         
     }
 
     private void OnTriggerExit(Collider other)
     {
         // TODO ExitTrigger
-        
+        // MyPlayerController controller = other.gameObject.GetComponent<MyPlayerController>();
+        // if (controller != null)
+        // {
+        //     C_PATH_MISSION_JOIN pkt = new C_PATH_MISSION_JOIN();
+        //     pkt.IsJoin = false;
+        //     pkt.PlayerInfo = controller.Info;
+        //     Managers.Network.Send(pkt, INGAME.PathMissionJoin);
+        // }        
     }
     
-    protected virtual void Mission2Start()
-    {
-        // TODO 1번만 실행되게 
-        Debug.Log("mission start");
-
-        // TODO Player 움직임 봉쇄
-        Managers.Input.bIsMission = true;
-    }
-
-    protected virtual void Mission2End(bool isSuccess)
-    {
-        Managers.UI.ClosePopupUI();
-        Managers.Input.bIsMission = false;
-        var ui = Managers.UI.ShowPopupUI<UI_MissionResult>();
-        ui.PrintMissionResult(isSuccess);
-
-        // 성공 실패 보여주기
-    }
-
-    public void Clear()
-    {
-        // TODO Player 움직임 복원
-        Managers.Input.bIsMission = false;
-    }
+    
     
 }

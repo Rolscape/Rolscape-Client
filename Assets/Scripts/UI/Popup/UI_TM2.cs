@@ -82,16 +82,6 @@ public class UI_TM2 : UI_TM
         
     }
 
-    public void OnDragEnded(PointerEventData data)
-    {
-        // TODO Image 판단
-        
-        int idx = 0;
-        
-        
-        // TODO Send ID to Sever   
-    }
-
     public void Clear()
     {
         putPuzzleAction = null;
