@@ -8,7 +8,7 @@ public class UI_MissionResult : UI_Popup
 {
     enum Texts
     {
-        PointText,
+        PointText
     }
     public override void Init()
     {

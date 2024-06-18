@@ -28,12 +28,12 @@ public class UI_TM2 : UI_TM
         Puzzle13,
         Puzzle14,
         Puzzle15,
-        PuzzleResult,
+        PuzzleResult
     }
 
     enum Texts
     {
-        Timer,
+        Timer
     }
     
     public override void Init()

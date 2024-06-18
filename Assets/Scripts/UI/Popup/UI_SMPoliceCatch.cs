@@ -38,7 +38,7 @@ public class UI_SMPoliceCatch : UI_SM, IPointerDownHandler
         Shadow4,
         Shadow5,
         Shadow6,
-        Shadow7,
+        Shadow7
     }
     
     public override void Init()

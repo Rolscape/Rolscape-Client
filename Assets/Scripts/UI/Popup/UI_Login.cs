@@ -11,7 +11,7 @@ public class UI_Login : UI_Scene
 {
     enum Buttons
     {
-        NicknameButton,
+        NicknameButton
     }
 
     enum Texts
@@ -19,12 +19,12 @@ public class UI_Login : UI_Scene
         PointText,
         InputText,
         SettingText,
-        InputPointText,
+        InputPointText
     }
 
     enum InputFields
     {
-        InputField,
+        InputField
     }
 
     private void Start()

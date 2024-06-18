@@ -10,7 +10,9 @@ using Random = UnityEngine.Random;
 
 public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBeginDragHandler
 {
-    private float eraserSize = 20.0f;
+    [SerializeField] private Color backgroundColor = new Color(38, 67, 39);
+
+private float eraserSize = 20.0f;
     private Vector2Int imageSize;
     private Texture2D doodleTexture;
     
@@ -20,13 +22,13 @@ public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBegi
     
     public enum Texts
     {
-        Timer,
+        Timer
     }
     
     public enum Images
     {
         Background,
-        Doodle,
+        Doodle
     }
     
     public override void Init()
@@ -74,50 +76,13 @@ public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBegi
         Init();
     }
     
-
-    // void Erase(Vector2 position)
-    // {
-    //     Vector2 localPos = GetLocalPosition(position);
-    //     Vector2Int texPos = new Vector2Int((int)localPos.x, (int)localPos.y);
-    //     Debug.Log($"texPos: {texPos}");
-    //     EraseTexture(texPos);
-    // }
-    //
-    // Vector2 GetLocalPosition(Vector2 position)
-    // {
-    //     Vector2 localPoint;
-    //     RectTransformUtility.ScreenPointToLocalPointInRectangle(GetImage((int)Images.Doodle).rectTransform, position, Camera.main, out localPoint);
-    //     Debug.Log($"localpos: {localPoint}");
-    //     return localPoint;
-    // }
-    //
-    // void EraseTexture(Vector2Int pos)
-    // {
-    //     for (int x = -Mathf.RoundToInt(eraserSize) / 2; x < Mathf.RoundToInt(eraserSize) / 2; x++)
-    //     {
-    //         for (int y = -Mathf.RoundToInt(eraserSize) / 2; y < Mathf.RoundToInt(eraserSize) / 2; y++)
-    //         {
-    //             Vector2 eraserPos = pos + new Vector2(x, y);
-    //             Vector2 uv = new Vector2(eraserPos.x / imageSize.x, eraserPos.y / imageSize.y);
-    //
-    //             if (eraserPos.x >= 0 && eraserPos.x < imageSize.x && eraserPos.y >= 0 && eraserPos.y < imageSize.y)
-    //             {
-    //                 int pixelX = Mathf.RoundToInt(uv.x * doodleTexture.width);
-    //                 int pixelY = Mathf.RoundToInt(uv.y * doodleTexture.height);
-    //
-    //                 Debug.Log($"ErasePos: {pixelX}, {pixelY}");
-    //                 doodleTexture.SetPixel(pixelX, pixelY, Color.clear);
-    //             }
-    //         }
-    //     }
-    //     doodleTexture.Apply();
-    // }
+    
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.pointerEnter == GetImage((int)Images.Doodle).gameObject)
         {
-            //Erase(eventData.position);
+            // TODO Call Erase Board Func
         }
             
     }
@@ -138,7 +103,7 @@ public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBegi
             {
                 MissionSuccess();
             }
-            //Erase(eventData.position);
+            // TODO Call Erase Baord Func
         }
             
     }

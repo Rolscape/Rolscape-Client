@@ -7,7 +7,7 @@ public class UI_LeaderMap : UI_Popup
 {
     enum Maps
     {
-        Map,
+        Map
     }
     public override void Init()
     {

@@ -15,17 +15,17 @@ public class UI_SMTeacherSudoku : UI_SM
 {
     enum Texts
     {
-        Timer,
+        Timer
     }
 
     enum Images
     {
-        Background,
+        Background
     }
 
     enum Buttons
     {
-        Submit,
+        Submit
     }
 
     enum InputFields
@@ -45,7 +45,7 @@ public class UI_SMTeacherSudoku : UI_SM
         n,
         m,
         o,
-        p,
+        p
     }
     
     private int[][,] sudokuArray = new int[12][,];

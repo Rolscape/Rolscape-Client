@@ -9,12 +9,12 @@ public class UI_SMStart : UI_Popup
 {
     enum Buttons
     {
-        PointButton,
+        PointButton
     }
     
     enum Texts
     {
-        PointText,
+        PointText
     }
     public override void Init()
     {

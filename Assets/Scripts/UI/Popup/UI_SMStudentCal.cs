@@ -11,24 +11,24 @@ public class UI_SMStudentCal : UI_SM
 {
     public enum Panel
     {
-        Panel,
+        Panel
     }
     
     public enum Images
     {
-        Question,
+        Question
     }
 
     public enum InputFields
     {
-        InputField,
+        InputField
     }
 
     public enum Texts
     {
         PointText,
         Answer,
-        Timer,
+        Timer
     }
 
     public enum Solutions
@@ -44,7 +44,7 @@ public class UI_SMStudentCal : UI_SM
         Question9 = 9,
         Question10 = 0,
         Question11 = 200,
-        Question12 = 14,
+        Question12 = 14
     }
     
     private Dictionary<string, int> solDict = new Dictionary<string, int>();

@@ -9,19 +9,19 @@ public class UI_SMStudentWord : UI_SM
 {
     enum InputFields
     {
-        InputField,
+        InputField
     }
 
     enum Texts
     {
         PointText,
         Timer,
-        Answer,
+        Answer
     }
 
     enum Grid
     {
-        GridLayout,
+        GridLayout
     }
     
     private int size;

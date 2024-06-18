@@ -12,14 +12,14 @@ public class UI_TM1Police : UI_TM1
 {
     enum Texts
     {
-        Timer,
+        Timer
     }
     enum Images
     {
         TeacherDest,
         StudentDest,
         Teacher,
-        Student,
+        Student
     }
     private Image _teacherDest;
     private Image _studentDest;

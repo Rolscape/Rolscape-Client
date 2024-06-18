@@ -8,13 +8,13 @@ public class UI_TM1 : UI_TM
 {
     enum Texts
     {
-        Timer,
+        Timer
     }
     
     protected enum Images
     {
         BackGround,
-        Player,
+        Player
     }
 
     // x, y (100, 65) 단위로 움직이기 

@@ -8,7 +8,7 @@ public class UI_CrewMap : UI_Popup
 {
     enum Maps
     {
-        Map,
+        Map
     }
     public override void Init()
     {
