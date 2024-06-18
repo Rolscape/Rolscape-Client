@@ -10,15 +10,15 @@ using Random = UnityEngine.Random;
 
 public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBeginDragHandler
 {
-    [SerializeField] private Color backgroundColor = new Color(38, 67, 39);
+    private Color backgroundColor = new Color(38f / 255f, 67f / 255f, 39f / 255f); // 올바른 색상 설정
 
-private float eraserSize = 20.0f;
-    private Vector2Int imageSize;
-    private Texture2D doodleTexture;
+    private float eraserSize = 60.0f; // 색칠 크기를 더 크게 설정
     
     private float totalDragTime; // 누적 드래그 시간
     private float startTime; // 드래그 시작 시간
     private float endTime; // 드래그 종료 시간
+    
+    private Texture2D doodleTexture;
     
     public enum Texts
     {
@@ -52,13 +52,10 @@ private float eraserSize = 20.0f;
     {
         int idx = Random.Range(1, 5);
         Texture2D texture = Managers.Resource.Load<Texture2D>($"Arts/Mission/BlackboardErase/Doodle{idx}");
-        Texture2D texture2D = duplicateTexture(texture);
-        Sprite sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), Vector2.one * 0.5f);
+        doodleTexture = duplicateTexture(texture);
+        Sprite sprite = Sprite.Create(doodleTexture, new Rect(0, 0, doodleTexture.width, doodleTexture.height), Vector2.one * 0.5f);
         Image image = GetImage((int)Images.Doodle);
         image.sprite = sprite;
-
-        imageSize = new Vector2Int((int)image.rectTransform.rect.width, (int)image.rectTransform.rect.height);
-        doodleTexture = image.sprite.texture;
     }
 
     void BindUI()
@@ -75,16 +72,58 @@ private float eraserSize = 20.0f;
     {
         Init();
     }
-    
-    
 
+    protected override void MissionSuccess()
+    {
+        Managers.Sound.Play("MissionClear");
+        StartCoroutine(FadeOutDoodle(1.0f));
+    }
+    private IEnumerator FadeOutDoodle(float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            for (int y = 0; y < doodleTexture.height; y++)
+            {
+                for (int x = 0; x < doodleTexture.width; x++)
+                {
+                    Color color = doodleTexture.GetPixel(x, y);
+                    color.a = Mathf.Lerp(color.a, 0, elapsedTime / duration);
+                    doodleTexture.SetPixel(x, y, color);
+                }
+            }
+            doodleTexture.Apply();
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // 최종적으로 알파 값을 완전히 0으로 설정
+        for (int y = 0; y < doodleTexture.height; y++)
+        {
+            for (int x = 0; x < doodleTexture.width; x++)
+            {
+                Color color = doodleTexture.GetPixel(x, y);
+                color.a = 0;
+                doodleTexture.SetPixel(x, y, color);
+            }
+        }
+        doodleTexture.Apply();
+        Clear();
+    }
+
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        // 드래그가 시작된 시간 기록
+        startTime = Time.time;
+    }
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.pointerEnter == GetImage((int)Images.Doodle).gameObject)
         {
-            // TODO Call Erase Board Func
+            Erase(eventData);
         }
-            
     }
     
     public void OnDrag(PointerEventData eventData)
@@ -103,9 +142,8 @@ private float eraserSize = 20.0f;
             {
                 MissionSuccess();
             }
-            // TODO Call Erase Baord Func
+            Erase(eventData);
         }
-            
     }
     
     Texture2D duplicateTexture(Texture2D source)
@@ -127,11 +165,40 @@ private float eraserSize = 20.0f;
         RenderTexture.ReleaseTemporary(renderTex);
         return readableText;
     }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        // 드래그가 시작된 시간 기록
-        startTime = Time.time;
-    }
     
+    private void Erase(PointerEventData eventData)
+    {
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            GetImage((int)Images.Doodle).rectTransform, 
+            eventData.position, 
+            eventData.pressEventCamera, 
+            out Vector2 localPoint);
+
+        Vector2 pivot = GetImage((int)Images.Doodle).rectTransform.pivot;
+        Vector2 normalizedPoint = new Vector2(
+            (localPoint.x + GetImage((int)Images.Doodle).rectTransform.rect.width * pivot.x) / GetImage((int)Images.Doodle).rectTransform.rect.width,
+            (localPoint.y + GetImage((int)Images.Doodle).rectTransform.rect.height * pivot.y) / GetImage((int)Images.Doodle).rectTransform.rect.height
+        );
+
+        int x = Mathf.RoundToInt(normalizedPoint.x * doodleTexture.width);
+        int y = Mathf.RoundToInt(normalizedPoint.y * doodleTexture.height);
+
+        int halfEraserSize = Mathf.RoundToInt(eraserSize / 2.0f);
+
+        for (int i = -halfEraserSize; i < halfEraserSize; i++)
+        {
+            for (int j = -halfEraserSize; j < halfEraserSize; j++)
+            {
+                int pixelX = x + i;
+                int pixelY = y + j;
+
+                if (pixelX >= 0 && pixelX < doodleTexture.width && pixelY >= 0 && pixelY < doodleTexture.height)
+                {
+                    doodleTexture.SetPixel(pixelX, pixelY, backgroundColor);
+                }
+            }
+        }
+
+        doodleTexture.Apply();
+    }
 }
