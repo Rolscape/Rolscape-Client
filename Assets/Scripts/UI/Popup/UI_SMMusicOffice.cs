@@ -29,6 +29,9 @@ public class UI_SMMusicOffice : UI_SM
         Bind<Image>(typeof(Images));
         Bind<TMP_InputField>(typeof(InputFields));
         
+        timerText = GetText((int)Texts.Timer);
+        timerText.text = countTimer.ToString("D2");
+        
         TMP_InputField inputField = Get<TMP_InputField>((int)InputFields.Answer);
         inputField.onEndEdit.AddListener(OnEndEdit);
     }
@@ -36,6 +39,10 @@ public class UI_SMMusicOffice : UI_SM
     public override void Init()
     {
         base.Init();
+        BindUI();
+        SetTimer();
+        StartCoroutine(TimerCoroutine());
+        Managers.Sound.Play("MingameFast", Define.Sound.Bgm);
     }
 
     void Start()
@@ -50,7 +57,7 @@ public class UI_SMMusicOffice : UI_SM
 
     void OnEndEdit(string text)
     {
-        
+        Debug.Log($"{text}");
     }
     
 }
