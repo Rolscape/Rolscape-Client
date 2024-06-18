@@ -32,6 +32,7 @@ public class Define
         TeacherSudoku,
         TeacherErase,
         PoliceCatch,
+        NurseOffice
     }
     
     public enum Scene
