@@ -9,7 +9,7 @@ public class Define
     {
         Student,
         Teacher,
-        Police,
+        Police
     }
 
     public struct PathMissionPos
@@ -32,7 +32,8 @@ public class Define
         TeacherSudoku,
         TeacherErase,
         PoliceCatch,
-        NurseOffice
+        NurseOffice,
+        MusicRoom
     }
     
     public enum Scene

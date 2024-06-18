@@ -38,6 +38,10 @@ public class MissionManager
     
     // Teacher
     public bool bTeacherErase = false;
+    
+    // Office
+    public bool bNurseOffice = false;
+    public bool bMusicOffice = false;
 
 
     // 현재 미션
