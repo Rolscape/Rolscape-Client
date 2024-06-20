@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,7 +31,6 @@ public class UI_SMMusicOffice : UI_SM
         Bind<TMP_InputField>(typeof(InputFields));
         
         timerText = GetText((int)Texts.Timer);
-        timerText.text = countTimer.ToString("D2");
         
         TMP_InputField inputField = Get<TMP_InputField>((int)InputFields.Answer);
         inputField.onEndEdit.AddListener(OnEndEdit);
@@ -40,6 +40,7 @@ public class UI_SMMusicOffice : UI_SM
     {
         base.Init();
         BindUI();
+        SetQuiz();
         SetTimer();
         StartCoroutine(TimerCoroutine());
         Managers.Sound.Play("MingameFast", Define.Sound.Bgm);
@@ -48,6 +49,15 @@ public class UI_SMMusicOffice : UI_SM
     void Start()
     {
         Init();
+    }
+
+    void SetQuiz()
+    {
+        int rand = Random.Range(0, Managers.Data.MusicOfficesDict.Count);
+        Debug.Log($"{rand}, {Managers.Data.MusicOfficesDict.Count}");
+        MusicOffice musicOffice = Managers.Data.MusicOfficesDict[rand];
+        Debug.Log($"{Managers.Data.MusicOfficesDict.Count}, {musicOffice}");
+        GetImage((int)Images.Quiz).sprite = Managers.Resource.Load<Sprite>($"Arts/Mission/MusicOffice/{musicOffice.name}");
     }
 
     void CheckAnswer()

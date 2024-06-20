@@ -32,6 +32,6 @@ public class SM_MusicOfiiceTrigger : SM_DefaultTrigger
 
     protected override void MissionStop(bool isSuccess)
     {
-        Managers.Mission.bStudentCal = isSuccess;
+        Managers.Mission.bMusicOffice = isSuccess;
     }
 }

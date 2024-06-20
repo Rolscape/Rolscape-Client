@@ -1,44 +1,40 @@
 {
-  "words": [
+  "musicOffices": [
     {
-      "id": 0,
-      "name": "통기타"
+      "id": "0",
+      "name": "acoustic guitar"
     },
     {
-      "id": 1,
-      "name": "베이스"
+      "id": "1",
+      "name": "bass guitar"
     },
     {
-      "id": 2,
-      "name": "단소"
+      "id": "2",
+      "name": "danso"
     },
     {
-      "id": 3,
-      "name": ""
+      "id": "3",
+      "name": "drum"
     },
     {
-      "id": 4,
-      "name": ""
+      "id": "4",
+      "name": "electric guitar"
     },
     {
-      "id": 5,
-      "name": ""
+      "id": "5",
+      "name": "mic"
     },
     {
-      "id": 6,
-      "name": ""
+      "id": "6",
+      "name": "piano"
     },
     {
-      "id": 7,
-      "name": ""
+      "id": "7",
+      "name": "recorder"
     },
     {
-      "id": 8,
-      "name": ""
-    },
-    {
-      "id": 9,
-      "name": ""
+      "id": "8",
+      "name": "triangle"
     }
   ]
 }

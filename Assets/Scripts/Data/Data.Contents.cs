@@ -76,3 +76,29 @@ public class CalData : ILoader<int, Cal>
     }
 }
 #endregion
+
+#region MusicOffice
+
+[Serializable]
+public class MusicOffice
+{
+    public int id;
+    public string name;
+}
+
+[Serializable]
+public class MusicOfficeData : ILoader<int, MusicOffice>
+{
+    public List<MusicOffice> musicOffices = new List<MusicOffice>();
+    public Dictionary<int, MusicOffice> MakeDict()
+    {
+        Dictionary<int, MusicOffice> dict = new Dictionary<int, MusicOffice>();
+        foreach (MusicOffice musicOffice in musicOffices)
+            dict.Add(musicOffice.id, musicOffice);
+
+        return dict;
+    }
+}
+
+
+#endregion
