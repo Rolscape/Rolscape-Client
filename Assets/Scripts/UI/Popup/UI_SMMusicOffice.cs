@@ -1,13 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class UI_SMMusicOffice : UI_SM
 {
-    private Dictionary<int, string> answer = new Dictionary<int, string>();
+    private string answer;
     enum Texts
     {
         Timer
@@ -43,7 +45,7 @@ public class UI_SMMusicOffice : UI_SM
         SetQuiz();
         SetTimer();
         StartCoroutine(TimerCoroutine());
-        Managers.Sound.Play("MingameFast", Define.Sound.Bgm);
+        Managers.Sound.Play("MinigameFast", Define.Sound.Bgm);
     }
 
     void Start()
@@ -53,21 +55,22 @@ public class UI_SMMusicOffice : UI_SM
 
     void SetQuiz()
     {
-        int rand = Random.Range(0, Managers.Data.MusicOfficesDict.Count);
-        Debug.Log($"{rand}, {Managers.Data.MusicOfficesDict.Count}");
-        MusicOffice musicOffice = Managers.Data.MusicOfficesDict[rand];
-        Debug.Log($"{Managers.Data.MusicOfficesDict.Count}, {musicOffice}");
-        GetImage((int)Images.Quiz).sprite = Managers.Resource.Load<Sprite>($"Arts/Mission/MusicOffice/{musicOffice.name}");
+        int idx = Random.Range(0, Managers.Data.MusicOfficesDict.Count);
+        MusicOffice musicOffice = Managers.Data.MusicOfficesDict[idx];
+        answer = musicOffice.name;
+        GetImage((int)Images.Quiz).sprite = Managers.Resource.Load<Sprite>($"Arts/Mission/MusicOffice/{answer}");
     }
-
-    void CheckAnswer()
-    {
-        
-    }
-
+    
     void OnEndEdit(string text)
     {
-        Debug.Log($"{text}");
+        if (!String.IsNullOrEmpty(text))
+        {
+            Debug.Log($"{text}, {answer}");
+            if(answer==text)
+                MissionSuccess();
+            else
+                MissionFailed();
+        }
     }
     
 }
