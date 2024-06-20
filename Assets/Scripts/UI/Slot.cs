@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Slot : MonoBehaviour, IDropHandler
 {
@@ -35,8 +36,8 @@ public class Slot : MonoBehaviour, IDropHandler
     // 알맞은 퍼즐 위치인지 확인
     public bool checkPuzzle()
     {
-        string puzzleName = IconDrag.beginDraggedIcon.gameObject.name;
-        puzzleName = puzzleName.Substring(puzzleName.LastIndexOf('e')+1);
+        string puzzleName = IconDrag.beginDraggedIcon.gameObject.GetComponent<Image>().sprite.name;
+        puzzleName = puzzleName.Substring(puzzleName.LastIndexOf('_')+1);
         string slotName = gameObject.name;
         slotName = slotName.Substring(slotName.LastIndexOf('t') + 1);
 
