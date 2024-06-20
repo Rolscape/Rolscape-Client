@@ -50,9 +50,7 @@ public class UI_TM2 : UI_TM
     {
         Init();
     }
-
-    private Image[] puzzles = new Image[16];
-
+    
     void BIndUI()
     {
         Bind<Image>(typeof(Images));
@@ -73,8 +71,7 @@ public class UI_TM2 : UI_TM
         {
             if(index == (int)Images.PuzzleResult)
                 continue;
-            puzzles[idx] = Get<Image>(index);
-            puzzles[idx].sprite = sprites[index];
+           Get<Image>(index).sprite = sprites[index];
         }
     }
     
@@ -94,7 +91,7 @@ public class UI_TM2 : UI_TM
     void Shuffle(Sprite[] sprites)
     {
         System.Random random = new System.Random();
-        for (int i = puzzles.Length - 1; i > 0; i--)
+        for (int i = sprites.Length - 1; i > 0; i--)
         {
             int j = random.Next(0, i + 1);
             (sprites[i], sprites[j]) = (sprites[j], sprites[i]);
