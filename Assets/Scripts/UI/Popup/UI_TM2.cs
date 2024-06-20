@@ -67,6 +67,7 @@ public class UI_TM2 : UI_TM
         Sprite puzzle = Managers.Resource.Load<Sprite>($"Arts/Mission/Puzzle/puzzleResult{idx}");
         GetImage((int)Images.PuzzleResult).sprite = puzzle;
         
+        Shuffle(sprites);
         foreach (int index in Enum.GetValues(typeof(Images)))
         {
             if(index == (int)Images.PuzzleResult)
@@ -88,6 +89,16 @@ public class UI_TM2 : UI_TM
         count++;
         if(count == 16)
             MissionSuccess();
+    }
+
+    void Shuffle(Sprite[] sprites)
+    {
+        System.Random random = new System.Random();
+        for (int i = sprites.Length - 1; i > 0; i--)
+        {
+            int j = random.Next(0, i + 1);
+            (sprites[i], sprites[j]) = (sprites[j], sprites[i]);
+        }
     }
     
 }
