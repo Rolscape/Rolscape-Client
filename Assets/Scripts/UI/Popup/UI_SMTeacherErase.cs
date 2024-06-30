@@ -43,8 +43,7 @@ public class UI_SMTeacherErase : UI_SM, IPointerDownHandler, IDragHandler, IBegi
     
     void SetBackground()
     {
-        Texture2D texture2D = Managers.Resource.Load<Texture2D>($"Arts/Mission/BlackboardErase/WhiteBoard");
-        Sprite sprite = Sprite.Create(texture2D, new Rect(0, 0, texture2D.width, texture2D.height), Vector2.one * 0.5f);
+        Sprite sprite = Managers.Resource.Load<Sprite>($"Arts/Mission/BlackboardErase/WhiteBoard");
         GetImage((int)Images.Background).sprite = sprite;
     }
 
