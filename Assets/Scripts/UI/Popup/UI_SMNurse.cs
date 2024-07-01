@@ -52,6 +52,7 @@ public class UI_SMNurse : UI_SM
 
             if (Input.GetMouseButtonUp(0))
             {
+                Managers.Sound.Play("Health_Room_misson_02");
                 isDrag = false;
                 dragObject.gameObject.SetActive(false);
                 slotIndex = GetSlotIndex();
@@ -199,5 +200,6 @@ public class UI_SMNurse : UI_SM
         example[_idx].gameObject.SetActive(false);
         dragObject.gameObject.SetActive(true);
         dragObject.sprite = example[_idx].sprite;
+        Managers.Sound.Play("Health_Room_misson_01");
     }
 }
