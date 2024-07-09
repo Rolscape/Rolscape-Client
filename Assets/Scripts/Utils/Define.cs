@@ -33,6 +33,7 @@ public class Define
         TeacherErase,
         PoliceCatch,
         NurseOffice,
+        ScienceOffice,
         MusicRoom
     }
     
