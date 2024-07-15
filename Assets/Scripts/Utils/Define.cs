@@ -34,6 +34,7 @@ public class Define
         PoliceCatch,
         NurseOffice,
         ScienceOffice,
+        ArtOffice,
         MusicRoom
     }
     
