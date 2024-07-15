@@ -60,7 +60,7 @@ public class UI_SMScience : UI_SM
 
         if (isSpaceBar)
         {
-            if (waterBalltTime >= 0.3f)
+            if (waterBalltTime >= 0.1f)
             {
                 waterPool.Get();
                 waterBalltTime = 0f;
