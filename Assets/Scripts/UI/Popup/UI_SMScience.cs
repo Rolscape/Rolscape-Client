@@ -10,6 +10,8 @@ public class UI_SMScience : UI_SM
 {
     public List<RectTransform> positions;
     [SerializeField] private GameObject waterPrefab;
+    [SerializeField] private Transform hose;
+    [SerializeField] private Transform hosePos;
 
     private IObjectPool<WaterBall> waterPool;
     private Vector3 waterStartPos = new Vector3(-853f, -287f, 0);
@@ -159,9 +161,19 @@ public class UI_SMScience : UI_SM
 
     private void PoolGet(WaterBall water)
     {
-        water.transform.localPosition = waterStartPos;
+        // rotation 0 ~ -90
+        float angle = GetAngle(waterStartPos, waterEndPos) - 80;
+        hose.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        water.transform.position = hosePos.position;
         water.gameObject.SetActive(true);
         water.SetGoal(waterEndPos);
+    }
+
+    float GetAngle(Vector2 start, Vector2 end)
+    {
+        Vector2 v2 = end - start;
+        return Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg;
     }
 
     private void PoolRelease(WaterBall water)

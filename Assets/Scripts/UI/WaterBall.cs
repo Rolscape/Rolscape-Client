@@ -26,7 +26,6 @@ public class WaterBall : MonoBehaviour
 
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, goalPos, moveSpeed);
         transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.3f, 0.3f, 0.3f), Time.deltaTime * moveSpeed);
-        //transform.localPosition = Vector3.Lerp(transform.localPosition, goalPos, Time.deltaTime * moveSpeed);
 
         if (Vector3.Distance(transform.localPosition, goalPos) <= 0.5f)
         {
