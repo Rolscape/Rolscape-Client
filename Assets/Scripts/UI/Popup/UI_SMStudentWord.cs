@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,7 +17,8 @@ public class UI_SMStudentWord : UI_SM
     {
         PointText,
         Timer,
-        Answer
+        Answer,
+        Hint
     }
 
     enum Grid
@@ -26,6 +28,7 @@ public class UI_SMStudentWord : UI_SM
     
     private int size;
     private string word;
+    private string hint;
     private int count=0;
     private TextMeshProUGUI[] texts;
 
@@ -72,6 +75,8 @@ public class UI_SMStudentWord : UI_SM
         size = Managers.Data.WordDict[idx].size;
         word = Managers.Data.WordDict[idx].word;
         texts = new TextMeshProUGUI[size];
+        hint = Managers.Data.WordDict[idx].hint;
+        GetText((int)Texts.Hint).text = hint;
     }
 
     void SetTexts()
@@ -84,7 +89,7 @@ public class UI_SMStudentWord : UI_SM
             texts[i].text = "?";
             texts[i].alignment = TextAlignmentOptions.CenterGeoAligned;
             texts[i].fontStyle = FontStyles.Underline;
-            texts[i].color = Color.black;
+            texts[i].color = Color.white;
             texts[i].fontSize = 42;
         }
 

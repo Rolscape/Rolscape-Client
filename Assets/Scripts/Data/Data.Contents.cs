@@ -35,6 +35,7 @@ public class Word
     public int id;
     public int size;
     public string word;
+    public string hint;
 }
 
 [Serializable]

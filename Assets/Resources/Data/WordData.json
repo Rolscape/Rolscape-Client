@@ -3,231 +3,279 @@
     {
       "id": "1",
       "size": "6",
-      "word": "school"
+      "word": "school",
+      "hint": "학생들이 매일 가는 곳"
     },
     {
       "id": "2",
       "size": "7",
-      "word": "college"
+      "word": "college",
+      "hint": "전공 공부를 하는 곳"
     },
     {
       "id": "3",
       "size": "7",
-      "word": "student"
+      "word": "student",
+      "hint": "학교를 다니는 OO들"
     },
     {
       "id": "4",
       "size": "6",
-      "word": "friend"
+      "word": "friend",
+      "hint": "내 가장 친한 OO야"
     },{
       "id": "5",
       "size": "8",
-      "word": "graduate"
+      "word": "graduate",
+      "hint": "졸업"
     },
     {
       "id": "6",
       "size": "9",
-      "word": "classmate"
+      "word": "classmate",
+      "hint": "같은 반 친구들"
     },
     {
       "id": "7",
       "size": "9",
-      "word": "classroom"
+      "word": "classroom",
+      "hint": "수업 듣는 곳"
     },
     {
       "id": "8",
       "size": "7",
-      "word": "teacher"
+      "word": "teacher",
+      "hint": "OOO 말씀을 잘 듣자"
     },{
       "id": "9",
       "size": "5",
-      "word": "elite"
+      "word": "elite",
+      "hint": "공부 잘하는 친구들을 뭐라고 하지?"
     },
     {
       "id": "10",
       "size": "8",
-      "word": "vacation"
+      "word": "vacation",
+      "hint": "와! 여름OO이다!"
     },
     {
       "id": "11",
       "size": "6",
-      "word": "picnic"
+      "word": "picnic",
+      "hint": "오늘은 소풍 가는 날~"
     },
     {
       "id": "12",
       "size": "8",
-      "word": "semester"
+      "word": "semester",
+      "hint": "한 학기를 영어로 뭐라고 하지?"
     },{
       "id": "13",
       "size": "9",
-      "word": "breaktime"
+      "word": "breaktime",
+      "hint": "한 수업이 끝나면 10분간의 OOOO이 있어"
     },
     {
       "id": "14",
       "size": "7",
-      "word": "midterm"
+      "word": "midterm",
+      "hint": "이번 OOOO 망해서 기말고사 잘 봐야 해!"
     },
     {
       "id": "15",
       "size": "9",
-      "word": "finalexam"
+      "word": "finalexam",
+      "hint": "이 시험만 보면 종강이다!"
     },
     {
       "id": "16",
       "size": "4",
-      "word": "quiz"
+      "word": "quiz",
+      "hint": "쪽지시험을 영어로 뭐라고 할까?"
     },{
       "id": "17",
       "size": "10",
-      "word": "assessment"
+      "word": "assessment",
+      "hint": "평가를 영어로 뭐라고 할까?"
     },
     {
       "id": "18",
       "size": "4",
-      "word": "test"
+      "word": "test",
+      "hint": "시험을 영어로 뭐라고 할까?"
     },
     {
       "id": "19",
       "size": "8",
-      "word": "backpack"
+      "word": "backpack",
+      "hint": "OO이 너무 무거워"
     },
     {
       "id": "20",
       "size": "8",
-      "word": "notebook"
+      "word": "notebook",
+      "hint": "OO을 안가지고 왔네"
     },{
       "id": "21",
       "size": "6",
-      "word": "pencil"
+      "word": "pencil",
+      "hint": "OO을 안가지고 왔네"
     },
     {
       "id": "22",
       "size": "6",
-      "word": "eraser"
+      "word": "eraser",
+      "hint": "OOO를 안가지고 왔네"
     },
     {
       "id": "23",
       "size": "8",
-      "word": "scissors"
+      "word": "scissors",
+      "hint": "색종이 자르게 OO 빌려줘"
     },
     {
       "id": "24",
       "size": "4",
-      "word": "glue"
+      "word": "glue",
+      "hint": "종이 붙이게 O 좀 빌려줘"
     },{
       "id": "25",
       "size": "5",
-      "word": "ruler"
+      "word": "ruler",
+      "hint": "몇 센치인지 O로 재줄래?"
     },
     {
       "id": "26",
       "size": "10",
-      "word": "calculator"
+      "word": "calculator",
+      "hint": "연산이 복잡해서 OOO가 필요해"
     },
     {
       "id": "27",
       "size": "6",
-      "word": "marker"
+      "word": "marker",
+      "hint": "화이트보드와 OO가 필요해"
     },
     {
       "id": "28",
       "size": "11",
-      "word": "highlighter"
+      "word": "highlighter",
+      "hint": "OOO으로 밑줄 좀 쳐줘"
     },{
       "id": "29",
       "size": "6",
-      "word": "crayon"
+      "word": "crayon",
+      "hint": "OOO으로 색칠해줘"
     },
     {
       "id": "30",
       "size": "4",
-      "word": "clay"
+      "word": "clay",
+      "hint": "OOO 가지고 놀자!"
     },
     {
       "id": "31",
       "size": "9",
-      "word": "dormitory"
+      "word": "dormitory",
+      "hint": "기숙사를 영어로?"
     },
     {
       "id": "32",
       "size": "7",
-      "word": "library"
+      "word": "library",
+      "hint": "OOO 가서 공부할래?"
     },{
       "id": "33",
       "size": "7",
-      "word": "science"
+      "word": "science",
+      "hint": "과목"
     },
     {
       "id": "34",
       "size": "11",
-      "word": "mathematics"
+      "word": "mathematics",
+      "hint": "과목"
     },
     {
       "id": "35",
       "size": "7",
-      "word": "grammar"
+      "word": "grammar",
+      "hint": "영어 과목"
     },
     {
       "id": "36",
       "size": "6",
-      "word": "speech"
+      "word": "speech",
+      "hint": "영어 과목"
     },{
       "id": "37",
       "size": "9",
-      "word": "economics"
+      "word": "economics",
+      "hint": "과목"
     },
     {
       "id": "38",
       "size": "7",
-      "word": "history"
+      "word": "history",
+      "hint": "과목"
     },
     {
       "id": "39",
       "size": "7",
-      "word": "physics"
+      "word": "physics",
+      "hint": "과목"
     },
     {
       "id": "40",
       "size": "9",
-      "word": "chemistry"
+      "word": "chemistry",
+      "hint": "과목"
     },{
       "id": "41",
       "size": "7",
-      "word": "biology"
+      "word": "biology",
+      "hint": "과목"
     },
     {
       "id": "42",
       "size": "10",
-      "word": "statistics"
+      "word": "statistics",
+      "hint": "과목"
     },
     {
       "id": "43",
       "size": "7",
-      "word": "english"
+      "word": "english",
+      "hint": "과목"
     },
     {
       "id": "44",
       "size": "10",
-      "word": "technology"
+      "word": "technology",
+      "hint": "과목"
     },{
       "id": "45",
       "size": "7",
-      "word": "society"
+      "word": "society",
+      "hint": "과목"
     },
     {
       "id": "46",
       "size": "8",
-      "word": "textbook"
+      "word": "textbook",
+      "hint": "OOO 안가지고 온 사람 나와"
     },
     {
       "id": "47",
       "size": "7",
-      "word": "handout"
+      "word": "handout",
+      "hint": "OOO 작성해서 제출하세요"
     },
     {
       "id": "48",
       "size": "10",
-      "word": "dictionary"
+      "word": "dictionary",
+      "hint": "OO으로 단어 좀 찾아봐줘"
     }
   ]
 }
