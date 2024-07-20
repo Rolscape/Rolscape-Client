@@ -11,7 +11,10 @@ public class UI_Login : UI_Scene
 {
     enum Buttons
     {
-        NicknameButton
+        NicknameButton,
+        StudentButton,
+        TeacherButton,
+        PoliceButton
     }
 
     enum Texts
@@ -39,8 +42,12 @@ public class UI_Login : UI_Scene
         Bind();
         SetUpInputField();
         
-        GameObject go = GetButton((int)Buttons.NicknameButton).gameObject;
-        BindEvent(go, OnButtonClicked, Define.UIEvent.Click);
+        GameObject studentButton = GetButton((int)Buttons.StudentButton).gameObject;
+        GameObject teacherButton = GetButton((int)Buttons.TeacherButton).gameObject;
+        GameObject policeButton = GetButton((int)Buttons.PoliceButton).gameObject;
+        BindEvent(studentButton, OnStudentButtonClicked, Define.UIEvent.Click);
+        BindEvent(teacherButton, OnTeacherButtonClicked, Define.UIEvent.Click);
+        BindEvent(policeButton, OnPoliceButtonClicked, Define.UIEvent.Click);
     }
     
     void Bind()
@@ -53,12 +60,30 @@ public class UI_Login : UI_Scene
     void SetUpInputField()
     {
         GetText((int)Texts.PointText).text = "Setting User Nickname";
-        GetText((int)Texts.SettingText).text = "Setting";
+        //GetText((int)Texts.SettingText).text = "Setting";
         GetText((int)Texts.InputPointText).text = "Input User Nickname";
 
         TMP_InputField inputField = Get<TMP_InputField>((int)InputFields.InputField);
         inputField.characterLimit = 9;
         inputField.onEndEdit.AddListener(OnEndEdit);
+    }
+
+    public void OnStudentButtonClicked(PointerEventData data)
+    {
+        GameScene.job = GameScene.Jobs.Student;
+        Managers.Scene.LoadScene(Define.Scene.Game);
+    }
+
+    public void OnTeacherButtonClicked(PointerEventData data)
+    {
+        GameScene.job = GameScene.Jobs.Teacher;
+        Managers.Scene.LoadScene(Define.Scene.Game);
+    }
+
+    public void OnPoliceButtonClicked(PointerEventData data)
+    {
+        GameScene.job = GameScene.Jobs.Police;
+        Managers.Scene.LoadScene(Define.Scene.Game);
     }
     
     public void OnButtonClicked(PointerEventData data)
@@ -77,7 +102,7 @@ public class UI_Login : UI_Scene
         // TODO End setting nickname 
         if (text.Length > 1)
         {
-            Managers.Scene.LoadScene(Define.Scene.Game);
+            //Managers.Scene.LoadScene(Define.Scene.Game);
             UI_Nickname.NickName = text;
         }
     }

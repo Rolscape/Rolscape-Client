@@ -54,7 +54,7 @@ public class UI_Main : UI_Scene
     
     public void OnButtonClicked(PointerEventData data)
     {
-        Debug.Log("Button Clicked!");
+        Managers.UI.ShowPopupUI<UI_RestartOptions>();
     }
     
     IEnumerator TimerCoroutine()
