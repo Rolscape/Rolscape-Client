@@ -6,11 +6,6 @@ using TMPro;
 
 public class UI_SMArt : UI_SM
 {
-    enum Texts
-    {
-        Timer
-    }
-
     public List<GameObject> question;
     public List<GameObject> clearImage;
     public RectTransform imageX;
@@ -23,7 +18,6 @@ public class UI_SMArt : UI_SM
     {
         base.Init();
         Managers.Sound.Play("MinigameSlow", Define.Sound.Bgm);
-        BiundUI();
     }
 
     void Start()
@@ -35,16 +29,6 @@ public class UI_SMArt : UI_SM
     void Update()
     {
         
-    }
-
-    void BiundUI()
-    {
-        Bind<TextMeshProUGUI>(typeof(Texts));
-
-        countTimer = 30;
-        timerText = GetText((int)Texts.Timer);
-        timerText.text = countTimer.ToString("D2");
-        StartCoroutine(TimerCoroutine());
     }
 
     void SetGame()
@@ -95,7 +79,7 @@ public class UI_SMArt : UI_SM
 
     void MissionClear()
     {
-        Clear();
+        MissionSuccess();
     }
 
     public void OnClick_X()
