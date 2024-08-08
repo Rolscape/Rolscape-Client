@@ -70,7 +70,7 @@ public class UI_SMNurse : UI_SM
         if (IsClearCheck() && isGameStart && !isClear)
         {
             isClear = true;
-            Clear();
+            MissionSuccess();
         }
     }
 
@@ -82,7 +82,7 @@ public class UI_SMNurse : UI_SM
         isClear = false;
         dragObject.gameObject.SetActive(false);
 
-        countTimer = 30;
+        countTimer = 20;
         timerText = GetText((int)Texts.Timer);
         beds.anchoredPosition = new Vector2(0f, -60f);
         exampleView.SetActive(false);
